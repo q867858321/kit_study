@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var state = { "a": 1, "b": 2 };
+        var sum = null;
+        for (const key in state) {
+            if (state.hasOwnProperty(key)) {
+                sum += state[key];
+            }
+        }
+        console.log(sum);
+    </script>
+</body>
+
+</html>
