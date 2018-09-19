@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://www.jq22.com/jquery/jquery-1.9.1.js"></script>
+	<script type="text/javascript" language="javascript" src="src/jquery.dotdotdot.js"></script>
+</head>
+<body>
+    <style>
+        .box{
+            font-size: 12px;
+            border: 1px solid #ccc;
+            height: 50px;
+            width:100px;
+        }
+    </style>
+    <div class="box" id="dot1">
+        插件描述:单行、多行文本溢出显示省略号插超出容器大小时显示省略号 如何使用插件 所有必要的js
+    </div>
+    <script>
+         $("#dot1").dotdotdot({wrap: 'letter',ellipsis:'...'});
+         //使用中文时候，需配 wrap: 'letter'，默认为 ... ;
+    </script>
+</body>
+</html>
