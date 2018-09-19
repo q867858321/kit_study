@@ -47,6 +47,7 @@ class Home extends Component {
 
   render() {
     const { match, location, user } = this.props;
+    console.log("Home",this);
     const username = user && user.username ? user.username : "";
     return (
       <div>

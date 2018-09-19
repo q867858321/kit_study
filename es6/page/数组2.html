@@ -7,38 +7,38 @@
 	<body>
 		<script>
 			var arr2 = [5, 6, 7, 8];
-  var arr = [1, 2, 3, 4];
-    [].map.call(arr, function (item, index, array) {
-        console.log('item', item);    //打印当前值(1,2,3,4)
-        console.log('index', index);  //打印索引值(0,1,2,3)
-        console.log('array', array);  //[1, 2, 3, 4]
-        console.log('this', this);    //如果有arr2参数值的话，打印[5, 6, 7, 8]，否则打印window对象
-    }, arr2);
-    
-        var users = [
-        {name: "张三", "age": "16"},
-        {name: "李四", "age": "17"},
-        {name: "王五", "age": "18"}
-    ];
- 
-    var names = users.map(function (user) {
-        return {'name':user.name};
-    });
-    console.log('names', names); //打印names ["张三", "李四", "王五"]
-// 通过fetch获取百度的错误提示页面
-fetch('http://imp.bjeit.com.cn/homePage/videoExp', {
-    method: 'POST',
-    headers: new Headers({
-      'Content-Type': 'application/x-www-form-urlencoded' // 指定提交方式为表单提交
-    }),
-//  body: new URLSearchParams([["foo", 1],["bar", 2]]).toString()
-})
-.then((res)=>{
-    return res.text()
-})
-.then((res)=>{
-    console.log(res)
-})
+            var arr = [1, 2, 3, 4];
+            [].map.call(arr, function (item, index, array) {
+                console.log('item', item);    //打印当前值(1,2,3,4)
+                console.log('index', index);  //打印索引值(0,1,2,3)
+                console.log('array', array);  //[1, 2, 3, 4]
+                console.log('this', this);    //如果有arr2参数值的话，打印[5, 6, 7, 8]，否则打印window对象
+            }, arr2);
+            
+                var users = [
+                {name: "张三", "age": "16"},
+                {name: "李四", "age": "17"},
+                {name: "王五", "age": "18"}
+            ];
+        
+            var names = users.map(function (user) {
+                return {'name':user.name};
+            });
+            console.log('names', names); //打印names ["张三", "李四", "王五"]
+            // 通过fetch获取百度的错误提示页面
+            fetch('http://imp.bjeit.com.cn/homePage/videoExp', {
+                method: 'POST',
+                headers: new Headers({
+                'Content-Type': 'application/x-www-form-urlencoded' // 指定提交方式为表单提交
+                }),
+            //  body: new URLSearchParams([["foo", 1],["bar", 2]]).toString()
+            })
+            .then((res)=>{
+                return res.text()
+            })
+            .then((res)=>{
+                console.log(res)
+            })
 
 
 
