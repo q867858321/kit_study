@@ -19,7 +19,6 @@ class App extends Component {
         {error.message || error}
       </ModalDialog>
     );
-    // console.log("App",this);
     return (
       <div>
         <Router>

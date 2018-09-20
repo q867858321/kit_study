@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let p = new Promise((resolve, reject) => {
+			    console.log('立即执行!');
+			    console.log(resolve);
+			    console.log(reject);
+			    resolve('返回成功!');
+			    reject('返回失败');
+			});
+			console.log(p);
+			console.log('promise后执行!');
+//			
+			p.then(value => {
+				console.log(11);
+			    console.log(value)
+			});
+			
+			var a=4;
+			function test(){
+				var a=3;
+				return function(){
+					console.log(a);
+				}
+			}
+			test();
+			console.log(a);
+			test()();
+		</script>
+	</body>
+</html>

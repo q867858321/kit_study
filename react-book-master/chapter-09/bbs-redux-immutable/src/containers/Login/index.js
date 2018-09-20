@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import {Link, Redirect } from "react-router-dom";
 import { actions as authActions, getLoggedUser } from "../../redux/modules/auth";
 import "./style.css";
 
@@ -52,7 +52,14 @@ class Login extends Component {
     }
     this.props.login(username, password);
   };
-
+  skipUrl=()=>{
+    console.log(this);
+    const origin= window.location.origin;
+    // this.props.history.push("/posts");
+    // window.location.href = `${this.props.lo}/posts`;
+    const w=window.open('about:blank');
+    w.location.href=`${origin}/posts`;
+  }
   render() {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const { redirectToReferrer } = this.state;
@@ -85,7 +92,12 @@ class Login extends Component {
           </label>
         </div>
         <input type="submit" value="登录" />
+        <div onClick={this.skipUrl}>跳转到...</div>
+        <div>
+          <Link to="/posts" target="_blank" >跳转到...</Link>
+        </div>
       </form>
+      
     );
   }
 }
