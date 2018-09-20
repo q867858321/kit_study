@@ -14,7 +14,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     window.addEventListener("beforeunload", this.handleBeforeUnload); //当关闭浏览器时，把用户信息保存到session中
-   // this.handleBeforeUnload();
+    // this.handleBeforeUnload();
     const { userId, username } = this.props.user;
     if (!userId || !username) {
       this.restoreLoginInfo();
@@ -46,6 +46,7 @@ class Home extends Component {
   };
 
   render() {
+    console.log("Home.this", this);
     const { match, location, user } = this.props;
     const username = user && user.username ? user.username : "";
     return (
@@ -55,32 +56,33 @@ class Home extends Component {
           onLogout={this.handleLogout}
           location={location}
         />
-         <Route
+        <Route
           path={match.url}
           exact
           render={props => <AsyncPostList {...props} />}
         />
-       <Route
+        <Route
           path={`${match.url}/:id`}
           render={props => <AsyncPost {...props} />}
-        /> 
+        />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state, props) => {  //主要是把state中的数据绑定到props下
   return {
-    user: getLoggedUser(state)
+    user: getLoggedUser(state)    //也可以 user:state.auth，但最好用方法调用；
   };
 };
 
 const mapDispatchToProps = dispatch => {
+  //return返回的是一个对象，一个键值对；下文中如果不带...则为方法调用。
   return {
     ...bindActionCreators(authActions, dispatch)
   };
 };
-
+//先执行 mapStateToProps,再执行mapDispatchToProps,最后在将返回的props绑定到UI组件
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 //containers中 写不可重复利用的布局、事件；

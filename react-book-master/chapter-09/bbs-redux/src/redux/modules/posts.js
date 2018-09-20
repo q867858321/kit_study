@@ -27,6 +27,7 @@ export const actions = {
           dispatch(appActions.finishRequest());
           if (!data.error) {
             const { posts, postsIds, authors } = convertPostsToPlain(data);
+            console.log("postsIds:....", postsIds);
             dispatch(fetchAllPostsSuccess(posts, postsIds, authors));
           } else {
             dispatch(appActions.setError(data.error));
@@ -158,8 +159,11 @@ const convertSinglePostToPlain = post => {
 
 // reducers
 const allIds = (state = initialState.allIds, action) => {
+  console.log("action1", action);
   switch (action.type) {
     case types.FETCH_ALL_POSTS:
+      // return [action.postIds, action.authors];
+      //return null;
       return action.postIds;
     case types.CREATE_POST:
       return [action.post.id, ...state];
@@ -169,8 +173,10 @@ const allIds = (state = initialState.allIds, action) => {
 };
 
 const byId = (state = initialState.byId, action) => {
+  console.log("action2", action);
   switch (action.type) {
     case types.FETCH_ALL_POSTS:
+      console.log("FETCH_ALL_POSTS", action);
       return action.posts;
     case types.FETCH_POST:
     case types.CREATE_POST:

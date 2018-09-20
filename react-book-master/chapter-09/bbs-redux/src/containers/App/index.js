@@ -19,7 +19,7 @@ class App extends Component {
         {error.message || error}
       </ModalDialog>
     );
-    console.log("App",this);
+    // console.log("App",this);
     return (
       <div>
         <Router>
@@ -37,7 +37,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log("state",state);
+  // console.log("state",state);
   return {
     error: getError(state),
     requestQuantity: getRequestQuantity(state)

@@ -11,7 +11,7 @@ import "./style.css";
 
 class PostList extends Component {
   componentDidMount() {
-    this.props.fetchAllPosts();  // 获取帖子列表
+    // this.props.fetchAllPosts();  // 获取帖子列表
   }
 
   // 保存帖子
@@ -28,13 +28,16 @@ class PostList extends Component {
   handleNewPost = () => {
     this.props.openAddDialog();
   };
-
+  getList = () => {
+    this.props.fetchAllPosts();
+  }
   render() {
     const { posts, user, isAddDialogOpen } = this.props;
+    console.log("postList.this", this);
     return (
       <div className="postList">
         <div>
-          <h2>话题列表</h2>
+          <h2 onClick={this.getList}>话题列表</h2>
           {user.userId ? (
             <button onClick={this.handleNewPost}>发帖</button>
           ) : null}
@@ -42,13 +45,14 @@ class PostList extends Component {
         {isAddDialogOpen ? (
           <PostEditor onSave={this.handleSave} onCancel={this.handleCancel} />
         ) : null}
-        <PostsView posts={posts}/>
+        <PostsView posts={posts} />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, props) => {
+  console.log("state", state);
   return {
     user: getLoggedUser(state),
     posts: getPostListWithAuthors(state),
@@ -62,5 +66,6 @@ const mapDispatchToProps = dispatch => {
     ...bindActionCreators(uiActions, dispatch)
   };
 };
-
+//mapStateToProps获取数据并把数据，mapDispatchToProps主要绑定方法；
+//换句话说，组件通过mapStateToProps获取数据，通过mapStateToProps获取与数据打交道的方法
 export default connect(mapStateToProps, mapDispatchToProps)(PostList);
