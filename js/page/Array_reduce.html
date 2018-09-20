@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //例子1
+        var values=[1,2,3,4,5];  
+        //reduce实现迭代数组的所有项 reduceRight()
+        var sum=values.reduce(function(prev,cur,index,array){ 
+            console.log("prev",prev);
+            console.log("cur",cur);
+            console.log(array);
+            return prev+cur;
+        });
+        console.log(sum);
+
+        //例子2
+        var orderItems=[
+            {orderItem:{splitQuantity:3,quantity:4}},
+            {orderItem:{splitQuantity:5,quantity:4}}
+        ];
+        let open = orderItems.reduce((illegal, value) => {
+            return illegal || value.orderItem.splitQuantity > value.orderItem.quantity;
+        }, false);
+        console.log(open);
+
+        // let arr = orderItems.reduce((total, item,index,array) => {
+        //     console.log("total",total);
+        //     console.log("array",array[index].orderItem.splitQuantity);
+        //     array[index].orderItem.splitQuantity=item.orderItem.splitQuantity+33;
+        //     return array;
+        // },[]);
+        // console.log(arr);
+
+        orderItems.map(function(item){
+            return item.orderItem.splitQuantity+22
+        });
+        console.log(orderItems);
+    </script>
+</body>
+</html>
