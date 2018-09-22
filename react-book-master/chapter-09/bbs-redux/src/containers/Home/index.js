@@ -48,7 +48,7 @@ class Home extends Component {
   render() {
     console.log("Home.this", this);
     const { match, location, user } = this.props;
-    console.log("Home",this);
+    console.log("Home", this);
     const username = user && user.username ? user.username : "";
     return (
       <div>
@@ -84,6 +84,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 //先执行 mapStateToProps,再执行mapDispatchToProps,最后在将返回的props绑定到UI组件
+//export default 将容器组件抛出去
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 //containers中 写不可重复利用的布局、事件；

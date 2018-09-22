@@ -159,7 +159,6 @@ const convertSinglePostToPlain = post => {
 
 // reducers
 const allIds = (state = initialState.allIds, action) => {
-  console.log("action1", action);
   switch (action.type) {
     case types.FETCH_ALL_POSTS:
       // return [action.postIds, action.authors];
@@ -173,10 +172,8 @@ const allIds = (state = initialState.allIds, action) => {
 };
 
 const byId = (state = initialState.byId, action) => {
-  console.log("action2", action);
   switch (action.type) {
     case types.FETCH_ALL_POSTS:
-      console.log("FETCH_ALL_POSTS", action);
       return action.posts;
     case types.FETCH_POST:
     case types.CREATE_POST:
