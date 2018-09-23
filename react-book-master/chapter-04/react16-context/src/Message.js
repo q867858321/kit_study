@@ -6,6 +6,7 @@ class Message extends Component {
         console.log(this);
         return (
             <div>
+                <p className="tilte">message</p>
                 <Button color={this.props.color}>Delete</Button>
             </div>
         );

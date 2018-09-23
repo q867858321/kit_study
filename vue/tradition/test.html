@@ -11,6 +11,7 @@
 
 <body>
     <div id="app">
+        <h1>{{greet()}}</h1>
         <ul>
             <li v-for="book in books">
                 {{book.name}}
@@ -26,6 +27,11 @@
                     { name: "aa" },
                     { name: "aa" }
                 ]
+            },
+            methods: {
+                greet: function () {
+                    return 'good'
+                }
             }
         })
     </script>

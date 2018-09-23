@@ -11,6 +11,8 @@
 
 <body>
     <div id="component-demo">
+        <button-counter title="sw"></button-counter>
+        <button-counter></button-counter>
         <button-counter></button-counter>
     </div>
 
@@ -21,7 +23,8 @@
                     count: 0
                 }
             },
-            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+            props: ['title'],
+            template: '<button v-on:click="count++">You clicked me {{ count }} times.{{title}}</button>'
         });
         var app = new Vue({
             el: "#component-demo"

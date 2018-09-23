@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import Message from "./Message";
+import "./MessageList.less";
 class MessageList extends Component {
     getChildContext() {
         return { color: "purple" };
@@ -8,7 +9,8 @@ class MessageList extends Component {
     render() {
         const color = "purple";
         return (
-            <div>
+            <div className="m_messageList">
+                <p className="tilte">message</p>
                 <Message color={color} />
             </div>
 
