@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-
+import "./css/main.less";
 class PostList extends Component {
   render() {
     return (
       <div>
-        帖子列表：
+        <span>帖子列表：</span>
         <ul>
           <li>大家一起来讨论React吧</li>
           <li>前端框架，你最爱哪一个</li>
