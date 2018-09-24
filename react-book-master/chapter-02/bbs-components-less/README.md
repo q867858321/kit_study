@@ -7,7 +7,7 @@ git commit -m "init"
 也可以换
 git commit -am "Save before ejecting"
 3.
-react-scripts eject
+npm run eject
 
 安装less
   npm install less less-loader --save-dev
@@ -32,4 +32,4 @@ use: [
   ...
 ]
 最后
-exclude: [/\.js$/, /\.html$/, /\.json$/, /\.css|less$/], //TODO 第三处
+exclude: [/\.js$/, /\.html$/, /\.json$/, /\.(css|less)$/], //TODO 第三处
