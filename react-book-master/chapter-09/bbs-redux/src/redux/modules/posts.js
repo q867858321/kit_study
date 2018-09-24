@@ -27,6 +27,7 @@ export const actions = {
           dispatch(appActions.finishRequest());
           if (!data.error) {
             const { posts, postsIds, authors } = convertPostsToPlain(data);
+            console.log("postsIds:....", postsIds);
             dispatch(fetchAllPostsSuccess(posts, postsIds, authors));
           } else {
             dispatch(appActions.setError(data.error));
@@ -160,6 +161,8 @@ const convertSinglePostToPlain = post => {
 const allIds = (state = initialState.allIds, action) => {
   switch (action.type) {
     case types.FETCH_ALL_POSTS:
+      // return [action.postIds, action.authors];
+      //return null;
       return action.postIds;
     case types.CREATE_POST:
       return [action.post.id, ...state];

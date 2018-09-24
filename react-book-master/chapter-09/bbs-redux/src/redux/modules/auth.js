@@ -58,4 +58,4 @@ const reducer = (state = initialState, action) => {
 export default reducer;
 
 // selectors
-export const getLoggedUser = state => state.auth;
+export const getLoggedUser = state => state.auth;  //方便在组件中把state调用
