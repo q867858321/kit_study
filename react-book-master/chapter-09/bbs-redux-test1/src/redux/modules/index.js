@@ -14,6 +14,6 @@ const rootReducer = combineReducers({
     posts,
     comments,
     users
-});
+  });
 
-export default rootReducer;
+  export default rootReducer;

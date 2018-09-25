@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span class="span">
+            <a>2</a>
+            <span>3</span>
+        </span>
+        <b>4</b>
+    </div>
+    <script>
+        console.log($("div").find("span"));
+        console.log($("span").filter(".span"));
+        console.log($("div").children("span"));
+    </script>
+</body>
+</html>
