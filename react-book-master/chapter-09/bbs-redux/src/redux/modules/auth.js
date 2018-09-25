@@ -42,8 +42,9 @@ export const actions = {
     username: username
   })
 };
-
-// reducers
+//思考 执行了action后 就立刻执行所有已经注册的reducer；
+//reducer注册是在./index.js中
+// reducer决定返回数据结构、数据
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGIN:

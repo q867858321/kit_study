@@ -37,6 +37,7 @@ class App extends Component {
   }
 }
 
+//本组件中，需要从state中获取数据，都是从这里获取
 const mapStateToProps = (state, props) => {
   // console.log("state",state);
   return {
@@ -45,10 +46,17 @@ const mapStateToProps = (state, props) => {
   };
 };
 
+//本组件中，需要从state中获取方法(主要是与数据打交道的方法)，都是从这里获取
 const mapDispatchToProps = dispatch => {
   return {
     ...bindActionCreators(appActions, dispatch)
   };
 };
+//或者
+// const mapDispatchToProps = dispatch => {
+//   return bindActionCreators(appActions, dispatch)
+//   ;
+// };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

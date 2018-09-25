@@ -11,7 +11,7 @@ import "./style.css";
 
 class PostList extends Component {
   componentDidMount() {
-    // this.props.fetchAllPosts();  // 获取帖子列表
+    this.props.fetchAllPosts();  // 获取帖子列表
   }
 
   // 保存帖子
@@ -37,7 +37,8 @@ class PostList extends Component {
     return (
       <div className="postList">
         <div>
-          <h2 onClick={this.getList}>话题列表</h2>
+          <h2>话题列表</h2>
+          <button onClick={this.getList}>重新获取列表</button>
           {user.userId ? (
             <button onClick={this.handleNewPost}>发帖</button>
           ) : null}

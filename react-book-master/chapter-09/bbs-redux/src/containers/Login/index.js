@@ -56,8 +56,8 @@ class Login extends Component {
   render() {
     const { from } = this.props.location.state || { from: { pathname: "/" } };
     const { redirectToReferrer } = this.state;
-    console.log("login",this);
-    if (redirectToReferrer) {
+    //登录成功之后，render重新渲染，返回进入页面或者首页
+    if (redirectToReferrer) { 
       return <Redirect to={from} />;
     }
 
