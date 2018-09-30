@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+    	html,body{font-size:12px;}
+    	*{padding:0;margin:0;}
+        .p_clear{zoom:1;}
+        .p_clear:after{content:"";display:block;clear:both;}
+        .p_hide{display: none;}
+        ul{list-style: none;}
+
+        .main_body{width:900px;margin:50px auto;}
+        .selection{float:left;width:200px;}
+        .show_box{float:left;margin-left:100px;}
+        
+        .selection a{;padding:5px;width:100px;display: block;margin:10px 0;color:#fff;text-decoration: none;background: linear-gradient(180deg, rgba(64, 64, 64, 1) 0%, rgba(64, 64, 64, 1) 0%, rgba(32, 32, 32, 1) 100%, rgba(32, 32, 32, 1) 100%);}
+    
+    	.selection .vin input{width:100%;}
+    	.mdl .select{margin:10px 0;}
+    	.mdl .select.clickable .guide{color:#303030;border:1px solid rgba(176, 176, 176, 1);}
+    	.mdl .select .wall{position:relative;margin:10px 0;}
+    	.mdl .select .wall .list{position:absolute;width:100%;padding:5px;box-sizing: border-box;box-shadow: 1px 1px 10px 0 #aaaaaa;background-color: #ffffff;border: 1px solid #D0D0D0;}
+    	.mdl .guide{text-align: center;color:#D0D0D0;border:1px solid #f0f0f0;;}
+    	.mdl .guide span{display: block;padding:5px 0;box-sizing: border-box;} 
+    </style>
+    <link rel="stylesheet/less" type="text/css" href="main.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+    
+</head>
+<body>
+    <div class="main_body p_clear">
+        <div class="selection">
+            <div class="vin">
+                <h3>Select Vehicle by VIN</h3>
+                <input class="e input"  />
+                <a class="vinBtn" href="javascript:void(0);">Find My Parts</a>
+            </div>
+            <div class="mdl">
+                <h3>Select Vehicle by Model</h3>
+                <div data-type="make" class="e select clickable">
+                    <p class="guide">
+                        <span class="e caption"> --Select Make --</span>
+                    </p>
+                    <div class="e wall p_hide">
+                    	<div class="e list">
+                    	</div>
+                    </div>
+                </div>
+                <div data-type="model" class="e select">
+                    <p class="guide">
+                        <span class="e caption"> --Select Model --</span>
+                    </p>
+                    <div class="e wall p_hide">
+                    	<div class="e list p_clear">
+                    	</div>
+                    </div>
+                </div>
+                <div data-type="year" class="e select">
+                    <p class="guide">
+                        <span class="e caption"> --Select Year --</span>
+                    </p>
+                    <div class="e wall p_hide">
+                    	<div class="e list p_clear">
+                    	</div>
+                    </div>
+                </div>
+                <a class="model_btn" href="javascript:void(0);">Find My Parts</a>
+            </div>
+        </div>
+        <div class="show_box">
+        	<p><span id="showCondition"></span></p>
+            Output VehicleID：<span id="veHicleId"></span>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../../js/jquery/jquery-3.3.1.js" ></script>
+    <script>
+    	// jQuery对象区
+    	var select_jQs = $('.e.select');
+        var select_make_jQ = select_jQs.filter('[data-type=make]');
+        var select_model_jQ = select_jQs.filter('[data-type=model]');
+        var select_year_jQ = select_jQs.filter('[data-type=year]');
+      	
+      	// 常量区
+    	var ORIGIN_TIP_MAP = {
+            make: $(".select").filter("[data-type=make]").find(".guide").text(),
+            model: $(".select").filter("[data-type=model]").find(".guide").text(),
+            year: $(".select").filter("[data-type=year]").find(".guide").text(),
+        };
+        var MAKE_LIST=["Honda"];
+        
+        // 变量区
+        var ISSHOWAUTO=false; 
+        
+        // 生成面板的HTML
+        function requireWall(list,adjust){
+        	var len=list.length;
+        	if(len<0){
+        		return ;
+        	}
+        	var item_arr=[];
+        	item_arr.push("<ul>");
+        	for(var i in list){
+        		item_arr.push('<li class="e item">'+list[i]+'</li>');
+        	}
+        	item_arr.push("<ul>");
+        	var html_arr=item_arr.join("");
+        	
+        	adjust.find(".wall .list").html(html_arr);
+        	adjust.addClass("clickable");
+        	if(ISSHOWAUTO){
+        		adjust.find(".wall").removeClass("p_hide");
+        	}
+      		
+        }
+        
+       
+        //渲染make
+        function renderMake(){
+        	requireWall(MAKE_LIST,select_make_jQ);
+        	
+        	if(select_make_jQ.find(".wall .item").length==1){
+        		ISSHOWAUTO=true;
+        		select_make_jQ.hide();
+        		select_make_jQ.find(".wall .item").click();
+        	}
+        }
+        //渲染model
+        function renderModel(model_list,select_model_jQ){
+        	requireWall(model_list,select_model_jQ);
+        	if(select_model_jQ.find(".wall .item").length==1){
+        		select_model_jQ.find(".wall .item").click();
+        	}
+        }
+        //渲染year
+        function renderYear(year_list,select_year_jQ){
+        	requireWall(year_list,select_year_jQ);
+        }
+        
+        
+    	$(".mdl").on("click",".clickable .caption",function(){
+    		var select_jQ=$(this).parents(".e.select");
+    		var wall_jQ=$(".e.wall",select_jQ);
+    		
+    		var index=select_jQs.index(select_jQ);
+    		
+    		//自己以及接下的标题恢复默认
+	  		$('.e.select:gt('+(index-1)+')').each(function(){
+	  			var module=$(this).data("type");
+	  			$(this).find(".caption").text(ORIGIN_TIP_MAP[module]);
+	  		});
+    		
+    		var open=wall_jQ.hasClass("p_hide");
+    		
+    		$(".mdl .wall").addClass("p_hide");
+    		if(open){
+    			wall_jQ.removeClass("p_hide");
+    		}
+    	});
+    	
+    	$(".mdl .select").on("click",".item",function(){
+    		//判断是点击
+    		var select_jQ=$(this).parents(".e.select");
+    		var module=select_jQ.data("type");
+    		var wall_jQ=$(".e.wall",select_jQ);
+    		var caption_jQ=$(".e.caption",select_jQ);
+    		//如果下面一个框中没有值，则去后台获取
+    		if(module=="make"){
+    			if(MAKE_LIST.length==1){
+    				ISSHOWAUTO=false;
+    			}
+    			var list=["aa","bb"];
+    			renderModel(list,select_model_jQ);
+    		}else if(module=="model"){
+    			ISSHOWAUTO=true;
+    			var list=["2014","2015"];
+    			renderYear(list,select_year_jQ);
+    		}
+    		
+    		var val=$(this).text();
+    		caption_jQ.html(val);
+    		wall_jQ.addClass("p_hide");
+    	});
+    	
+    	renderMake();
+    	
+    	
+    	$(".vinBtn").click(function(){
+    		var vin=$(".vin input").val();
+    		alert(vin);
+    	});
+    	$(".model_btn").click(function(){
+    		submitModel();
+    	});
+    	//提交数据函数
+    	function submitModel(){
+    		var make=select_make_jQ.find(".caption").text();
+    		var model=select_model_jQ.find(".caption").text();
+    		var year=select_year_jQ.find(".caption").text();
+    		if(make!=ORIGIN_TIP_MAP.make&&model!=ORIGIN_TIP_MAP.model&&year!=ORIGIN_TIP_MAP.year){
+	    		$("#showCondition").html(make+"-"+model+"-"+year);
+    		}
+    		
+    	}
+    </script>
+</body>
+</html>
