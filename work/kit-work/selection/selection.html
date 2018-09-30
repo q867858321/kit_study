@@ -22,7 +22,7 @@
     	.mdl .select{margin:10px 0;}
     	.mdl .select.clickable .guide{color:#303030;border:1px solid rgba(176, 176, 176, 1);}
     	.mdl .select .wall{position:relative;margin:10px 0;}
-    	.mdl .select .wall .list{position:absolute;width:100%;padding:5px;box-sizing: border-box;box-shadow: 1px 1px 10px 0 #aaaaaa;background-color: #ffffff;border: 1px solid #D0D0D0;}
+    	.mdl .select .wall .list{position:absolute;width:100%;left:0;top:0;padding:5px;box-sizing: border-box;box-shadow: 1px 1px 10px 0 #aaaaaa;background-color: #ffffff;border: 1px solid #D0D0D0;}
     	.mdl .guide{text-align: center;color:#D0D0D0;border:1px solid #f0f0f0;;}
     	.mdl .guide span{display: block;padding:5px 0;box-sizing: border-box;} 
     </style>
@@ -77,6 +77,13 @@
     </div>
     <script type="text/javascript" src="../../../js/jquery/jquery-3.3.1.js" ></script>
     <script>
+    	jQuery.extend({
+    		isDesktop:function(){
+    			return $(window).width()>640;
+    		}
+    	});
+    </script>
+    <script>
     	// jQuery对象区
     	var select_jQs = $('.e.select');
         var select_make_jQ = select_jQs.filter('[data-type=make]');
@@ -90,28 +97,88 @@
             year: $(".select").filter("[data-type=year]").find(".guide").text(),
         };
         var MAKE_LIST=["Honda"];
-        
+        var ONE_COL_BOUNDARY = 9;
+        var THREE_COL_BOUNDARY = 21;
+        var FOUR_COL_BOUNDARY = 60;
+        var MAX_ROW_COUNT = 15;
         // 变量区
         var ISSHOWAUTO=false; 
+        // 模板区
+        var selection_tmp_wall_html = [];
+//      selection_tmp_wall_html.push('<div class="e wall p_div_shadow">');
+        selection_tmp_wall_html.push('    <div class="e close"></div>');
+        selection_tmp_wall_html.push('    <div class="e list p_clear">');
+        selection_tmp_wall_html.push('        {%list%}');
+        selection_tmp_wall_html.push('    </div>');
+//      selection_tmp_wall_html.push('</div>');
+        var selection_tmp_wall = selection_tmp_wall_html.join("");
         
         // 生成面板的HTML
-        function requireWall(list,adjust){
+        function requireWall(list,panel,adjust){
         	var len=list.length;
         	if(len<0){
         		return ;
         	}
         	var item_arr=[];
-        	item_arr.push("<ul>");
         	for(var i in list){
         		item_arr.push('<li class="e item">'+list[i]+'</li>');
         	}
-        	item_arr.push("<ul>");
-        	var html_arr=item_arr.join("");
         	
-        	adjust.find(".wall .list").html(html_arr);
-        	adjust.addClass("clickable");
+        	// 桌面端重新排列
+            if ($.isDesktop()) {
+                // 计算行数和列数
+                adjust = adjust || 0;
+                var colCount = 3;
+                
+                console.log(MAX_ROW_COUNT);
+                var rowCount = MAX_ROW_COUNT;
+
+                if (list.length <= ONE_COL_BOUNDARY) {
+                    colCount = 1;
+                    rowCount = list.length;
+                } else if (list.length <= THREE_COL_BOUNDARY) {
+                    colCount = 3 + adjust;
+                    rowCount = Math.ceil(list.length / colCount);
+                } else if (list.length > THREE_COL_BOUNDARY && list.length <= FOUR_COL_BOUNDARY) {
+                    colCount = 4 + adjust;
+                    rowCount = Math.ceil(list.length / colCount);
+                } else {
+                    colCount = Math.ceil(list.length / MAX_ROW_COUNT) + adjust;
+                    rowCount = MAX_ROW_COUNT;
+                }
+
+                new_item_arr = [];
+
+                for (var i = 0; i < item_arr.length; i++) {
+
+                    var item = item_arr[i];
+
+                    if (i % rowCount == 0) {
+                        new_item_arr.push('<ul>');
+                    }
+
+                    new_item_arr.push(item);
+
+                    if ((i + 1) % rowCount == 0 || (i + 1) == list.length) {
+                        new_item_arr.push('</ul>');
+                    }
+                }
+
+                item_arr = new_item_arr;
+                console.log(item_arr);
+            }
+            else {
+            	alert(2);
+                item_arr.unshift('<ul>');
+                item_arr.push('</ul>');
+            }
+        	
+        	
+        	var selection_tmp_wall_html = selection_tmp_wall.replace("{%list%}", item_arr.join(""));
+        	panel.find(".wall .list").html(selection_tmp_wall_html);
+        	panel.addClass("clickable");
         	if(ISSHOWAUTO){
-        		adjust.find(".wall").removeClass("p_hide");
+        		panel.find(".wall").removeClass("p_hide");
         	}
       		
         }
@@ -175,7 +242,7 @@
     			renderModel(list,select_model_jQ);
     		}else if(module=="model"){
     			ISSHOWAUTO=true;
-    			var list=["2014","2015"];
+    			var list=["2017"];
     			renderYear(list,select_year_jQ);
     		}
     		
