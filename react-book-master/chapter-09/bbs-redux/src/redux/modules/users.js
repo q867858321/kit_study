@@ -4,7 +4,7 @@ import { types as postTypes } from "./posts";
 const initialState = {};
 
 // reducers
-const reducer = (state = initialState, action) => {
+const users = (state = initialState, action) => {
   switch (action.type) {
     // 获取评论列表和帖子列表时，更新列表数据中包含的所有作者信息
     case commentTypes.FETCH_COMMENTS:
@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default users;
 
 // selectors
 export const getUserById = (state, id) => {
