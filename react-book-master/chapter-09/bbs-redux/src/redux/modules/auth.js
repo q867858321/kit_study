@@ -1,7 +1,7 @@
 import { post } from "../../utils/request";
 import url from "../../utils/url";
 import { actions as appActions } from "./app";
-
+import ajax from "../../utils/ajax";
 const initialState = {
   userId: null,
   username: null
@@ -21,16 +21,25 @@ export const actions = {
       // 每个API请求开始前，发送app模块定义的startRequest action
       dispatch(appActions.startRequest());
       const params = { username, password };
-      return post(url.login(), params).then(data => {
-        // 每个API请求结束后，发送app模块定义的finishRequest action
+      return ajax(url.login(), params,"POST").then(data=>{
         dispatch(appActions.finishRequest());
-        // 请求返回成功，保存登录用户的信息，否则，设置全局错误信息
         if (!data.error) {
           dispatch(actions.setLoginInfo(data.userId, username));
         } else {
           dispatch(appActions.setError(data.error));
         }
       });
+     // return post(url.login(), params).then(data => {
+        // 每个API请求结束后，发送app模块定义的finishRequest action
+        //console.log("data",data);
+        // dispatch(appActions.finishRequest());
+        // // 请求返回成功，保存登录用户的信息，否则，设置全局错误信息
+        // if (!data.error) {
+        //   dispatch(actions.setLoginInfo(data.userId, username));
+        // } else {
+        //   dispatch(appActions.setError(data.error));
+        // }
+      //});
     };
   },
   logout: () => ({

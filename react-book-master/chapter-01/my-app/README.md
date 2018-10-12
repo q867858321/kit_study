@@ -16,3 +16,6 @@ cd [name]
 
 5.运行项目
 npm start
+
+安装redux
+npm install --save redux react-redux redux-thunk
