@@ -72,6 +72,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state, props) => {  //主要是把state中的数据绑定到props下
+  console.log("Home state",state);
   return {
     user: getLoggedUser(state)    //也可以 user:state.auth，但最好用方法调用；
   };
