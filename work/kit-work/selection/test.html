@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var num=0;
+			var parameter = { type: 1, make: "aa", model: "bb", year: "2012", submodel: "cc", extra1: "", extra2: "" };
+			for(var item in parameter ){
+				if(item!="type" && parameter[item]!=""){
+					console.log(item);
+					num++;
+				}
+			}
+			console.log(num);
+		</script>
+	</body>
+</html>

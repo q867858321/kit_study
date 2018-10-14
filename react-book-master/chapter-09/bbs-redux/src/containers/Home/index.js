@@ -25,6 +25,10 @@ class Home extends Component {
     window.removeEventListener("beforeunload", this.handleBeforeUnload);
   }
 
+   //props更新，不需要重新渲染
+  shouldComponentUpdate=(nextProps, nextState)=> {
+    return this.props.match!==nextProps.match;
+  }
   restoreLoginInfo = () => {
     const userId = localStorage.getItem("userId");
     const username = localStorage.getItem("username");

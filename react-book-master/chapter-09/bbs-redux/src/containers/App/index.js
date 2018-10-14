@@ -14,6 +14,10 @@ const AsyncLogin = connectRoute(asyncComponent(() => import("../Login")));
 
 
 class App extends Component {
+  //props更新，不需要重新渲染
+  shouldComponentUpdate=(nextProps, nextState)=> {
+      return false;
+  }
   render() {
     const { error, requestQuantity } = this.props;
     const errorDialog = error && (

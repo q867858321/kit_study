@@ -1,0 +1,15 @@
+react + redux性能优化之重复渲染
+减少重复渲染
+列表懒加载
+动画和数据请求分离
+导航闪动
+
+对于不需要重复渲染的组件我们可以：
+shouldComponentUpdate: function(nextProps, nextState) {
+    return false;
+}
+
+对于需要通过对某个数值判断是否渲染的，我们可以
+shouldComponentUpdate: function(nextProps, nextState) {
+    return this.props.value !== nextProps.value;
+}

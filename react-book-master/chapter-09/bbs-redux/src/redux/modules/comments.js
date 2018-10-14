@@ -113,6 +113,7 @@ const byId = (state = initialState.byId, action) => {
   }
 };
 
+//combineReducers把多个reducer融合为一个，返回出去
 const reducer = combineReducers({
   byPost,
   byId
@@ -126,4 +127,5 @@ export const getCommentIdsByPost = (state, postId) =>
 
 export const getComments = state => state.comments.byId;
 
+//就是一个普通方法
 export const getCommentById = (state, id) => state.comments.byId[id];
