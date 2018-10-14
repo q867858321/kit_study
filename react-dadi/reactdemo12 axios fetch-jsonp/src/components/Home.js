@@ -1,21 +1,11 @@
 /*
 react获取服务器APi接口的数据：
-
-
     react中没有提供专门的请求数据的模块。但是我们可以使用任何第三方请求数据模块实现请求数据
-
-
     1、axios          https://github.com/axios/axios       axios的作者觉得jsonp不太友好，推荐用CORS方式更为干净（后端运行跨域）
 
-
           1、安装axios模块npm install axios  --save   /  npm install axios  --save
-
-
           2、在哪里使用就在哪里引入import axios from 'axios'
-
           3、看文档使用
-
-
             var api='http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20';
 
             axios.get(api)
@@ -46,15 +36,9 @@ react获取服务器APi接口的数据：
             }).catch(function(ex) {
               console.log('parsing failed', ex)
             })
-
-
     3、其他请求数据的方法也可以...自己封装模块用原生js实现数据请求也可以...
 
-
-
-
 远程测试API接口：
-
 
 get请求：
 
@@ -79,27 +63,26 @@ import FetchJsonp from './FetchJsonp'
 
 class Home extends Component {
 
-    constructor(props){
-        super(props);        
-        this.state={ 
-          title:'首页组件'         
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '首页组件'
         }
     }
     render() {
-      return (
-        <div>
-          
+        return (
+            <div>
 
-            <Axios />
 
-            <br />
+                <Axios />
 
-            <FetchJsonp />
+                <br />
 
-        </div>
-      );
+                <FetchJsonp />
+
+            </div>
+        );
     }
-  }
-  
-  export default Home;
-  
+}
+
+export default Home;
