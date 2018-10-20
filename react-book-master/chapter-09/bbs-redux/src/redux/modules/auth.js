@@ -44,7 +44,7 @@ export const actions = {
 };
 
 // reducers
-const reducer = (state = initialState, action) => {
+const auth = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGIN:
       return { ...state, userId: action.userId, username: action.username };
@@ -55,7 +55,7 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default auth;
 
 // selectors
 export const getLoggedUser = state => state.auth;  //方便在组件中把state调用

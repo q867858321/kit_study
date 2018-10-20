@@ -21,7 +21,7 @@ class PostList extends Component {
 
   // 取消新建帖子
   handleCancel = () => {
-    this.props.closeAddDialog();
+    this.props.closeAddDialog();  //绑定在props下的方法，要用主件内的方法调用生效
   };
 
   // 新建帖子
@@ -32,7 +32,7 @@ class PostList extends Component {
     this.props.fetchAllPosts();
   }
   render() {
-    const { posts, user, isAddDialogOpen } = this.props;
+    const { posts, user, isAddDialogOpen } = this.props; //提前把该主件用的到绑定在state、props下的数据列出来，方法调用
     console.log("postList.this", this);
     return (
       <div className="postList">
@@ -60,7 +60,9 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
+  console.log("dispatch");
+  console.log(dispatch);
   return {
     ...bindActionCreators(postActions, dispatch),
     ...bindActionCreators(uiActions, dispatch)
