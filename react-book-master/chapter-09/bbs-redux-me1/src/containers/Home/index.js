@@ -27,7 +27,7 @@ class Home extends Component {
         return (
             <div> 
                 <Header username={username} onLogout={this.handleLogout} location={location} />
-                {/* <Route path={match.url} exact render={props=><PostList {...props} />} /> */}
+                <Route path={match.url} exact render={props=><PostList {...props} />} />
                 <Route path={`${match.url}/:id`} render={props=> <Post {...props} />} />
                 {/* <PostList /> */}
                 {/* <Route path={match.url} exact render={props=><AsyncPostList {...props} />} /> */}

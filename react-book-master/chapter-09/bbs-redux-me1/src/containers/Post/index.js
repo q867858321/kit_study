@@ -13,24 +13,21 @@ class Post extends Component {
     render() {
         return (
             <div className="post">
-                <div>321</div>
                 <PostView />
             </div>
         );
     }
 }
 
-export default Post;
 
-// const mapStateToProps=(state,props)=>{
-//     return {
-//         user:state.auth,
-//         posts:state.posts
-//     }
-// }
-// const mapDispatchToProps=dispatch=>{
-//     return {
-//         ...bindActionCreators(postActions,dispatch)
-//     }
-// }
-// export default connect(mapStateToProps,mapDispatchToProps)(Post);
+const mapStateToProps=(state,props)=>{
+    return {
+        
+    }
+}
+const mapDispatchToProps=dispatch=>{
+    return {
+        ...bindActionCreators(postActions,dispatch)
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Post);

@@ -8,7 +8,21 @@ class PostView extends Component {
         return (
             <div className="postView">
                 <div>
-                    12133
+                    <h2>My Bottle</h2>
+                    <div className="mark">
+                        <span className="author">tom</span>
+                        <span>.</span>
+                        <span>2018-10-26 14:00</span>
+                    </div>
+                    <div className="content">
+                        latter
+                    </div>
+                </div>
+                <div className="vote">
+                    <span>
+                        <img alt="vote" src="" />
+                    </span>
+                    <span>0</span>
                 </div>
             </div>
         );
