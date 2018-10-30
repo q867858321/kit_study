@@ -1,18 +1,21 @@
 import React,{Component} from "react";
+import "./style.css";
+import like from "../../../../images/like.png";
 class PostView extends Component {
     constructor(props) {
         super(props);
         this.state = {  };
     }
     render() {
+        const {byId,user}=this.props;
         return (
             <div className="postView">
                 <div>
-                    <h2>My Bottle</h2>
+                    <h2>{byId.title}</h2>
                     <div className="mark">
-                        <span className="author">tom</span>
+                        <span className="author">{user.username}</span>
                         <span>.</span>
-                        <span>2018-10-26 14:00</span>
+                        <span>{byId.updateAt}</span>
                     </div>
                     <div className="content">
                         latter
@@ -20,9 +23,9 @@ class PostView extends Component {
                 </div>
                 <div className="vote">
                     <span>
-                        <img alt="vote" src="" />
+                        <img alt="vote" src={like} />
                     </span>
-                    <span>0</span>
+                    <span>{byId.vote}</span>
                 </div>
             </div>
         );

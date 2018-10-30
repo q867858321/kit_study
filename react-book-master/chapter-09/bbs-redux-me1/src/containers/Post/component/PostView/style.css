@@ -13,3 +13,8 @@
 .postView .mark span{
     margin-right:5px; 
 }
+.postView .vote img{
+    height: 30px; 
+    width: 30px;
+    vertical-align: middle;
+  }

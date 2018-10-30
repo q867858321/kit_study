@@ -25,6 +25,17 @@ export const actions={
                 }
             })
         }
+    },
+    fetchPost:(id)=>{
+        return (dispatch,getState)=>{
+            console.log(url.getPostById(id));
+            return get(url.getPostById(id)).then(data=>{
+                if(!data.error){
+                    console.log("数据1",data);
+                    dispatch(fetchPostsSuccess(data[0]));
+                }
+            })
+        }
     }
 };
 
@@ -34,6 +45,11 @@ const fetchAllPostsSuccess=(data)=>({
     data
 })
 
+//获取单个帖子成功
+const fetchPostsSuccess=(data)=>({
+    type:types.FETCH_POST,
+    data
+})
 
 //reducers
 const allIds=(state=initialState.allIds,action)=>{  //只接受2个参数
@@ -46,14 +62,23 @@ const allIds=(state=initialState.allIds,action)=>{  //只接受2个参数
             return state;
     }
 }
+const byId=(state=initialState.byId,action)=>{
+    switch(action.type){
+        case types.FETCH_POST:
+            return Object.assign({},state,action.data);
+        default:
+            return state;
+    }
+}
 
 
 
 const reducer=combineReducers({
      allIds,
-    // byId
+     byId
 });
 export default reducer;
 
 //selectors
 export const getPostIds=state=>state.posts.allIds;
+export const getPostId=state=>state.posts.byId;
