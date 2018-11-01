@@ -15,7 +15,6 @@ const rootReducer = combineReducers({
   comments,
   users
 });
-
 export default rootReducer;
 
 // complex selectors

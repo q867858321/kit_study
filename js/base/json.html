@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //对象转字符串
+        var a={"a":1,"b":2};
+        var b=JSON.stringify(a);    //'{"a":1,"b":2}'
+        console.log(typeof(b));     //string
+        //字符串转对象
+        var str = '{"a":"1","b":"2"}';
+        var str1=JSON.parse(str);       //{"a":1,"b":2}
+        console.log(str1);
+        console.log(typeof(str1));      //object
+        
+    </script>
+</body>
+</html>

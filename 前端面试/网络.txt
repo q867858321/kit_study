@@ -1,0 +1,37 @@
+从输入网址到页面呈现都发生了什么？
+一、输入网址
+二、负责域名查询与解析的DNS服务
+三、应用层 客户端发送HTTP请求报文
+四、传输层 确保传输报文可靠性的TCP协议
+五、网络层 负责传输的IP协议
+六、链路层 传输数据的硬件部分
+七、服务器接收报文
+八、应用层 服务器发送HTTP响应报文
+
+
+在网络通信阶段对前端优化建议：
+
+1、减少HTTP请求数
+    合并资源，如合并 JavaScript 文件、CSS 文件，利用 CSS Sprite 合并图片等
+    内联图片,data url节省了HTTP请求,但是如果这个图像在网页多个地方显示会加大网页的内容，延长下载时间。
+2、域名提前解析，在页面中不同域名的链接需指定预取域名：<link rel="dns-prefetch" href="http://this-is-a.com">，IE9+支持
+3、避免重定向（重定向会增加http请求的次数）
+4、cookie优化，cookie越多会导致请求头越大
+5、启用GZIP压缩（Accept-Encoding：g-zip）
+6、使用 CDN加速，减小服务器压力
+7、合理利用HTTP缓存，通过设置Expires
+
+
+页面渲染
+1、解析html以构建DOM树
+2、构建render树
+3、布局render树
+4、绘制render树
+5、页面变化造成的影响
+如何提高渲染效率
+建议将 CSS 文件放在页首，以便构建 DOM 树；
+而将 JavaScript 文件尽量放在页面下方，防止阻塞构建 DOM 树；
+而 JavaScript 的 onload 事件里，不要写太多影响首屏渲染的、操作 DOM 树的 JavaScript 代码。
+精简 JavaScript 和 CSS 代码，并进行代码压缩，使得css和js资源更快的下载
+编写高效的CSS代码
+重要的图片或者想让用户优先看到的图片使用img标签，次要的图片使用background引入

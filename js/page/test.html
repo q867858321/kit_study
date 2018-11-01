@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="../jquery/jquery-3.3.1.js"></script> -->
+    <script src="../jquery/jquery.min.js"></script>
     <title>Document</title>
 </head>
+<body>
+    <div id="box"></div>
 <body>
     <script>
        
@@ -13,6 +17,16 @@
         console.log(aa);
         var a= aa({a:1,b:3});
         console.log("aaa",a);
+
+        var arr=[];
+        arr.push("<div>");
+        arr.push("2");   
+        arr.push("</div>");
+        var bbb=arr.join("");
+        console.log(bbb);
+        console.log(typeof(bbb));
+        console.log($(bbb));
+        $("#box").append($(bbb));
     </script>
 </body>
 </html>

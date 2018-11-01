@@ -32,12 +32,17 @@ class PostList extends Component {
     this.props.fetchAllPosts();
   }
   render() {
+
     const { posts, user, isAddDialogOpen } = this.props; //提前把该主件用的到绑定在state、props下的数据列出来，方法调用
+
     console.log("postList.this", this);
     return (
       <div className="postList">
         <div>
-          <h2 onClick={this.getList}>话题列表</h2>
+
+          <h2>话题列表</h2>
+          <button onClick={this.getList}>重新获取列表</button>
+
           {user.userId ? (
             <button onClick={this.handleNewPost}>发帖</button>
           ) : null}

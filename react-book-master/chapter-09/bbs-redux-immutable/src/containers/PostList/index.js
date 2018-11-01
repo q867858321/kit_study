@@ -29,6 +29,10 @@ class PostList extends Component {
   render() {
     const { posts, user, isAddDialogOpen } = this.props;
     const rawPosts = posts.toJS();
+    // console.log("PostList",this);
+    // console.log("User",this.props.user);
+    // console.log("userId",this.props.user.get("userId"));
+    // console.log("userId",this.props.user.userId);
     return (
       <div className="postList">
         <div>

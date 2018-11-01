@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .box1 {
+            display: flex;
+            width: 200px;
+            border: 1px solid #f00;
+        }
+
+        .box2 {
+            flex: 1;
+        }
+
+        .box-l {
+            padding-right: 10px;
+            background: #0f0;
+        }
+    </style>
+    优点，如果第一个内容为空，则第二个占用整行<br>
+    弹性盒模型后，子项中的width不生效
+    <div class="box1">
+        <div class="box2 box-l">
+            1
+        </div>
+        <div class="box2">
+            2
+        </div>
+    </div>
+
+    <!-- 居中 -->
+    <style>
+        .f_div {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #f00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .s_div {
+            width: 100px;
+            height: 100px;
+            background: #00f;
+        }
+    </style>
+    <div class="f_div">
+        <div class="s_div">44</div>
+    </div>
+</body>
+
+</html>

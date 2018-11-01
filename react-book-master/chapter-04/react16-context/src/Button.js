@@ -6,7 +6,7 @@ class Button extends Component {
         console.log(this);
         return (
             <button style={{ background: this.props.color }}>
-                {this.props.children}aa
+                {this.props.children}
             </button>
         );
     }
