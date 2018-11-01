@@ -34,7 +34,7 @@ export const actions = {
 };
 
 // reducers
-const reducer = (state = initialState, action) => {
+const ui = (state = initialState, action) => {
   switch (action.type) {
     case types.OPEN_ADD_DIALOG:
       return { ...state, addDialogOpen: true };
@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default ui;
 
 // selectors
 export const isAddDialogOpen = state => {

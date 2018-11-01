@@ -51,12 +51,14 @@ export const actions = {
     username: username
   })
 };
+
 //思考 执行了action后 就立刻执行所有已经注册的reducer；
 //数据库操作有数据有 增、删、改、查
 //redux有 增、改、删
 //reducer注册是在./index.js中
 // reducer决定返回数据结构、数据
-const reducer = (state = initialState, action) => {
+// reducers
+const auth = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGIN:
       return { ...state, userId: action.userId, username: action.username };
@@ -67,7 +69,7 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default auth;
 
 // selectors
 export const getLoggedUser = state => state.auth;  //方便在组件中把state调用

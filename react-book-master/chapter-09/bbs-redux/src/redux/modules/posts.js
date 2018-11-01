@@ -193,7 +193,20 @@ const reducer = combineReducers({
 });
 
 export default reducer;
-
+/* 数据的格式
+posts{
+   allIds:["5bb9bb893d6e8dc228651074"]
+   byId：{
+      "5bb9bb893d6e8dc228651074":{
+        author:"",
+        id:"5bb9bb893d6e8dc228651074",
+        title:"7777",
+        updateAt:"2018-10-13T03:45:36.332Z",
+        vote:0
+      }
+   }
+}
+*/
 // selectors
 export const getPostIds = state => state.posts.allIds;
 
