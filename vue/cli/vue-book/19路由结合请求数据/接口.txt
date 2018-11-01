@@ -1,0 +1,11 @@
+﻿
+新闻列表接口：
+
+	http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1
+
+
+
+新闻详情接口：
+
+
+	 http://www.phonegap100.com/appapi.php?a=getPortalArticle&aid=488
