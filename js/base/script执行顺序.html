@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../jquery/jquery-3.3.1.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <!-- 5 6 1 4 3 -->
+    <!-- 5 6  7 1 4 -->
     <script>
         $(function(){
-            alert(1);
+            console.log(1);
         })
     </script>
     <script>
         window.onload=function(){
-        alert(2);
+            console.log(2);
         }
         window.onload=function(){
-        alert(3);
+            console.log(3);
         }
         $().ready(function(){
-        alert(4);
+            console.log(4);
         });
-        alert(5);
+        console.log(5);
     </script>
     <script>
-        alert(6);
+        console.log(6);
+        window.onload=function(){
+            console.log(7);
+        }
     </script>
 </body>
 </html>

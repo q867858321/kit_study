@@ -32,7 +32,7 @@ class PostList extends Component {
     this.props.fetchAllPosts();
   }
   render() {
-
+    // console.log("PostList",this);
     const { posts, user, isAddDialogOpen } = this.props; //提前把该主件用的到绑定在state、props下的数据列出来，方法调用
 
     console.log("postList.this", this);
@@ -57,7 +57,8 @@ class PostList extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-  console.log("state", state);
+  // console.log("state", state);
+  // console.log("porps",props);
   return {
     user: getLoggedUser(state),
     posts: getPostListWithAuthors(state),
@@ -66,8 +67,8 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  console.log("dispatch");
-  console.log(dispatch);
+  // console.log("dispatch");
+  // console.log(dispatch);
   return {
     ...bindActionCreators(postActions, dispatch),
     ...bindActionCreators(uiActions, dispatch)

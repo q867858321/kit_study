@@ -131,15 +131,19 @@ const shouldFetchPost = (id, state) => {
 };
 
 const convertPostsToPlain = posts => {
+  console.log("posts",posts);
   let postsById = {};
   let postsIds = [];
   let authorsById = {};
   posts.forEach(item => {
-    postsById[item.id] = { ...item, author: item.author.id };
-    postsIds.push(item.id);
-    if (!authorsById[item.author.id]) {
-      authorsById[item.author.id] = item.author;
+    if(item.author!==null){
+      postsById[item.id] = { ...item, author: item.author.id };
+      postsIds.push(item.id);
+      if (!authorsById[item.author.id]) {
+        authorsById[item.author.id] = item.author;
+      }
     }
+    
   });
   return {
     posts: postsById,
