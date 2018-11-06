@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="ap2p">
+    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>
