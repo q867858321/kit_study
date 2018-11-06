@@ -2,6 +2,7 @@ create-react-app项目
 
 
 安装的组件
+npm install --save redux react-redux redux-thunk
 react-dom
 react-redux
 react-router

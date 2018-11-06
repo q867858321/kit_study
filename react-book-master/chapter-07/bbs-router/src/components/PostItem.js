@@ -5,9 +5,9 @@ import like from "../images/like.png";
 
 function PostItem(props) {
   const { post } = props;
-  console.log("post", post);
-  console.log("post.author", post.author);
-  console.log("post.author.username", post.author.username);
+  // console.log("post", post);
+  // console.log("post.author", post.author);
+  // console.log("post.author.username", post.author.username);
   return (
     <li className="postItem">
       <div className="title">{post.title}</div>

@@ -15,7 +15,7 @@
 
       <ul>
 
-        <li v-for="(item,key) in list">
+        <li v-for="(item,key) in list" :key="key">
 
           {{item}}   ----  <button @click="removeData(key)">删除</button>
         </li>
