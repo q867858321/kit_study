@@ -33,24 +33,27 @@
 			}
 			 
 			var ss=stu.find(getStu);
-			console.log(ss);
+			console.log("1,",ss);	//{name: "李四", gender: "男", age: 20}
 			
 			var ss2=stu.find(function(item, index){
 			    return item.name=='李四'
 			});
 			var ss3=stu.find(item=>item.name=='李四')
-			console.log(ss3);
+			console.log("ss3",ss3);		//{name: "李四", gender: "男", age: 20}
 			//返回结果为
 			//{name: "李四", gender: "男", age: 20}
 
 			var arr = [
-			  { id: 1, text: 'aa', done: true },
-			  { id: 2, text: 'bb', done: false }
+			{ id: 1, text: 'bada', done: true },
+			  { id: 2, text: 'abab', done: false }
 			];
 			var aa=arr.filter(item => item.done);
+			console.log("filter1",aa); //[{ id: 1, text: 'bada', done: true }]
+			var ab=arr.filter(item => item.text.indexOf("ad")!=-1);
+			console.log("filter2",ab);	//[{ id: 1, text: 'bada', done: true }]
 //			var arr = [1,2,3,4,5];
 			arr.forEach(function( val, index ) {
-			console.log( val, index, this );
+			console.log( "filter",val, index, this );
 			});
 //			var obj = { name: 'test', val: {} };
 //			obj.forEach(function(item){

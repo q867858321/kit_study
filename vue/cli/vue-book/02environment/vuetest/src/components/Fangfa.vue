@@ -2,7 +2,7 @@
     <div class="Fangfa">
         <img v-bind:url="url" />
         <img :url="url" />
-
+        <hello></hello>
         <button v-on:click="first()">第一种</button>
         <button aa-data="ddd" ref="button" @click="first()">第一种</button>
         <button data-aa="12" @click="deleteDate($event,1)">delete</button>
@@ -14,8 +14,12 @@
     </div>
 </template>
 <script>
+import HelloWorld from './HelloWorld.vue'
 export default {
   name: 'Fanfa',
+  components: {
+    'hello': HelloWorld
+  },
   data () {
     return {
       url: 'www.baidu.com',
