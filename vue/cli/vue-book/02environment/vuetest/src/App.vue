@@ -1,6 +1,9 @@
 <template>
   <div id="ap2p">
     <!-- <img src="./assets/logo.png"> -->
+    <router-link to="/aa">ShuangXiangShuJu</router-link>
+    <router-link to="/ab">Fangfa</router-link>
+    <router-link to="/cc">Shuangxiang</router-link>
     <router-view/>
   </div>
 </template>

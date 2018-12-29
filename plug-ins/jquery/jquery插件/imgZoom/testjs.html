@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <style>
+        #div1{height:300px;width:300px;background:#f00;position: absolute;}
+    </style>
+        <div id="div1"></div>
+    <script>
+        window.onload = function(){
+        　　var div1 = document.getElementById("div1");
+        　　div1.onmousedown = function(ev){
+        　　　　var oevent = ev || event;
+
+        　　　　var distanceX = oevent.clientX - div1.offsetLeft;
+        　　　　var distanceY = oevent.clientY - div1.offsetTop;
+                ev.preventDefault();
+        　　　　document.onmousemove = function(ev){
+        　　　　　　var oevent = ev || event;
+        　　　　　　div1.style.left = oevent.clientX - distanceX + 'px';
+        　　　　　　div1.style.top = oevent.clientY - distanceY + 'px'; 
+        　　　　};
+        　　　　document.onmouseup = function(){
+        　　　　　　document.onmousemove = null;
+        　　　　　　document.onmouseup = null;
+        　　　　};
+        　　}
+        }
+    </script>
+</body>
+</html>

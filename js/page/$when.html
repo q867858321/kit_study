@@ -15,6 +15,12 @@
     </ul>
     
     <script>
+        var name=$("ul").attr("name");
+        console.log("name",name);  //undefined
+        var h1name=$("h1").attr("name");
+        console.log("h1name",h1name);   //undefined
+        var h2name=document.getElementById("h2name");
+        console.log("h2name",h2name);    //null
         var a=0;
         function aa(){
             a++;

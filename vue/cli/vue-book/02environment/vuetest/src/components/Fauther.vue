@@ -2,7 +2,8 @@
     <div>
         <h2>{{msg}}</h2>
         <button @click="run()">执行button方法</button>
-        <v-son v-if="flag"></v-son>
+        <v-son :title="title" :homealert="homealert" :home="this" v-if="flag" ref="son"></v-son>
+        <button @click="getChildData()">获取子方法</button>
         <button @click="flag=!flag">挂载或卸载子方法</button>
     </div>
 </template>
@@ -17,7 +18,8 @@ export default {
     console.log('data')
     return {
       msg: '首页',
-      flag: true
+      flag: true,
+      title: 'ni hao'
     }
   },
   components: {
@@ -26,6 +28,14 @@ export default {
   methods: {
     run () {
       this.msg = 'aa'
+    },
+    homealert (data) {
+      alert('父方法' + data)
+      this.msg = data
+    },
+    getChildData () {
+      console.log(this.$refs)
+      this.$refs.son.zhirun()
     }
   },
   beforeCreate () {

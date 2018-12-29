@@ -1,0 +1,21 @@
+.postList{
+    width:900px;
+    margin: 0 auto;
+}
+.postItem{
+    border-top:1px solid grey;
+    padding:15px;
+    font-size: 14px;
+    color:grey;
+    line-height: 21px;
+}
+.postItem .title{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    color:#009a61;
+}
+.postItem .like img{
+    width:20px;
+    height: 20px;
+}
