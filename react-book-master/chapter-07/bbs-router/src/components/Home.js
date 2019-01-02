@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import {Route } from "react-router-dom";
 import PostList from "./PostList";
 import Header from "./Header";
 import Post from "./Post";
@@ -27,6 +27,10 @@ class Home extends Component {
   render() {
     const { match, location } = this.props;
     const { userId, username } = this.state;
+    // var path = {
+    //   pathname:'/login',
+    //   state:{name:"ssss"},
+    // }
     return (
       <div>
         <Header

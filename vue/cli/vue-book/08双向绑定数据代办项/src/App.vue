@@ -15,7 +15,7 @@
     <h2>进行中</h2>
           <ul>
 
-            <li v-for="(item,key) in list" v-if="!item.checked">
+            <li v-for="(item,key) in list" v-if="!item.checked" :key="key">
 
               <input type="checkbox" v-model='item.checked'> {{item.title}}   ----  <button @click="removeData(key)">删除</button>
             </li>
@@ -26,7 +26,7 @@
     <h2>已完成</h2>
     <ul class="finish">
 
-      <li v-for="(item,key) in list" v-if="item.checked">
+      <li v-for="(item,key) in list" v-if="item.checked" :key="key">
 
           <input type="checkbox" v-model='item.checked'> {{item.title}} ----<button @click="removeData(key)">删除</button>
       </li>
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-
   /*
        ['录制nodejs','录制ionic']
 
@@ -78,8 +77,6 @@
               checked: false
             }
           ]
-
-         
         }
       },
       methods:{

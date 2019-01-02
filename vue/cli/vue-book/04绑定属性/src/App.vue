@@ -75,7 +75,7 @@
         <br>
         <br>
       <ul>
-        <li v-for="(item,key) in list"  :class="{'red':key==0,'blue':key==1}">
+        <li  v-for="(item,key) in list"  :key="key" :class="{'red':key==0,'blue':key==1}">
           {{key}}---{{item}}
         </li>
       </ul>
