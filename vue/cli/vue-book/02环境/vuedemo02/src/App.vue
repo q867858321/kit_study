@@ -3,24 +3,40 @@
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <p>{{obj.name}}</p>
+    <ul>
+      <li v-for="item in list">
+        {{item}}
+      </li>
+    </ul>
+    <ul>
+      <li v-for="item in list1">
+        {{item.title}}
+      </li>
+    </ul>
      你好vue
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      obj: {
+        name: "张三"
+      },
+      list: ["101", "102", "103"],
+      list1: [{ title: "1111" }, { title: "222" }, { title: "333" }],
+      msg: "Welcome to Your Vue.js App"
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -28,7 +44,8 @@ export default {
   margin-top: 60px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
