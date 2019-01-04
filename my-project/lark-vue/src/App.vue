@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <img src="./img/logo.png" @click="run1()">
+    <m-head></m-head>
     <router-view />
   </div>
 </template>
 
 <script>
+import mHead from '@/components/Header'
 export default {
   name: 'App',
   components: {
-
+    mHead
   },
   data() {
     return {
@@ -28,12 +29,9 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+*{margin:0;padding:0;}
+html{font-family: "Avenir", Helvetica, Arial, sans-serif;background: #f5f6f7;}
+li{list-style: none;}
+.hid{display: none;}
+.hid_i{display: none !important;}
 </style>

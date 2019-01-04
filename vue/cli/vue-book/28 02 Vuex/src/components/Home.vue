@@ -32,7 +32,7 @@
                 //改变vuex store里面的数据
 
                 //this.$store.commit('incCount');   /*触发 mutations 改变 state里面的数据*/
-
+                console.log(this);
                 this.$store.dispatch('incMutationsCount');   /*触发 actions里面的方法   */
             }
         }
