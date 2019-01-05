@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import mutations from './mutations';
+import taobao from './library/taobao';
 Vue.use(Vuex);
-
 // const state={//要设置的全局访问的state对象
 //   showFooter: true,
 //   changableNum:0,
@@ -16,8 +16,7 @@ const article={
   color:"#000",
   count:0
 };
-const state=Object.assign(user,article);
-
+const state=Object.assign(user,article,taobao);
 // var mutations={
 //   incCount(state,color){
 //     state.color=color;

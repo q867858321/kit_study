@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/page/Home'
-import Detail from '@/page/Detail'
-import About from '@/page/About'
+import pHome from '@/page/Home'
+import pDetail from '@/page/Detail'
+import pAbout from '@/page/About'
 Vue.use(Router)
 
 export default new Router({
@@ -11,17 +11,17 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: pHome
     },
     {
       path: '/detail',
       name: "detail",
-      component: Detail
+      component: pDetail
     },
     {
       path: "/about",
       name: "abour",
-      component: About
+      component: pAbout
     },
   ]
 })
