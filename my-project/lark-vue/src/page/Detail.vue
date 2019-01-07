@@ -1,86 +1,114 @@
 <template>
-  <div class="p_detail">
+  
+  <div class="p_detail" @click="run1()">
     <div class="main">
-      <m-nav :nnavlist='navlist' :ngetActile='getActile'></m-nav>
+      <div class="m_nav">
+        <ul>
+          <li v-for="(item,index) in nnavlist">
+            <router-link :to="'/detail?id='+item.id" :class="{active:item.active}" :title="item.title" >{{item.title}}</router-link>
+          </li>
+        </ul>
+      </div>
       <m-wrap :nwrap='wrap'></m-wrap>
     </div>
-    <!-- <p @click="getDate()">请求数据</p>
-    <p :style='{color:color}'>{{this.$store.state.count}}</p>
-    <ul>
-        <li v-for="(item, index) in this.$store.state.list">
-            {{ index }} - {{ item.title }}
-        </li>
-    </ul> -->
   </div>
 </template>
 
 <script>
-import http from '@/store/services';
-import mNav from '@/components/Nav';
-import mWrap from '@/components/Wrap';
+import http from "@/store/services";
+import mNav from "@/components/Nav";
+import mWrap from "@/components/Wrap";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    mNav, mWrap
+    mNav,
+    mWrap
   },
   data() {
     return {
-      msg: '你好vue',
+      msg: "你好vue",
       color: "#f00",
       list: [],
-      // navlist: [{id:1,title:"111"},{id:2,title:"222"} ]
-      navlist: [],
-      wrap: ''
+      nnavlist: [
+        { id: 0, title: "淘宝购物的省钱秘笈", active: false },
+        { id: 1, title: "美团省钱小妙招", active: false }
+      ],
+      wrap: ""
+    };
+  },
+  mounted: function() {
+    this.initial();
+  },
+  watch: {
+    $route() {
+      this.initial();
     }
   },
-  mounted: function () {
-    this.getActile();
-    //this.getData();
-  },
-  watch:{
-    $route(){
-      this.getActile();
-    }
-    
-  },
-  updated: function () {
-    
-  },
+  updated: function() {},
   methods: {
-    run1: function () {
-      this.$store.commit('incCount', "#00f");
-      this.color = this.$store.state.color;
-      // this.$store.dispatch('incMutationsCount'); 
-      console.log(this.$store);
-      // console.log(this.$route.query);
+    initial: function() {
+      const id = this.$route.query.id;
+      this.nnavlist.forEach(function(item, num, obj) {
+        if (item.id == id) {
+          obj[num].active = true;
+        } else {
+          obj[num].active = false;
+        }
+      });
     },
-    getActile: function () {
+    run1: function() {
+      // this.$store.commit("incCount", "#00f");
+      // this.color = this.$store.state.color;
+    },
+    getActile: function() {
       const taobao = this.$store.state.taobao;
-      var nav=[];
+      var nav = [];
       taobao.forEach(element => {
         nav.push({ id: element.id, title: element.title });
       });
-      this.navlist=nav;
+      this.navlist = nav;
       const id = this.$route.query.id;
       taobao.filter(element => {
         console.log("id", id);
         console.log(element);
         if (element.id == id) {
-          this.wrap = element.content
+          this.wrap = element.content;
         }
-      })
+      });
     },
-    getData: function () {
+    getData: function() {
       http.getData();
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
 .p_detail {
+  .m_nav {
+    background: #fff;
+    width: 20rem;
+    padding: 2rem 1rem;
+    margin-right: 1rem;
+    ul {
+      li {
+        border-bottom: 1px solid #e3e3e3;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0.5rem 0;
+        a {
+          &.active {
+            color: #009999;
+          }
+        }
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+    }
+  }
   .main {
-    position: relative;
     width: 75rem;
     margin: 0 auto;
     display: flex;

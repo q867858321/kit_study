@@ -2,7 +2,7 @@
   <div class="m_nav">
     <ul>
       <li v-for="(item,index) in nnavlist">
-        <router-link :to="'/detail?id='+item.id">{{item.title}}</router-link>
+        <router-link :to="'/detail?id='+item.id" :title="item.title" >{{item.title}}</router-link>
       </li>
     </ul>
   </div>
@@ -10,35 +10,39 @@
 
 <script>
 export default {
-  name: 'Nav',
-  components: {
-
-  },
-  props: ['nnavlist'],
+  name: "Nav",
+  components: {},
+  props: ["nnavlist"],
   data() {
     return {
-      nmsg: '你好vue',
+      nmsg: "你好vue",
       nlist: []
-    }
+    };
   },
-  created: function () {
+  created: function() {
     console.log("this", this);
   },
   methods: {
-    run1: function () {
+    run1: function() {
       console.log(this);
-    },
+    }
   }
-}
+};
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .m_nav {
   background: #fff;
   width: 20rem;
+  padding: 2rem 1rem;
+  margin-right: 1rem;
   ul {
     li {
       border-bottom: 1px solid #e3e3e3;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: 0.5rem 0;
       &:last-of-type {
         border-bottom: none;
       }
