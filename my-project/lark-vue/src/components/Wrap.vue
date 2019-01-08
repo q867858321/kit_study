@@ -1,6 +1,7 @@
 <template>
     <div @click="run1()" class="m_wrap">
-        <shengqian1 :show="shengqian1Show"></shengqian1>
+      {{queryidz}}
+        <shengqian1 v-show="this.queryidz==0"></shengqian1>
     </div>
 </template>
 
@@ -11,15 +12,26 @@ export default {
   components: { shengqian1 },
   data() {
     return {
-      shengqian1Show: true
+      shengqian1Show: true,
+      queryidz:0
     };
+  },
+  created:function(){
+    alert(23);
+    this.queryidz=this.$attrs.queryid;
+    console.log("this.$attrs.queryid",this.$attrs.queryid);
+    console.log(" this.queryidz", this.queryidz);
+  },
+  updated:function(){
+    console.log(2);
+    this.queryidz=this.$attrs.queryid;
   },
   watch: {
     $route() {}
   },
   methods: {
     run1: function() {
-      console.log(this);
+      console.log("queryid",this.$attrs.queryid);
       console.log(this.$route.query.id);
     }
   }
