@@ -38,17 +38,15 @@ export default {
     };
   },
   created:function(){
-    this.initial();
+    this.initial(); 
   },
   mounted: function() {
-    this.initial();
   },
   updated: function() {},
   methods: {
     initial: function() {
       const id = this.$route.query.id;
       this.queryid=id;
-      console.log("queryid33",this.queryid);
       this.nnavlist.forEach(function(item, num, obj) {
         if (item.id == id) {
           obj[num].active = true;
