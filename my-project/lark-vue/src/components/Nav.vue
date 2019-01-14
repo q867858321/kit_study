@@ -1,8 +1,13 @@
 <template>
   <div class="m_nav">
     <ul>
-      <li v-for="(item,index) in nnavlist">
-        <router-link :to="'/detail?id='+item.id" :title="item.title" >{{item.title}}</router-link>
+      <li
+        v-for="(item,index) in nnavlist"
+        @click="choose(index)"
+        :class="{active:index==corrent&&current!=''}"
+        :key="index"
+      >
+        <router-link :to="'/detail?id='+item.id" :title="item.title">{{item.title}}</router-link>
       </li>
     </ul>
   </div>
@@ -16,6 +21,7 @@ export default {
   data() {
     return {
       nmsg: "你好vue",
+      current: "",
       nlist: []
     };
   },
@@ -25,6 +31,9 @@ export default {
   methods: {
     run1: function() {
       console.log(this);
+    },
+    choose: function(index) {
+      this.current = index;
     }
   }
 };
@@ -45,6 +54,9 @@ export default {
       padding: 0.5rem 0;
       &:last-of-type {
         border-bottom: none;
+      }
+      &.active {
+        background: green;
       }
     }
   }
