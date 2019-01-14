@@ -1,25 +1,28 @@
 <template>
     <div @click="run1()" class="m_wrap">
-        <shengqian1 :show="shengqian1Show"></shengqian1>
+        <shengqian1 v-show="this.queryid==0"></shengqian1>
+        <meituan v-show="this.queryid==1"></meituan>
     </div>
 </template>
 
 <script>
 import shengqian1 from "@/components/article/monery/shengqian1/shengqian1";
+import meituan from "@/components/article/monery/meituan/Meituan";
 export default {
   name: "Wrap",
-  components: { shengqian1 },
+  components: { shengqian1,meituan },
   data() {
     return {
-      shengqian1Show: true
+      shengqian1Show: true,
+      queryid:0
     };
   },
-  watch: {
-    $route() {}
+  created:function(){
+    this.queryid=this.$attrs.queryid;
   },
   methods: {
     run1: function() {
-      console.log(this);
+      console.log("queryid",this.$attrs.queryid);
       console.log(this.$route.query.id);
     }
   }
@@ -36,7 +39,7 @@ export default {
     text-align: center;
   }
   p {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     margin: 0.5rem 0;
   }
   img {

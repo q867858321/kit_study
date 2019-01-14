@@ -9,7 +9,7 @@
           </li>
         </ul>
       </div>
-      <m-wrap :nwrap='wrap'></m-wrap>
+      <m-wrap :nwrap='wrap' :queryid='queryid'></m-wrap>
     </div>
   </div>
 </template>
@@ -29,6 +29,7 @@ export default {
       msg: "你好vue",
       color: "#f00",
       list: [],
+      queryid:0,
       nnavlist: [
         { id: 0, title: "淘宝购物的省钱秘笈", active: false },
         { id: 1, title: "美团省钱小妙招", active: false }
@@ -36,18 +37,16 @@ export default {
       wrap: ""
     };
   },
-  mounted: function() {
-    this.initial();
+  created:function(){
+    this.initial(); 
   },
-  watch: {
-    $route() {
-      this.initial();
-    }
+  mounted: function() {
   },
   updated: function() {},
   methods: {
     initial: function() {
       const id = this.$route.query.id;
+      this.queryid=id;
       this.nnavlist.forEach(function(item, num, obj) {
         if (item.id == id) {
           obj[num].active = true;

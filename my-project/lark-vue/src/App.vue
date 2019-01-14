@@ -2,7 +2,7 @@
   <div id="app">
     <m-head></m-head>
     <div class="content">
-      <router-view />
+      <router-view :key="key" />
     </div>
     <m-footer></m-footer>
   </div>
@@ -22,6 +22,11 @@ export default {
       msg: "你好vue",
       list: []
     };
+  },
+  computed:{
+    key(){
+      return this.$route.path+Math.random();
+    }
   },
   methods: {
     run1: function() {

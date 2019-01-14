@@ -11,17 +11,26 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: pHome
+      component: pHome,
+      meta:{
+        title:"首页"
+      }
     },
     {
       path: '/detail',
       name: "detail",
-      component: pDetail
+      component: pDetail,
+      meta:{
+        title:"详情"
+      }
     },
     {
       path: "/about",
       name: "abour",
-      component: pAbout
+      component: pAbout,
+      meta:{
+        title:"关于我们"
+      }
     },
   ]
 })
