@@ -1,5 +1,4 @@
 <template>
-  
   <div class="p_detail" @click="run1()">
     <div class="main">
       <div class="m_nav">
@@ -16,7 +15,6 @@
 
 <script>
 import http from "@/store/services";
-import mNav from "@/components/Nav";
 import mWrap from "@/components/Wrap";
 
 export default {
