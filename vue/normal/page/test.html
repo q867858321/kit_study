@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div id="app">
         {{message}}
@@ -14,20 +16,34 @@
         <li v-for="todo in todos">
             {{todo.text}}
         </li>
+        监听： {{msg}},{{msg1}}
     </div>
     <script>
-        var app=new Vue({
-            el:'#app',
-            data:{
-                message:'hello vue',
-                seen:true,
-                todos:[
-                    {text:'sss'},
-                    {text:'sss'},
-                    {text:'sss'}
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello vue',
+                msg: "hello vue",
+                seen: true,
+                todos: [
+                    { text: 'sss' },
+                    { text: 'sss' },
+                    { text: 'sss' }
                 ]
+            },
+            watch: {
+                msg: function (newval, oldval) {
+                    console.log('newval', newval + "1");
+                    console.log('oldval', oldval + "2");
+                }
+            },
+            computed: {
+                msg1: function () {
+                    return 'computed ' + this.msg
+                }
             }
         })
     </script>
 </body>
+
 </html>
