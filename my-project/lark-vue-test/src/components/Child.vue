@@ -14,6 +14,16 @@ export default {
             "msg":"nihao"
         }
     },
+    beforeCreate(){
+        console.log("beforeCreate");
+    },
+    created(){
+        console.log("created");
+    },
+    updated(){
+         console.log("updated");
+         console.log("child",this);
+    },
     methods:{
         sendMsgToParent:function(val){
             let data={

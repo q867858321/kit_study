@@ -4,7 +4,7 @@
       <li
         v-for="(item,index) in nnavlist"
         @click="choose(index)"
-        :class="{active:index==corrent&&current!=''}"
+        :class="{active:index==current&&current!=''}"
         :key="index"
       >
         <router-link :to="'/detail?id='+item.id" :title="item.title">{{item.title}}</router-link>
