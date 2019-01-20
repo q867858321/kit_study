@@ -18,7 +18,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .header {
   height: 4.4rem;
   background: #000;
