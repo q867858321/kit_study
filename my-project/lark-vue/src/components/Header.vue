@@ -7,6 +7,7 @@
       <nav>
         <router-link class="index" to="/">生活</router-link>
         <router-link class="index" to="/detail">省钱</router-link>
+        <router-link class="index" to="/collection">收藏</router-link>
         <router-link class="about" to="/about">关于</router-link>
       </nav>
 

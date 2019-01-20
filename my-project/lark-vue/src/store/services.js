@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import store from './index'
+import store from './index';
 
 export default {
     getData(){
