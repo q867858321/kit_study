@@ -16,27 +16,29 @@
 </template>
 <script>
 export default {
-  type: "",
-  data() {
+  type: '',
+  data () {
     return {
-      current: "",
+      current: '',
       list: [1, 2, 3, 4],
       target: []
-    };
+    }
   },
-  created: function() {
-    console.log(this);
+  created: function () {
+    console.log(this)
   },
   methods: {
-    choose(index) {
-      this.current = index;
+    choose (index) {
+      this.current = index
     },
-    add() {
-      this.target.push(this.list[this.current]);
-      this.current = "";
+    add () {
+      this.target.push(this.list[this.current])
+
+      console.log(this)
+      this.current = '';
     }
   }
-};
+}
 </script>
 <style>
 li.active {
