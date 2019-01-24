@@ -18,7 +18,7 @@ export default new Router({
       }
     },
     {
-      path: '/',
+      path: '/life',
       name: 'life',
       component: pLife,
       meta:{
