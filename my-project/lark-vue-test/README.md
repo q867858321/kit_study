@@ -1,21 +1,13 @@
 # lark-vue-test
 
-> A Vue.js project
+vuex
+1.安装
+npm install --save vuex
+2.建立src/store/index.js
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+import Vue from 'vue';
+import Vuex from 'vuex';
+Vue.use(Vuex);
+const store = new Vuex.Store();
+ 
+export default store;
