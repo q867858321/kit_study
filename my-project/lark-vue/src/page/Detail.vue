@@ -86,22 +86,17 @@ export default {
 <style lang="less" scoped>
 .p_detail {
   .m_nav {
-    background: #fff;
     width: 20rem;
-    padding: 2rem 1rem;
     margin-right: 1rem;
     ul {
+       background: #fff;
+       padding: 2rem 1rem;
       li {
         border-bottom: 1px solid #e3e3e3;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
         padding: 0.5rem 0;
-        a {
-          &.active {
-            color: #009999;
-          }
-        }
         &:last-of-type {
           border-bottom: none;
         }

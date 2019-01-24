@@ -1,0 +1,16 @@
+html,body{
+    overflow: hidden;
+}
+.wrapper{
+    min-height: calc( 100vh - 68px );
+}
+.container-fluid{
+    min-height: calc( 100vh - 68px  );
+    position: relative;
+}
+.container-fluid>.row{
+    position:absolute;
+    top:50%;
+    width: 100%;
+    transform:translateY(-50%);
+}

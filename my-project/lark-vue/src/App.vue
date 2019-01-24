@@ -48,6 +48,8 @@ html {
   background: #f5f6f7;
   color: #4f4f4f;
 }
+body{
+}
 ul,
 li {
   list-style: none;
@@ -64,9 +66,10 @@ h1 {
 }
 a {
   text-decoration: none;
+  color: #00896c;
 }
 a.active {
-  color: #00896c;
+  color: #06913b;
 }
 a:hover {
   color: #42b983;

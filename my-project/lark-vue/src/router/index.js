@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import pHome from '@/page/Home'
+import pLife from '@/page/Life'
 import pDetail from '@/page/Detail'
 import pAbout from '@/page/About'
 Vue.use(Router)
@@ -14,6 +15,14 @@ export default new Router({
       component: pHome,
       meta:{
         title:"首页"
+      }
+    },
+    {
+      path: '/',
+      name: 'life',
+      component: pLife,
+      meta:{
+        title:"生活"
       }
     },
     {

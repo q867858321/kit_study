@@ -28,4 +28,7 @@ dev: `webpack-dev-server --inline --progress --config build/webpack.dev.conf.js`
 这是因为webpack-dev-server版本和vue版本不一样，需要将webpack-dev-server卸载了，安装对应版本
 卸载npm uninstall webpack-dev-server，在安装这个npm i webpack-dev-server@2.9.7，我的可以正常启动了。
 
+优先利用父子传值，数据放在父主件的data里
+再考虑用vuex，如果是大项目会让项目变的复杂，存多地方应用的变量（不应该把ajax请求过来的数据放在这里面）
+
 

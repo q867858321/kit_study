@@ -20,7 +20,6 @@ export default {
   props: ["nnavlist"],
   data() {
     return {
-      nmsg: "你好vue",
       current: "",
       nlist: []
     };
@@ -54,9 +53,6 @@ export default {
       padding: 0.5rem 0;
       &:last-of-type {
         border-bottom: none;
-      }
-      &.active {
-        background: green;
       }
     }
   }

@@ -1,0 +1,30 @@
+{
+  "name": "proj2-my-webpack-simple",
+  "description": "A Vue.js project",
+  "version": "1.0.0",
+  "author": "Jam <guo3jin3cai@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "vue": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-latest": "^6.0.0",
+    "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.5.1",
+    "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^4.29.0",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
