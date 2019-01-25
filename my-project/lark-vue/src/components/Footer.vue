@@ -16,6 +16,9 @@ export default {
       list: []
     }
   },
+  created(){
+    console.log("Footer",this);
+  },
   methods: {
     run1: function () {
 

@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import mutations from './mutations';
-import taobao from './library/taobao';
+// import mutations from './mutations';
 Vue.use(Vuex);
 // const state={//要设置的全局访问的state对象
 //   showFooter: true,
@@ -16,14 +15,14 @@ const article={
   color:"#000",
   count:0
 };
-const state=Object.assign(user,article,taobao);
-// var mutations={
-//   incCount(state,color){
-//     state.color=color;
-//     state.count=state.count+1;
-//   },
+const state=Object.assign(user,article);
+var mutations={
+  incCount(state,color){
+    state.color=color;
+    state.count=state.count+1;
+  },
   
-// }
+}
 
 var actions= {
   incMutationsCount(context) {    /*因此你可以调用 context.commit 提交一个 mutation*/

@@ -22,6 +22,5 @@ const app = new Vue({
   el: '#app',
   router,
   store, //使用store
-  components: { App },
-  template: '<App/>'
+  template: '<router-view/>'
 })

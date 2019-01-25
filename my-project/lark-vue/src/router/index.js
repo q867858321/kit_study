@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import App from '@/App'
 import pHome from '@/page/Home'
 import pLife from '@/page/Life'
 import pDetail from '@/page/Detail'
@@ -12,18 +13,15 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: pHome,
-      meta:{
-        title:"首页"
-      }
+      redirect:'life'
     },
     {
       path: '/life',
       name: 'life',
       component: pLife,
-      meta:{
-        title:"生活"
-      }
+      children:[
+        {path:'life',name:'life',component:pLife}
+      ]
     },
     {
       path: '/detail',
