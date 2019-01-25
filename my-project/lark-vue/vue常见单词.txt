@@ -1,0 +1,10 @@
+vue vuex vue-router 
+与原理相关
+JSX
+webpack ProvidePlugin
+vue双向原理 Watcher、Observer、Compiler
+vuex的原理
+store、state、mutations、actions
+const store=new Vuex.Store({state,mutations,actions});
+与用法相关
+component
