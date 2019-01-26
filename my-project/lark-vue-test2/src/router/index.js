@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
+import Father from '@/components/Father'
 import Cate from '@/components/Cate'
 
 Vue.use(Router)
@@ -19,6 +20,10 @@ export default new Router({
         {path:"cate",name:'cate',component:Cate}
       ]
     },
-   
+    {
+      path: '/father',
+      name: 'Father',
+      component: Father
+    },
   ]
 })
