@@ -1,5 +1,5 @@
 <template>
-  <footer class="m_footer">
+  <footer class="m_footer" @click="run1()">
     {{slogan}}
   </footer>
 </template>
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     run1: function () {
-
+        console.log("footer",this);
     },
   }
 }

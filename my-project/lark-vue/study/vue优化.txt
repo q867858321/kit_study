@@ -1,0 +1,9 @@
+vue提高加载速度
+1、不用import引入，用cnd
+在index.html里面引入依赖库js文件
+ // index.html
+<script src="https://cdn.bootcss.com/vue/2.3.3/vue.min.js"></script>
+
+2、vue-router的懒加载lazy load
+
+3、图片资源压缩

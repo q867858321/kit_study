@@ -1,0 +1,14 @@
+nginx
+
+查看nginx进程
+ps aux|grep nginx
+kill -9 14217
+./nginx
+
+nginx.conf中修改
+location / {
+    root   dirk;
+    index  index.html index.htm;
+    try_files $uri $uri/ /index.html;
+}
+

@@ -6,15 +6,18 @@
     <p>如果你有一些实用技巧或者人生感悟，欢迎分享给我们。</p>
     <p style="margin-top:1rem;">微信号：dug457</p>
     <p @click="change()">qq：867858321</p>
+    <div id="page" class="page_div"></div>
+    <m-footer></m-footer>
   </div>
 </template>
 
 <script>
 import mHead from "@/components/Header";
+import mFooter from "@/components/Footer";
 export default {
   name: "About",
   components:{
-    mHead
+    mHead,mFooter
   },
   data() {
     return {
@@ -26,6 +29,20 @@ export default {
     this.title='sss'; //如果要动态改变title
     console.log("about,store",this.$store.state);
   },
+  mounted(){
+    $("h1").on("click",function(){
+      alert(3)
+    });
+    //分页
+		$("#page").paging({
+			pageNo:5,
+			totalPage: 9,
+			totalSize: 300,
+			callback: function(num) {
+				alert(num)
+			}
+		})
+  },
   methods:{
     change:function(){
       this.$store.commit("incCount","#f00");
@@ -35,9 +52,9 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less" >
+@import '../../static/reset.css';
 .p_about {
-  padding:1rem;
   margin: 0 0.5rem;
   background: #fff;
   h1 {
@@ -46,7 +63,6 @@ export default {
 }
 @media screen and (min-width: 640px) {
   .p_about {
-    width: 75rem;
     margin: 0 auto;
     min-height: 40rem;
   }

@@ -1,0 +1,30 @@
+vue vuex vue-router 
+与原理相关
+JSX
+webpack ProvidePlugin
+vue双向原理 Watcher、Observer、Compiler
+vuex的原理
+store、state、mutations、actions
+const store=new Vuex.Store({state,mutations,actions});
+与用法相关
+component
+生命周期
+beforeCreate,created,
+beforeMount,mounted,
+beforeUpdate,updated,
+beforeDestroy,destroyed
+
+vue-router路由器
+mode   hash、history
+routes、path、name、component
+let name=this.$route.params.name; path:'/link/:name' 获取参数
+let age=this.$route.query.age;  8080/linkParamsQuestion?age=18
+跳转
+a链接
+<router-link to="/link?name=ali">ali</router-link>
+js跳转
+this.$router.push('home')
+this.$router.push({path:'home'})
+this.$router.push({name:'user',params:{userId:123})  /user/123
+this.$router.push({path:'user',query:{plan:'123'}})  /user?plan=123
+钩子函数
