@@ -1,5 +1,7 @@
 <template>
-  <div id="p-father" @click="show($event,10)">father</div>
+  <div id="p-father" @click="show($event,10)">father
+    <router-link to="/">to helo</router-link>
+  </div>
 </template>
 
 <script>

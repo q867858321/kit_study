@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from '@/App'
-import pHome from '@/page/Home'
-import pLife from '@/page/Life'
-import pDetail from '@/page/Detail'
-import pAbout from '@/page/About'
+const pHome=()=>import('@/page/Home');
+const pLife=()=>import('@/page/Life');
+const pMonery=()=>import('@/page/Monery');
+const pLove=()=>import('@/page/Love');
+const pAbout=()=>import('@/page/About');
 Vue.use(Router)
 
 export default new Router({
@@ -13,27 +14,36 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      redirect:'life'
+      redirect:'life',
+      component:pHome
     },
     {
       path: '/life',
       name: 'life',
       component: pLife,
-      children:[
-        {path:'life',name:'life',component:pLife}
-      ]
+      // children:[
+      //   {path:'life',name:'life',component:pLife}
+      // ]
     },
     {
-      path: '/detail',
-      name: "detail",
-      component: pDetail,
+      path: '/monery',
+      name: "monery",
+      component: pMonery,
       meta:{
-        title:"详情"
+        title:"省钱"
+      }
+    },
+    {
+      path: '/love',
+      name: "love",
+      component: pLove,
+      meta:{
+        title:"收藏"
       }
     },
     {
       path: "/about",
-      name: "abour",
+      name: "about",
       component: pAbout,
       meta:{
         title:"关于我们"

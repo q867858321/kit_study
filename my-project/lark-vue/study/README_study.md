@@ -4,3 +4,11 @@ http://localhost:8080/detail?id=1&name=4
 
 vuex
 数据保存在 this.$store.state
+
+安装的插件
+babel-plugin-syntax-dynamic-import 分片打包
+axios vue-axios
+less  less-loader
+vue-router
+vuex
+vue-wechat-title  title标题
