@@ -8,25 +8,25 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App"
+    };
   },
-  mounted:function(){
-    console.log(this)
-    $(".hello").on("click",function(){
-      console.log($(this).html())
-    });
-}
-}
+  mounted: function() {
+    console.log(this);
+    // $(".hello").on("click",function(){
+    //   console.log($(this).html())
+    // });
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -40,8 +40,6 @@ li {
 a {
   color: #42b983;
 }
-
-
 
 .page_div {
   margin-top: 20px;
@@ -60,7 +58,7 @@ a {
 .page_div a {
   min-width: 30px;
   height: 28px;
-  border: 1px solid #dce0e0!important;
+  border: 1px solid #dce0e0 !important;
   text-align: center;
   margin: 0 4px;
   cursor: pointer;
@@ -73,21 +71,21 @@ a {
 #firstPage,
 #lastPage {
   width: 50px;
-  color: #0073A9;
-  border: 1px solid #0073A9!important;
+  color: #0073a9;
+  border: 1px solid #0073a9 !important;
 }
 
 #prePage,
 #nextPage {
   width: 70px;
-  color: #0073A9;
-  border: 1px solid #0073A9!important;
+  color: #0073a9;
+  border: 1px solid #0073a9 !important;
 }
 
 .page_div .current {
-  background-color: #0073A9;
-  border-color: #0073A9;
-  color: #FFFFFF;
+  background-color: #0073a9;
+  border-color: #0073a9;
+  color: #ffffff;
 }
 
 .totalPages {
@@ -96,7 +94,7 @@ a {
 
 .totalPages span,
 .totalSize span {
-  color: #0073A9;
+  color: #0073a9;
   margin: 0 5px;
 }
 </style>
