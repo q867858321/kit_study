@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-// import Father from '@/components/Father'
-import Cate from '@/components/Cate'
 const HelloWorld = () => import("@/components/HelloWorld");
+// import Father from '@/components/Father'
 const Father = () => import("@/components/Father");
+// import Cate from '@/components/Cate'
+const Cate = () => import("@/components/Cate");
 Vue.use(Router)
 
 export default new Router({

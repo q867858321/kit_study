@@ -4,13 +4,13 @@
       <router-link class="index" to="/">
         <img class="log" src="@/img/log.png" alt="log">
       </router-link>
-      <nav>
-        <router-link class="index" to="/life">生活</router-link>
-        <router-link class="index" to="/detail">省钱</router-link>
-        <router-link class="index" to="/collection">收藏</router-link>
-        <router-link class="about" to="/about">关于</router-link>
+      <nav class="clear">
+        <router-link :class="{active:dNav=='life'}" to="/life">生活</router-link>
+        <router-link :class="{active:dNav=='monery'}" to="/monery">省钱</router-link>
+        <router-link :class="{active:dNav=='love'}" to="/love">收藏</router-link>
+        <router-link :class="{active:dNav=='about'}" to="/about">关于</router-link>
+        <span class="bottom_line" ref="bottom_line"></span>
       </nav>
-
     </div>
 
   </div>
@@ -22,12 +22,30 @@ export default {
   components: {},
   data() {
     return {
-      msg: "你好vue",
+      dNav:"life",
       list: []
     };
   },
+  created(){
+    this.dNav=this.$route.name;
+  },
+  mounted(){
+    $("nav a").on("click",function(){
+      var index=$(this).index();
+      var wid=$(this).width();
+      $(".bottom_line").css({left:wid*index});
+    });
+  },
+  updated(){
+    this.dNav=this.$route.name;
+  },
   methods: {
-    run1: function() {}
+    run: function() {},
+    navClick:function(event,index){
+    //   console.log(event);
+    //  var wid=event.target.offsetWidth;
+    //  this.$refs.bottom_line.style.left=wid*index+'px';
+    }
   }
 };
 </script>
@@ -45,14 +63,26 @@ export default {
       height: 4rem;
     } 
     nav {
-      flex: 1;
       margin: 1.5rem 0 0 1.5rem;
+      position: relative;
       a {
+        float:left;
+        display:block;
         color: #00896c;
-        margin-right: 1rem;
+        width: 3rem;
+        padding-bottom:0.5rem;
         &:hover {
           color: #40ad96;
         }
+      }
+      .bottom_line{
+        position: absolute;
+        width:2rem;
+        height:2px;
+        top:2rem;
+        left:0;
+        transition:left 0.5s;
+        background:#00896c;
       }
     }
   }
