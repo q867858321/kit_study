@@ -7,29 +7,29 @@ Vue.use(Vuex);
 //   changableNum:0,
 //   color:"#000",
 //   count:0
-// };
-const user={name:"tom",list:[]};
-const article={
+// };                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+const user = { name: "tom", list: [] };
+const article = {
   showFooter: true,
-  changableNum:0,
-  color:"#000",
-  count:0
+  changableNum: 0,
+  color: "#000",
+  count: 0
 };
-const state=Object.assign(user,article);
-var mutations={
-  incCount(state,color){
-    state.color=color;
-    state.count=state.count+1;
+const state = Object.assign(user, article);
+var mutations = {
+  incCount(state, color) {
+    state.color = color;
+    state.count = state.count + 1;
   },
-  
+
 }
 
-var actions= {
+var actions = {
   incMutationsCount(context) {    /*因此你可以调用 context.commit 提交一个 mutation*/
     context.commit('incCount');    /*执行 mutations 里面的incCount方法 改变state里面的数据*/
   }
 }
 
-const store=new Vuex.Store({state,mutations,actions});
+const store = new Vuex.Store({ state, mutations, actions });
 
 export default store;

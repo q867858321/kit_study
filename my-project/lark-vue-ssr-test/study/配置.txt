@@ -1,0 +1,9 @@
+安装
+npx create-nuxt-app hello-nuxt
+
+安装sass
+npm install --save-dev node-sass sass-loader
+在nuxt.conf.js中修改
+css:[
+    '@/assets/css/main.scss'
+]

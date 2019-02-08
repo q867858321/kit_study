@@ -6,6 +6,7 @@ npm install vuex --save
 npm install --save vuex
 npm install less less-loader --save
 npm install axios -S
+npm install vue-router --save
 初始化 npm install
 
 
