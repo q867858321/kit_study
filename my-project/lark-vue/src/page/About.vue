@@ -5,7 +5,7 @@
       <p style="margin-top:1.5rem;">本网站主要是分享一些生活技巧、省钱窍门、快乐生活等一些实用技巧，让大家的生活更加快捷、方便、实用，让大家快速成长。</p>
       <p>如果你有一些实用技巧或者人生感悟，欢迎分享给我们。</p>
       <p style="margin-top:1rem;">微信号：dug457</p>
-      <p @click="change()">qq：867858321</p>
+      <p @click="change()" v-bind:class="[isActive ? 'acdd' :'',errorClass]">qq：867858321</p>
     </div>
     <div id="page" class="page_div hid"></div>
   </div>
@@ -20,14 +20,17 @@ export default {
   data() {
     return {
       title:"关于",
+      activeClass:'active',
+      isActive:true,
+      errorClass:'text-danger'
     };
   },
   created(){
-    console.log("about,store",this.$store.state);
+    console.log("about",this);
   },
   mounted(){
     $("h1").on("click",function(){
-      alert(3)
+      alert(3);
     });
     //分页
 		$("#page").paging({
@@ -37,7 +40,8 @@ export default {
 			callback: function(num) {
 				alert(num)
 			}
-		})
+    });
+    console.log("about,mounted",this);
   },
   methods:{
     change:function(){

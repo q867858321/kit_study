@@ -5,8 +5,10 @@ vue init webpack baoge
 npm install vuex --save
 npm install --save vuex
 npm install less less-loader --save
-npm install axios -S
-npm install vue-router --save
+npm install axios -s
+vue-axios
+npm install vue-wechat-title -s
+npm install babel-plugin-syntax-dynamic-import -s
 初始化 npm install
 
 

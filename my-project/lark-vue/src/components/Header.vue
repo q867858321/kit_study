@@ -33,8 +33,10 @@ export default {
     $("nav a").on("click",function(){
       var index=$(this).index();
       var wid=$(this).width();
+      
       $(".bottom_line").css({left:wid*index});
     });
+    $("nav a.router-link-active").click();
   },
   updated(){
     this.dNav=this.$route.name;

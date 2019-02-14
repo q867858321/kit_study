@@ -14,10 +14,10 @@
     <script>
         var obj={};
         Object.defineProperty(obj,'txt',{
-            get:function(){
-                console.log("obj",obj);
-                return obj;
-            },
+            // get:function(){
+            //     console.log("obj",obj);
+            //     return obj;
+            // },
             set:function(newValue){
                 console.log("newValue",newValue);
                 document.getElementById('txt333').value=newValue;
