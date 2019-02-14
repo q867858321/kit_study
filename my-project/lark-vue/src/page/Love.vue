@@ -1,6 +1,13 @@
 <template>
   <div class="p_love" v-wechat-title="this.title">
-      省钱
+      <div class="nav">
+          <div>
+            dd
+          </div>
+          <div>
+            <img src="" />
+          </div>
+      </div>
   </div>
 </template>
 

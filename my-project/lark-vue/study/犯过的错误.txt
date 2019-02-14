@@ -1,2 +1,5 @@
 1.上传github时，build文件未上传。
 2.vue如果引入jquery以及依赖jquery的插件。
+
+阻止冒泡 e.stopPropagation();
+阻止默认 e.preventDefault();
