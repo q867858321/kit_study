@@ -3,6 +3,7 @@
   <div id="home">
     我是首页组件 -- {{this.$store.state.count}}
     <br>
+    {{count}}
     <button @click="incCount()">增加数量+</button>
   </div>
 </template>
@@ -18,6 +19,11 @@ export default {
     };
   },
   store,
+  computed: {
+    count() {
+      return this.$store.state.count;
+    }
+  },
   methods: {
     incCount() {
       //改变vuex store里面的数据
