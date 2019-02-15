@@ -6,13 +6,30 @@ const HelloWorld = () => import("@/components/HelloWorld");
 const Father = () => import("@/components/Father");
 // import Cate from '@/components/Cate'
 const Cate = () => import("@/components/Cate");
+
+const Index = () => import("@/page/Index");
+const Login = () => import("@/page/Login");
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',
-      redirect: 'hello'
+      redirect: 'index'
+    },
+    {
+      path:'/index',
+      name:'Index',
+      component:Index,
+      meta:{
+        requireAuth:true
+      }
+    },
+    {
+      path:'/login',
+      name:'Login',
+      component:Login
     },
     {
       path: '/hello',

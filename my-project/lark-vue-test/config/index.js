@@ -15,7 +15,7 @@ module.exports = {
         target:'http://www.phonegap100.com',
         changeOrigin:true,
         pathRewrite:{
-          '^/api':''
+          '^/api':'/'
         }
       }
     },

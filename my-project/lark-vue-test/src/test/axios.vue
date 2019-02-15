@@ -3,17 +3,27 @@
 </template>
 
 <script>
+//import GLOBAL from '@/api/global_variable.js'; //局部引用js
 export default {
     name:'axios',
     data(){
         return {}
     },
     mounted:function(){
-        this.axios.get('/api/appapi.php?a=getPortalList&catid=20&page=1').then((response)=>{
+        this.axios.get(this.GLOBAL.baseURL+'/appapi.php?a=getPortalList&catid=20&page=1').then((response)=>{
                console.log('response',response.data);
            }).catch((response)=>{
                console.log(response);
            })
+        console.log('axios',this);
+        $.ajax({
+            url:"http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1",
+            type:"GET",
+            dataType:"json",
+            success:function(data){
+                console.log("data",data);
+            }
+        })
     }
 }
 /**
