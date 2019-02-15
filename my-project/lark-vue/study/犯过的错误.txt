@@ -1,5 +1,7 @@
 1.上传github时，build文件未上传。
 2.vue如果引入jquery以及依赖jquery的插件。
+3.config/index.js文件 host 改为了本地ip地址报错。
+webpack-dev-server --inline --progress --config build/webpack.dev.conf.js
 
 阻止冒泡 e.stopPropagation();
 阻止默认 e.preventDefault();
