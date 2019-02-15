@@ -10,8 +10,8 @@ Vue.use(VueAxios,axios) //全局用axios
 
 
 //全局引入js变量
-import globalVariable from '@/api/global_variable.js'
-Vue.prototype.GLOBAL=globalVariable;
+import config from '@/api/config.js';
+Vue.prototype.config=config;
 
 //引入LogalStorage
 import storage from './api/storage';

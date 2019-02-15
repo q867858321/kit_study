@@ -2,7 +2,7 @@
     <div class="p_login">
         用户名：<input v-model:value='username' />{{this.username}} <br/>
         密码<input v-model:value='password' /> <br/>
-        <input type="button" value="登录" @click="login" />
+        <input type="button" value="登录" v-on:click="login" />
     </div>
 </template>
 
@@ -21,6 +21,9 @@ export default {
         login:function(){
             console.log("login",this);
             storage.setExpireStore('token','333');
+            if(true){
+                this.$router.push("/index");   //利用js跳转
+            }
         }
     }
 }

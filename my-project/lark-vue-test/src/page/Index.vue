@@ -1,6 +1,7 @@
 <template>
     <div class="p_index">
         首页
+        <router-link to="/login">登录</router-link>
     </div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
     },
     mounted:function(){
         console.log("Index",this);
+        console.log("config",this.config);
     }
 }
 </script>
