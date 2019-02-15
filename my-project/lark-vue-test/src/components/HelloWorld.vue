@@ -3,13 +3,18 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <router-link to="/father">to helo</router-link>
+    <axios></axios>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import axios from '@/test/axios';
 export default {
   name: "HelloWorld",
+  components:{
+    axios         
+  },
   data() {
     return {
       msg: "Welcome to Your Vue.js App"

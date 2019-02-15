@@ -1,6 +1,13 @@
 安装
 npx create-nuxt-app hello-nuxt
 
+下载包
+npm install
+运行 
+npm run dev
+打包
+npm run build
+
 安装sass
 npm install --save-dev node-sass sass-loader
 在nuxt.conf.js中修改
