@@ -1,8 +1,11 @@
 <template>
     <div class="p_login">
-        用户名：<input v-model:value='username' />{{this.username}} <br/>
+        用户名：<input v-model:value='username' />{{username|capitalize}} <br/>
         密码<input v-model:value='password' /> <br/>
         <input type="button" value="登录" v-on:click="login" />
+        <!-- on 绑定多个事件 -->
+        <span v-on='{click:login,mouseleave:MouseLeave}'>登录</span> 
+        <p>331</p>
     </div>
 </template>
 
@@ -17,6 +20,15 @@ export default {
             password:'222'
         }
     },
+    filters:{   //过滤器
+        capitalize:function(value){
+            if(!value){
+                return '';
+            }
+            value=value.toString();
+            return value.charAt(0).toUpperCase()+value.slice(1);
+        }
+    },
     methods:{
         login:function(){
             console.log("login",this);
@@ -24,6 +36,9 @@ export default {
             if(true){
                 this.$router.push("/index");   //利用js跳转
             }
+        },
+        MouseLeave:function(){
+            alert(33)
         }
     }
 }
