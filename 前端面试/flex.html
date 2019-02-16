@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{border:1px solid #f0f;display:flex;}
+        .box>div{flex:1;}
+        .box .box1{flex: none;width:100px;border:1px solid #f00;}
+        .box .box2{border:1px solid #0f0;}
+        .box .box3{border:1px solid #00f;}
+    </style>
+    <div class="box">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+    </div>
+    居中    
+    <style>
+        .bagbox{background:#f00;width:300px;height:300px;display: flex;justify-content: center; align-items: center;}
+        .zhibox{background:#0f0;width:100px;height:100px;}
+    </style>
+    <div class="bagbox">
+        <div class="zhibox">22</div>
+    </div>
+    相关：
+    父： display：flex;
+    子：flex:1; 某元素需要定宽：flex:none;width：100px; 控制宽度 
+    flex-direction   显示方向和顺序 
+        值  column 竖着排   
+            column-reverse 竖着排是倒序
+            row   横着排（默认）
+            row-reverse 横着排倒序  从右边
+    justify-content   富余空间管理
+    flex-wrap  如果一条轴排不下，如何换行。 
+        值   nowrap   不换行
+            wrap      换行、第一行在上方
+            wrap-reverse  换行、第一行在下方
+</body>
+</html>
