@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        span {
+            margin: 20px;
+        }
+    </style>
+    <span>1</span>
+    <span>2</span>
+    <script>
+        function add(a) {
+            return function (b) {
+                return a + b;
+            }
+        }
+        var dd = add(3)(4);
+        console.log(dd);
+
+    </script>
+</body>
+
+</html>
