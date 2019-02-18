@@ -1,14 +1,18 @@
 <template>
-  <div>子</div>
+  <div>
+    子
+    {{name}}
+  </div>
 </template>
 
 <script>
 export default {
   name: "son",
+  props: { name },
   data() {
     return {};
   },
-  mounded: function() {
+  mounted: function() {
     console.log("Son", this);
   }
 };

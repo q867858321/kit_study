@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .box {
+            border: 1px solid #f00;
+            width: 200px;
+            overflow: hidden;
+        }
+
+        .content {
+            background: #ff0;
+        }
+
+        .content li {
+            display: inline-block;
+        }
+
+        .top_menu_list {
+            overflow: hidden;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
+        }
+    </style>
+    <div class="top_menu_list">
+        <a class="btn cur">推荐</a>
+        <a class="btn">视频</a>
+        <a href="javascript:void(0)" data-channel="news_hot" data-query="channel=news_hot" class="btn">热点</a>
+        <a href="javascript:void(0)" data-channel="news_society" data-query="channel=news_society" class="btn">社会</a>
+        <a href="javascript:void(0)" data-channel="news_entertainment" data-query="channel=news_entertainment"
+            class="btn">娱乐</a>
+        <a href="javascript:void(0)" data-channel="news_military" data-query="channel=news_military" class="btn">军事</a>
+        <a href="javascript:void(0)" data-channel="news_tech" data-query="channel=news_tech" class="btn">科技</a>
+        <a href="javascript:void(0)" data-channel="news_car" data-query="channel=news_car" class="btn">汽车</a>
+        <a href="javascript:void(0)" data-channel="news_sports" data-query="channel=news_sports" class="btn">体育</a>
+        <a href="javascript:void(0)" data-channel="news_finance" data-query="channel=news_finance" class="btn">财经</a>
+        <a href="javascript:void(0)" data-channel="news_world" data-query="channel=news_world" class="btn">国际</a>
+        <a href="javascript:void(0)" data-channel="news_fashion" data-query="channel=news_fashion" class="btn">时尚</a>
+    </div>
+    <div class="box">
+        <ul class="content">
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+            <li>头条</li>
+        </ul>
+    </div>
+</body>
+
+</html>
