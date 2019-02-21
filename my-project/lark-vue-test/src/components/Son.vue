@@ -2,6 +2,7 @@
   <div>
     子
     {{name}}
+    <button @click="childMethod()">子点击</button>
   </div>
 </template>
 
@@ -14,6 +15,11 @@ export default {
   },
   mounted: function() {
     console.log("Son", this);
+  },
+  methods: {
+    childMethod() {
+      this.$emit("fatherClick", "1111");
+    }
   }
 };
 </script>

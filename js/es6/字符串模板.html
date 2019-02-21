@@ -10,14 +10,14 @@
 
 <body>
     <script>
-        let { foo: aa, bar } = { foo: "aaa", bar: "bbb" };
-        console.log('aa', aa); //"aaa"
-        console.log("foo", foo); //undefined
-        console.log("bar", bar);
-        var [foo = true] = [];  //初始化
-        console.log("foo", foo);       //"true"
-
+        let li = '';
+        let content = [{ name: "aaa", num: 1 }, { name: "aaa", num: 1 }, { name: "aaa", num: 1 }];
+        for (let i = 0; i < content.length; i++) {
+            li += `<li>名字：${content[i]},年龄：${content.num}</li>`
+        }
+        console.log(li);
     </script>
+
 </body>
 
 </html>

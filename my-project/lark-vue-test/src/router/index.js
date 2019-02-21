@@ -9,27 +9,46 @@ const Cate = () => import("@/components/Cate");
 
 const Index = () => import("@/page/Index");
 const Login = () => import("@/page/Login");
+//const Home = () => import('@/page/Home');
+import Home from '@/page/Home';
+const School = () => import('@/page/School');
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
       redirect: 'index'
     },
     {
-      path:'/index',
-      name:'Index',
-      component:Index,
-      meta:{
-        requireAuth:true
+      path: '/index',
+      name: 'Index',
+      component: Index,
+      meta: {
+        requireAuth: true
       }
     },
     {
-      path:'/login',
-      name:'Login',
-      component:Login
+      path: '/login',
+      name: 'Login',
+      component: Login,
+      beforeEnter: (to, from, next) => {
+        console.log('%c 路由独享守卫', 'color:blue');
+        console.log(to, from);
+        next();
+      }
+
+    },
+    {
+      path: '/home/:id',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/school',
+      name: "School",
+      component: School
     },
     {
       path: '/hello',

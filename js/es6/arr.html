@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    1,for
+    2,while
+
+    3，forEach
+    4、map
+    5、filter
+    6、some（）
+    7、every（）
+    <br>
+
+    <br>
+    8、reduce（）
+    9、reduceRight（）
+    <script>
+        let arr = [{ title: 'apple', read: 100 }, { title: 'orage', read: 40 }, { title: 'tomato', read: 20 }];
+        arr.forEach(function (item, index, arr) {
+            console.log(this, item, index, arr);
+        }, [1, 2, 3]);
+        //map 如果没有return 相当于 forEach,如果用map基本都有return
+        arr.map(function (item, index, arr) {
+            console.log(item, index, arr);
+        });
+        let arr1 = arr.map(function (item, index, arr) {
+            let json = {};
+            json.t = `${item.title}--`;
+            json.read = item.read;
+            return json;
+        });
+        console.log(arr1);
+
+        let newArr = arr.filter(function (item, index, arr) {
+            return item.read > 40;
+        });
+        console.log("filter", newArr);
+
+        let arr3 = [1, 2, 3, 4, 5];
+        let arr3New = arr3.reduce(function (prev, cur, index, arr) {
+            return prev + cur;
+        });
+        console.log("reduce", arr3New);
+    </script>
+</body>
+
+</html>

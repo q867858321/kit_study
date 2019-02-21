@@ -10,13 +10,10 @@
 
 <body>
     <script>
-        let { foo: aa, bar } = { foo: "aaa", bar: "bbb" };
-        console.log('aa', aa); //"aaa"
-        console.log("foo", foo); //undefined
-        console.log("bar", bar);
-        var [foo = true] = [];  //初始化
-        console.log("foo", foo);       //"true"
-
+        if (true) {
+            var a = 44;
+        }
+        //块级作用域
     </script>
 </body>
 
