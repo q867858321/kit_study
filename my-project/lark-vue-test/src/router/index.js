@@ -6,6 +6,7 @@ const HelloWorld = () => import("@/components/HelloWorld");
 const Father = () => import("@/components/Father");
 // import Cate from '@/components/Cate'
 const Cate = () => import("@/components/Cate");
+const StudentList = () => import("@/components/StudentList");
 
 const Index = () => import("@/page/Index");
 const Login = () => import("@/page/Login");
@@ -50,6 +51,8 @@ export default new Router({
       name: "School",
       component: School
     },
+
+    //模块测试
     {
       path: '/hello',
       name: 'HelloWorld',
@@ -64,5 +67,10 @@ export default new Router({
       component: Father,
       // component: resolve => require(['@/components/Father'], resolve),
     },
+    {
+      path: "/student",
+      name: "student",
+      component: StudentList
+    }
   ]
 })
