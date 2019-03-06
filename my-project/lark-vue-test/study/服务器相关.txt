@@ -12,3 +12,10 @@ location / {
     try_files $uri $uri/ /index.html;
 }
 
+nginx如何进行优化
+1. worker_processes  1;    nginx进程,一般设置为和cpu核数一样
+worker_processes 8;   #nginx 进程数，建议按照 cpu 数目来指定，一般为它的倍数。
+worker_cpu_affinity 00000001 00000010 00000100 00001000 00010000 00100000 01000000 10000000;
+2.keepalive_timeout 60;   #请求超时
+3.worker_connections 102400; #每个进成的最大连接数
+4.client_header_buffer_size 4k; #客户请求头的缓存大小

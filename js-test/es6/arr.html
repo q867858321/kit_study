@@ -27,6 +27,10 @@
         arr.forEach(function (item, index, arr) {
             console.log(this, item, index, arr);
         }, [1, 2, 3]);
+        // [].forEach.call(arr, function (item, index, arr) {
+        //     console.log(111);
+        //     console.log(item, index, arr);
+        // });
         //map 如果没有return 相当于 forEach,如果用map基本都有return
         arr.map(function (item, index, arr) {
             console.log(item, index, arr);

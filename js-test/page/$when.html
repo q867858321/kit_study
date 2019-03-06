@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,47 @@
     <title>Document</title>
     <script src="../jquery/jquery-3.3.1.js"></script>
 </head>
+
 <body>
     <ul>
         <li>22</li>
         <p>12</p>
         <li>22</li>
     </ul>
-    
+
     <script>
-        var name=$("ul").attr("name");
-        console.log("name",name);  //undefined
-        var h1name=$("h1").attr("name");
-        console.log("h1name",h1name);   //undefined
-        var h2name=document.getElementById("h2name");
-        console.log("h2name",h2name);    //null
-        var a=0;
-        function aa(){
+        var name = $("ul").attr("name");
+        console.log("name", name);  //undefined
+        var h1name = $("h1").attr("name");
+        console.log("h1name", h1name);   //undefined
+        var h2name = document.getElementById("h2name");
+        console.log("h2name", h2name);    //null
+        var a = 0;
+        function aa() {
             a++;
-            console.log("aa",a);
-            var params={type:0,startTime:"2018-11-07",endTime:"2018-11-21"};
+            console.log("aa", a);
+            var params = { type: 0, startTime: "2018-11-07", endTime: "2018-11-21" };
             return $.ajax({
-                type:"get",
-                data:params,
-                url:"http://imp.bjeit.com.cn/homePage/cover",
-                dataType : "jsonp",
-                success:function(data){
+                type: "get",
+                data: params,
+                url: "http://imp.bjeit.com.cn/homePage/cover",
+                dataType: "jsonp",
+                success: function (data) {
                     return data;
                 }
             })
         }
-        function bb(){
-            a=a+2;
-            console.log("bb",a);
+        function bb() {
+            a = a + 2;
+            console.log("bb", a);
             return "bb"
         }
-        $.when(bb(),aa()).done(function(ad,bd){
-            console.log("c",a);
-            console.log("c",ad);
-            console.log("c",bd);
+        $.when(bb(), aa()).done(function (ad, bd) {
+            console.log("c", a);
+            console.log("c", ad);
+            console.log("c", bd);
         })    
     </script>
 </body>
+
 </html>

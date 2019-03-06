@@ -8,8 +8,8 @@
     <router-link :to="'/school?id='+3">school</router-link>
     <router-link :to="{path:'/school',query:{id:'2'}}">school2</router-link>
     <For></For>
-    <Form></Form>
-    <Slider></Slider>
+    <Form></Form>www
+    <Cate></Cate>
   </div>
 </template>
 
@@ -17,9 +17,10 @@
 import For from "@/components/For.vue";
 import Form from "@/components/Form.vue";
 import Slider from "@/components/Slider.vue";
+import Cate from "@/components/Cate.vue";
 export default {
   name: "index",
-  components: { For, Form, Slider },
+  components: { For, Form, Slider, Cate },
   data() {
     return {};
   },

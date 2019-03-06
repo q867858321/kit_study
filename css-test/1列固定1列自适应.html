@@ -1,29 +1,70 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style type="text/css">
-			*{margin: 0;padding: 0;}
-			.box1{width:1000px;margin:0 auto;border: 1px solid #f00;display: flex;}
-			.box1 .div_l{height: 100px;background: #ff0;width:100px;flex:none}
-			.box1 .div_r{height: 100px;background: #f0f;flex:1;}
-		</style>
-		<style>
-			.box2{width:1000px;margin:0 auto;border: 1px solid #f00;display: flex;}
-			.box2 .div_l{height: 100px;background: #ff0;width:100px;margin-right:20px;}
-			.box2 .div_r{height: 100px;background: #f0f;flex:1;}
-		</style>
-	</head>
-	<body>
-		<div class="box1">
-			<div class="div_l">1</div>
-			<div class="div_r"> da ni hao </div>
-		</div>
-		
-		<div class="box2">
-			<div class="div_l">1</div>
-			<div class="div_r">2</div>
-		</div>
-	</body>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.box1 {
+			width: 1000px;
+			margin: 0 auto;
+			border: 1px solid #f00;
+			display: flex;
+		}
+
+		.box1 .div_l {
+			height: 100px;
+			background: #ff0;
+			width: 100px;
+			flex: none
+		}
+
+		.box1 .div_r {
+			height: 100px;
+			background: #f0f;
+			flex: 1;
+		}
+	</style>
+	<style>
+		.box2 {
+			width: 1000px;
+			margin: 0 auto;
+			border: 1px solid #f00;
+			display: flex;
+		}
+
+		.box2 .div_l {
+			height: 100px;
+			background: #ff0;
+			width: 100px;
+			margin-right: 20px;
+		}
+
+		.box2 .div_r {
+			height: 100px;
+			background: #f0f;
+			flex: 1;
+		}
+	</style>
+</head>
+
+<body>
+	父 设置为display:flex;
+	一边定宽，另外一边设置flex:1
+	<div class="box1">
+		<div class="div_l">1</div>
+		<div class="div_r"> da ni hao </div>
+	</div>
+
+	<div class="box2">
+		<div class="div_l">1</div>
+		<div class="div_r">2</div>
+	</div>
+</body>
+
 </html>

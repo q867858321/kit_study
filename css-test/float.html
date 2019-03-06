@@ -9,17 +9,20 @@
 </head>
 
 <body>
-    <script>
-        var person = {
-            "name": "张飞",
-            age: 28,
-            say: function () {
-                console.log(this);
-            }
+    <style>
+        .f {
+            border: 1px solid #000;
         }
-        console.log(person);  //对象
-        person.say();    //对象
-    </script>
+
+        .q1 {
+            float: left;
+        }
+    </style>
+    <div class="f">
+        父
+        <span class="q1">子1</span>
+        <div class="q2">子2</div>
+    </div>
 </body>
 
 </html>

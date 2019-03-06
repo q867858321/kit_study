@@ -10,15 +10,11 @@
 
 <body>
     <script>
-        var person = {
-            "name": "张飞",
-            age: 28,
-            say: function () {
-                console.log(this);
-            }
+        function a() {
+            console.log(1);
         }
-        console.log(person);  //对象
-        person.say();    //对象
+        a.prototype.show = { a: 3 };
+        console.log("a22", a.show); 
     </script>
 </body>
 
