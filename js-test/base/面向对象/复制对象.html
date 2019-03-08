@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            y: 1,
+            b: 3,
+            say: () => {
+                alert(4);
+            }
+        }
+        let copyObj = {};
+        for (let k in obj) {
+            //     //copyObj[k] = obj[k];
+            if (typeof obj[k] === 'function') { //function为引用类型
+                // console.log(obj[k].toString());
+                // eval(obj[k].toString());
+                copyObj[k] = eval(obj[k].toString());
+            } else {
+                copyObj[k] = obj[k];
+            }
+        }
+
+    </script>
+    <script>
+        //console.log(obj);
+    </script>
+</body>
+
+</html>

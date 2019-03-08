@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.对象（类）的创建
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            console.log(this);
+        }
+        Person.prototype.sayAge = function () { //为原型定义方法
+            alert(this.age);
+            console.log("sss", this);
+        };
+        Person.prototype.country = 'China';   //为原型定义公用属性
+
+        var person1 = new Person("weiwei", 23, 'student');
+        var person2 = new Person("lily", 21, 'Doctor');
+    </script>
+</body>
+
+</html>

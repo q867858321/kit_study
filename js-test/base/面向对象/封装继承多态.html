@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function myfun1() {
+            //私有属性
+            var private1 = '私有属性';
+            var privateMethod = function () {
+                alert(private1);
+            }
+            //实例属性
+            this.publicvar = '实例属性';
+            this.public1 = function () {
+                privateMethod();
+            }
+        }
+        var newfun1 = new myfun1();
+        newfun1.public1();
+        alert(newfun1.publicvar);
+        alert(newfun1.private1);
+    </script>
+    <script>
+        function myfun2() {
+
+        }
+        myfun2.staticvar = '这是静态属性';
+        myfun2.staticmethod = function () {
+            alert(myfun2.starticvar);
+        }
+
+    </script>
+</body>
+
+</html>
