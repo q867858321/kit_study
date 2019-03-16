@@ -307,13 +307,11 @@ __pycache__/
 .recommenders
 .settings
 .springBeans
-/build
 /code
 MANIFEST.MF
 _site/
 activemq-data
 bin
-build
 build.log
 dependency-reduced-pom.xml
 dump.rdb

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<style type="text/css">
+			.show{display: none;}
+			
+		</style>
+		<div class="div1">
+			<p class="gaibian">改变内容</p>
+			<p id="gaibian2">改变内容2</p>
+			<div class="div2">
+				<p>点击</p>
+				<div class="show">
+					显示内容
+				</div>
+			</div>
+			<p class="ajaxshow">1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			<p>1</p>
+			
+		</div>
+		<script type="text/javascript">
+			var dom=document.getElementById("gaibian2");
+			dom.onclick=function(){
+				this.style.color="red";	
+			};
+			$(".gaibian").on("click",function(){
+				$(this).html("已改变");
+			});
+			alert("加载完成自动触发");
+			$.ajax({
+				type:"get",
+				url:"http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1",
+				async:true,
+				success:function(data){
+					$(".ajaxshow").html(data);
+				}
+			});
+			$(".div2").on("click",function(){
+				$(".show").show();
+				alert("点击事件触发了");
+			});
+			$(window).on("onresize",function(){
+				console.log('onresize');
+				
+			});
+//			$(window).on("scroll",function(){
+//				alert("滚动事件触发了");
+//			})
+			var show=$(".show").is(":visible"); // :hidden
+			if(show){
+				alert("show元素显示了");
+			}else{
+				alert("show元素隐藏了");
+			}
+		document.addEventListener("visibilitychange", function() {
+		  console.log("document.hidden", document.hidden );
+		  alert("页面被打开了。");
+		});
+		
+		</script>
+	</body>
+</html>
