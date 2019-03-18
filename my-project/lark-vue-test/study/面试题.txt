@@ -18,6 +18,8 @@ render的返回值是VNode，VNode是Vue的虚拟DOM节点，里面包含（标�
 v-model.lazy、v-model.number、v-model.trim
 v-on:click.stop、v-on:click.prevent、v-on:keyup:enter
 .ctrl、.alt、.shift、.meta
+8、vue有哪些指令？
+答：v-model、v-bind、v-on、v-if、v-show、v-for
 
 8、子如何调用父组件的方法？
 a、this.$parent.event;this.$children.event(少用)、this.$refs.son
@@ -71,6 +73,7 @@ this.$store.getters.方法
 this.$store.commit("方法"，...)
 this.$store.dispatch("方法",...)
 
+15、
 什么叫发布订阅模式？
 发布---订阅模式又叫观察者模式，它定义了对象间的一种一对多的关系，让多个观察者对象同时
 监听某一个主题对象，当一个对象发生改变时，所有依赖于它的对象都将得到通知。
