@@ -5,17 +5,69 @@
 		<meta charset="utf-8">
 		<script async src="https://cdn.ampproject.org/v0.js"></script>
 		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+		
 		<title>Hello, AMPs</title>
+		<style amp-boilerplate>
+			body {
+				-webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+				animation: -amp-start 8s steps(1, end) 0s 1 normal both
+			}
+			
+			@-webkit-keyframes -amp-start {
+				from {
+					visibility: hidden;
+				}
+				to {
+					visibility: visible;
+				}
+			}
+			
+			@keyframes -amp-start {
+				from {
+					visibility: hidden
+				}
+				to {
+					visibility: visible
+				}
+			}
+		</style>
+		<noscript>
+			<style amp-boilerplate>
+				body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+			</style>
+		</noscript>
+		<style amp-custom>
+		  body {
+		    background-color: white;
+		  }
+		  amp-img {
+		    background-color: gray;
+		    border: 1px solid black;
+		  }
+		  /*amp-story-page{
+		  	background: #f00;
+		  }*/
+		</style>
 	</head>
 
 	<body>
 		<h1>Welcome to the mobile web</h1>
 		<img src="cat.png" alt="" />
-		<iframe src="http://h5res.appskyx.com/allgame/haidaoxuanzhuan/index.html" frameborder="0"></iframe>
-		1
+		<iframe src="http://h5res.appskyx.com/allgame/haidaoxuanzhuan/index.html" frameborder="0"></iframe> 1
 		<embed src="http://h5res.appskyx.com/allgame/haidaoxuanzhuan/index.html" type="" />2
 		<object data="http://h5res.appskyx.com/allgame/haidaoxuanzhuan/index.html" type=""></object>
 		<amp-img src="cat.png" alt="Welcome" height="4rem" width="4rem"></amp-img>
+		<amp-story>
+			<amp-story-page id="cover">22</amp-story-page>
+		</amp-story>
+		<amp-story-page>
+			<p class="my-element"
+		      animate-in="fly-in-left"
+		      animate-in-delay="0.3s"
+		      animate-in-duration="0.5s">
+		    I'm going to fly into the page from the left!</p>
+		</amp-story-page>
+		
 	</body>
 
 </html>
