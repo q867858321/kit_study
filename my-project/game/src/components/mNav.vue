@@ -5,37 +5,37 @@
                 <img src="//res.appskyx.net/allgame/ICON/dtsl/icon160.jpg" alt="user">
             </div>
             <div class="main">
-                <router-link to="/link" class="item active" href="">
+                <router-link to="/list" class="item active" href="">
                     <img src="@/assets/img/home.png" alt="home"> Home
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="action"> Action
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="adventure"> Adventure
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="puzzle"> Puzzle
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="home"> Racing
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="home"> Shoot
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="home"> Trivia
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="home"> Pixel Games
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="home"> Arcade
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="home"> Sports
                 </router-link>
-                <router-link to="/link" class="item" href="">
+                <router-link to="/list" class="item" href="">
                     <img src="@/assets/img/home.png" alt="home"> Strategy
                 </router-link>
             </div>

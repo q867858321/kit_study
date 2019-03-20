@@ -29,7 +29,7 @@
 export default {
     name:"mScroll",
     mounted:function(){
-        var swiper1 = new Swiper('.swiper-container',{
+        var swiper1 = new Swiper('.m_scroll .swiper-container',{
             slidesPerView: 1.5,
             spaceBetween: 5
         });

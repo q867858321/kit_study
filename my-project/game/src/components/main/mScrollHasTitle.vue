@@ -33,8 +33,8 @@
 export default {
     name:"mScrollHasTitle",
     mounted:function(){
-        var swiper1 = new Swiper('.swiper-container',{
-            slidesPerView: 1.5,
+        var swiper1 = new Swiper('.m_scrollHasTitle .swiper-container',{
+            slidesPerView: 2.2,
             spaceBetween: 5
         });
     }

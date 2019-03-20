@@ -27,15 +27,18 @@ export default {
 
 <style lang="less" scoped>
 .m_gameListNav{
+    border-bottom:2px solid #29b6f6;
+    background: #fff;
+    padding:5px 5px 10px 5px;
     span{
         color:#666;
         display: block;
         float: left;
-        padding:0.04rem 0.3rem;
+        padding:2px 15px;
         font-size: 1rem;
-        margin:0.5rem 0.5rem 0 0;
+        margin:0.2rem 0.5rem 0 0;
         background:#f5f5f5;
-        border-radius: 3px;
+        border-radius: 5px;
         &.active{
             background: #ff5d75;
 			color:#fff;
