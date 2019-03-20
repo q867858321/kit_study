@@ -10,7 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: () => import('./page/Index.vue')
+      component: () => import('./page/pIndex.vue')
     },
     {
       path: '/list',
@@ -18,7 +18,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('./page/List.vue')
+      component: () => import('./page/pList.vue')
     }
   ]
 })
