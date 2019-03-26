@@ -17,12 +17,21 @@ export default {
     methods:{
         get:function(){
             console.log("mattrnav",this);
-            this.$http.get('../assets/assembly.json').then(function(response){
-                console.log("response",response);
-            });
-            // this.$http.get('http://192.168.2.111:8764/manage/page/assembly/1').then(function(response){
+            // $.ajax({
+            //     type:"get",
+            //     url:"/manage/page/assembly/1",
+            //     dataType:"json",
+            //     success:function(data){
+            //         alert(22);
+            //         console.log("data",data);
+            //     }
+            // });
+            // this.$http.get('public/assembly.json').then(function(response){
             //     console.log("response",response);
-            // })
+            // });
+             this.$http.get('/manage/page/assembly/1').then(function(response){
+                 console.log("response",response);
+             })
         }
     }
 }

@@ -9,7 +9,7 @@ Vue.use(ElementUI);
 //引入axios
 import axios from 'axios'
 Vue.prototype.$http = axios;
-
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 Vue.config.productionTip = false
 
