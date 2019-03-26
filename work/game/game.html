@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html amp lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <script async src="https://cdn.ampproject.org/v0.js"></script>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+	    <link rel="icon" href="./img/logo.ico">
+	    <link rel="stylesheet" href="./css/public.css">
+	    <script src="./js/jquery.js"></script>
+	    <title>game</title>
+	    <style amp-boilerplate>
+	        body {
+	          -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+	          animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+	        }
+	        @-webkit-keyframes -amp-start {
+	          from {
+	            visibility: hidden;
+	          }
+	          to {
+	            visibility: visible;
+	          }
+	        }
+	        @keyframes -amp-start {
+	          from {
+	            visibility: hidden;
+	          }
+	          to {
+	            visibility: visible;
+	          }
+	        }
+	      </style>
+	    <noscript>
+	        <style amp-boilerplate>
+	          body{-webkit-animation:none;animation:none;}
+	        </style>
+	      </noscript>
+	    <script type="application/ld+json">
+	        {
+	          "@context": "http://schema.org",
+	          "@type": "NewsArticle",
+	          "mainEntityOfPage": "http://cdn.ampproject.org/article-metadata.html",
+	          "headline": "Lorem Ipsum",
+	          "datePublished": "1907-05-05T12:02:41Z",
+	          "dateModified": "1907-05-05T12:02:41Z",
+	          "description": "The Catiline Orations continue to beguile engineers and designers alike -- but can it stand the test of time?",
+	          "author": {
+	            "@type": "Person",
+	            "name": "Jordan M Adler"
+	          },
+	          "publisher": {
+	            "@type": "Organization",
+	            "name": "Google",
+	            "logo": {
+	              "@type": "ImageObject",
+	              "url": "http://cdn.ampproject.org/logo.jpg",
+	              "width": 600,
+	              "height": 60
+	            }
+	          },
+	          "image": {
+	            "@type": "ImageObject",
+	            "url": "http://cdn.ampproject.org/leader.jpg",
+	            "height": 2000,
+	            "width": 800
+	          }
+	        }
+	      </script>
+		<script type="text/javascript">
+		//	!function(e){var n=document.documentElement,t="orientationchange"in window?"orientationchange":"resize";function o(){var e=n.clientWidth;e?n.style.fontSize=e/640*100+"px":console.error("no client width given")}document.addEventListener?(o(),window.addEventListener(t,o,!1),document.addEventListener("DOMContentLoaded",o,!1)):console.error("please use this package in browser")}()
+		</script>
+		<script async custom-element="amp-iframe"
+    src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+	</head>
+	<body>
+		<style>
+			*{margin:0;padding: 0;}
+			html,body{height:100% !important;width: 100%;}
+			/*按钮*/
+			.pop_btn{position:fixed;z-index: 10;left:0;top: 5px;background:#000000;height:2.5rem;width:2.5rem;line-height: 3.3rem;text-align:center;opacity: 0.6;box-shadow: 0 1px 3px #4b65cc;border-radius: 0 0.75rem 0.75rem 0;}
+			.pop_btn img{width:1.5rem;}
+			
+			.obj_box{position:relative;top:0;left: 0;width: 100%;height: 100%;-webkit-overflow-scrolling: touch;overflow-y: scroll;}
+			
+			
+			/*#TODO begin*/
+			.clear:after{content:'';display: block;clear: both;}
+			.clear{zoom: 1;}
+			
+			.recommend_game_pop{
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				width:100%;
+				height: 100%;
+				background: hsla(0,0%,78%,.7);
+				display: none;
+			}
+			.recommend_game_pop_box{
+				position: absolute;
+				top:0;
+				left: 0;
+				width:10rem;
+				max-height: 100%;
+				overflow-y: auto;
+				overflow-x: hidden;
+				animation: game_pop 0.5s 1;
+				background:linear-gradient(180deg,#3ac977,#c1db61);
+				box-shadow: 0 2px 4px #4e546d;
+			}
+		    @keyframes  game_pop{
+		    	from{left:-10rem;}
+		    	to{left:0;}
+		    }
+		    .recommend_game_pop_box .header{
+		    	/*background: #3254dc;*/
+		    	height:2rem;
+		    	font-size:0.75rem;
+		    	padding: 0 0.625rem;
+		    }
+		    .recommend_game_pop_box .header img{
+		    	width:1.5rem;
+		    	margin-top: 0.5rem;
+		    }
+		    .recommend_game_pop_box .header .close_btn{
+		    	float:right;
+		    }
+		    .recommend_game_pop_box .content{
+		    	padding: 5px 5px 5px 6px;
+		    }
+		    .recommend_game_pop_box .content a{
+		    	display: block;
+		    	width:4.3rem;
+		    	float:left;
+		    	margin:5px 0 0;
+		    }
+		    .recommend_game_pop_box .content a:nth-of-type(2n+1){
+		    	margin-right:7px;
+		    }
+		    .recommend_game_pop_box .content a img{
+		    	border:1px solid #fff;
+		    	border-radius:5px;
+		    	width:100%;
+		    	height:100%;
+		    	box-shadow:0 1px 3px #545765;
+		    	display: block;
+		    }
+		    .recommend_game_pop_box .footer{
+		    	height:1.875rem;
+		    	line-height: 1.875rem;
+		    	font-size:0.875rem;
+		    	text-align: center;
+		    	border-top: 1px solid #fff;
+		    	font-weight: 800;
+		    	color:#fff;
+		    }
+			/*#TODO end*/
+		</style>
+		
+		
+		<div  class="pop_btn">
+			<img alt="menu" src="img/menu2.png"/>
+		</div>
+		<!--#TODO begin-->
+		<div class="recommend_game_pop">
+			<div class="recommend_game_pop_box">
+				<div class="header">
+					<a class="return_btn" href="javascript:void(0);" onclick="window.history.back(-1);">
+						<img alt="return" src="./img/return.png" />
+					</a>
+					<span class="close_btn"><img alt="close" src="./img/close1.png"></span>
+				</div>
+				<div class="content clear">
+					<a class="item" href="">
+						<img src="https://www.yiv.com/thumb/Elsa-Vs-Ariel-Fashion-Competition.jpg" alt="" />
+					</a>
+					<a class="item" href="">
+						<img src="https://www.yiv.com/thumb/Elsa-Vs-Ariel-Fashion-Competition.jpg" alt="" />
+					</a>
+					<a class="item" href="">
+						<img src="https://www.yiv.com/thumb/Elsa-Vs-Ariel-Fashion-Competition.jpg" alt="" />
+					</a>
+					<a class="item" href="">
+						<img src="https://www.yiv.com/thumb/Elsa-Vs-Ariel-Fashion-Competition.jpg" alt="" />
+					</a>
+					<a class="item" href="">
+						<img src="https://www.yiv.com/thumb/Elsa-Vs-Ariel-Fashion-Competition.jpg" alt="" />
+					</a>
+					<a class="item" href="">
+						<img src="https://www.yiv.com/thumb/Elsa-Vs-Ariel-Fashion-Competition.jpg" alt="" />
+					</a>
+					<a class="item" href="">
+						<img src="https://www.yiv.com/thumb/Elsa-Vs-Ariel-Fashion-Competition.jpg" alt="" />
+					</a>
+				</div>
+				<div class="footer">
+					Thank You!
+				</div>
+			</div>
+		</div>
+		<!--#TODO end-->
+		<div class="obj_box">
+			<iframe src="http://m.gameg.net/cellClick/18/7/cid=csly/gc=CSLY/" type="" scrolling="auto" style="height: 100%;width: 100%;"></iframe>
+		</div>
+		<script type="text/javascript">
+			//TODO begin
+			//弹出弹出框
+			$(".pop_btn").on("click",function(){
+				$(".recommend_game_pop").show();
+			});
+			$(".close_btn").on("click",function(){
+				$(this).parents(".recommend_game_pop").hide();
+			});
+			$(".recommend_game_pop").on("click",function(){
+				$(this).hide();
+			});
+			//滑动弹出框，底层动
+			$(".recommend_game_pop").on("touchmove",function(e){
+				e.preventDefault();
+			});
+			$(".recommend_game_pop_box").on("click",function(){
+				return false;
+			});
+//        TODO end
+		</script>
+		<!--<div style="margin-top:650px ;"></div>-->
+		<!--<amp-iframe width="200" height="100"
+    sandbox="allow-scripts allow-same-origin"
+    layout="responsive"
+    src="http://m.gameg.net/cellClick/9/2/cid=orggame/gc=CSLY/">
+    <amp-img placeholder layout="fill"
+src="./img/home.png">
+</amp-iframe>-->
+	</body>
+</html>

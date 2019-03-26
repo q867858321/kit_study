@@ -3,8 +3,8 @@
         <mAd></mAd> 
         <mBanner></mBanner>
         <mBannerHasWord></mBannerHasWord>
-        <mCell dNum="2"></mCell>
-        <mCell dNum="4"></mCell>
+        <mCell2></mCell2>
+        <mCell4></mCell4>
         <mScroll></mScroll>
         <mScrollHasTitle></mScrollHasTitle>
     </div>
@@ -14,7 +14,8 @@
 import mAd from '@/components/main/mAd.vue'
 import mBanner from '@/components/main/mBanner.vue'
 import mBannerHasWord from '@/components/main/mBannerHasWord.vue'
-import mCell from '@/components/main/mCell.vue'
+import mCell2 from '@/components/main/mCell2.vue'
+import mCell4 from '@/components/main/mCell4.vue'
 import mScroll from '@/components/main/mScroll.vue'
 import mScrollHasTitle from '@/components/main/mScrollHasTitle.vue'
 export default {

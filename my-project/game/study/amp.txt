@@ -1,0 +1,5 @@
+1.AMP 禁用部分 HTML 标签如<frame>、<form>、<input> 等
+2. <img> 、 <video> 用 <amp-img> 、 <amp-video>替换
+3.顶层标签必须包含 AMP 属性如： <html amp>
+4.<link rel="canonical" href="$SOME_URL" /> 
+link 引入css 必须是https

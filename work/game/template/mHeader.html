@@ -1,0 +1,42 @@
+ <div class="m_header">
+    <div class="title_header">
+        <span class="menu">
+        	<amp-img src="./img/menu4.png" alt="Welcome" height="0.32rem" width="0.32rem"></amp-img>
+        </span>
+        Game Center
+    </div>
+</div>
+
+<style type="text/css">
+	.m_header{height: 0.6rem;}
+	.m_header .title_header{
+		line-height: 0.6rem;
+        height: 0.6rem;
+        background:#5677fc;
+        font-size: 0.3rem;;
+        color: #fff;
+        position:fixed;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        width:100%;
+        text-align: center;
+    }
+    .m_header .title_header .menu{
+     	position: absolute;
+        left: 0.165rem;
+        width:0.32rem;;
+        height: 0.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+    .m_header .title_header .menu img{
+     	width:0.32rem;
+    }
+</style>
+<script type="text/javascript">
+	$(".menu").on("click",function(){
+        $(".m_nav").toggle();
+    });
+</script>

@@ -56,6 +56,9 @@ export default {
         $(".nav").on("click",function(){
             return false;
         });
+        $(".m_nav").on("touchmove",function(){
+            return false;
+        });
     }
 }
 </script>

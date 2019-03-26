@@ -3,6 +3,7 @@
     <mHeader></mHeader> 
     <mNav></mNav> 
     <mMain></mMain>
+    <iframe src="http://m.gameg.net/id=88/cid=orggame/gc=CSLY/"></iframe>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 </template>

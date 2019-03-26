@@ -29,6 +29,14 @@
                 <img v-lazy="'http://h5res.appskyx.com/allgame/ICON/gundongdebingqiu/iconbannersm.jpg'" alt="">
                 <p>Icy Spicy</p>
             </a>
+            <a class="item" href="/">
+                <img v-lazy="'http://h5res.appskyx.com/allgame/ICON/gundongdebingqiu/iconbannersm.jpg'" alt="">
+                <p>Icy Spicy</p>
+            </a>
+            <a class="item" href="/">
+                <img v-lazy="'http://h5res.appskyx.com/allgame/ICON/gundongdebingqiu/iconbannersm.jpg'" alt="">
+                <p>Icy Spicy</p>
+            </a>
         </div>
     </div>
 </template>
@@ -36,21 +44,29 @@
 <script>
 export default {
     name:'mCell',
-    props:['dNum'],
+    // props:['dNum'],
     data:function(){
         return{
-          //  num:'num2' //默认为num2
+             
         }
     },
-    computed:{
-        num:function(){
-            if(this.dNum==4){
-                return 'num4';
-            }else{
-                return 'num2';
-            }
-        }
+    // watch:{
+    //     dNum:function(newVal,oldVal){
+    //         this.num=this.dNum;
+    //     }
+    // },
+    mounted:function(){
+        console.log("mCell",this);
     }
+    // computed:{
+    //     num:function(){
+    //         if(this.dNum==4){
+    //             return 'num4';
+    //         }else{
+    //             return 'num2';
+    //         }
+    //     }
+    // }
 
 }
 </script>
@@ -76,16 +92,20 @@ export default {
 
             .item{
                 display: block;
-                width:50%;
+                width:25%;
                 margin-top:5px;
+                &:nth-of-type(2n+4){
+                    padding-right: 0;
+                }
                 img{
                     width:100%;
                     border-radius: 5px 5px 0 0 ;
                     display: block;
+                    border-radius: 12%;
+                    min-height: 4.5rem;
+                    box-shadow: 1px 2px 3px 0 rgba(50,50,50,.75);
                 }
-                &:nth-of-type(2n+1){
-                    padding-right: 5px;
-                }
+               
                 p{
                     font-size:0.75rem;
                     overflow: hidden;
@@ -93,27 +113,7 @@ export default {
                     text-overflow: ellipsis;
                     height:1.5rem;
                     line-height: 1.5rem;
-                    background: #eee;
                     border-radius: 0 0 5px 5px;
-                }
-            }
-            &.num4{
-                .item{
-                    width:25%;
-                    &:nth-of-type(2n){
-                        padding-right: 5px;
-                    }
-                    &:nth-of-type(2n+4){
-                        padding-right: 0;
-                    }
-                    img{
-                        border-radius: 12%;
-                        min-height: 4.5rem;
-                        box-shadow: 1px 2px 3px 0 rgba(50,50,50,.75);
-                    }
-                    p{
-                        background:none;
-                    }
                 }
             }
         }
