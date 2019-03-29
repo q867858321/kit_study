@@ -1,5 +1,5 @@
 html,body,div,a,p,h1,h2,h3,h4,h5,h6,iframe,img,ul,li{padding: 0;margin: 0;box-sizing: border-box;}
-a{text-decoration: none;color: #888;}
+a{text-decoration: none;color:#333;}
 i{font-style: normal;}
 ul,li{list-style: none;}
 html{width:100%;max-width: 540px;margin: 0 auto;font-family: Roboto,Lato,sans-serif!important;}
@@ -39,11 +39,13 @@ amp-img.i-amphtml-layout-fixed{display: block;}
 	font-size: 0.5rem;
 	color:#333;
 	padding:0 0.3125rem;
+	height: 20px;
+	overflow: hidden;
 }
 .header .icon{}
 .header .text{font-weight: 800;}
 .header .allbtn{
 	float:right;
 	color: #000;
-    font-size: 0.5rem;
+    font-size: 20px;
 }

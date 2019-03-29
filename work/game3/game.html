@@ -12,7 +12,7 @@
 	    <script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
 	    <script src="./js/jquery.js"></script>
 	    <script src="./js/swiper.js"></script>
-	    <title>gamelist</title>
+	    <title>game</title>
 	    <style amp-boilerplate>
 	        body {
 	          -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -74,29 +74,59 @@
 	      <!--<script type="text/javascript">
 			!function(e){var n=document.documentElement,t="orientationchange"in window?"orientationchange":"resize";function o(){var e=n.clientWidth;e?n.style.fontSize=e/640*100+"px":console.error("no client width given")}document.addEventListener?(o(),window.addEventListener(t,o,!1),document.addEventListener("DOMContentLoaded",o,!1)):console.error("please use this package in browser")}()
 		</script>-->
+		<style>
+			.playBox {
+				padding:10px 0 0;
+				height:150px;
+			}
+			.playBox .play_btn{
+				color:#fff;
+				background:#f00;
+				display: block;
+				width:110px;
+				font-size:20px;
+				margin:10px auto 0px;
+				padding:5px 0;
+				border-radius: 10px;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="p_list">
-			<div class="mListHeader"></div>
-			<div class="mGameListNav"></div>
-			<div class="mGameList"></div>
+		<div class="p_game">
+			<div class="mGameHeader"></div>
+			<div class="mGameShow"></div>
+			<div class="mGameAd"></div>
+			<div class="mGameExplain"></div>
+			<div class="mGameSimelar"></div>
+			<div class="playBox">
+				<a href="javascript:void(0);" class="play_btn">play</a>
+			</div>
 		</div>
 	</body>
 	<script async type="text/javascript">
 		$(function(){
 			//头部
-			$.get("./template/mListHeader.html",function(data){
-				$(".mListHeader").html(data);
+			$.get("./template/mGameHeader.html",function(data){
+				$(".mGameHeader").html(data);
 			});
-			//nav
-			$.get("./template/mGameListNav.html",function(data){
-				$(".mGameListNav").html(data);
+			//gameshow
+			$.get("./template/mGameShow.html",function(data){
+				$(".mGameShow").html(data);
 			});
-			//nav
-			$.get("./template/mGameList.html",function(data){
-				$(".mGameList").html(data);
+			//game广告
+			$.get("./template/mGameAd.html",function(data){
+				$(".mGameAd").html(data);
+			});
+			//game 详情
+			$.get("./template/mGameExplain.html",function(data){
+				$(".mGameExplain").html(data);
 			});
 			
+			//game推荐
+			$.get("./template/mGameSimelar.html",function(data){
+				$(".mGameSimelar").html(data);
+			});
 		});
 	</script>
 </html>
