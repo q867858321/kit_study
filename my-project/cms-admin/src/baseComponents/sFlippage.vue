@@ -1,52 +1,89 @@
 <template>
-    <div class="m_scroll">
-        <div class="swiper-container">
+    <div class="m_scroll" @click="show">
+        <div class="swiper-container" ref="scroll">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <a href="">
+                    <a href="javascript:void(0);">
                         <img src="http://h5res.appskyx.com/allgame/ICON/shuishangjiuyuan/iconbannersm.jpg"/>
                         <div class="item_bottem"> Save Santa !</div>
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="">
+                    <a href="javascript:void(0);">
                         <img src="http://h5res.appskyx.com/allgame/ICON/shuishangjiuyuan/iconbannersm.jpg"/>
                         <div class="item_bottem"> Save Santa !</div>
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="">
+                    <a href="javascript:void(0);">
                         <img src="http://h5res.appskyx.com/allgame/ICON/shuishangjiuyuan/iconbannersm.jpg"/>
                         <div class="item_bottem"> Save Santa !</div>
                     </a>
                 </div>
             </div>
+            
         </div>
+        <!-- <div class="change_box">
+            <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
+            <el-button type="primary" icon="el-icon-sort" size="mini"></el-button>
+        </div> -->
     </div>
 </template>
 
 <script>
 export default {
     name:"sFlippage",
+    props:["fippage",'num'],
+    data:function(){
+        return {
+            list:[
+
+            ],
+            indicator:"1",
+            statistic:"1",
+            color:"#ffffff",
+            occupy:"1",
+            action:"game",
+            source:"1",
+            speed:100,
+            height:"0"
+        }
+    },
+    computed:{
+        
+    },
+    watch:{
+         fippage:function(newval,oldval){
+             console.log("newval",neval);
+             alert(3);
+             this.speed=2000;
+         }
+    },
     mounted:function(){
+        console.log("sFlippage",this);
        this.runswiper();
     },
     methods:{
         runswiper:function(){
             console.log("sFlippage",this);
             let _this=this;
-            var swiper1 = new Swiper('.m_scroll .swiper-container',{
+            let swiper1 = new Swiper(_this.$refs.scroll,{
                 autoplay:true, //是否自动播放
-                slidesPerView: 1.5, //初始化的位置
-                speed:1000,  // 播放速度
-                spaceBetween: 5  //两个之间的间距
+                slidesPerView: 1, //初始化的位置
+                speed:_this.speed,  // 播放速度
+                spaceBetween: 5,  //两个之间的间距
+
             });
+        },
+        show:function(){
+            console.log(this.$refs);
         }
+        
     }
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .m_scroll{
     background:#fff;
     padding: 5px 0 0;
@@ -69,4 +106,6 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+
 </style>

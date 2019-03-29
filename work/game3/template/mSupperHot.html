@@ -1,0 +1,107 @@
+<div class="m_supperHot">
+	<div class="header">
+		<span class="icon iconfont icon-huo"></span>
+		<span class="text">Hot Game</span>
+		<a class="allbtn icon iconfont icon-more" href="javascript:void(0);"></a>
+	</div>
+	 <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
+                    <span class="img_text"><i class="play">88606</i> plays</span>
+                    <div class="item_bottem">Cricket</div>
+                    <div class="bg"></div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
+                    <span class="img_text"><i class="play">88606</i> plays</span>
+                    <div class="item_bottem">Cricket</div>
+                    <div class="bg"></div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
+                    <span class="img_text"><i class="play">88606</i> plays</span>
+                    <div class="item_bottem">Cricket</div>
+                    <div class="bg"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style type="text/css">
+	.m_supperHot{
+		background:#fff;
+		padding: 0.15625rem 0 0.15625rem;
+	}
+	.m_supperHot .swiper-container {
+		padding-left:5px;
+		padding-right: 5px;
+	}
+	.m_supperHot .swiper-container .swiper-slide{
+		/*background: rgba(129,196,58,.9);	*/
+		padding:32px 0 0;
+	}
+	
+	.m_supperHot .swiper-container .swiper-slide a{
+		display: block;
+		position:relative;
+		color:#fff;
+		margin:0 6px 0 10px;
+		background: linear-gradient(rgba(129,196,58,.5),rgba(129,196,58,.9));
+		border-radius: 10px;
+	}
+	.m_supperHot .swiper-container .swiper-slide:nth-of-type(2n) a{
+		margin:0 10px 0 6px;
+		background: linear-gradient(rgba(39,114,58,.5),rgba(39,114,58,.9));
+	}
+	.m_supperHot .swiper-container .swiper-slide a img{
+		display: block;
+		position:absolute;
+		top:-26px;
+		left:10px;
+        width:1.75rem;
+        height: 1.75rem;
+        
+        border-radius: 10px;
+        border:4px solid #fff;
+	}
+	.m_supperHot .swiper-container .swiper-slide a .img_text{
+		display: block;
+		margin-left: 68px;
+    	padding-top: 15px;
+	}
+	.m_supperHot .swiper-container .swiper-slide a .img_text .play{
+		color:#F99D00;
+	}
+	.m_supperHot .swiper-container .swiper-slide a .item_bottem {
+        font-size: 14px;
+        text-align: center;
+        padding:7px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    /*.m_supperHot .swiper-container .swiper-slide a .bg{
+    	background:rgba(129,196,58,.9);
+    	width:100%;
+    	height:60px;
+    	border-radius: 10px;
+    	position: absolute;
+    	bottom:0;
+    	top:10px;
+    	z-index: -1;
+    }*/
+</style>
+<script type="text/javascript">
+	var swiper1 = new Swiper('.m_supperHot .swiper-container',{
+        slidesPerView: 2,
+//      spaceBetween: 10
+    });
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./oauth2-v1.0.0.js" data-appid="20146" data-sp="502"></script>
+    <!--<script type="text/javascript" src="oauth2-v1.0.0.js" data-appid="20036"></script>-->
+</head>
+<body>
+    <script>
+        window.onload = function () {
+//            if(H5Model.Login.check()) {
+//                H5Model.Login.getInfo(function(userInfo) {
+//                    document.write("已登录" + userInfo.nickName + "<button onclick=\"logout()\">注销</button>");
+//                });
+//            } else {
+////                document.write("<button onclick=\"testLogin()\">登录</button>");
+//            }
+
+            H5Model.Login({}, function (userInfo) {
+                document.getElementById("login").innerHTML="已登录" + userInfo.nickName + "<button onclick=\"logout()\">注销</button>";
+            }, function () {
+                document.getElementById("login").innerHTML = "<button onclick=\"testLogin()\">登录</button>";
+            });
+        };
+        function testLogin() {
+            H5Model.Login.showPopup({
+            });
+        }
+        
+        function logout() {
+            H5Model.Login.signOut();
+        }
+    </script>
+    <div id="login">
+        <button onclick="testLogin()">登录</button>
+    </div>
+</body>
+</html>

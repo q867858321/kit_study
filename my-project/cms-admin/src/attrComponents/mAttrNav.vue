@@ -12,26 +12,16 @@
 </template>
 
 <script>
+import Http from '@/api/http.js';
 export default {
     name:"mAttrNav",
     methods:{
         get:function(){
             console.log("mattrnav",this);
-            // $.ajax({
-            //     type:"get",
-            //     url:"/manage/page/assembly/1",
-            //     dataType:"json",
-            //     success:function(data){
-            //         alert(22);
-            //         console.log("data",data);
-            //     }
-            // });
-            // this.$http.get('public/assembly.json').then(function(response){
-            //     console.log("response",response);
-            // });
-             this.$http.get('/manage/page/assembly/1').then(function(response){
-                 console.log("response",response);
-             })
+            
+            //  this.$http.get('/manage/page/assembly/1').then(function(response){
+            //      console.log("response",response.data);
+            //  })
         }
     }
 }

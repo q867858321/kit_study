@@ -24,6 +24,7 @@
 import mShow from '@/components/mShow.vue';
 import mAttrNav from '@/attrComponents/mAttrNav.vue';
 import mFlippage from '@/attrComponents/mFlippage.vue';
+import Http from '@/api/http.js';
 export default {
     name:"m_details",
     components:{
@@ -44,10 +45,19 @@ export default {
     mounted:function(){
         $(".m_details").on("click",function(){
         });
+       // this.getPageInfo();
     },
     methods:{
-        speedChange:function(data){
-            this.dFlippage.dFlipSpped=data;
+        getPageInfo:function(){
+            let _this=this;
+            Http.get('/manage/page/assembly/1').then(function(data){
+                console.log("data",data);
+                if(data!=null && data !=''){
+                    _this.$store.commit('updatePageInfo',data.data);
+                }
+                alert(3);
+                console.log(_this.$store.state.pageInfo);
+            });
         }
     }
 }
@@ -76,12 +86,12 @@ export default {
                 position: absolute;
                 width:322px;
                 top: 0;
-                left: 0;
+                left: 100px;
                 border:1px solid #eee;
                 background:#fff;
             }
             .main_content{
-                margin: 5px 0 0 350px;
+                margin: 5px 0 0 450px;
                 min-width: 900px;
             }
         }

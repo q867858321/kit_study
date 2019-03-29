@@ -1,58 +1,58 @@
 <template>
     <div class="m_show">
-        <draggable v-model="colors" @update="datadragEnd" :options = "{animation:500}">
+        <div>aaaaaaaaaa</div>
+        
+        <!-- <draggable v-model="changeMemberTab" @update="datadragEnd" :options = "{animation:500}">
             <transition-group>
-                <div v-for="item in colors" :key="item.text" class = "drag-item">
-                    <sFlippage :dFlippage="dFlippage" v-if="item.subassemblyId==1"></sFlippage>
+                <div v-for="(item ,index) in changeMemberTab" :key="index" class = "drag-item">
+                    <sFlippage v-if="item.subassemblyId==1"></sFlippage>
+                    <sGallery v-if="item.subassemblyId==2"></sGallery>
                 </div>
                 
             </transition-group>
+        </draggable> -->
+        <draggable element="div" v-model="list"  @update="datadragEnd" :options = "{animation:500}">
+            <div v-for="(item ,index) in list" :key="index">
+                {{item.name}}
+                <sFlippage :fippage='item' :num='index' v-if="item.subassemblyId==1"></sFlippage>
+                <sGallery v-if="item.subassemblyId==2"></sGallery>
+                <sGallery v-if="item.subassemblyId==3"></sGallery>
+            </div>
         </draggable>
+        {{list}}
+        <!-- <div v-for="(item ,index) in changeMemberTab" :key="index" class = "drag-item">
+            <sFlippage v-if="item.subassemblyId==1"></sFlippage>
+            <sGallery v-if="item.subassemblyId==2"></sGallery>
+        </div> -->
     </div>
 </template>
 
 <script>
 import draggable from 'vuedraggable';
 import sFlippage from '@/baseComponents/sFlippage.vue';
+import sGallery from '@/baseComponents/sGallery.vue';
 export default {
     name:"mShow",
     components: {
-        　　draggable,sFlippage
+        　　draggable,sFlippage,sGallery
     },
-    props:['dFlippage'],
+    props:[],
+    computed:{
+        changeMemberTab(){
+            return this.$store.state.pageInfo;
+        }
+    },
+    watch:{
+        changeMemberTab:function(newval,oldval){
+            console.log('newval',newval);
+            console.log('oldval',oldval);
+            this.list=newval;
+        }
+    },
     data:function(){
         return {
             msg:"这是测试组件",
-            colors: [
-                {
-                    text: "Aquamarine",
-                    contents:{
-                        image:{
-                            originalUrl:"http://image.appskyx.com/res/10001/image/icon/微信图片_20181212152309.png",
-                            originalFormat:null,
-                            originalSize:0
-                        }
-                    },
-                    orderNum:2,
-                    attributes:{
-                        indicator:1,
-                        statistic:1,
-                        color:'#ffffff',
-                        action:'game',
-                        source:'1',
-                        speed:100,
-                        height:0
-                    },
-                    id:30,
-                    subassemblyId:1
-                }, 
-                {
-                    text: "Hotpink",
-                }, 
-                {
-                    text: "Gold",
-                }
-            ],
+            list:this.$store.state.pageInfo||[],
             startArr:[],
             endArr:[],
             count:0,
@@ -71,11 +71,7 @@ export default {
     },
     mounted () {
         console.log("mShow",this);
-        //为了防止火狐浏览器拖拽的时候以新标签打开，此代码真实有效
-        document.body.ondrop = function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
+        
     }
 }
 </script>
@@ -83,7 +79,7 @@ export default {
 <style lang="less" scoped>
 .m_show{
     height:568px;
-    overflow-x: hidden;
+    
 }
 
 </style>
