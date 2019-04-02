@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+	</head>
+	<body>
+	<div style="height:1900px;">
+		2222
+		<!--<div id="banner_video" style="width:300px;height:640px;"></div>-->
+	</div>
+
+<script type="text/javascript" src="//vijs.rayjump.com/bin/vijs.js" onload="Vijs.init(this);" sign="42b074da252e12fc794e5e797df356cf" appid="113273"></script>
+<script type="text/javascript">
+    if (window.Vijs) {
+        window.myAd84161 = Vijs.setAD({
+            unitid: 84161,
+            loadedCallback: function() {
+                console.log('load success');
+            },
+            rewardedCallback: function(reward_name, reward_amount) {
+                console.log(reward_amount);
+            }
+        });
+    }
+
+    function showAd84161() {
+        window.myAd84161 && window.myAd84161.show();
+    }
+</script>
+	</body>
+</html>
