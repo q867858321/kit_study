@@ -2,10 +2,10 @@
 <div>
 <el-collapse v-if="editSpecComponent" :value="Object.keys(attributes)">
   <el-form v-if="activeNames.length" ref="dataForm" :model="attributes" >
-	  <el-collapse-item v-for="(attr, index) in getSpecCompAttr" :title="attr.name" :name="attr.eName">
+	  <el-collapse-item v-for="(attr, index) in getSpecCompAttr" :title="attr.name" :name="attr.eName"  :key='index'>
 	    <div v-if="attr.type=='radio'">
 	        <el-radio-group v-model="attributes[attr.eName]">
-	          <el-radio v-for="option in attr.attrOptionList" :label="option[0]">{{option[1]}}</el-radio>
+	          <el-radio v-for="(option,index) in attr.attrOptionList" :label="option[0]" :key='index' >{{option[1]}}</el-radio>
 	        </el-radio-group>
 	    </div>
 	    <div v-if="attr.type=='select'">

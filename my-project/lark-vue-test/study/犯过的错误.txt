@@ -5,3 +5,10 @@ webpack-dev-server --inline --progress --config build/webpack.dev.conf.js
 
 阻止冒泡 e.stopPropagation();
 阻止默认 e.preventDefault();
+
+在模板内的事件阻止冒泡？
+@click.stop="fn"
+
+map,forEach区别？
+forEach返回值为undefined
+map有返回新数组，原数组保持不变

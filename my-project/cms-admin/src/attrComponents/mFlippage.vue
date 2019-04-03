@@ -1,10 +1,10 @@
 <template>
-    <div class="m_flippage">
-        <h3>属性</h3>
+    <div class="m_flippage" @click="submitData">
+        <h3 >属性</h3>
         <div class="arrt_box">
             <div class="item">
                 <p class="title">默认行为</p>
-                <el-select v-model="value" placeholder="请选择">
+                <el-select v-model="action" placeholder="请选择">
                     <el-option
                     v-for="item in options"
                     :key="item.value"
@@ -42,7 +42,10 @@
 <script>
 export default {
     name:"mFlippage",
+    props:["fData",'fIndex'],
     data:function(){
+         let attributes=this.fData.attributes;
+         console.log("attributes",attributes);
         return {
              options: [{
                 value: 'game',
@@ -54,21 +57,84 @@ export default {
                    value: 'page',
                    label: '专题页' 
                 }],
-            value: '',
+            action: 'game',
             speed: 100,
-            indicator:'1',
+            indicator:"0",
             occupy:'1',
-            height:0,
-            color: '#FFFFFF'
+            height:"20",
+            color: '#f00',
+            source:'1',  //wu
+            statistic:'1' //wu
         }
+    },
+    watch:{
+        fData:function(){
+            let attributes=this.fData.attributes;
+            this.action=attributes.action;
+            this.speed=attributes.speed;
+            this.indicator=attributes.indicator;
+            this.occupy=attributes.occupy;
+            this.height=attributes.height;
+            this.color=attributes.color;
+        },
+    },
+    mounted:function(){
+        console.log("mFlippage this",this);
     },
     methods:{
         speedChange:function(){
-            // this.$emit("speed", this.speed);
 
         },
         heightChange:function(){
-            console.log(222);
+        },
+        submitData:function(){
+            let data={
+                index:this.fIndex,
+                item:{
+                    attributes:{
+                        action:this.action,
+                        color:this.color,
+                        height:this.height,
+                        indicator:this.indicator,
+                        occupy:this.occupy,
+                        source:this.source,
+                        speed:this.speed,
+                        statistic:this.statistic
+                    },
+                    "contents":[
+                        {
+                            "image":{
+                                "originalUrl":"http://h5res.appskyx.com/allgame/ICON/shuishangjiuyuan/iconbannersm.jpg",
+                                "originalFormat":"png",
+                                "originalSize":1869
+                            },
+                            "createTime":"2019-01-18 12:52:08",
+                            "orderNum":1,
+                            "id":55,
+                            "isNew":false,
+                            "type":2,
+                            "content":"6",
+                            "via":null
+                        }
+                    ],
+                    "orderNum":1,
+                     "id":29,
+                    "subassemblyId":1
+                },
+                type:'1'
+            };
+             this.$store.commit('chooseTemement',data);
+             
+             let pageInfo=this.$store.state.pageInfo;
+             let num=this.fIndex;
+             let newpageInfo=pageInfo.map(function(item,index){
+                 if(num==index){
+                     item=data.item;
+                 }
+                 return item;
+             });
+             console.log("newpageInfo",newpageInfo);
+             this.$store.commit('updatePageInfo',newpageInfo);
         }
     }
 }

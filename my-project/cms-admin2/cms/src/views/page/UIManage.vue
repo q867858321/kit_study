@@ -10,7 +10,7 @@
 						<el-tag
 						v-for="(tag, index) in complist"
 						 @close='addComponent(defaultAddMap[tag.id])'
-						  closable>
+						  closable :key='index'>
 						  {{tag.name}}({{compLenObj[tag.name]||0}})
 						</el-tag>
 					</div>

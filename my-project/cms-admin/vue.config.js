@@ -1,6 +1,12 @@
 const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 
+const express=require('express');
+const app=express();
+var apiRoutes=express.Router();
+app.use('/api',apiRoutes);
+
+
 module.exports = {
     baseUrl: process.env.NODE_ENV === 'production'? './' : '/', // 根域上下文目录
     outputDir: 'dist', // 构建输出目录
@@ -45,6 +51,12 @@ module.exports = {
                 changOrigin: true,
             }
         },
-        before: app => { }
+        before: app => {
+            let date=new Date();
+            app.get('/api/page/assembly/1',function(req,res){
+                let data=require("./static/assembly.json");
+                res.json(data);
+            })
+         }
     }
 }

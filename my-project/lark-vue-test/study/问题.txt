@@ -1,0 +1,3 @@
+常见的处理方式？
+1.删除下标固定的某一相？
+ this.list.splice(index,1);

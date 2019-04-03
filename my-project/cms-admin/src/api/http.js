@@ -6,10 +6,12 @@ import QS from 'qs';
  * @param {Object} params [请求时携带的参数]
  */
 function get(url, params){    
+    var num=new Date();
     return new Promise((resolve, reject) =>{        
         axios.get(url, {            
             params: params        
-        }).then(res => {
+        }
+).then(res => {
             resolve(res.data);
         }).catch(err =>{
             reject(err.data)        
