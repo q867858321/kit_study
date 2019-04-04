@@ -5,8 +5,8 @@ import permission from './modules/permission'
 import user from './modules/user'
 import getters from './getters'
 import page from './modules/page'
-Vue.config.devtools = process.env.NODE_ENV === 'development';
-Vue.use(Vuex);
+Vue.config.devtools = process.env.NODE_ENV === 'development'
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
@@ -16,7 +16,6 @@ const store = new Vuex.Store({
     user
   },
   getters
-});
+})
 
 export default store
-
