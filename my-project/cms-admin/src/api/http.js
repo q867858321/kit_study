@@ -1,5 +1,6 @@
 import axios from 'axios';
 import QS from 'qs'; 
+import { Message } from 'element-ui'
 /**
  * get方法，对应get请求
  * @param {String} url [请求的url地址]
@@ -36,11 +37,11 @@ axios.interceptors.response.use( response => {
         return response;
     },  error => {
     if (error.response) {
-        console.log("this");
-        console.log("this",this);
-        // console.log("请求错误url",error.response.request.responseURL);
-        // console.log("请求错误状态",error.response.status);
-        // console.log("---------");
+        Message({
+            message:+error.response.status+","+error.response.statusText || 'error occur',
+            type: 'error',
+            duration: 3 * 1000
+        })
     switch (error.response.status) {
         case 401:
         // store.dispatch('logout');

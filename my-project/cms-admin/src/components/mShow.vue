@@ -1,6 +1,5 @@
 <template>
     <div class="m_show" @click="showData()">
-        <!-- {{this.$store.state.pageChooseTemementData}} -->
         <draggable element="div" v-model="list"  @update="datadragEnd" :options = "{animation:500}">
             <div v-for="(item ,index) in list" :key="index" class="item" :class="isactive==index?'active':''" @click="choose(index,item,item.subassemblyId)">
                 <sFlippage :scroll='item' :num='index' v-if="item.subassemblyId==1"></sFlippage>
@@ -18,10 +17,11 @@
 import draggable from 'vuedraggable';
 import sFlippage from '@/baseComponents/sFlippage.vue';
 import sGallery from '@/baseComponents/sGallery.vue';
+import mTest from '@/components/mTest.vue';
 export default {
     name:"mShow",
     components: {
-        　　draggable,sFlippage,sGallery
+        　　draggable,sFlippage,sGallery,mTest
     },
     props:[],
     data:function(){
@@ -46,7 +46,7 @@ export default {
         },
     },
      mounted () {
-        console.log("mShow",this);
+        // console.log("mShow",this);
         
     },
      methods:{
@@ -55,9 +55,6 @@ export default {
         },
         choose(index,item,type){ //重要方法
             this.isactive=index;
-            // console.log("index",index);
-            // console.log("item",item);
-            // alert(2);
             this.$store.commit('chooseTemement',{index,item,type});
         },
         deleteItem(index){
@@ -70,7 +67,7 @@ export default {
             console.log(this.colors);
         },
         showData(){
-            console.log("mShow",this);
+            // console.log("mShow",this);
         }
     }
    

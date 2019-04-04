@@ -1,9 +1,9 @@
 <template>
-    <div class="m_attr_controller" @click="showaaa()">
-        controller
-        <div :if="pageChooseTemementData.type==1">
+    <div class="m_attr_controller">
+        <!-- {{pageChooseTemementData}} -->
+        <template v-if="pageChooseTemementData.type==1">
             <mFlippage :fData="pageChooseTemementData.data" :fIndex="pageChooseTemementData.index"></mFlippage>
-        </div>
+        </template>
         
     </div>
 </template>
@@ -19,9 +19,9 @@ export default {
         let  temementData=this.$store.state.pageChooseTemementData; //初次渲染，极大概率为空
         return {
             pageChooseTemementData:{    //从store获取过来的数据临时存放地
-                data:temementData.data||'',
-                index:temementData.index||'',
-                type:temementData.type||''
+                // data:null,
+                // index:null,
+                // type:null
             }
         }
     },
@@ -35,6 +35,9 @@ export default {
         witchPageChooseTemementData:function(newval,oldval){
             this.pageChooseTemementData=newval;
         }
+    },
+    mounted:function(){
+        // this.showaaa();
     },
     methods:{
         showaaa:function(){

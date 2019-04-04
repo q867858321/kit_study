@@ -9,7 +9,7 @@
             <div class="swiper-pagination" :style="{display:this.scroll.attributes.indicator=='1'?'block':'none'}"></div>
         </div>
         <div class="line" :style="{display:this.scroll.attributes.occupy==1?'block':'none',background:this.scroll.attributes.color,'margin-top':this.scroll.attributes.height+'px'}"></div>
-        {{this.scroll.attributes}}
+        {{this.scroll.orderNum}}
     </div>
 </template>
 
@@ -43,11 +43,12 @@ export default {
     //     }
     // },
     mounted:function(){
-        //console.log("sFlippage",this);
+        console.log("sFlippage",this);
        this.runswiper();
-       console.log("sFlippage",this);
+    //    console.log("sFlippage",this);
     },
     updated:function(){
+
     },
     methods:{
         runswiper:function(){

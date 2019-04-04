@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        pageInfo:[   //获取下来的数据  
+        pageInfo:[   //获取下来的数据 视图展示的数据  
         ],
         pageChooseTemementData:{    //临时选中暂时储存位置
             data:'',
@@ -15,8 +15,17 @@ export default new Vuex.Store({
         submitPageInfo:{}
     },
   mutations: {
-    updatePageInfo(state,data){
+    addPageInfo(state,data){
       state.pageInfo=data;
+    },
+    updatePageInfo(state,data){ //头部追加数据
+      state.pageInfo.unshift(data);
+      // let temData=state.pageInfo.map(function(item,index){
+      //     let num=item.orderNum+1;
+      //     return Object.assign(item,{orderNum:num})
+      // });
+      // temData.unshift(data);
+      // state.pageInfo=temData;
     },
     chooseTemement(state,data){
 

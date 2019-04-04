@@ -22,10 +22,10 @@ service.interceptors.request.use(
   },
   error => {
     // Do something with request error
-    console.log(error); // for debug
+    console.log(error) // for debug
     Promise.reject(error)
   }
-);
+)
 
 // response interceptor
 service.interceptors.response.use(
@@ -39,13 +39,13 @@ service.interceptors.response.use(
   response => {
     console.debug('service.interceptors.response.use', response)
     store.dispatch('setDate', response.headers.date)
-    const res = response.data;
+    const res = response.data
     if (res.code !== 1) {
       Message({
         message: res.msg || 'error occur',
         type: 'error',
         duration: 5 * 1000
-      });
+      })
       // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
       if (res.code === 30102 || res.code === 50012 || res.code === 50014) {
         // 请自行在引入 MessageBox
@@ -59,7 +59,7 @@ service.interceptors.response.use(
             location.reload() // 为了重新实例化vue-router对象 避免bug
           })
         })*/
-        location.href='/login'
+        location.href = '/login'
       }
       return Promise.reject('error')
     } else {
@@ -67,18 +67,18 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error); // for debug
+    console.log('err' + error) // for debug
     Message({
       message: error.message,
       type: 'error',
       duration: 5 * 1000
-    });
+    })
     return Promise.reject(error)
   }
-);
+)
 export default service
-export function formData(params) {
-  var bodyFormData = new FormData();
+export function formData (params) {
+  var bodyFormData = new FormData()
   for (const ikey in params) {
     if (params[ikey] !== undefined) {
       bodyFormData.set(ikey, params[ikey])

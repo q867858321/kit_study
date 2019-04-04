@@ -35,13 +35,13 @@ export default {
         return {
            dFlippage:{
                dFlipSpped:2000
-           }
+           },
         }
     },
     watch:{
         'value':function(newVal){
             console.log("newVal",newVal);
-        }
+        },
     },
     mounted:function(){
         $(".m_details").on("click",function(){
@@ -52,11 +52,11 @@ export default {
         getPageInfo:function(){
             let _this=this;
             let url="/manage/page/assembly/1";
-            let urlTest="/api/page/assembly/"; //带/api的为请求本地的地址
+            let urlTest="/api/page/assembly/1"; //带/api的为请求本地的地址
             Http.get(urlTest).then(function(data){
                 // console.log("data",data);
                 if(data!=null && data !=''){
-                    _this.$store.commit('updatePageInfo',data.data);
+                    _this.$store.commit('addPageInfo',data.data);
                 }
                // console.log(_this.$store.state.pageInfo);
             });

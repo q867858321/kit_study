@@ -171,6 +171,6 @@ var theme = {
       width: 5
     }
   }
-};
+}
 
-echarts.registerTheme('macarons', theme);
+echarts.registerTheme('macarons', theme)

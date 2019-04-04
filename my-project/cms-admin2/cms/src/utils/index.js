@@ -4,7 +4,7 @@
  * @date 2/20/19
  */
 
-export function parseTime(time, cFormat) {
+export function parseTime (time, cFormat) {
   if (arguments.length === 0) {
     return null
   }
