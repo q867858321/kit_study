@@ -52,7 +52,7 @@ export default {
         getPageInfo:function(){
             let _this=this;
             let url="/manage/page/assembly/1";
-            let urlTest="/api/page/assembly/1"; //带/api的为请求本地的地址
+            let urlTest="/api/page/assembly/"; //带/api的为请求本地的地址
             Http.get(urlTest).then(function(data){
                 // console.log("data",data);
                 if(data!=null && data !=''){
