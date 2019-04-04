@@ -1,13 +1,13 @@
 import has from './has'
 
-const install = function(Vue) {
+const install = function (Vue) {
   Vue.directive('has', has)
-};
+}
 
 if (window.Vue) {
-  window.has = has;
+  window.has = has
   Vue.use(install); // eslint-disable-line
 }
 
-has.install = install;
+has.install = install
 export default has
