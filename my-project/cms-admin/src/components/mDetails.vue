@@ -14,7 +14,7 @@
             </div>
             <div class="main_content">
                 <mAttrNav></mAttrNav>
-                <mFlippage></mFlippage>
+                <mAttrController></mAttrController>
             </div>
         </div>
     </div>
@@ -23,40 +23,42 @@
 <script>
 import mShow from '@/components/mShow.vue';
 import mAttrNav from '@/attrComponents/mAttrNav.vue';
-import mFlippage from '@/attrComponents/mFlippage.vue';
+
+import mAttrController from '@/attrComponents/mAttrController.vue';
 import Http from '@/api/http.js';
 export default {
     name:"m_details",
     components:{
-        mShow,mAttrNav,mFlippage
+        mShow,mAttrNav,mAttrController
     },
     data:function(){
         return {
            dFlippage:{
                dFlipSpped:2000
-           }
+           },
         }
     },
     watch:{
         'value':function(newVal){
             console.log("newVal",newVal);
-        }
+        },
     },
     mounted:function(){
         $(".m_details").on("click",function(){
         });
-       // this.getPageInfo();
+        this.getPageInfo();
     },
     methods:{
         getPageInfo:function(){
             let _this=this;
-            Http.get('/manage/page/assembly/1').then(function(data){
-                console.log("data",data);
+            let url="/manage/page/assembly/1";
+            let urlTest="/api/page/assembly/1"; //带/api的为请求本地的地址
+            Http.get(urlTest).then(function(data){
+                // console.log("data",data);
                 if(data!=null && data !=''){
-                    _this.$store.commit('updatePageInfo',data.data);
+                    _this.$store.commit('addPageInfo',data.data);
                 }
-                alert(3);
-                console.log(_this.$store.state.pageInfo);
+               // console.log(_this.$store.state.pageInfo);
             });
         }
     }

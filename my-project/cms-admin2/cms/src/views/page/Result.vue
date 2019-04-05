@@ -2,7 +2,7 @@
 	<div>
 		<div class="re-box">
 			<draggable @end="endFn" v-model="editResultCopy">
-				<RItem v-for="(item,index) in editResultCopy" :data="item" :indexNum="index"/>
+				<RItem v-for="(item,index) in editResultCopy" :data="item" :indexNum="index" :key='index'/>
 			</draggable>
 			
 		</div>

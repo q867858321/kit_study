@@ -3,7 +3,7 @@
 		<div class="TabWrapper">
 			<div class="TabScroller">
 				<draggable v-model="contentList" class="scrollBox">
-					<div class="TabItem" v-for="(item,index) in contentList" @click="$emit('update:spObj',item)">
+					<div class="TabItem" v-for="(item,index) in contentList" :key="index" @click="$emit('update:spObj',item)">
 						<div class="TabAxis">
 							<i :class="{'isactive':item==spObj,'el-icon-success':true}"></i>
 							<div class="itemImg">

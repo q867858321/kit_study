@@ -9,7 +9,7 @@ const app = {
     sidebar: {
       opened: !+Cookies.get('sidebarStatus'),
       withoutAnimation: false
-    },
+    }
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {
@@ -22,8 +22,8 @@ const app = {
       state.sidebar.withoutAnimation = false
     },
     CLOSE_SIDEBAR: (state, withoutAnimation) => {
-      Cookies.set('sidebarStatus', 1);
-      state.sidebar.opened = false;
+      Cookies.set('sidebarStatus', 1)
+      state.sidebar.opened = false
       state.sidebar.withoutAnimation = withoutAnimation
     },
     SET_DATE: (state, str) => {
@@ -31,39 +31,39 @@ const app = {
     },
     SET_CHANNELLIST: (state, channelList) => {
       state.channelList = channelList
-    },
+    }
   },
   actions: {
-    toggleSideBar({
+    toggleSideBar ({
       commit
     }) {
       commit('TOGGLE_SIDEBAR')
     },
-    closeSideBar({
+    closeSideBar ({
       commit
     }, {
       withoutAnimation
     }) {
       commit('CLOSE_SIDEBAR', withoutAnimation)
     },
-    setDate({
+    setDate ({
       commit
     }, str) {
       commit('SET_DATE', str)
     },
-    setChannelList({
+    setChannelList ({
       commit
     }) {
       return new Promise(resolve => {
         channelListApi(undefined).then(res => {
-          commit("SET_CHANNELLIST", res);
+          commit('SET_CHANNELLIST', res)
           resolve()
         }).catch(err => {
-
+          console.log('err', err)
         })
       })
-    },
+    }
   }
-};
+}
 
 export default app

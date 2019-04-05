@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html amp lang="en">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-	    <script async src="https://cdn.ampproject.org/v0.js"></script>
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
 	    <link rel="icon" href="./img/logo.ico">
@@ -13,33 +12,6 @@
 	    <script src="./js/jquery.js"></script>
 	    <script src="./js/swiper.js"></script>
 	    <title>game</title>
-	    <style amp-boilerplate>
-	        body {
-	          -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-	          animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-	        }
-	        @-webkit-keyframes -amp-start {
-	          from {
-	            visibility: hidden;
-	          }
-	          to {
-	            visibility: visible;
-	          }
-	        }
-	        @keyframes -amp-start {
-	          from {
-	            visibility: hidden;
-	          }
-	          to {
-	            visibility: visible;
-	          }
-	        }
-	      </style>
-	    <noscript>
-	        <style amp-boilerplate>
-	          body{-webkit-animation:none;animation:none;}
-	        </style>
-	      </noscript>
 	    <script type="application/ld+json">
 	        {
 	          "@context": "http://schema.org",
@@ -75,20 +47,38 @@
 			!function(e){var n=document.documentElement,t="orientationchange"in window?"orientationchange":"resize";function o(){var e=n.clientWidth;e?n.style.fontSize=e/640*100+"px":console.error("no client width given")}document.addEventListener?(o(),window.addEventListener(t,o,!1),document.addEventListener("DOMContentLoaded",o,!1)):console.error("please use this package in browser")}()
 		</script>-->
 		<style>
+			.p_game{
+				background:#f4f4f4;
+			}
 			.playBox {
 				padding:10px 0 0;
 				height:150px;
 			}
 			.playBox .play_btn{
 				color:#fff;
-				background:#f00;
+				background:#CB4042;
 				display: block;
-				width:110px;
-				font-size:20px;
-				margin:10px auto 0px;
-				padding:5px 0;
-				border-radius: 10px;
+				width:5rem;
+				font-size:0.625rem;
+				margin:0.3125rem auto 0px;
+				line-height: 0.9rem;
+				height: 1rem;
+				border-radius: 2.3125rem;
 				text-align: center;
+				animation: animationFrames linear 1s infinite;
+			}
+			@keyframes animationFrames {
+			    0% {
+			        transform: scaleX(1.00) scaleY(1.00)
+			    }
+			
+			    50% {
+			        transform: scaleX(0.75) scaleY(0.75)
+			    }
+			
+			    100% {
+			        transform: scaleX(1.00) scaleY(1.00)
+			    }
 			}
 		</style>
 	</head>

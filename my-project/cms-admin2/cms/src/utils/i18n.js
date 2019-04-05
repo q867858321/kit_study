@@ -2,10 +2,10 @@
  * @Description:
  * @author marin
  * @date 2/20/19
- * 
+ *
  */
-export function generateTitle(title) {
-  const hasKey = this.$te('route.' + title);
+export function generateTitle (title) {
+  const hasKey = this.$te('route.' + title)
 
   if (hasKey) {
     // $t :this method from vue-i18n, inject in @/lang/index.js

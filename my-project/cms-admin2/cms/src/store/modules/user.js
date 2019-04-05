@@ -1,10 +1,10 @@
-import {setToken,getToken,removeToken} from '../../utils/auth'
+import {setToken,getToken, removeToken} from '../../utils/auth'
 import {logout} from '../../api/login'
 const user = {
   state: {
     name: '',
     avatar: '',
-    isSuper:false,
+    isSuper: false
   },
 
   mutations: {
@@ -16,27 +16,26 @@ const user = {
     },
     SET_ISSUPER: (state, isSuper) => {
       state.isSuper = isSuper
-    },
+    }
   },
 
   actions: {
     // 获取用户信息
-    GetUserInfo({ commit, state }) {
-      let userinfostr =getToken();
-      let data = JSON.parse(userinfostr);
-      commit('SET_NAME', data.username);
-      commit('SET_AVATAR', data.avatar);
+    GetUserInfo ({ commit, state }) {
+      let userinfostr = getToken()
+      let data = JSON.parse(userinfostr)
+      commit('SET_NAME', data.username)
+      commit('SET_AVATAR', data.avatar)
       commit('SET_ISSUPER', data.isSuper)
     },
     // 登出
-    LogOut({ commit, state }) {
-      return logout().then(res=>{
+    LogOut ({ commit, state }) {
+      return logout().then(res => {
         removeToken()
-      }).catch(err=>{
+      }).catch(() => {
         removeToken()
       })
-
-    },
+    }
   }
 }
 

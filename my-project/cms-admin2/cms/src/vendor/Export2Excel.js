@@ -16,14 +16,14 @@ function generateArray(table) {
       var cellValue = cell.innerText;
       if (cellValue !== "" && cellValue == +cellValue) cellValue = +cellValue;
 
-      //Skip ranges
+      // Skip ranges
       ranges.forEach(function (range) {
         if (R >= range.s.r && R <= range.e.r && outRow.length >= range.s.c && outRow.length <= range.e.c) {
           for (var i = 0; i <= range.e.c - range.s.c; ++i) outRow.push(null);
         }
-      });
+      })
 
-      //Handle Row Span
+      // Handle Row Span
       if (rowspan || colspan) {
         rowspan = rowspan || 1;
         colspan = colspan || 1;
@@ -39,21 +39,22 @@ function generateArray(table) {
         });
       };
 
-      //Handle Value
+      // Handle Value
       outRow.push(cellValue !== "" ? cellValue : null);
 
-      //Handle Colspan
-      if (colspan)
-        for (var k = 0; k < colspan - 1; ++k) outRow.push(null);
+      // Handle Colspan
+      if (colspan) {
+        for (var k = 0; k < colspan - 1; ++k) outRow.push(null)
+      }
     }
-    out.push(outRow);
+    out.push(outRow)
   }
-  return [out, ranges];
+  return [out, ranges]
 };
 
-function datenum(v, date1904) {
-  if (date1904) v += 1462;
-  var epoch = Date.parse(v);
+function datenum (v, date1904) {
+  if (date1904) v += 1462
+  var epoch = Date.parse(v)
   return (epoch - new Date(Date.UTC(1899, 11, 30))) / (24 * 60 * 60 * 1000);
 }
 

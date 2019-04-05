@@ -14,26 +14,28 @@ import store from './store'
 import './icons' // icon
 import './permission'
 
-Vue.config.devtools = process.env.NODE_ENV === 'development';
-Vue.use(Element, { locale });
-Vue.use(elementUIVerify);
+Vue.config.devtools = process.env.NODE_ENV === 'development'
+Vue.use(Element, { locale })
+Vue.use(elementUIVerify)
 elementUIVerify.addRule('vtitle', () => [{
   validator (rule, val, callback) {
     if ((val + '').length > 10) {
-      const errorMessage = '该输入项内容太多！';
+      const errorMessage = '该输入项内容太多！'
       callback(Error(errorMessage))
-    }else if((val + '').length <2){
-      const errorMessage = '该输入项内容太少！';
+    } else if ((val + '').length < 2) {
+      const errorMessage = '该输入项内容太少！'
       callback(Error(errorMessage))
-    }else callback()
+    } else callback()
   }
-}]);
+}])
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
+
+// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
   router,
   store,
   render: h => h(App)
-});
-store.dispatch("GetUserInfo");
+})
+store.dispatch('GetUserInfo')

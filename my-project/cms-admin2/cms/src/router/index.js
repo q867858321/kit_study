@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-Vue.use(Router);
-
 import Layout from '../views/layout/Layout'
+Vue.use(Router)
 
 export const constantRouterMap = [
   {
@@ -20,42 +19,42 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '11/12'
   }
-];
+]
 
 export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
-});
+})
 
-export const genPromise = function genPromise(reFn, sourceFn) {
+export const genPromise = function genPromise (reFn, sourceFn) {
   const button = dmButtonMap[sourceFn.getPerm] || {}
   if (button.status) {
     return reFn(button.url)
   } else {
-    return new Promise((res, rej) => rej('403'))
+    return new Promise((resolve, reject) => rej('403'))
   }
-};
+}
 
-export function getUrlById(id) {
+export function getUrlById (id) {
   console.debug(id, dmButtonMap[id])
   return dmButtonMap[id] && dmButtonMap[id].url
 }
 export const dmButtonMap = {
-  '12':{
-    apiName:'projectListApi',
-    status:false,
+  '12': {
+    apiName: 'projectListApi',
+    status: false
   },
-  '34':{
-    apiName:'projectCreateApi',
-    status:false,
+  '34': {
+    apiName: 'projectCreateApi',
+    status: false
   },
-  '35':{
-    apiName:'projectUpdateApi',
-    status:false,
+  '35': {
+    apiName: 'projectUpdateApi',
+    status: false
   },
-  '36':{
-    apiName:'projectDeleteApi',
-    status:false,
+  '36': {
+    apiName: 'projectDeleteApi',
+    status: false
   },
   '77': {
     apiName: 'projectPublishApi',
@@ -71,7 +70,7 @@ export const dmButtonMap = {
   },
   '113': {
     apiName: 'userIndexApi',
-    status: true,
+    status: true
   },
   '115': {
     apiName: 'userCreateApi',
@@ -85,9 +84,9 @@ export const dmButtonMap = {
     apiName: 'userUpdateApi',
     status: false
   },
-  '125':{
+  '125': {
     apiName: 'userRoleApi',
-    status:false
+    status: false
   },
   '114': {
     apiName: 'permissionIndexApi',
@@ -159,28 +158,28 @@ export const dmButtonMap = {
     url: '/v1/ga-overviews/channels',
     status: true
   }
-};
+}
 import page from './modules/page'
 export const dmRouterMap = {
   '11': {
     component: Layout,
     path: '/11',
-    routers:{
-      '12': page,
-    },
+    routers: {
+      '12': page
+    }
 
   },
   '37': {
     path: '/110',
     component: Layout,
-    routers:{
+    routers: {
       '126': {
         component: () => import('../views/channel/index')
-      },
-    },
-  },
+      }
+    }
+  }
 
-};
+}
 export const asyncRouterMap = [
   { path: '*', redirect: '/404', hidden: true }
-];
+]

@@ -1,12 +1,19 @@
 const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 
+<<<<<<< HEAD
 
 // 配置请求本地地址
 const express = require('express')
 const app = express()
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
+=======
+const express=require('express');
+const app=express();
+var apiRoutes=express.Router();
+app.use('/api',apiRoutes);
+>>>>>>> 9315e3c094f1d84390484d473f4cbf62d56a3b17
 
 
 module.exports = {
@@ -54,11 +61,11 @@ module.exports = {
             }
         },
         before: app => {
-            //请求本地地址
-            app.get('/api/income', function (req, res) {
-                let appData = require('./static/income.json')
-                res.json({ code: 0, data: appData })
-            });
+            let date = new Date();
+            app.get('/api/page/assembly/1', function (req, res) {
+                let data = require("./static/assembly.json");
+                res.json(data);
+            })
         }
     }
 }
