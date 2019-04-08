@@ -1,12 +1,12 @@
 <template>
-	<div>
+	<section class="v_p-result">
 		<div class="re-box">
 			<draggable @end="endFn" v-model="editResultCopy">
 				<RItem v-for="(item,index) in editResultCopy" :data="item" :indexNum="index" :key='index'/>
 			</draggable>
 			
 		</div>
-	</div>
+	</section>
 </template>
 <script>
 import draggable from 'vuedraggable'

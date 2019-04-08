@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<section class="v_p-UIMange">
 		<div class="opbox opbox--first">
 			<div class="title">
 				<span>组件</span>
@@ -33,7 +33,7 @@
 				<Content/>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 <script>
 import Collapse from './components/Collapse'

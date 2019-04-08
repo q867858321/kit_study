@@ -1,17 +1,24 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Fauther></Fauther>
+    <vuexModeles></vuexModeles>
+    <bookDetail></bookDetail>
+    <book></book>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Fauther from './components/Fauther.vue'
+import vuexModeles from './components/vuexModeles.vue'
 
+import bookDetail from './components/bookDetail.vue'
+import book from './components/book.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,Fauther,vuexModeles,bookDetail,book
   }
 }
 </script>

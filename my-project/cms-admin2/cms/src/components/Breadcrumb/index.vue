@@ -13,6 +13,7 @@
 import pathToRegexp from 'path-to-regexp'
 
 export default {
+  name:'Breadcrumb',
   data() {
     return {
       levelList: null
@@ -24,16 +25,18 @@ export default {
     }
   },
   created() {
-    this.getBreadcrumb()
+    this.getBreadcrumb();
+    console.log("breadcrumb",this);
   },
   methods: {
-    getBreadcrumb() {
+    getBreadcrumb:function() {
       const { params } = this.$route
+      console.log("params",params)
       const matched = this.$route.matched.filter(item => {
         if (item.name) {
           // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
-          var toPath = pathToRegexp.compile(item.path)
-          item.path = toPath(params)
+          // let toPath = pathToRegexp.compile(item.path)
+          // item.path = toPath(params)
           return true
         }
       })

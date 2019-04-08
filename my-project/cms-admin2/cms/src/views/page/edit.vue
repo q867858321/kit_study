@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="v_p-edit">
     <div class="stik__top">
       <span class="link" @click="$router.go(-1)">{{name}}(项目)</span><i class="el-icon-arrow-right"></i>
       <span>{{pageName}}(页面编辑)</span>
@@ -13,7 +13,7 @@
         </el-col>
       </el-row>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

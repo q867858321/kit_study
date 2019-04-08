@@ -1,5 +1,5 @@
 <template>
-<div>
+<section class="v_p_c-collapse">
 <el-collapse v-if="editSpecComponent" :value="Object.keys(attributes)">
   <el-form v-if="activeNames.length" ref="dataForm" :model="attributes" >
 	  <el-collapse-item v-for="(attr, index) in getSpecCompAttr" :title="attr.name" :name="attr.eName"  :key='index'>
@@ -30,7 +30,7 @@
 	  </el-collapse-item>
   </el-form>
 </el-collapse>
-</div>
+</section>
 </template>
 <script>
 import {mapActions,mapState,mapGetters} from 'vuex'
