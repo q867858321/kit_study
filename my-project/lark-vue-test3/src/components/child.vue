@@ -7,16 +7,22 @@
 
 <script>
 export default {
-    name:"son",
-    methods:{
-        upIsShow(){
-            //this.$emit("upIsShow",false);
-            this.$emit("update:isShow11",false);
-        }
+  name: "son",
+  props: ["show"],
+  mounted: function() {
+    console.log("son", this);
+  },
+  methods: {
+    upIsShow() {
+      //this.$emit("upIsShow",false);
+      let aa = {
+        isShow: true
+      };
+      this.$emit("update:isShow11", aa);
     }
-}
+  }
+};
 </script>
 
 <style>
-
 </style>
