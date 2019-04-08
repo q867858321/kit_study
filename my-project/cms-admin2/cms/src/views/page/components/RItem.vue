@@ -1,5 +1,5 @@
 <template>
-	<div class="re-item" @mouseenter="statuHover=true" @mouseleave="statuHover=false" @click="setEditSpecComponentIndex(data)">
+	<section class="v_p_c-RItem re-item" @mouseenter="statuHover=true" @mouseleave="statuHover=false" @click="setEditSpecComponentIndex(data)">
 		<div class="title">
 			<h5 class="title5">{{data.name}}</h5>
 		</div>
@@ -13,7 +13,7 @@
 			</el-row>
 		</div>
 		<div class="maskbg" v-show="editSpecComponent!==data"></div>
-	</div>
+	</section>
 </template>
 <script>
 import Flippage from  './Flippage'

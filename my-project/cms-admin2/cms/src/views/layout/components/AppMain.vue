@@ -1,5 +1,5 @@
 <template>
-  <section class="app-main">
+  <section class="m-app-main app-main">
     <transition name="fade-transform" mode="out-in">
       <keep-alive :include="['Project','Page']">
         <router-view :key="key"/>

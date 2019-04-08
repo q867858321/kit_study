@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="m-navbar navbar">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
     <breadcrumb class="breadcrumb-container"></breadcrumb>
     <div class="right-menu">
@@ -30,10 +30,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '../../../components/Breadcrumb'
+import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '../../../components/Hamburger'
 import Screenfull from '../../../components/Screenfull'
-
 export default {
   components: {
     Breadcrumb,

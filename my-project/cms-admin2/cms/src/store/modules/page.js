@@ -1,63 +1,65 @@
 import {subassemblyListApi} from '../../api/page'
 import Vue from 'vue'
 // init content
-const spObjInit={
-    "type": 1,
-    "content": "",
-    "orderNum": 1,
-    "isNew": false,
-    "title":'',
-    "image": {
-        "originalUrl": "",
-        "originalSize": 11,
-        "originalFormat": ""
-    },
+const spObjInit = {
+  'type': 1,
+  'content': '',
+  'orderNum': 1,
+  'isNew': false,
+  'title': '',
+  'image': {
+    'originalUrl': '',
+    'originalSize': 11,
+    'originalFormat': ''
+  }
 }
-function optionSub(res) {
-	try{
-		let arr=[]
-		res.map(item=>{
-			arr.push({'name':item.name,'id':item.id})
-			item.attributes.map(attr=>{
-					switch(attr.type){
-						case 'select':
-						case 'radio':
-							attr.attrOptionList=attr.value.split('|').map(str=>str.split(','))
-							break;
-						default:
-					}
-			})
-		})
-		return arr
-	}catch(err){consoel.error(err)}
+function optionSub (res) {
+  try {
+    let arr = []
+    res.map(item => {
+      arr.push({'name': item.name, 'id': item.id})
+      item.attributes.map(attr => {
+        switch (attr.type) {
+          case 'select':
+          case 'radio':
+            attr.attrOptionList = attr.value.split('|').map(str => str.split(','))
+            break
+          default:
+        }
+      })
+    })
+    return arr
+  } catch (err) {
+    console.error(err)
+  }
 }
-function getDefaultByItem(attr) {
-	switch(attr.type){
-		case 'select':
-			return attr.value.split('|')[0].split(",")[0]
-		case 'number':
-			return attr.value
-		case 'radio':
-			return attr.value.split('|')[0].split(",")[0]
-		case 'color':
-			return attr.value
-		default:
-			return ''
-	}
+function getDefaultByItem (attr) {
+  switch (attr.type) {
+    case 'select':
+      return attr.value.split('|')[0].split(',')[0]
+    case 'number':
+      return attr.value
+    case 'radio':
+      return attr.value.split('|')[0].split(',')[0]
+    case 'color':
+      return attr.value
+    default:
+      return ''
+  }
 }
-const page={
-	namespaced: true,
+const page = {
+  namespaced: true,
 	state: {
-		complistState:null,
-		proJectQuery:null,
-		pageQuery:null,
-		subassemblyList:null,
-		//Edit runtime data
-		editResult:null,
-		editSpecComponentIndex:null,
-		projectId:null,
-		deletedCompIds:[],
-		deletedContIds:[],
+    complistState: null,
+    proJectQuery: null,
+    pageQuery: null,
+    subassemblyList: null,
+    //Edit runtime data
+    editResult: null,
+    editSpecComponentIndex: null,
+    projectId: null,
+    deletedCompIds: [],
+		deletedContIds: [],
 	},
 	getters:{
 		editSpecComponent:state=>{

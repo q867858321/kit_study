@@ -37,7 +37,7 @@
         </el-table-column>
         <el-table-column prop="name" label="颜色">
           <template slot-scope="scope">
-            <el-tag v-if="scope.row.color":style='{"background": scope.row.color}'></el-tag>
+            <el-tag v-if="scope.row.color" :style='{"background": scope.row.color}'></el-tag>
           </template>
         </el-table-column>
         <el-table-column label="操作">
