@@ -1,9 +1,7 @@
 <template>
   <div class="navbar">
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
-
-    <breadcrumb class="breadcrumb-container"/>
-
+    <breadcrumb class="breadcrumb-container"></breadcrumb>
     <div class="right-menu">
       <div class="right-menu-item" style="vertical-align: top;">
         欢迎您！{{name}}

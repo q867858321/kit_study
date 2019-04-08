@@ -13,6 +13,7 @@
 import pathToRegexp from 'path-to-regexp'
 
 export default {
+  name:'Breadcrumb',
   data() {
     return {
       levelList: null
@@ -24,7 +25,8 @@ export default {
     }
   },
   created() {
-    this.getBreadcrumb()
+    this.getBreadcrumb();
+    console.log("breadcrumb",this);
   },
   methods: {
     getBreadcrumb() {
