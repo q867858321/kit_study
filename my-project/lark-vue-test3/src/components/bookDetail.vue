@@ -3,7 +3,9 @@
       <section class="joinState">
            <div class="joinStateHead">
                 <span class="h3">全国改性料通讯录</span>
-                <span class="joinStatus" @click="invokePushItems(item)">加入收藏列</span>
+                
+                <span class="joinStatus" @click="invokePushItems(item)">加入收藏列 利用action</span>
+                <span class="joinStatus" @click="add(item)">加入收藏列 利用 mutations</span>
            </div>
       </section>
   </div>
@@ -30,7 +32,10 @@ export default {
         this.$store.dispatch('footerStatus/hideFooter')
     },
     methods:{
-        ...mapActions('collection',['invokePushItems'])
+        //...mapActions('collection',['invokePushItems']),
+        add:function(item){
+            this.$store.commit('collection/pushCollects',item)
+        }
     }
 }
 </script>
