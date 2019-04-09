@@ -49,7 +49,7 @@ function getDefaultByItem (attr) {
 }
 const page = {
   namespaced: true,
-	state: {
+  state: {
     complistState: null,
     proJectQuery: null,
     pageQuery: null,
@@ -59,32 +59,32 @@ const page = {
     editSpecComponentIndex: null,
     projectId: null,
     deletedCompIds: [],
-		deletedContIds: [],
+		deletedContIds: []
 	},
 	getters:{
 		editSpecComponent:state=>{
 			return (state.editResult||[])[state.editSpecComponentIndex]
 		},
 		//组件list{id,name}
-		getSpecCompAttr:state => {
-			let obj;
-			let id = ((state.editResult||[])[(state.editSpecComponentIndex)]||{}).subassemblyId
-			;(state.subassemblyList||[]).some(item=>{
-				if(id == item.id){
-					obj = item.attributes
-					return true
-				}
-			});
+		getSpecCompAttr: state => {
+      let obj
+      let id = ((state.editResult || [])[(state.editSpecComponentIndex)] || {}).subassemblyId
+			;(state.subassemblyList || []).some(item =>{
+        if (id == item.id) {
+          obj = item.attributes
+          return true
+        }
+      })
 			return obj
 		},
 		complist:state=>state.complistState,
 		//添加组件默认值map
 		defaultAddMap:state=>{
 			let obj = {}
-			;(state.subassemblyList||[]).map(item=>{
-				let attributes = item.attributes||[];
-				let attrObj= {};
-				attributes.map(attr=>{
+			;(state.subassemblyList || []).map(item =>{
+				let attributes = item.attributes || []
+				let attrObj = {};
+				attributes.map(attr =>{
 					try{
 						attrObj[attr.eName]=getDefaultByItem(attr)
 
@@ -92,10 +92,10 @@ const page = {
 						console.log(attr,err);
 					}
 				});
-				obj[item.id]={
+        obj[item.id] = {
 					attributes:attrObj,
 					subassemblyId:item.id,
-					name:item.name,
+					name: item.name
 				};
 			});
 			return obj
@@ -112,25 +112,25 @@ const page = {
 			state.complistState = optionSub(res)
 			state.subassemblyList = res
 		},
-		ADD_COMPONENT(state, params){
-		  console.log("add component");
-		  console.log(params);
-			let editResult = state.editResult || [];
-			let index = state.editSpecComponentIndex;
-			let id = +new Date();
-      console.log(editResult);
-      console.log(index);
-			let nObj = Object.assign({...state.pageQuery},params,{localId:id,attributes:Object.assign({},params.attributes)})
-			if (editResult[index]) {
-				editResult.splice(index+1,0,nObj)
-			} else {
-				editResult.push(nObj)
-			}
-			state.editResult = editResult;
-		},
-		SET_EDITRESULT(state,params){
-			state.editResult=params
-		},
+    ADD_COMPONENT (state, params) {
+		  console.log('add component')
+		  console.log(params)
+      let editResult = state.editResult || []
+      let index = state.editSpecComponentIndex
+      let id = +new Date()
+      console.log(editResult)
+      console.log(index)
+      let nObj = Object.assign({...state.pageQuery}, params, {localId: id, attributes: Object.assign({}, params.attributes)})
+      if (editResult[index]) {
+        editResult.splice(index + 1, 0, nObj)
+      } else {
+        editResult.push(nObj)
+      }
+      state.editResult = editResult
+    },
+    SET_EDITRESULT (state, params) {
+      state.editResult = params
+    },
 		DELETE_COMPONENT(state,params){
 			let editResult = state.editResult||[]
 			editResult.splice(editResult.indexOf(params),1)
@@ -204,15 +204,15 @@ const page = {
 			editSpecComponent.localId = +new Date()
 		},
 	},
-	actions: {
-		deleteContent({commit,state},params){
+  actions: {
+		deleteContent ({commit,state},params){
 			commit("DELETE_CONTENT",params)
 			let editSpecComponent = state.editResult[state.editSpecComponentIndex]
 			if(params==editSpecComponent.spObj&&editSpecComponent.contents.length){
 				commit("UPDATA_SPOBJ",{content:editSpecComponent.contents[0]})
 			}
 		},
-		setContent({commit,state},params){
+		setContent ({commit,state},params) {
 			commit("SET_CONTENT",params)
 		},
 		addContent({commit,state},{content,keyId}){
