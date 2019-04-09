@@ -1,19 +1,10 @@
 const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 
-<<<<<<< HEAD
-
-// 配置请求本地地址
-const express = require('express')
-const app = express()
-var apiRoutes = express.Router()
-app.use('/api', apiRoutes)
-=======
-const express=require('express');
-const app=express();
-var apiRoutes=express.Router();
-app.use('/api',apiRoutes);
->>>>>>> 9315e3c094f1d84390484d473f4cbf62d56a3b17
+const express = require('express');
+const app = express();
+var apiRoutes = express.Router();
+app.use('/api', apiRoutes);
 
 
 module.exports = {
