@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="sass" scoped>
 .m_show{
     height:568px;
     .item{

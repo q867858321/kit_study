@@ -14,11 +14,19 @@ import store from './store'
 import './icons' // icon
 import './permission'
 
+//引入axios
+// import axios from 'axios'
+// Vue.prototype.$http = axios;
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+
 Vue.config.devtools = process.env.NODE_ENV === 'development'
-Vue.use(Element, { locale })
+Vue.use(Element, {
+  locale
+})
 Vue.use(elementUIVerify)
 elementUIVerify.addRule('vtitle', () => [{
-  validator (rule, val, callback) {
+  validator(rule, val, callback) {
     if ((val + '').length > 10) {
       const errorMessage = '该输入项内容太多！'
       callback(Error(errorMessage))

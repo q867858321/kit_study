@@ -9,7 +9,17 @@
             <div class="swiper-slide">
                 <a href="javascript:void(0);">
                     <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
-                    <span class="img_text"><i class="play">88606</i> plays</span>
+                    <p class="play">88606</p>
+                    <p class="img_text">players</p>
+                    <div class="item_bottem">Cricket Cricket Cricket Cricket Cricket Cricket Cricket</div>
+                    <div class="bg"></div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
+                    <p class="play">88606</p>
+                    <p class="img_text">players</p>
                     <div class="item_bottem">Cricket</div>
                     <div class="bg"></div>
                 </a>
@@ -17,15 +27,8 @@
             <div class="swiper-slide">
                 <a href="javascript:void(0);">
                     <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
-                    <span class="img_text"><i class="play">88606</i> plays</span>
-                    <div class="item_bottem">Cricket</div>
-                    <div class="bg"></div>
-                </a>
-            </div>
-            <div class="swiper-slide">
-                <a href="javascript:void(0);">
-                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
-                    <span class="img_text"><i class="play">88606</i> plays</span>
+                    <p class="play">88606</p>
+                    <p class="img_text">players</p>
                     <div class="item_bottem">Cricket</div>
                     <div class="bg"></div>
                 </a>
@@ -46,24 +49,25 @@
 	}
 	.m_supperHot .swiper-container .swiper-slide{
 		/*background: rgba(129,196,58,.9);	*/
-		padding:1rem 0 0;
+		padding:0.7rem 0 0;
 	}
 	
 	.m_supperHot .swiper-container .swiper-slide a{
 		display: block;
 		position:relative;
+		font-size:0.375rem;
 		color:#fff;
-		margin:0 0.1875rem 0 0.3125rem;
+		margin:0 0.1rem 0 0.2rem;
 		background: linear-gradient(rgba(129,196,58,.5),rgba(129,196,58,.9));
 		border-radius: 0.3125rem;
 	}
 	.m_supperHot .swiper-container .swiper-slide:nth-of-type(2n) a{
-		background: linear-gradient(rgba(39,114,58,.5),rgba(39,114,58,.9));
+		background: linear-gradient(rgba(136, 190, 80, 0.72),rgb(115, 183, 44));
 	}
 	.m_supperHot .swiper-container .swiper-slide a img{
 		display: block;
 		position:absolute;
-		top:-26px;
+		top:-0.45rem;
 		left:0.3125rem;
         width:1.6rem;
         
@@ -73,16 +77,17 @@
 	.m_supperHot .swiper-container .swiper-slide a .img_text{
 		display: block;
 		margin-right: 0.3125rem;
-    	padding-top: 0.46875rem;
     	text-align: right;
+    	color:#333;
 	}
-	.m_supperHot .swiper-container .swiper-slide a .img_text .play{
+	.m_supperHot .swiper-container .swiper-slide a .play{
 		color:#F99D00;
+		padding-left:2rem;
+		padding-top: 0.46875rem; 
 	}
 	.m_supperHot .swiper-container .swiper-slide a .item_bottem {
-        font-size: 0.4375rem;
-        text-align: center;
-        padding:0.21875rem;
+        font-size: 0.375rem;
+        padding:0.1rem 0.21875rem 0.21875rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -101,6 +106,6 @@
 <script type="text/javascript">
 	var swiper1 = new Swiper('.m_supperHot .swiper-container',{
         slidesPerView: 2.1,
-//      spaceBetween: 10
+      //spaceBetween: 10
     });
 </script>
