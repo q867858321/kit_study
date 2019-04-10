@@ -34,24 +34,24 @@ const app = {
     }
   },
   actions: {
-    toggleSideBar ({
+    toggleSideBar({
       commit
     }) {
       commit('TOGGLE_SIDEBAR')
     },
-    closeSideBar ({
+    closeSideBar({
       commit
     }, {
       withoutAnimation
     }) {
       commit('CLOSE_SIDEBAR', withoutAnimation)
     },
-    setDate ({
+    setDate({
       commit
     }, str) {
       commit('SET_DATE', str)
     },
-    setChannelList ({
+    setChannelList({
       commit
     }) {
       return new Promise(resolve => {

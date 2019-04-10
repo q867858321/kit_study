@@ -77,147 +77,162 @@
 </template>
 
 <script>
-  import {pageIndexApi,pageCreateApi,pageUpdateApi,pageDeleteApi} from '../../api/page'
-  export default{
-    name:'Page',
-    data(){
-      return {
-        name:null,projectId:null,
-        listLoading: true,
-        listQuery: {
-          projectId:undefined,
-          eName: undefined,
-          title: undefined,
-          sort: undefined,
-          order:undefined,
-          projectId:undefined,
-        },
-        temp: {
-          name: '',
-          eName: '',
-          title: '',
-          color: '',
-        },
-        list: null,
-        dialogStatus: '',
-        dialogFormVisible: false,
-        textMap: {
-          update: '编辑',
-          create: '添加'
-        },
+import {
+  pageIndexApi,
+  pageCreateApi,
+  pageUpdateApi,
+  pageDeleteApi
+} from "../../api/page";
+export default {
+  name: "Page",
+  data() {
+    return {
+      name: null,
+      projectId: null,
+      listLoading: true,
+      listQuery: {
+        projectId: undefined,
+        eName: undefined,
+        title: undefined,
+        sort: undefined,
+        order: undefined,
+        projectId: undefined
+      },
+      temp: {
+        name: "",
+        eName: "",
+        title: "",
+        color: ""
+      },
+      list: null,
+      dialogStatus: "",
+      dialogFormVisible: false,
+      textMap: {
+        update: "编辑",
+        create: "添加"
       }
-    },
-    created(){
-      let query = this.$route.query;
-      if(!query.id){
-        this.$router.back();
-      }
-      this.projectId=this.listQuery.projectId=query.id
-      this.name=query.name
-      this.fetchData()
-    },
-    methods:{
-      fetchData() {
-        this.listLoading = true
-        pageIndexApi(this.listQuery).then(res=>{
-          let list = res.rows||[]
+    };
+  },
+  created() {
+    let query = this.$route.query;
+    if (!query.id) {
+      this.$router.back();
+    }
+    this.projectId = this.listQuery.projectId = query.id;
+    this.name = query.name;
+    this.fetchData();
+  },
+  methods: {
+    fetchData() {
+      this.listLoading = true;
+      pageIndexApi(this.listQuery)
+        .then(res => {
+          let list = res.rows || [];
           this.list = list;
-          this.listLoading = false
-        }).catch(err => {
-          this.listLoading = false
+          this.listLoading = false;
         })
-      },
-      sortChange(val) {
-        if (val.order) {
-          this.listQuery.order = val.prop
-          this.listQuery.sort = val.order == 'descending' ? 'desc' : (val.order == 'ascending' ? 'asc' : undefined)
-        } else {
-          this.listQuery.order = undefined
-          this.listQuery.sort = undefined
-        }
-        this.fetchData()
-      },
-      resetTemp(def) {
-        var obj = {
-          name: '',
-          eName: '',
-          color: '',
-          title: '',
-          projectId:this.projectId,
-
-        }
-        this.temp = def ? Object.assign(obj, def,{project:undefined,}) : obj
-      },
-      handleFilter() {
-        this.fetchData()
-      },
-      handleCreate() {
-        this.resetTemp()
-        this.dialogStatus = 'create'
-        this.dialogFormVisible = true
-        this.$nextTick(() => {
-          this.$refs['dataForm'].clearValidate()
-        })
-      },
-      createData() {
-        this.$refs['dataForm'].validate((valid) => {
-          if (valid) {
-            const temp = this.temp
-            pageCreateApi(temp).then(response => {
-              this.fetchData()
-              this.dialogFormVisible = false
-            })
-          }
-        })
-      },
-      handleUpdate(row) {
-        this.dialogStatus = 'update'
-        this.resetTemp(row);
-        this.dialogFormVisible = true
-        this.$nextTick(() => {
-          this.$refs['dataForm'].clearValidate()
-        })
-      },
-      updateData() {
-        this.$refs['dataForm'].validate((valid) => {
-          if (valid) {
-            const tempData = Object.assign({}, this.temp)
-            tempData.createTime=undefined;
-            tempData.color===null?tempData.color="":'';
-            pageUpdateApi(tempData).then(() => {
-              this.fetchData();
-              this.dialogFormVisible = false
-              this.$notify({
-                title: '成功',
-                message: '更新成功',
-                type: 'success',
-                duration: 2000
-              })
-            })
-          }
-        })
-      },
-      deleteData(row){
-        this.$confirm('此操作将删除该项, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          pageDeleteApi(row.id).then(res=>{
-            this.$message({
-              type: 'success',
-              message: '删除成功!'
-            });
-            this.fetchData()
-          }).catch(err=>{
-            console.log(err)
-          })
-        }).catch(() => {});
-      },
+        .catch(err => {
+          this.listLoading = false;
+        });
     },
+    sortChange(val) {
+      if (val.order) {
+        this.listQuery.order = val.prop;
+        this.listQuery.sort =
+          val.order == "descending"
+            ? "desc"
+            : val.order == "ascending"
+            ? "asc"
+            : undefined;
+      } else {
+        this.listQuery.order = undefined;
+        this.listQuery.sort = undefined;
+      }
+      this.fetchData();
+    },
+    resetTemp(def) {
+      var obj = {
+        name: "",
+        eName: "",
+        color: "",
+        title: "",
+        projectId: this.projectId
+      };
+      this.temp = def ? Object.assign(obj, def, { project: undefined }) : obj;
+    },
+    handleFilter() {
+      this.fetchData();
+    },
+    handleCreate() {
+      this.resetTemp();
+      this.dialogStatus = "create";
+      this.dialogFormVisible = true;
+      this.$nextTick(() => {
+        this.$refs["dataForm"].clearValidate();
+      });
+    },
+    createData() {
+      this.$refs["dataForm"].validate(valid => {
+        if (valid) {
+          const temp = this.temp;
+          pageCreateApi(temp).then(response => {
+            this.fetchData();
+            this.dialogFormVisible = false;
+          });
+        }
+      });
+    },
+    handleUpdate(row) {
+      this.dialogStatus = "update";
+      this.resetTemp(row);
+      this.dialogFormVisible = true;
+      this.$nextTick(() => {
+        this.$refs["dataForm"].clearValidate();
+      });
+    },
+    updateData() {
+      this.$refs["dataForm"].validate(valid => {
+        if (valid) {
+          const tempData = Object.assign({}, this.temp);
+          tempData.createTime = undefined;
+          tempData.color === null ? (tempData.color = "") : "";
+          pageUpdateApi(tempData).then(() => {
+            this.fetchData();
+            this.dialogFormVisible = false;
+            this.$notify({
+              title: "成功",
+              message: "更新成功",
+              type: "success",
+              duration: 2000
+            });
+          });
+        }
+      });
+    },
+    deleteData(row) {
+      this.$confirm("此操作将删除该项, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          pageDeleteApi(row.id)
+            .then(res => {
+              this.$message({
+                type: "success",
+                message: "删除成功!"
+              });
+              this.fetchData();
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        })
+        .catch(() => {});
+    }
   }
+};
 </script>
 
 <style scoped>
-
 </style>
