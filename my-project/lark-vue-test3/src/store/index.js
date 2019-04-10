@@ -6,9 +6,9 @@ import getters from './getters'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    modules:{
-         footerStatus,
-         collection
+    modules: {
+        footerStatus,
+        collection
     },
     getters
 });
