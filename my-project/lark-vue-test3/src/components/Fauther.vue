@@ -30,9 +30,9 @@ export default {
     // console.log("Fauther",this);
   },
   methods: {
-    show() {
-      this.isShow = true;
-    }
+    // show() {
+    //   this.isShow = true;
+    // }
     // changeIsShow(bol){
     //     this.isShow=bol;
     // }

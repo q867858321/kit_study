@@ -74,6 +74,7 @@ export default {
     heightChange: function() {},
     show() {
       console.log("mFlippage", this);
+      console.log("mFlippage  page state", this.$store.state);
     },
     submitData() {
       let data = {
@@ -112,6 +113,7 @@ export default {
         },
         type: "1"
       };
+      alert(2);
       this.$store.commit("pages/chooseTemement", data);
 
       let pageInfo = this.pageInfo;
