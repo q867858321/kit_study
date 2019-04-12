@@ -1,0 +1,559 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "total": 29,
+        "rows": [
+            {
+                "summary": "too嗯吐了",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "4812991b7fa3428cb141f63f9ee513cb",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "Dzp",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 47
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "47,",
+                "videos": [],
+                "title": "这是game中的论坛",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2019-01-16 20:22:24",
+                "isTop": false, //置顶
+                "topLevel": 0,
+                "id": 80,
+                "isPrime": false //精华
+            },
+            {
+                "summary": "测试我的发帖",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "4812991b7fa3428cb141f63f9ee513cb",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "Dzp",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 47
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "47,",
+                "videos": [],
+                "title": "测试我的发帖",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2019-01-16 16:55:14",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 79,
+                "isPrime": false
+            },
+            {
+                "summary": "主题内容blablabla。。。\ntest linkage H5 Game Portal\n结束 \n另一 雅虎新闻\nover",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "03ee21ee4d544b4e8505e6c8d7cf330b",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "青丘",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 26
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "26,",
+                "videos": [],
+                "title": "测试主题带链接 Test topic with linkages",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2019-01-02 15:05:13",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 76,
+                "isPrime": false
+            },
+            {
+                "summary": "主题帖 \n\n带图\nok",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 1,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 1,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "03ee21ee4d544b4e8505e6c8d7cf330b",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "青丘",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 26
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "26,",
+                "videos": [],
+                "title": "测试主题帖 test topic 1213-001",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": true,
+                "moderatorReply": false,
+                "createTime": "2018-12-13 18:23:38",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 69,
+                "isPrime": false
+            },
+            {
+                "summary": "sdf ddd",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 2,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 1,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "1c040c059329496fab9f66f3797a49af",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "苏打粉",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 18
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "18,26,",
+                "videos": [],
+                "title": "他说他",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2018-11-13 14:22:20",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 36,
+                "isPrime": false
+            },
+            {
+                "summary": "sdfsd ",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "1c040c059329496fab9f66f3797a49af",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "苏打粉",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 18
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "18,",
+                "videos": [],
+                "title": "sdf ere",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2018-11-13 14:15:38",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 35,
+                "isPrime": false
+            },
+            {
+                "summary": "sdfwer",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 1,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "1c040c059329496fab9f66f3797a49af",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "苏打粉",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 18
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "18,",
+                "videos": [],
+                "title": "sdfds test",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2018-11-13 14:06:28",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 34,
+                "isPrime": false
+            },
+            {
+                "summary": "sdfwer",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "1c040c059329496fab9f66f3797a49af",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "苏打粉",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 18
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "18,",
+                "videos": [],
+                "title": "sdfds test",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2018-11-13 14:01:24",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 33,
+                "isPrime": false
+            },
+            {
+                "summary": "sdfwer",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "1c040c059329496fab9f66f3797a49af",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "苏打粉",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://zicon.ztems.com/common/default_avatar.jpg",
+                    "id": 18
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "18,",
+                "videos": [],
+                "title": "sdfds test",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2018-11-13 14:00:52",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 32,
+                "isPrime": false
+            },
+            {
+                "summary": "新用户发帖测试 -1022-01\n一江春水向东...",
+                "types": [
+                    {
+                        "id": 1,
+                        "name": "求助",
+                        "path": "authority",
+                        "lft": 1,
+                        "rgt": 6,
+                        "priority": 10,
+                        "description": "求助",
+                        "logo": "/u/cms/www/201710/19130952r3sb.png",
+                        "topicCount": 0,
+                        "topicEssenceCount": 0,
+                        "subscribeCount": 0,
+                        "display": true
+                    }
+                ],
+                "stat": {
+                    "replyCount": 0,
+                    "collections": 0,
+                    "opposeCount": 0,
+                    "upCount": 0,
+                    "attentionCount": 0,
+                    "viewCount": 0
+                },
+                "author": {
+                    "gender": 0,
+                    "openId": "b32c4b42813851e9dcb684c22b0622b1ebbb4e29",
+                    "isCertified": false,
+                    "intro": null,
+                    "name": "驱蚊草",
+                    "verified": {
+                        "reason": "白丁",
+                        "type": 1,
+                        "url": "1"
+                    },
+                    "avatar": "http://static.icon.apusplay.com/avatar/avatar-mid-img.png",
+                    "id": 15
+                },
+                "allowReply": true,
+                "banner": [],
+                "replyIds": "15,",
+                "videos": [],
+                "title": "测试发帖 - 1022-01",
+                "isOfficial": false,
+                "primeLevel": 0,
+                "hasAttach": false,
+                "moderatorReply": false,
+                "createTime": "2018-10-23 01:57:20",
+                "isTop": false,
+                "topLevel": 0,
+                "id": 31,
+                "isPrime": false
+            }
+        ]
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-    <section data-page="v-p" class="m_result">
+    <section data-page="v-p-b" class="m_result">
       <div @click="show">show m_result</div>
         <draggable element="div" v-model="arrList"  @update="datadragEnd" :options = "{animation:500}">
             <div v-for="(item ,index) in arrList" :key="index" class="item" :class="isactive==index?'active':''" @click="choose(index,item,item.subassemblyId)">
