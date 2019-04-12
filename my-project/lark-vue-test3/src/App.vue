@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <router-view class="view main"></router-view>
     <!-- <Fauther></Fauther>
     <vuexModeles></vuexModeles>
     <bookDetail></bookDetail>
-    <book></book> -->
+    <book></book>-->
   </div>
 </template>
 
