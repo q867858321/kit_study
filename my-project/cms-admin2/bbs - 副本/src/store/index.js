@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as user from '../api/user'
-import { getRand } from "../untils/random";
+import { getRand } from "../utils/random";
 import { routes, ansycRoutes } from '../router/router'
 import router from '../router/index'
 Vue.use(Vuex);
@@ -24,9 +24,9 @@ const state = {
   authorState: false,//登录状态
   userInfo: {},
   siteId: 1,
-  routers:routes,//管理员免权限
-  addRouters:[],
-  perms:false,//权限
+  routers: routes,//管理员免权限
+  addRouters: [],
+  perms: false,//权限
   sort: [{
     value: '0',
     label: '排序'
@@ -46,28 +46,28 @@ const state = {
     value: '5',
     label: '本月活跃度降序'
   },
-    {
-      value: '6',
-      label: '本月活跃度升序'
-    }, {
-      value: '7',
-      label: '今年活跃度降序'
-    }, {
-      value: '8',
-      label: '今年活跃度升序'
-    }, {
-      value: '9',
-      label: '积分降序'
-    }, {
-      value: '10',
-      label: '积分升序'
-    }, {
-      value: '11',
-      label: '威望降序'
-    }, {
-      value: '12',
-      label: '威望升序'
-    }],
+  {
+    value: '6',
+    label: '本月活跃度升序'
+  }, {
+    value: '7',
+    label: '今年活跃度降序'
+  }, {
+    value: '8',
+    label: '今年活跃度升序'
+  }, {
+    value: '9',
+    label: '积分降序'
+  }, {
+    value: '10',
+    label: '积分升序'
+  }, {
+    value: '11',
+    label: '威望降序'
+  }, {
+    value: '12',
+    label: '威望升序'
+  }],
   lastLoginDay: [{
     value: '0',
     label: '所有'
@@ -107,15 +107,15 @@ function getansycRoutes(tmpRoutes, perms) {
 
 const mutations = {
   SET_ROUTERS: (state, asRouters) => {
-    state.routers=routes.concat(asRouters);
-    state.addRouters=asRouters;
-    state.perms=true
+    state.routers = routes.concat(asRouters);
+    state.addRouters = asRouters;
+    state.perms = true
   },
   CLEAR_ROUTERS: (state) => {
     localStorage.clear();
-    state.perms=false;
-    state.routers=routes,//管理员免权限
-    state.addRouters=[]
+    state.perms = false;
+    state.routers = routes,//管理员免权限
+      state.addRouters = []
     window.location.reload();
   }
 };
@@ -127,20 +127,20 @@ const actions = {
       let params = { sessionKey: sessionKey, nonce_str: getRand() };
       // user.getPerms(params).then(res => {
       //   let perms = res.data.perms;//权限
-        let perms = '*';//权限
-        let asRouters;
-        if (perms == '*') {
-          asRouters = ansycRoutes;
-        } else {
-          asRouters = getansycRoutes(ansycRoutes,perms);//递归过滤
-        }
-        commit('SET_ROUTERS', asRouters);
-        resolve();
-      })
+      let perms = '*';//权限
+      let asRouters;
+      if (perms == '*') {
+        asRouters = ansycRoutes;
+      } else {
+        asRouters = getansycRoutes(ansycRoutes, perms);//递归过滤
+      }
+      commit('SET_ROUTERS', asRouters);
+      resolve();
+    })
     // })
   },
   clearRouters({ commit }) {
-    return new Promise(resolve=>{
+    return new Promise(resolve => {
       commit('CLEAR_ROUTERS');
       resolve();
     });

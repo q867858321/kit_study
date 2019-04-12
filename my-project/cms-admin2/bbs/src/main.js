@@ -12,8 +12,8 @@ import App from './App'
 import "babel-polyfill";
 import store from './store/index'
 import router from './router/index'//路由配置文
-import { getRand } from './untils/random'
-import { createSign } from './untils/sign'
+import { getRand } from './utils/random'
+import { createSign } from './utils/sign'
 import * as fetch from './api/user'
 import axios from 'axios'
 import qs from 'qs'

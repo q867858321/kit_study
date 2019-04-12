@@ -1,9 +1,9 @@
 import axios from 'axios'
-import {Message} from 'element-ui'
+import { Message } from 'element-ui'
 import store from '../store/index'
 import router from '../router/index'
 import qs from 'qs'
-import {signParams} from '../untils/sign'
+import { signParams } from '../utils/sign'
 
 let href = location.href;//截取URL地址区分是否带项目路径
 let localHref = href.substring(0, href.indexOf('/jeeadmin'));
@@ -12,7 +12,8 @@ apiUrl = process.env.Base_URL == '' ? localHref : process.env.Base_URL;//判断�
 const fetch = axios.create({
   baseURL: apiUrl,
   timeout: 10000,
-  withCredentials:true
+  withCredentials: true,
+  headers: { 'Content-type': 'application/x-www-form-urlencoded;charset=UTF-8' }
 });
 fetch.interceptors.request.use(config => {//拦截器配置,统一配置参数处理，页面上只需传递业务参数
   let sessionKeyValidate = false; //接口是否需要jsessionkey参数
@@ -41,7 +42,7 @@ fetch.interceptors.request.use(config => {//拦截器配置,统一配置参数�
   if (signValidate) {
     params = signParams(params, appKey);
   }
-  config.data = qs.stringify(params);
+  config.data = qs.stringify(params, { arrayFormat: 'repeat' });
   return config;
 }, error => {
   Promise.reject(error);

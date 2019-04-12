@@ -12,8 +12,8 @@ import App from './App'
 import "babel-polyfill";
 import store from './store/index'
 import router from './router/index'//路由配置文
-import { getRand } from './untils/random'
-import { createSign } from './untils/sign'
+import { getRand } from './utils/random'
+import { createSign } from './utils/sign'
 import * as fetch from './api/user'
 import axios from 'axios'
 import qs from 'qs'
@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
   if (ssoLogout == 'true' && to.path != '/login') {
     next('/login');
     localStorage.clear();
-  }else if (username != null && sessionId != null) {
+  } else if (username != null && sessionId != null) {
     // fetch.ssoLogin({
     //   username: username,
     //   sessionId: sessionId
@@ -58,7 +58,7 @@ router.beforeEach((to, from, next) => {
         } else {
           store.dispatch('setRouters').then(() => {
             router.addRoutes(store.state.addRouters);
-            next({ ...to}); // hack方法 确保addRoutes已完成
+            next({ ...to }); // hack方法 确保addRoutes已完成
           })
         }
       }

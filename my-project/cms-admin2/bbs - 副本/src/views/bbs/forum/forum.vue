@@ -18,48 +18,72 @@
             <th>操作</th>
           </tr>
           <!--一级版块-->
-          <tbody class="first-table" v-for="(category,index) in listGroupByCategory" :key="category.id">
+          <tbody
+            class="first-table"
+            v-for="(category,index) in listGroupByCategory"
+            :key="category.id"
+          >
             <tr class="parent-module">
               <td class="td-5 t-collapse"></td>
               <td class="td-5">{{category.id}}</td>
               <td>
-                <input type="text" class="table-input" placeholder="新分区名称" v-model="category.title"
-                      @keyup="autoCategoryPath(index)"
-
-                      v-require/>
+                <input
+                  type="text"
+                  class="table-input"
+                  placeholder="新分区名称"
+                  v-model="category.title"
+                  @keyup="autoCategoryPath(index)"
+                  v-require
+                >
               </td>
-              <td class="td-20"><input type="text"
-                                      placeholder="访问路径"
-                                      class="table-input-md"
-                                      v-model="category.path"
-
-                                      v-require/></td>
+              <td class="td-20">
+                <input
+                  type="text"
+                  placeholder="访问路径"
+                  class="table-input-md"
+                  v-model="category.path"
+                  v-require
+                >
+              </td>
               <td></td>
               <td></td>
               <td class="td-15">
-                <a href="javascript:void(0)" title="移动到最底部"
+                <a
+                  href="javascript:void(0)"
+                  title="移动到最底部"
                   @click="categorySwapItems(index,0,'down')"
-                  v-show="index+1 != listGroupByCategory.length">
+                  v-show="index+1 != listGroupByCategory.length"
+                >
                   <i class="iconfont bbs-xiayi"></i>
                 </a>
-                <a href="javascript:void(0)" title="向下移动"
+                <a
+                  href="javascript:void(0)"
+                  title="向下移动"
                   @click="categorySwapItems(index,index+1,'none')"
-                  v-show="index+1 != listGroupByCategory.length">
+                  v-show="index+1 != listGroupByCategory.length"
+                >
                   <i class="iconfont bbs-xiayi1"></i>
                 </a>
-                <a href="javascript:void(0)" title="向上移动"
+                <a
+                  href="javascript:void(0)"
+                  title="向上移动"
                   @click="categorySwapItems(index,index-1,'none')"
-                  v-show="index != 0">
+                  v-show="index != 0"
+                >
                   <i class="iconfont bbs-shangyi1" title="向上移动"></i>
                 </a>
-                <a href="javascript:void(0)" title="移动到顶部"
+                <a
+                  href="javascript:void(0)"
+                  title="移动到顶部"
                   @click.native="categorySwapItems(index,0,'up')"
-                  v-show="index != 0">
+                  v-show="index != 0"
+                >
                   <i class="iconfont bbs-shangyi"></i>
                 </a>
               </td>
               <td class="td-15">
-                <a href="javascript:void(0);"
+                <a
+                  href="javascript:void(0);"
                   class="t-del iconfont bbs-delete"
                   title="删除分区"
                   @click="deleteCategory(category.id,category.addState,index)"
@@ -71,61 +95,86 @@
               <td>{{forum.id}}</td>
               <td style="width:350px">
                 <div class="child-box">
-                  <input type="text" placeholder="新版块名称" class="table-input" v-model="forum.title"
-                        @keyup="autoForumPath(index,index1)"
-                        v-require/>
+                  <input
+                    type="text"
+                    placeholder="新版块名称"
+                    class="table-input"
+                    v-model="forum.title"
+                    @keyup="autoForumPath(index,index1)"
+                    v-require
+                  >
                 </div>
               </td>
               <td>
-                <input type="text" placeholder="新版块路径" class="table-input-md" v-model="forum.path" v-require />
+                <input
+                  type="text"
+                  placeholder="新版块路径"
+                  class="table-input-md"
+                  v-model="forum.path"
+                  v-require
+                >
               </td>
               <td>
                 <!--<el-switch on-text="是" off-text="否" v-model="forum.isGame"></el-switch>-->
-                <input type="text" disabled class="table-input-md" v-model="forum.gameId"/>
+                <input type="text" disabled class="table-input-md" v-model="forum.gameId">
                 <el-button type="text" @click="handleSelectGame(index, index1)">选择游戏</el-button>
               </td>
               <td>
-                <el-upload class="avatar-uploader"
-                          name="files"
-                          action="/manage/upload/o_upload"
-                          :data={categoryIndex:index,forumIndex:index1}
-                          :show-file-list="false"
-                          :on-success="handleAvatarSuccess"
-                          :before-upload="beforeAvatarUpload">
+                <el-upload
+                  class="avatar-uploader"
+                  name="files"
+                  action="/manage/upload/o_upload"
+                  :data="{categoryIndex:index,forumIndex:index1}"
+                  :show-file-list="false"
+                  :on-success="handleAvatarSuccess"
+                  :before-upload="beforeAvatarUpload"
+                >
                   <img v-if="forum.icon" :src="forum.icon" class="avatar">
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
               </td>
               <td>
-                <a href="javascript:void(0)"
+                <a
+                  href="javascript:void(0)"
                   v-show="index1+1 != category.forums.length"
                   @click="forumSwapItems(index1,0,'down',index)"
                 >
                   <i class="iconfont bbs-xiayi"></i>
                 </a>
-                <a href="javascript:void(0)"
+                <a
+                  href="javascript:void(0)"
                   @click="forumSwapItems(index1,index1+1,'down',index)"
-                  v-show="index1+1 != category.forums.length">
+                  v-show="index1+1 != category.forums.length"
+                >
                   <i class="iconfont bbs-xiayi1"></i>
                 </a>
-                <a href="javascript:void(0)"
+                <a
+                  href="javascript:void(0)"
                   @click="forumSwapItems(index1,index1-1,'none',index)"
-                  v-show="index1 != 0">
+                  v-show="index1 != 0"
+                >
                   <i class="iconfont bbs-shangyi1"></i>
                 </a>
-                <a href="javascript:void(0)"
+                <a
+                  href="javascript:void(0)"
                   @click="forumSwapItems(index1,0,'up',index)"
-                  v-show="index1 != 0">
+                  v-show="index1 != 0"
+                >
                   <i class="iconfont bbs-shangyi"></i>
                 </a>
               </td>
               <td>
-                <a href="javascript:void(0)"
+                <a
+                  href="javascript:void(0)"
                   class="t-edit"
                   v-show="!forum.addState"
-                  @click="editForum(forum.id)"> <i class="iconfont bbs-edit"></i></a>
-                <a class="t-del"
-                  @click="deleteForum(forum.id,forum.addState,index1,index)"><i class="iconfont bbs-delete"></i></a>
+                  @click="editForum(forum.id)"
+                >
+                  <i class="iconfont bbs-edit"></i>
+                </a>
+                <a class="t-del" @click="deleteForum(forum.id,forum.addState,index1,index)">
+                  <i class="iconfont bbs-delete"></i>
+                </a>
               </td>
             </tr>
             <tr>
@@ -157,8 +206,8 @@
         </table>
         <!--收缩隐藏-->
         <div class="margin-md" style="padding-left:25px">
-          <input type="button" name="" value="提交" class="bbs-submit" @click.prevent="saveList"/>
-          <input type="reset" name="" value="重置" class="bbs-reset" @click="resetList"/>
+          <input type="button" name value="提交" class="bbs-submit" @click.prevent="saveList">
+          <input type="reset" name value="重置" class="bbs-reset" @click="resetList">
         </div>
       </form>
     </div>
@@ -168,11 +217,10 @@
       <div class="table-responsive">
         <el-table :data="gameData" highlight-current-row @current-change="handleCurrentChange">
           <el-table-column property="id" align="center" label="游戏ID" width="150"></el-table-column>
-          <el-table-column property="name" align="center" label="游戏名称" width="150">
-          </el-table-column>
+          <el-table-column property="name" align="center" label="游戏名称" width="150"></el-table-column>
           <el-table-column property="icon" align="center" label="图标" width="150">
             <template slot-scope="scope">
-              <img :src="scope.row.icon" class="avatar"/>
+              <img :src="scope.row.icon" class="avatar">
             </template>
           </el-table-column>
           <el-table-column property="developer" align="center" label="开发商" width="150"></el-table-column>
@@ -180,12 +228,27 @@
       </div>
       <div class="table-bottom-bar">
         <div class="pull-left">
-          <span class="ml-48">每页显示
-                    <el-input v-model="dialogChangePageSize" @blur="dialogChangeSize" class="input-sm" type="number" min="1" max="50"></el-input>条,输入后按回车</span>
+          <span class="ml-48">
+            每页显示
+            <el-input
+              v-model="dialogChangePageSize"
+              @blur="dialogChangeSize"
+              class="input-sm"
+              type="number"
+              min="1"
+              max="50"
+            ></el-input>条,输入后按回车
+          </span>
         </div>
         <div class="pull-right">
-          <el-pagination layout="total,prev, pager, next" :total="dialogTotalCount" :page-size="dialogParams.pageSize" :current-page.sync='dialogCurrentPage' @current-change='getDialogPage' @size-change='getDialogSize'>
-          </el-pagination>
+          <el-pagination
+            layout="total,prev, pager, next"
+            :total="dialogTotalCount"
+            :page-size="dialogParams.pageSize"
+            :current-page.sync="dialogCurrentPage"
+            @current-change="getDialogPage"
+            @size-change="getDialogSize"
+          ></el-pagination>
         </div>
       </div>
       <div slot="footer" class="dialog-footer">
@@ -198,7 +261,7 @@
 
 <script>
 import * as fetch from "../../../api/bbs";
-import { makePy } from "../../../untils/py";
+import { makePy } from "../../../utils/py";
 export default {
   name: "forum",
   data() {

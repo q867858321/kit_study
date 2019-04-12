@@ -9,8 +9,12 @@
         <el-form-item label="所属分区" class="form-group">
           <el-col :span="6">
             <el-select placeholder="所属分区" v-model="ruleForm.category" @change="changeIds">
-              <el-option v-for="item in categoryList" :key="item.id" :label="item.title" :value="item.id">
-              </el-option>
+              <el-option
+                v-for="item in categoryList"
+                :key="item.id"
+                :label="item.title"
+                :value="item.id"
+              ></el-option>
             </el-select>
           </el-col>
         </el-form-item>
@@ -18,18 +22,18 @@
           <el-col :span="6">
             <el-input v-model="ruleForm.title"></el-input>
           </el-col>
-          <el-col :span="1" class="required">* </el-col>
+          <el-col :span="1" class="required">*</el-col>
           <el-col :span="10"></el-col>
         </el-form-item>
         <el-form-item label="访问路径" class="form-group" prop="path">
           <el-col :span="6">
             <el-input v-model="ruleForm.path" @change="replaceStr"></el-input>
           </el-col>
-          <el-col :span="1" class="required">* </el-col>
+          <el-col :span="1" class="required">*</el-col>
           <el-col :span="10" class="font-hint">请输入英文字母或数字</el-col>
         </el-form-item>
         <el-form-item label="是否为游戏" class="form-group">
-            <el-switch on-text="是" off-text="否" v-model="ruleForm.isGame"></el-switch>
+          <el-switch on-text="是" off-text="否" v-model="ruleForm.isGame"></el-switch>
         </el-form-item>
         <el-form-item label="关键字" class="form-group">
           <el-col :span="6">
@@ -45,14 +49,17 @@
           <el-col :span="1" class="required">&nbsp;</el-col>
           <el-col :span="10" class="font-hint">
             <span class="custom-theme" style="margin-right:10px;" @click="getUserList">
-              <i class="el-icon-plus" style="color:#409eff;cursor:pointer;" @click="moderatorsStrVisible = true"></i>
+              <i
+                class="el-icon-plus"
+                style="color:#409eff;cursor:pointer;"
+                @click="moderatorsStrVisible = true"
+              ></i>
             </span>
-             
-             多个版主用","号隔开
+            多个版主用","号隔开
           </el-col>
         </el-form-item>
         <!--高级设置-->
-        <el-form-item label="" class="form-group">
+        <el-form-item label class="form-group">
           <span class="setting-collapse-option">高级设置</span>
         </el-form-item>
         <div v-if="collapse">
@@ -89,25 +96,25 @@
               <el-input v-model="ruleForm.pointPrime" type="number"></el-input>
             </div>
           </el-form-item>
-          <el-form-item label="发帖是否需要审核" class="form-group" >
+          <el-form-item label="发帖是否需要审核" class="form-group">
             <el-switch on-text="是" off-text="否" v-model="ruleForm.topicNeedCheck"></el-switch>
           </el-form-item>
-          <el-form-item label="回帖是否需要审核" class="form-group" >
+          <el-form-item label="回帖是否需要审核" class="form-group">
             <el-switch on-text="是" off-text="否" v-model="ruleForm.postNeedCheck"></el-switch>
           </el-form-item>
         </div>
       </el-form>
       <div class="margin-md">
-        <input type="button" value="提交" class="bbs-submit" @click="updateForum" />
-        <input type="reset" value="重置" class="bbs-reset" />
+        <input type="button" value="提交" class="bbs-submit" @click="updateForum">
+        <input type="reset" value="重置" class="bbs-reset">
       </div>
-
 
       <el-dialog
         title="用户"
         :visible.sync="moderatorsStrVisible"
         width="50%"
-        :before-close="handleClose">
+        :before-close="handleClose"
+      >
         <el-form :inline="true" class="demo-form-inline">
           <div style="text-align:left;">
             <el-form-item label="用户">
@@ -115,13 +122,13 @@
             </el-form-item>
             <el-button type="primary" icon="el-icon-search">搜索</el-button>
             <span>已选版主:&emsp;</span>
-              <el-tag
-                v-for="item in moderatorsList"
-                :key="item.id"
-                closable
-                type="success" @close="removeModerators(item.id)">
-                {{item.name}}
-              </el-tag> 
+            <el-tag
+              v-for="item in moderatorsList"
+              :key="item.id"
+              closable
+              type="success"
+              @close="removeModerators(item.id)"
+            >{{item.name}}</el-tag>
           </div>
         </el-form>
         <table class="bbs-table">
@@ -132,26 +139,33 @@
             <th>头像</th>
           </tr>
           <tbody>
-            <tr v-for="(item,index) in userList" :key="index" >
+            <tr v-for="(item,index) in userList" :key="index">
               <td>
-                <input type="checkbox"  v-model="item.isModerator" @click="setModerators" />
+                <input
+                  type="checkbox"
+                  v-model="item.isModerator"
+                  @click="updateModerators({id:item.id,name:item.name})"
+                >
               </td>
               <td>{{item.id}}</td>
-              <td>{{item.name}} 
+              <td>
+                {{item.name}}
                 <span class="ban" v-if="item.isModerator==true">版</span>
               </td>
-              <td><img style="width:20px;" :src="item.avatar"/></td>
+              <td>
+                <img style="width:20px;" :src="item.avatar">
+              </td>
             </tr>
           </tbody>
         </table>
-        <div class="block" >
+        <div class="block">
           <el-pagination
             @current-change="handleCurrentChange"
             :current-page="1"
             :page-size="10"
             layout="prev, pager, next, jumper"
-            :total="this.userListTotal">
-          </el-pagination>
+            :total="this.userListTotal"
+          ></el-pagination>
         </div>
         <span slot="footer" class="dialog-footer">
           <el-button @click="moderatorsStrVisible = false">取 消</el-button>
@@ -202,7 +216,7 @@ export default {
       userList: [],
       userListTotal: 0,
       moderators: "",
-      moderatorsList: [],
+      moderatorsList: [], //{}
       userParams: {
         //接口参数
         siteId: this.$store.state.siteId,
@@ -231,7 +245,12 @@ export default {
       let newModeratorsStr = moderatorsStr.join(",");
       let newModeratorsIds = moderatorsIds.join(",");
       this.ruleForm.moderatorsStr = newModeratorsStr;
-      this.ruleForm.moderatorsIds = newModeratorsIds;
+      this.ruleForm.moderatorIds = newModeratorsIds;
+      console.log("newModeratorsStr", newModeratorsStr);
+    },
+    moderators(val, oldVal) {
+      this.userParams.username = val;
+      this.getUserList();
     }
     // userList(val, oldVal) {
     //   console.log(333);
@@ -267,6 +286,22 @@ export default {
         .getForum({ id: id })
         .then(res => {
           this.ruleForm = res.data;
+
+          if (this.ruleForm.moderators != null) {
+            let userNames = [];
+            let userIds = [];
+            let userArr = [];
+            this.ruleForm.moderators.forEach(function(item, index) {
+              userNames.push(item.username);
+              userIds.push(item.id);
+              userArr.push({ id: item.id, name: item.username });
+            });
+            let newModeratorsStr = userNames.join(",");
+            let newModeratorsIds = userIds.join(",");
+            this.ruleForm.moderatorsStr = newModeratorsStr;
+            this.ruleForm.moderatorIds = newModeratorsIds;
+            this.moderatorsList = userArr;
+          }
         })
         .catch(res => {
           this.$message("请求错误");
@@ -288,6 +323,7 @@ export default {
       for (let key in this.ruleForm) {
         params[key] = this.ruleForm[key];
       }
+      delete params["moderators"];
       params.siteId = this.$route.query.siteId;
       fetch
         .updateForum(params)
@@ -316,29 +352,64 @@ export default {
     },
     getUserList() {
       let params = this.userParams;
-      userFetch.getUserList(params).then(res => {
-        console.log("res", res);
-        let data = res.data.rows;
 
-        this.userList = data;
+      userFetch.getUserList(params).then(res => {
+        let data = res.data.rows;
+        let _this = this;
+        let newData = data.map(function(item, index) {
+          let moderatorIdsArr = [];
+          if (_this.ruleForm.moderatorIds != null) {
+            moderatorIdsArr = _this.ruleForm.moderatorIds.split(",");
+          }
+
+          let hasUser = moderatorIdsArr.indexOf(item.id.toString());
+          if (hasUser != -1) {
+            item.isModerator = true;
+          } else {
+            item.isModerator = false;
+          }
+          return item;
+        });
+        this.userList = newData;
         this.userListTotal = res.data.total;
         this.setModerators();
       });
     },
     setModerators() {
-      let arr = this.userList;
+      console.log("this", this);
+      let arr = this.moderatorsList;
       let _this = this;
       setTimeout(function() {
         let newArr = [];
         let moderatorsStr = "";
         arr.forEach(function(item, index) {
-          if (item.isModerator === true) {
-            newArr.push({ id: item.id, name: item.name });
-          }
+          newArr.push({ id: item.id, name: item.name });
         });
         _this.moderatorsList = newArr;
         console.log(_this.moderatorsList);
       }, 500);
+    },
+    updateModerators(params) {
+      let id = params.id;
+      let name = params.name;
+      // console.log("moderatorsList", this.moderatorsList);
+      // let has = this.moderatorsList.find(function(item, index) {
+      //   console.log("item", item.id);
+      //   return item.id == id;
+      // });
+      let has = false;
+      let num = -1;
+      this.moderatorsList.forEach(function(item, index) {
+        if (item.id == id) {
+          has = true;
+          num = index;
+        }
+      });
+      if (!has) {
+        this.moderatorsList.push({ id: id, name: name });
+      } else {
+        this.moderatorsList.splice(num, 1);
+      }
     },
     removeModerators(id) {
       let arr = this.moderatorsList.filter(function(item, index) {

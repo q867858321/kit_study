@@ -1,0 +1,110 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": [
+        {
+            "path": "official",
+            "forums": [
+                {
+                    "gameId": 1000070,
+                    "path": "ZonmobGameStudio",
+                    "icon": "http://zicon.ztems.com/store/game/cms/00ef0554a45e6b676447349eda327d4386907985/0/5bbddb3a4261e.png",
+                    "id": 3,
+                    "title": "PokerSoon",
+                    "priority": 0
+                },
+                {
+                    "gameId": 20047,
+                    "path": "KMTechnology",
+                    "icon": "http://zicon.ztems.com/store/game/cms/unknown/20047/5ad9728b1b44d.jpg",
+                    "id": 4,
+                    "title": "KMTechnology",
+                    "priority": 1
+                },
+                {
+                    "gameId": 20048,
+                    "path": "Fantasticyes",
+                    "icon": "http://zicon.ztems.com/store/game/cms/unknown/20048/5ad972985e219.jpg",
+                    "id": 5,
+                    "title": "Fantasticyes",
+                    "priority": 2
+                }
+            ],
+            "id": 1,
+            "title": "official",
+            "priority": 0
+        },
+        {
+            "path": "authority",
+            "forums": [
+                {
+                    "gameId": null,
+                    "path": "Gamenews",
+                    "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuYmZaATq9RAAAFcLtDqZQ827.png",
+                    "id": 2,
+                    "title": "Gamenews",
+                    "priority": 3
+                },
+                {
+                    "gameId": null,
+                    "path": "AndroidGame",
+                    "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuaSS-AQTgxAAclsGzBL7g091.png",
+                    "id": 9,
+                    "title": "AndroidGame",
+                    "priority": 4
+                },
+                {
+                    "gameId": null,
+                    "path": "IosGame",
+                    "icon": "",
+                    "id": 10,
+                    "title": "IosGame",
+                    "priority": 5
+                },
+                {
+                    "gameId": null,
+                    "path": "Test",
+                    "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuYmZGAEfa2AAAGREW-Jm4730.png",
+                    "id": 1,
+                    "title": "Test",
+                    "priority": 6
+                }
+            ],
+            "id": 2,
+            "title": "官方论坛",
+            "priority": 0
+        },
+        {
+            "path": "hot",
+            "forums": [
+                {
+                    "gameId": 20050,
+                    "path": "8bitBossesStudios",
+                    "icon": "http://zicon.ztems.com/store/game/cms/unknown/20050/5ad972a546798.jpg",
+                    "id": 6,
+                    "title": "8bitBossesStudios",
+                    "priority": 7
+                },
+                {
+                    "gameId": 20053,
+                    "path": "Perchang",
+                    "icon": "http://zicon.ztems.com/store/game/cms/unknown/20053/5ad972b968c06.jpg",
+                    "id": 7,
+                    "title": "Perchang",
+                    "priority": 8
+                },
+                {
+                    "gameId": 20055,
+                    "path": "DevolverDigital",
+                    "icon": "http://zicon.ztems.com/store/game/cms/unknown/20055/5ad972c95d22b.jpg",
+                    "id": 8,
+                    "title": "DevolverDigital",
+                    "priority": 9
+                }
+            ],
+            "id": 3,
+            "title": "热门游戏论坛",
+            "priority": 0
+        }
+    ]
+}

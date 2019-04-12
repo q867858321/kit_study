@@ -1,35 +1,51 @@
 <template>
   <el-row class="container">
     <el-col :span="24" class="bbs-header">
-      <div class="logo"><img src="./../assets/images/u4.png" alt="" >
+      <div class="logo">
+        <img src="./../assets/images/u4.png" alt>
       </div>
-      <div class="collapse-menu" @click="openAside"><img src="./../assets/images/collapse.png" alt=""></div>
+      <div class="collapse-menu" @click="openAside">
+        <img src="./../assets/images/collapse.png" alt>
+      </div>
       <div class="user-inner">
-        <img src="./../assets/images/userlogo.png" alt="" class="user-logo">
+        <img src="./../assets/images/userlogo.png" alt class="user-logo">
         <span>{{userName}}</span>
         <span class="iconfont bbs-bianji-copy" @click="editUserInfo" title="修改密码"></span>
         <span class="iconfont bbs-wangzhan-copy" title="查看首页" @click="getIndex"></span>
         <span class="iconfont bbs-out-copy" @click="logout" title="退出"></span>
         <el-select placeholder="所属分区" v-model="siteId" @change="changeIds">
-          <el-option v-for="item in siteList" :key="item.id" :label="item.name" :value="item.id">
-          </el-option>
+          <el-option v-for="item in siteList" :key="item.id" :label="item.name" :value="item.id"></el-option>
         </el-select>
       </div>
     </el-col>
     <div class="aside">
       <aside id="aside">
         <span class="aside-title">系统主菜单</span>
-        <el-menu class="el-menu-vertical-demo" unique-opened router :collapse='collapse' :default-active="activeIndex">
+        <el-menu
+          class="el-menu-vertical-demo"
+          unique-opened
+          router
+          :collapse="collapse"
+          :default-active="activeIndex"
+        >
           <template v-for="(item,index) in $store.state.routers" v-if="!item.hidden">
             <el-submenu :index="index+''" v-if="!item.leaf">
               <template slot="title">
                 <i :class="item.iconCls" class="iconfont"></i>
                 <span class="collapse-font">{{item.name}}</span>
               </template>
-              <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden">
-                  {{child.name}}</el-menu-item>
+              <el-menu-item
+                v-for="child in item.children"
+                :index="child.path"
+                :key="child.path"
+                v-if="!child.hidden"
+              >{{child.name}}</el-menu-item>
             </el-submenu>
-            <el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path" class="first-item">
+            <el-menu-item
+              v-if="item.leaf&&item.children.length>0"
+              :index="item.children[0].path"
+              class="first-item"
+            >
               <i :class="item.iconCls" class="iconfont"></i>
               <span class="collapse-font">{{item.children[0].name}}</span>
             </el-menu-item>
@@ -51,24 +67,28 @@
     </section>
     <div class="right-sider">
       <el-form :model="userInfo" :rules="rules" ref="userInfo">
-        <el-form-item label="" class="form-group label-no-margin" prop="origPwd">
-          <el-col >
-              <el-input placeholder="原密码" v-model="userInfo.origPwd" type="password"></el-input>
+        <el-form-item label class="form-group label-no-margin" prop="origPwd">
+          <el-col>
+            <el-input placeholder="原密码" v-model="userInfo.origPwd" type="password"></el-input>
           </el-col>
         </el-form-item>
-        <el-form-item label="" class="form-group label-no-margin" prop="newPwd">
-          <el-col >
-              <el-input placeholder="新密码" v-model="userInfo.newPwd"  type="password"></el-input>
+        <el-form-item label class="form-group label-no-margin" prop="newPwd">
+          <el-col>
+            <el-input placeholder="新密码" v-model="userInfo.newPwd" type="password"></el-input>
           </el-col>
         </el-form-item>
-        <el-form-item label="" class="form-group label-no-margin" prop="newPwd2" style="border:none">
-          <el-col >
-              <el-input placeholder="重复新密码" v-model="userInfo.newPwd2" type="password"></el-input>
+        <el-form-item label class="form-group label-no-margin" prop="newPwd2" style="border:none">
+          <el-col>
+            <el-input placeholder="重复新密码" v-model="userInfo.newPwd2" type="password"></el-input>
           </el-col>
         </el-form-item>
         <div class="clearfix">
           <el-button type="primary" @click="changePwd" style="float:left;width:47%">修改密码</el-button>
-          <el-button type="info"  @click="editUserInfo" style="float:right;width:47%;background:#999;border-color:#999">取消</el-button>
+          <el-button
+            type="info"
+            @click="editUserInfo"
+            style="float:right;width:47%;background:#999;border-color:#999"
+          >取消</el-button>
         </div>
       </el-form>
     </div>
@@ -76,7 +96,7 @@
 </template>
 
 <script>
-import { getRand } from "../untils/random";
+import { getRand } from "../utils/random";
 import * as user from "../api/user";
 import * as fetch from "../api/systemConfig";
 import Cookies from "js-cookie";

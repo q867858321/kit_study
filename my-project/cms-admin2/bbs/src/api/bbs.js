@@ -10,9 +10,9 @@ import qs from 'qs'
  */
 export function listGroupByCategory(params) {
   return fetch({
-    url:'/manage/forum/listGroupByCategory',
-    method:'post',
-    data:params
+    url: '/manage/forum/listGroupByCategory',
+    method: 'post',
+    data: params
   })
 }
 
@@ -22,9 +22,20 @@ export function listGroupByCategory(params) {
  */
 export function getCategoryList(params) {
   return fetch({
-    url:'/manage/category/list',
-    method:'post',
-    data:params
+    url: '/manage/category/list',
+    method: 'post',
+    data: params
+  })
+}
+/**
+ * 帖子列表信息
+ * @param params
+ */
+export function getTopicList(params) {
+  return fetch({
+    url: '/manage/topic/list',
+    method: 'post',
+    data: params
   })
 }
 
@@ -34,9 +45,9 @@ export function getCategoryList(params) {
  */
 export function getHotTopicList(params) {
   return fetch({
-    url:'/manage/topic/hot/list',
-    method:'post',
-    data:params
+    url: '/manage/topic/hot/list',
+    method: 'post',
+    data: params
   })
 }
 
@@ -46,10 +57,10 @@ export function getHotTopicList(params) {
  */
 export function hotTopicListUpdate(params) {
   return fetch({
-    url:'/manage/topic/hot/o_priority_update',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/topic/hot/o_priority_update',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -59,9 +70,9 @@ export function hotTopicListUpdate(params) {
  */
 export function deleteHotTopic(params) {
   return fetch({
-    url:'/manage/topic/hot/delete',
-    method:'post',
-    data:params
+    url: '/manage/topic/hot/delete',
+    method: 'post',
+    data: params
   })
 }
 
@@ -71,9 +82,9 @@ export function deleteHotTopic(params) {
  */
 export function getRecommendTopicList(params) {
   return fetch({
-    url:'/manage/topic/recommend/list',
-    method:'post',
-    data:params
+    url: '/manage/topic/recommend/list',
+    method: 'post',
+    data: params
   })
 }
 
@@ -83,9 +94,9 @@ export function getRecommendTopicList(params) {
  */
 export function deleteRecommendTopic(params) {
   return fetch({
-    url:'/manage/topic/recommend/delete',
-    method:'post',
-    data:params
+    url: '/manage/topic/recommend/delete',
+    method: 'post',
+    data: params
   })
 }
 
@@ -95,10 +106,10 @@ export function deleteRecommendTopic(params) {
  */
 export function recommendTopicListUpdate(params) {
   return fetch({
-    url:'/manage/topic/recommend/o_priority_update',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/topic/recommend/o_priority_update',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -109,9 +120,9 @@ export function recommendTopicListUpdate(params) {
  */
 export function getForumList(params) {
   return fetch({
-    url:'/manage/forum/list',
-    method:'post',
-    data:params
+    url: '/manage/forum/list',
+    method: 'post',
+    data: params
   })
 }
 
@@ -120,10 +131,10 @@ export function getForumList(params) {
  */
 export function saveList(params) {
   return fetch({
-    url:'/manage/forum/batchupdate',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/forum/batchupdate',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -133,10 +144,10 @@ export function saveList(params) {
  */
 export function deleteCategory(params) {
   return fetch({
-    url:'/manage/category/delete',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/category/delete',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -146,10 +157,10 @@ export function deleteCategory(params) {
  */
 export function deleteForum(params) {
   return fetch({
-    url:'/manage/forum/delete',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/forum/delete',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -159,10 +170,10 @@ export function deleteForum(params) {
  */
 export function categoryListUpdate(params) {
   return fetch({
-    url:'/manage/category/o_priority_update',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/category/o_priority_update',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -172,10 +183,10 @@ export function categoryListUpdate(params) {
  */
 export function forumListUpdate(params) {
   return fetch({
-    url:'/manage/forum/o_priority_update',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/forum/o_priority_update',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -185,9 +196,9 @@ export function forumListUpdate(params) {
  */
 export function getForum(params) {
   return fetch({
-    url:'/manage/forum/get',
-    method:'post',
-    data:params
+    url: '/manage/forum/get',
+    method: 'post',
+    data: params
   })
 }
 
@@ -197,10 +208,10 @@ export function getForum(params) {
  */
 export function updateForum(params) {
   return fetch({
-    url:'/manage/forum/update',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/forum/update',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -210,10 +221,10 @@ export function updateForum(params) {
  */
 export function getTopicTypeTree(params) {
   return fetch({
-    url:'/manage/topicType/tree',
-    method:'post',
-    signValidate:false,
-    data:params
+    url: '/manage/topicType/tree',
+    method: 'post',
+    signValidate: false,
+    data: params
   })
 }
 
@@ -223,10 +234,10 @@ export function getTopicTypeTree(params) {
  */
 export function getTopicTypeList(params) {
   return fetch({
-    url:'/manage/topicType/list',
-    method:'post',
-    signValidate:false,
-    data:params
+    url: '/manage/topicType/list',
+    method: 'post',
+    signValidate: false,
+    data: params
   })
 }
 
@@ -236,10 +247,10 @@ export function getTopicTypeList(params) {
  */
 export function getTopicTypeInfo(params) {
   return fetch({
-    url:'/manage/topicType/get',
-    method:'post',
-    signValidate:false,
-    data:params
+    url: '/manage/topicType/get',
+    method: 'post',
+    signValidate: false,
+    data: params
   })
 }
 
@@ -249,10 +260,10 @@ export function getTopicTypeInfo(params) {
  */
 export function deleteTopicTypeInfo(params) {
   return fetch({
-    url:'/manage/topicType/delete',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/topicType/delete',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -262,10 +273,10 @@ export function deleteTopicTypeInfo(params) {
  */
 export function updateTopicTypeInfo(params) {
   return fetch({
-    url:'/manage/topicType/update',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/topicType/update',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -275,10 +286,10 @@ export function updateTopicTypeInfo(params) {
  */
 export function addTopicTypeInfo(params) {
   return fetch({
-    url:'/manage/topicType/save',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/topicType/save',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -288,10 +299,10 @@ export function addTopicTypeInfo(params) {
  */
 export function getSensitivityList(params) {
   return fetch({
-    url:'/manage/sensitivity/list',
-    method:'post',
-    signValidate:false,
-    data:params
+    url: '/manage/sensitivity/list',
+    method: 'post',
+    signValidate: false,
+    data: params
   })
 }
 
@@ -301,10 +312,10 @@ export function getSensitivityList(params) {
  */
 export function deleteSensitivityInfo(params) {
   return fetch({
-    url:'/manage/sensitivity/delete',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/sensitivity/delete',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -314,10 +325,10 @@ export function deleteSensitivityInfo(params) {
  */
 export function addFastSensitivity(params) {
   return fetch({
-    url:'/manage/sensitivity/save',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/sensitivity/save',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -327,10 +338,10 @@ export function addFastSensitivity(params) {
  */
 export function sensitivityBatchUpdate(params) {
   return fetch({
-    url:'/manage/sensitivity/batch_update',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/sensitivity/batch_update',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -340,10 +351,10 @@ export function sensitivityBatchUpdate(params) {
  */
 export function sensitivityBatchSave(params) {
   return fetch({
-    url:'/manage/sensitivity/batch_save',
-    method:'post',
-    signValidate:true,
-    data:params
+    url: '/manage/sensitivity/batch_save',
+    method: 'post',
+    signValidate: true,
+    data: params
   })
 }
 
@@ -353,9 +364,9 @@ export function sensitivityBatchSave(params) {
  */
 export function getReportList(params) {
   return fetch({
-    url:'/manage/report/list',
-    method:'post',
-    data:params
+    url: '/manage/report/list',
+    method: 'post',
+    data: params
   })
 }
 
@@ -365,9 +376,9 @@ export function getReportList(params) {
  */
 export function getReportInfo(params) {
   return fetch({
-    url:'/manage/report/get',
-    method:'post',
-    data:params
+    url: '/manage/report/get',
+    method: 'post',
+    data: params
   })
 }
 
@@ -377,10 +388,10 @@ export function getReportInfo(params) {
  */
 export function process(params) {
   return fetch({
-    url:'/manage/report/process',
-    signValidate:true,
-    method:'post',
-    data:params
+    url: '/manage/report/process',
+    signValidate: true,
+    method: 'post',
+    data: params
   })
 }
 
@@ -390,17 +401,17 @@ export function process(params) {
  */
 export function deleteReportInfo(params) {
   return fetch({
-    url:'/manage/report/delete',
-    signValidate:true,
-    method:'post',
-    data:params
+    url: '/manage/report/delete',
+    signValidate: true,
+    method: 'post',
+    data: params
   })
 }
 
 export function addJob(params) {
   return fetch({
     url: '/manage/job/save',
-    signValidate:true,
+    signValidate: true,
     method: 'post',
     data: params
   })
@@ -409,7 +420,7 @@ export function addJob(params) {
 export function deleteJob(params) {
   return fetch({
     url: '/manage/job/delete',
-    signValidate:true,
+    signValidate: true,
     method: 'post',
     data: params
   })
@@ -418,7 +429,7 @@ export function deleteJob(params) {
 export function pauseJob(params) {
   return fetch({
     url: '/manage/job/pause',
-    signValidate:true,
+    signValidate: true,
     method: 'post',
     data: params
   })
@@ -427,7 +438,7 @@ export function pauseJob(params) {
 export function triggerJob(params) {
   return fetch({
     url: '/manage/job/trigger',
-    signValidate:true,
+    signValidate: true,
     method: 'post',
     data: params
   })
@@ -436,7 +447,7 @@ export function triggerJob(params) {
 export function resumeJob(params) {
   return fetch({
     url: '/manage/job/resume',
-    signValidate:true,
+    signValidate: true,
     method: 'post',
     data: params
   })
@@ -444,7 +455,7 @@ export function resumeJob(params) {
 export function updateJob(params) {
   return fetch({
     url: '/manage/job/update',
-    signValidate:true,
+    signValidate: true,
     method: 'post',
     data: params
   })
@@ -452,28 +463,28 @@ export function updateJob(params) {
 
 export function getJobList(params) {
   return fetch({
-    url:'/manage/job/list',
-    method:'post',
-    signValidate:false,
-    data:params
+    url: '/manage/job/list',
+    method: 'post',
+    signValidate: false,
+    data: params
   })
 }
 
 export function getJob(params) {
   return fetch({
-    url:'/manage/job/get',
-    method:'post',
-    signValidate:false,
-    data:params
+    url: '/manage/job/get',
+    method: 'post',
+    signValidate: false,
+    data: params
   })
 }
 
 /*获取游戏列表*/
-export function getGameList(params){
+export function getGameList(params) {
   return fetch({
-    url:'/manage/game/list',
-    method:'post',
-    signValidate:false,
-    data:params
+    url: '/manage/game/list',
+    method: 'post',
+    signValidate: false,
+    data: params
   })
 }
