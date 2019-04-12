@@ -12,34 +12,34 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import { mapActions } from "vuex";
 export default {
-    components:{
-        // conditionFilter
-    },
-    name:"bookDetail",
-    data(){
-        return {
-            msg:'',
-            item:{
-                id:'01',
-                productName:"苹果",
-                price:'1.6元'
-            }
-        }
-    },
-    mounted(){
-        this.$store.dispatch('footerStatus/hideFooter')
-    },
-    methods:{
-        //...mapActions('collection',['invokePushItems']),
-        add:function(item){
-            this.$store.commit('collection/pushCollects',item)
-        }
+  components: {
+    // conditionFilter
+  },
+  name: "bookDetail",
+  data() {
+    return {
+      msg: "",
+      item: {
+        id: "01",
+        productName: "苹果",
+        price: "1.6元"
+      }
+    };
+  },
+  mounted() {
+    this.$store.dispatch("footerStatus/hideFooter");
+    console.log("bookDetail", this);
+  },
+  methods: {
+    //...mapActions('collection',['invokePushItems']),
+    add: function(item) {
+      this.$store.commit("collection/pushCollects", item);
     }
-}
+  }
+};
 </script>
 
 <style>
-
 </style>
