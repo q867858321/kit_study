@@ -2,12 +2,12 @@
   <div class="fu">
     fu {{open}}
     <button @click="change">父 button</button>
-    <zhi :kai="open"></zhi>
+    <zhi :kai="open" @childChange="fugai"></zhi>
   </div>
 </template>
 
 <script>
-import zhi from "./zhi";
+import zhi from "./zhi.vue";
 export default {
   components: { zhi },
   name: "fu",
