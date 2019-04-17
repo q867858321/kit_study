@@ -35,6 +35,10 @@ const routers = [
         path: '/editor',
         component: editor
     },
+    {
+        path: "/music",
+        component: resolve => require(['../components/music/list.vue'], resolve),
+    },
 ]
 Vue.use(VueRouter);
 const router = new VueRouter({

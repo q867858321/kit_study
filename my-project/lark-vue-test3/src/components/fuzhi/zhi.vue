@@ -23,12 +23,9 @@ export default {
   },
   watch: {
     kai(val, oldVal) {
+      alert(val);
       this.dkai = val;
     },
-    // dkai(val, oldVal) {
-    //   console.log(val);
-    //   this.$emit("fugai", val);
-    // }
     dkai(val) {
       console.log("val", val);
     }
