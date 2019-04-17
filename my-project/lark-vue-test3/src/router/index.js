@@ -1,7 +1,7 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import bookDetail from '@/components/bookDetail.vue'
+import bookDetail from '../components/vuex/bookDetail.vue'
 // import compouted from '@/components/computed-get-set.vue'
 // const compouted = () => import('./ page / About.vue')
 import fu from '@/components/fuzhi/fu.vue'
@@ -36,8 +36,8 @@ const routers = [
         component: editor
     },
     {
-        path: "/music",
-        component: resolve => require(['../components/music/list.vue'], resolve),
+        path: "/pop",
+        component: resolve => require(['../components/pop/list.vue'], resolve),
     },
 ]
 Vue.use(VueRouter);

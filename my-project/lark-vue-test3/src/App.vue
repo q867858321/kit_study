@@ -9,10 +9,6 @@
       </li>
     </ul>
     <router-view class="view main"></router-view>
-    <!-- <Fauther></Fauther>
-    <vuexModeles></vuexModeles>
-    <bookDetail></bookDetail>
-    <book></book>-->
   </div>
 </template>
 
@@ -21,16 +17,12 @@ import HelloWorld from "./components/HelloWorld.vue";
 import Fauther from "./components/Fauther.vue";
 import vuexModeles from "./components/vuexModeles.vue";
 
-import bookDetail from "./components/bookDetail.vue";
-import book from "./components/book.vue";
 export default {
   name: "app",
   components: {
     HelloWorld,
     Fauther,
-    vuexModeles,
-    bookDetail,
-    book
+    vuexModeles
   }
 };
 </script>
