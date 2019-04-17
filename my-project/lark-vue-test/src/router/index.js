@@ -13,6 +13,8 @@ const Login = () => import("@/page/Login");
 //const Home = () => import('@/page/Home');
 import Home from '@/page/Home';
 const School = () => import('@/page/School');
+
+const tinymce = () => import('@/components/tinymce');
 Vue.use(Router)
 
 export default new Router({
@@ -71,6 +73,11 @@ export default new Router({
       path: "/student",
       name: "student",
       component: StudentList
+    },
+    {
+      path: '/tinymce',
+      name: 'tinymce',
+      component: tinymce
     }
   ]
 })

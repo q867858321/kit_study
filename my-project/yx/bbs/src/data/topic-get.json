@@ -1,0 +1,149 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "summary":"测试帖内容
+图片
+
+the end",
+        "types": [
+            {
+                "id": 2,
+                "name": "心得",
+                "path": "game",
+                "lft": 1,
+                "rgt": 6,
+                "priority": 10,
+                "description": "心得",
+                "logo": "/u/cms/www/201710/19130952r3sb.png",
+                "topicCount": 0,
+                "topicEssenceCount": 0,
+                "subscribeCount": 0,
+                "display": true
+            }
+        ],
+        "stat": {
+            "replyCount": 0,
+            "collections": 0,
+            "opposeCount": 1,
+            "upCount": 0,
+            "attentionCount": 0,
+            "viewCount": 0
+        },
+        "author": {
+            "gender": 0,
+            "openId": "38f662f993bff481bd245044cb84c2a375518c05",
+            "isCertified": false,
+            "intro": null,
+            "name": "爱思帝",
+            "verified": {
+                "reason": "版主",
+                "type": 2,
+                "url": "21"
+            },
+            "avatar": "http://zicon.ztems.com/store_game_cms_00ef0554a45e6b676447349eda327d4386907985_20046_5b9785c84449a.jpg",
+            "id": 8
+        },
+        "allowReply": true,
+        "banner": [],
+        "replyIds": "8,",
+        "videos": [],
+        "title": "测试 test -01",
+        "isOfficial": false,
+        "primeLevel": 0,
+        "hasAttach": true,
+        "forum": {
+            "gameId": null,
+            "stat": {
+                "postTotal": 71,
+                "visitCount": 5,
+                "postToday": 0,
+                "attentions": 3,
+                "topicToday": 0,
+                "topicTotal": 27
+            },
+            "keywords": "",
+            "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuYmZGAEfa2AAAGREW-Jm4730.png",
+            "description": "2222",
+            "sort": [
+                {
+                    "label": "回复时间",
+                    "params": {
+                        "orderBy": "0"
+                    }
+                },
+                {
+                    "label": "发帖时间",
+                    "params": {
+                        "orderBy": "9"
+                    }
+                }
+            ],
+            "title": "Test",
+            "priority": 6,
+            "filter": [
+                {
+                    "label": "求助",
+                    "params": {
+                        "type": "authority"
+                    }
+                },
+                {
+                    "label": "心得",
+                    "params": {
+                        "type": "game"
+                    }
+                },
+                {
+                    "label": "全部",
+                    "params": {
+                        "type": "all"
+                    }
+                },
+                {
+                    "label": "精华",
+                    "params": {
+                        "type": "prime"
+                    }
+                }
+            ],
+            "path": "Test",
+            "id": 1,
+            "category": {
+                "id": 2,
+                "title": "官方论坛"
+            },
+            "isGame": false,
+            "moderators": [
+                {
+                    "gender": 0,
+                    "openId": "1",
+                    "intro": null,
+                    "id": 1,
+                    "avatar": "http://qzapp.qlogo.cn/qzapp/101450813/57CC3F87B2BE89053C87EFBA57C5D25B/30",
+                    "username": "admin"
+                },
+                {
+                    "gender": 0,
+                    "openId": "38f662f993bff481bd245044cb84c2a375518c05",
+                    "intro": null,
+                    "id": 8,
+                    "avatar": "http://zicon.ztems.com/store_game_cms_00ef0554a45e6b676447349eda327d4386907985_20046_5b9785c84449a.jpg",
+                    "username": "爱思帝"
+                }
+            ]
+        },
+        "moderatorReply": false,
+        "createTime": "2018-09-12 23:40:16",
+        "contents": {
+            "text":"测试帖内容<br/>
+图片<br/>
+<img src="/storage/emulated/0/Android/data/net.hellogame.apps.gameplay/files/images/466706433_1536698022344.jpg"><br/>
+the end"
+        },
+        "isTop": false,
+        "topLevel": 0,
+        "id": 1,
+        "isPrime": false
+    }
+}

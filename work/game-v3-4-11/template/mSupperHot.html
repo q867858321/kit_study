@@ -5,10 +5,10 @@
 		<a class="allbtn icon iconfont icon-icon_more" href="./list.html"></a>
 	</div>
 	 <div class="swiper-container">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" id="container">
             <div class="swiper-slide">
                 <a href="javascript:void(0);">
-                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
+                    <img class="swiper-lazy" data-src="https://ss0.baidu.com/73t1bjeh1BF3odCf/it/u=3399570452,3974951249&fm=85&s=78B2A856297F400904D8C857020010FE" src="https://cn.vuejs.org/images/logo.png" />
                     <p class="play">88606</p>
                     <p class="img_text">players</p>
                     <div class="item_bottem">Cricket Cricket Cricket Cricket Cricket Cricket Cricket</div>
@@ -17,7 +17,7 @@
             </div>
             <div class="swiper-slide">
                 <a href="javascript:void(0);">
-                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
+                    <img class="swiper-lazy" data-src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2966113387,762446028&fm=58"  />
                     <p class="play">88606</p>
                     <p class="img_text">players</p>
                     <div class="item_bottem">Cricket</div>
@@ -26,7 +26,35 @@
             </div>
             <div class="swiper-slide">
                 <a href="javascript:void(0);">
-                    <img src="//game.jkfa.xyz/images/2019031113252965194.jpg"/>
+                    <img class="swiper-lazy" data-src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1706679956,732005834&fm=58"  />
+                    <p class="play">88606</p>
+                    <p class="img_text">players</p>
+                    <div class="item_bottem">Cricket</div>
+                    <div class="bg"></div>
+                </a>
+            </div>
+            
+            <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img class="swiper-lazy" data-src="" src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2436725631,1649710694&fm=58"  />
+                    <p class="play">222</p>
+                    <p class="img_text">players</p>
+                    <div class="item_bottem">Cricket</div>
+                    <div class="bg"></div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img class="swiper-lazy" data-src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3941422063,491612280&fm=58"  />
+                    <p class="play">88606</p>
+                    <p class="img_text">players</p>
+                    <div class="item_bottem">Cricket</div>
+                    <div class="bg"></div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img class="swiper-lazy" data-src="https://cn.vuejs.org/images/logo.png" />
                     <p class="play">88606</p>
                     <p class="img_text">players</p>
                     <div class="item_bottem">Cricket</div>
@@ -46,6 +74,7 @@
 	.m_supperHot .swiper-container {
 		padding-left:0.15625rem;
 		padding-right: 0.15625rem;
+		width:100%;
 	}
 	.m_supperHot .swiper-container .swiper-slide{
 		/*background: rgba(129,196,58,.9);	*/
@@ -105,10 +134,18 @@
     }*/
 </style>
 <script type="text/javascript">
+//	  $("img.swiper-lazy").lazyload({
+//	  	skip_invisible : true,
+//	  	threshold :20
+////	  	container: $("#container")
+//	  });
 	var swiper1 = new Swiper('.m_supperHot .swiper-container',{
-        slidesPerView: 2.1,
-        loop:true,
-        loopedSlides: 3,
+		lazy: {
+	    loadPrevNext: true,
+	  },
+//      slidesPerView: 2.1,
+//      loop:true,
+//      loopedSlides: 3,
       //spaceBetween: 10
     });
 </script>

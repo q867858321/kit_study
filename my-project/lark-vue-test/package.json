@@ -10,14 +10,17 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@tinymce/tinymce-vue": "^2.0.0",
     "axios": "^0.18.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "tinymce": "^5.0.3",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.0"
   },
   "devDependencies": {
+    "@packy-tang/vue-tinymce": "lpreterite/vue-tinymce",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
