@@ -2,7 +2,7 @@
     <div>
         <input type="button" 
                value="我是父组件中的按钮" 
-               @click="show">
+               @click="showaa">
         <!-- <child @upIsShow="changeIsShow" v-show="isShow"/> -->
         <!-- <child @upIsShow:isShow="changeIsShow" v-show="isShow"/> -->
         <!-- <child @upIsShow:isShow="function(bol){isShow=bol}" v-show="isShow"/> -->

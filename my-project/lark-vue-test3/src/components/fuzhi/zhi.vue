@@ -1,7 +1,10 @@
 <template>
   <div class="zhi">
     zhi {{kai}}, {{dkai}}
+    {{user.age}}
     <button @click="change">子改变</button>
+    <button @click="changefu">子改变父</button>
+    <button @click="changeUser">user</button>
   </div>
 </template>
 
@@ -11,7 +14,11 @@ export default {
   props: ["kai"],
   data() {
     return {
-      dkai: this.kai
+      dkai: this.kai,
+      user: {
+        name: "",
+        age: 0
+      }
     };
   },
   watch: {
@@ -22,14 +29,8 @@ export default {
     //   console.log(val);
     //   this.$emit("fugai", val);
     // }
-    dkai: {
-      get() {
-        console.log("ddd");
-        return this.dkai;
-      },
-      set(val) {
-        console.log("zhi", val);
-      }
+    dkai(val) {
+      console.log("val", val);
     }
   },
   mounted() {
@@ -43,6 +44,13 @@ export default {
       } else {
         this.dkai = true;
       }
+    },
+    changefu() {
+      console.log(this);
+      this.$emit("childChange", this.dkai);
+    },
+    changeUser() {
+      this.user.age++;
     }
   }
 };
