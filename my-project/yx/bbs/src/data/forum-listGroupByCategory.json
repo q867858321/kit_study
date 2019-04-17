@@ -1,0 +1,176 @@
+{
+    "code": 1,
+    "msg": "success",
+    "data": {
+        "total": 3,
+        "rows": [
+            {
+                "display": true,
+                "description": "求助",
+                "priority": 10,
+                "path": "authority",
+                "forums": [
+                    {
+                        "summary": null,
+                        "gameId": 20048,
+                        "path": "Fantasticyes",
+                        "stat": {
+                            "postTotal": 4,
+                            "visitCount": 0,
+                            "postToday": 0,
+                            "attentions": 0,
+                            "topicToday": 0,
+                            "topicTotal": 4
+                        },
+                        "icon": "http://zicon.ztems.com/store/game/cms/unknown/20048/5ad972985e219.jpg",
+                        "attentions": 0,
+                        "description": null,
+                        "id": 5,
+                        "title": "Fantasticyes",
+                        "topicTotal": 4,
+                        "isGame": true
+                    },
+                    {
+                        "summary": null,
+                        "gameId": null,
+                        "path": "Gamenews",
+                        "stat": {
+                            "postTotal": 15,
+                            "visitCount": 0,
+                            "postToday": 5,
+                            "attentions": 1,
+                            "topicToday": 0,
+                            "topicTotal": 15
+                        },
+                        "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuYmZaATq9RAAAFcLtDqZQ827.png",
+                        "attentions": 1,
+                        "description": null,
+                        "id": 2,
+                        "title": "Gamenews",
+                        "topicTotal": 15,
+                        "isGame": false
+                    },
+                    {
+                        "summary": "2222",
+                        "gameId": null,
+                        "path": "Test",
+                        "stat": {
+                            "postTotal": 71,
+                            "visitCount": 5,
+                            "postToday": 0,
+                            "attentions": 3,
+                            "topicToday": 0,
+                            "topicTotal": 27
+                        },
+                        "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuYmZGAEfa2AAAGREW-Jm4730.png",
+                        "attentions": 3,
+                        "description": "2222",
+                        "id": 1,
+                        "title": "Test",
+                        "topicTotal": 26,
+                        "isGame": false
+                    }
+                ],
+                "topicEssenceCount": 0,
+                "name": "求助",
+                "subscribeCount": 0,
+                "logo": "/u/cms/www/201710/19130952r3sb.png",
+                "topicCount": 0,
+                "id": 1,
+                "lft": 1,
+                "rgt": 6
+            },
+            {
+                "display": true,
+                "description": "心得",
+                "priority": 10,
+                "path": "game",
+                "forums": [
+                    {
+                        "summary": null,
+                        "gameId": 20048,
+                        "path": "Fantasticyes",
+                        "stat": {
+                            "postTotal": 4,
+                            "visitCount": 0,
+                            "postToday": 0,
+                            "attentions": 0,
+                            "topicToday": 0,
+                            "topicTotal": 4
+                        },
+                        "icon": "http://zicon.ztems.com/store/game/cms/unknown/20048/5ad972985e219.jpg",
+                        "attentions": 0,
+                        "description": null,
+                        "id": 5,
+                        "title": "Fantasticyes",
+                        "topicTotal": 4,
+                        "isGame": true
+                    },
+                    {
+                        "summary": null,
+                        "gameId": null,
+                        "path": "Gamenews",
+                        "stat": {
+                            "postTotal": 15,
+                            "visitCount": 0,
+                            "postToday": 5,
+                            "attentions": 1,
+                            "topicToday": 0,
+                            "topicTotal": 15
+                        },
+                        "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuYmZaATq9RAAAFcLtDqZQ827.png",
+                        "attentions": 1,
+                        "description": null,
+                        "id": 2,
+                        "title": "Gamenews",
+                        "topicTotal": 15,
+                        "isGame": false
+                    },
+                    {
+                        "summary": "2222",
+                        "gameId": null,
+                        "path": "Test",
+                        "stat": {
+                            "postTotal": 71,
+                            "visitCount": 5,
+                            "postToday": 0,
+                            "attentions": 3,
+                            "topicToday": 0,
+                            "topicTotal": 27
+                        },
+                        "icon": "http://play.appskyx.com/gameplay/M00/00/00/rBUsAVuYmZGAEfa2AAAGREW-Jm4730.png",
+                        "attentions": 3,
+                        "description": "2222",
+                        "id": 1,
+                        "title": "Test",
+                        "topicTotal": 26,
+                        "isGame": false
+                    }
+                ],
+                "topicEssenceCount": 0,
+                "name": "心得",
+                "subscribeCount": 0,
+                "logo": "/u/cms/www/201710/19130952r3sb.png",
+                "topicCount": 0,
+                "id": 2,
+                "lft": 1,
+                "rgt": 6
+            },
+            {
+                "display": true,
+                "description": "1",
+                "priority": 1,
+                "path": "game",
+                "forums": [],
+                "topicEssenceCount": 0,
+                "name": "game",
+                "subscribeCount": 0,
+                "logo": "http://image.appskyx.com/img/bbs/9999/9999/supermen.jpg",
+                "topicCount": 0,
+                "id": 9,
+                "lft": 0,
+                "rgt": 0
+            }
+        ]
+    }
+}

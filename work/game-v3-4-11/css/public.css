@@ -39,7 +39,7 @@ amp-img.i-amphtml-layout-fixed{display: block;}
 	font-size: 0.5rem;
 	color:#333;
 	padding:0 0.3125rem;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	position:relative;
 }
 .header .title_img{
