@@ -21,7 +21,7 @@
             </el-table-column>
         </el-table>
         <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
-        <pop :show="dialogVisible"></pop>
+        <pop :show="dialogVisible" @close="closeShow"></pop>
     </section>
 </template>
 
@@ -34,6 +34,9 @@ export default {
   methods: {
     handleClick(row) {
       console.log(row);
+    },
+    closeShow() {
+      this.dialogVisible = false;
     }
   },
 
