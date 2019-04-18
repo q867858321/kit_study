@@ -39,6 +39,25 @@ const routers = [
         path: "/pop",
         component: resolve => require(['../components/pop/list.vue'], resolve),
     },
+    {
+        path: "/axios",
+        component: resolve => require(['../components/axios/index.vue'], resolve),
+    },
+    {
+        path: "/vuex",
+        component: resolve => require(['../components/vuex/index.vue'], resolve),
+        redirect: '/vuex/bookDetail',
+        children: [
+            {
+                path: "book",
+                component: resolve => require(['../components/vuex/book.vue'], resolve)
+            },
+            {
+                path: "bookDetail",
+                component: resolve => require(['../components/vuex/bookDetail.vue'], resolve)
+            }
+        ]
+    },
 ]
 Vue.use(VueRouter);
 const router = new VueRouter({
