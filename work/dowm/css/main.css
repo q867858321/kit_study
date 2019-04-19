@@ -1,0 +1,19 @@
+*{padding: 0;margin: 0;}
+.clear:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.clear{
+	zoom: 1;
+}
+html{
+	height: 100%;
+	font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif;}
+body{
+	height: 100%;
+	background: rgb(77, 182, 172);
+	color:#fff;
+}
+
+

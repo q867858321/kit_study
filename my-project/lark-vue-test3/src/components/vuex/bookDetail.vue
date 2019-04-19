@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div>
-      <a @click="invokePushItems(item)">加入收藏列 利用action</a>
+    <div class="btnbox">
+      <span @click="invokePushItems(item)">加入收藏列 利用action</span>
       &nbsp;&nbsp;
-      <a @click="add(item)">加入收藏列 利用 mutations</a>
+      <span @click="add(item)">加入收藏列 利用 mutations</span>
     </div>
   </div>
 </template>
@@ -27,10 +27,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch("footerStatus/hideFooter");
-    console.log("bookDetail", this);
   },
   methods: {
-    // ...mapActions("collection", ["invokePushItems"]),
+    ...mapActions("collection", ["invokePushItems"]),
     add: function(item) {
       this.$store.commit("collection/pushCollects", item);
     }
@@ -38,5 +37,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.btnbox {
+  span {
+    cursor: pointer;
+  }
+}
 </style>

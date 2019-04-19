@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<!--<script>
+		 var g = document.documentElement.clientWidth / 360;
+		 document.getElementById('eqMobileViewport').setAttribute("content", "width=360, initial-scale=" + g + ", maximum-scale=" + g + ", user-scalable=no")
+		</script>-->
+		<script src="js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<style type="text/css">
+			.title_img{width: 6.5rem;display: block;margin: 0 auto;}
+			body{
+				position: relative;
+			}
+			.content{
+				width:100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+			.title{
+				margin:6px 0 0;
+				font-size:0.6rem;
+				text-align: center;
+				text-shadow: 1px 1px 2px #666;
+			}
+			.swiderBox{
+				height: 8rem;
+				margin:5px 0 0;
+				overflow: hidden;
+			}
+			.swiper-container{
+				height: 14.7222222222rem;
+				width: 7.4444444444rem;
+				background: url("./img/new1.png") no-repeat;
+				background-size: 100% 100%;
+			}
+			.swiper-slide{
+				height:6rem;
+			}
+			.swiper-slide img{
+				width:100%;
+				display: block;
+			}
+			.swiper-pagination-bullet-active{
+				background:#000;
+			}
+		</style>
+		<div class="content">
+			<img class="title_img" src="./img/title.png" title="Hi!Gamers" alt="Hi!Gamers">
+			<h1 class="title">Global Gamer's Community</h1>
+			<!-- Swiper -->
+			<div class="swiderBox">
+				<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				      <div class="swiper-slide">
+				      	<img alt="game" src="./img/new1.png"" />
+				      </div>
+				      <div class="swiper-slide">
+				      	<img alt="game" src="./img/new1.png"" />
+				      </div>
+				      <div class="swiper-slide">
+				      	<img alt="game" src="./img/new1.png"" />
+				      </div>
+				      <div class="swiper-slide">
+				      	<img alt="game" src="./img/new1.png" />
+				      </div>
+				    </div>
+				    <!-- Add Pagination -->
+				    <div class="swiper-pagination"></div>
+				  </div>
+			</div>
+			
+			  <style type="text/css">
+			  	.bottom{
+			  		font-size: 0.4444444444rem;
+			  		margin:10px 0;
+			  		text-align: center;
+			  	}
+			  	.bottom .fist_line{
+			  		margin-bottom:3px;
+			  	}
+				.down_box{
+					margin:0 auto;
+					background:#000;
+					border-radius: 0.1388888889rem;
+					width:5rem;
+					height:1.5rem;
+					box-shadow: 0 0 2px #fff;
+				}
+				.down_box .android_log_box{
+					float: left;
+					width: 1.5rem;
+					display: flex;
+    				align-items: center;
+				    justify-content: center;
+				    height: 100%;
+				    width:30%;
+					
+				}
+				.down_box .android_log_box .android_log{
+					width:1rem;
+				}
+				.down_box .android{
+					font-family: SourceHanSansSC;
+					font-size: 0.4444444444rem;
+					
+					margin-bottom: 2px;
+				}
+				.down_box .size{
+					float: left;
+					width:60%;
+					padding:0.2222222222rem 0 0;
+					text-align:center;
+					
+				}
+			  </style>
+			  <div class="bottom">
+			  	<p class="fist_line">Join us to get and discuss with </p>
+			  	<p>gamers all over the world</p>
+			  </div>
+			  <div class="down_box clear">
+			  	<div class="android_log_box">
+			  		<img class="android_log" src="./img/android.png"/>
+			  	</div>
+			  	
+			  	<div class="size">
+			  		<p class="android">For Android</p>
+			  		<p>9.78MB</p>
+			  	</div>
+			  </div>
+		</div>
+		
+		<script>
+		    var swiper = new Swiper('.swiper-container', {
+//		    	autoplay: true,
+		      pagination: {
+		        el: '.swiper-pagination',
+		      },
+		    });
+		</script>
+	</body>
+</html>

@@ -17,8 +17,9 @@ export default {
     return {};
   },
   computed: {
-    // ...mapState({  //用mapState来获取collection.js里面的state的属性值
-    //    arrList:state=>state.collection.collects
+    // ...mapState({
+    //   //用mapState来获取collection.js里面的state的属性值
+    //   arrList: state => state.collection.collects
     // }),
     ...mapGetters("collection", {
       //用mapGetters来获取collection.js里面的getters

@@ -1,13 +1,10 @@
 <template>
   <div id="app">
-    <ul>
-      <li>
-        <router-link to="/home/33">路由1</router-link>||
-        <router-link to="/home/33/router1">路由2</router-link>||
-        <router-link to="/ff">父子</router-link>||
-        <router-link to="/music">music</router-link>||
-      </li>
-    </ul>
+    <router-link to="/home/33">路由1</router-link>||
+    <router-link to="/home/33/router1">路由2</router-link>||
+    <router-link to="/ff">父子</router-link>||
+    <router-link to="/music">music</router-link>||
+    <router-link to="/vuex">vuex</router-link>||
     <router-view class="view main"></router-view>
   </div>
 </template>
