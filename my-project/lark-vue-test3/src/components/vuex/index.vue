@@ -38,9 +38,7 @@ export default {
       //用mapState来获取collection.js里面的state的属性值
       // arrList: state => state.collection.collects
       arrList: function(state) {
-        //页面发现有掉用arrList的时候才会去调用
-
-        console.log("state", state);
+        //页面发现有调用arrList的时候才会去调用
         return state.collection.collects;
       }
     })
