@@ -4,8 +4,22 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	</head>
-	<body>
+	<body id="body">
+		<script type="text/javascript">
+			function imgLoad(){
+				alert(3);
+			}
+			window.onload=function(){
+			//	代码加载完
+				alert(1);
+				function imgLoad(){
+				alert(3);
+			}
+			}
+			
+		</script>
 		<div style="height: 800px;">1</div>
 <!-- 71games-detail1 -->
 <ins id="ad1" class="adsbygoogle"
@@ -14,8 +28,18 @@
      data-ad-slot="3111706049">
      <div class="ad_test">333</div>
 </ins>
+<img onload="imgLoad()" src="https://bbsfiles.vivo.com.cn/vivobbs/attachment/forum/201803/13/130339l35qw523wy7d63jb.jpg"
 <script>
+//	document.getElementById("body").onload=function(){
+//		alert(4);
+//	}
 
+//document.getElementsByTagName("body")[0].onload=function(){
+//		alert(5);
+//	}
+</script>
+<script type="text/javascript">
+	alert(2);
 </script>
 <script type="text/javascript">
 	function loadJs(path,callback){
@@ -27,20 +51,20 @@
             callback();
         }  
 	}
-	loadJs("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",function(){
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		console.log("js 加载成功");
-		setTimeout(function(){
-			
-			var len=$(".ad_test").length;
-			console.log("len",len);
-			if(len>0){
-				console.log("广告模块未被渲染");
-			}else{
-				console.log("广告模块渲染了");
-			}
-		},1000)
-	});
+//	loadJs("//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",function(){
+//		(adsbygoogle = window.adsbygoogle || []).push({});
+//		console.log("js 加载成功");
+//		setTimeout(function(){
+//			
+//			var len=$(".ad_test").length;
+//			console.log("len",len);
+//			if(len>0){
+//				console.log("广告模块未被渲染");
+//			}else{
+//				console.log("广告模块渲染了");
+//			}
+//		},1000)
+//	});
 	
 	$(window).scroll(function(){
 		var w_height=$(window).height();

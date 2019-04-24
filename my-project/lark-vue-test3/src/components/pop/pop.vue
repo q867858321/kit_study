@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  props: ["show"],
+  // props: ["show"],
   data() {
     return {
       dialogVisible: false
@@ -22,17 +22,20 @@ export default {
   },
   watch: {
     //可以监听 自己、父、vuex中的数据变化
-    show(val, oldVal) {
-      this.dialogVisible = val;
-    }
+    // show(val, oldVal) {
+    //   this.dialogVisible = val;
+    // }
   },
   computed: {
     //只能监听自己中的数据变化,计算属性不能通过事件更改
   },
   methods: {
+    open() {
+      this.dialogVisible = true;
+    },
     close() {
       this.dialogVisible = false;
-      this.$emit("close");
+      // this.$emit("close");
     }
   }
 };
