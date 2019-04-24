@@ -1,6 +1,6 @@
 <template>
     <section>
-        {{show}}， {{dialogVisible}}，{{show2}}
+        {{show}}， {{dialogVisible}},{{id}},
         <el-button type="text" @click="dialogVisible = true">子点击</el-button>
         <a @click="changeComputed()">改变 computed</a>
         <el-dialog  title="提示" :visible="dialogVisible"  width="30%" :before-close="close">
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  props: ["show"],
+  props: ["show", "id"],
   data() {
     return {
       dialogVisible: false
@@ -25,18 +25,14 @@ export default {
     //可以监听 自己、父、vuex中的数据变化
     show(val, oldVal) {
       this.dialogVisible = val;
-    },
-    dialogVisible(val, oldVal) {
-      alert(val);
     }
   },
   computed: {
     //只能监听自己中的数据变化,计算属性不能通过事件更改
-    show2() {
-      alert(2);
-      this.dialogVisible = this.show;
-      return this.show + this.dialogVisible;
-    }
+    // show2() {
+    //   this.dialogVisible = this.show;
+    //   return this.show + this.dialogVisible;
+    // }
   },
   methods: {
     close() {
@@ -44,7 +40,8 @@ export default {
       this.$emit("close");
     },
     changeComputed() {}
-  }
+  },
+  updated() {}
 };
 </script>
 

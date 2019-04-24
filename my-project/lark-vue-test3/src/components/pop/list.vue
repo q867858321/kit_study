@@ -15,13 +15,12 @@
             </el-table-column>
             <el-table-column  fixed="right"  label="操作" width="100">
             <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-            <el-button type="text" size="small">编辑</el-button>
+              <el-button @click="handleClick(scope.row.id)" type="text" size="small">查看</el-button>
+              <el-button type="text" size="small">编辑</el-button>
             </template>
             </el-table-column>
         </el-table>
-        <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
-        <pop :show="dialogVisible" @close="closeShow"></pop>
+        <pop :show="dialogVisible" :id="popid" @close="closeShow"></pop>
     </section>
 </template>
 
@@ -33,6 +32,8 @@ export default {
   },
   methods: {
     handleClick(row) {
+      this.popid = row;
+      this.dialogVisible = true;
       console.log(row);
     },
     closeShow() {
@@ -43,8 +44,10 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      popid: null,
       tableData: [
         {
+          id: 2,
           date: "2016-05-02",
           name: "王小虎",
           province: "上海",
@@ -53,6 +56,7 @@ export default {
           zip: 200333
         },
         {
+          id: 3,
           date: "2016-05-04",
           name: "王小虎",
           province: "上海",
@@ -61,6 +65,7 @@ export default {
           zip: 200333
         },
         {
+          id: 4,
           date: "2016-05-01",
           name: "王小虎",
           province: "上海",

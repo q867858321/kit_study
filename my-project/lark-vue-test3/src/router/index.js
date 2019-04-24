@@ -10,14 +10,12 @@ import editor from '@/components/editor.vue'
 import tinymce from '@/components/tinymce.vue'
 const routers = [
     {
-        path: "/home/:userid",
+        path: "/booklist",
         component: bookDetail,
-        children: [
-            {
-                path: "router1",
-                component: fu
-            }
-        ]
+    },
+    {
+        path: '/book',
+        component: resolve => require(['../components/vuex/book.vue'], resolve),
     },
     {
         path: "/cgt",
@@ -39,6 +37,14 @@ const routers = [
         path: "/pop",
         component: resolve => require(['../components/pop/list.vue'], resolve),
     },
+    {
+        path: "/slot",
+        component: resolve => require(['../components/slot/list.vue'], resolve),
+    },
+    {
+        path: "/name",
+        component: resolve => require(['../components/vuex/name.vue'], resolve)
+    }
 ]
 Vue.use(VueRouter);
 const router = new VueRouter({

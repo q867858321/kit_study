@@ -2,12 +2,11 @@
   <div >
       <section class="joinState">
            <div class="joinStateHead">
-                <span class="h3">全国改性料通讯录</span>
                 
-                <span class="joinStatus" @click="invokePushItems(item)">加入收藏列 利用action</span>
-                <span class="joinStatus" @click="add(item)">加入收藏列 利用 mutations</span>
+                <span class="joinStatus" @click="invokePushItems(item)">利用action</span>
+                &emsp;&emsp;
+                <span class="joinStatus" @click="add(item)">利用 mutations</span>
            </div>
-           <router-view></router-view> 
       </section>
   </div>
 </template>
@@ -34,7 +33,7 @@ export default {
     console.log("bookDetail", this);
   },
   methods: {
-    //...mapActions('collection',['invokePushItems']),
+    ...mapActions("collection", ["invokePushItems"]),
     add: function(item) {
       this.$store.commit("collection/pushCollects", item);
     }

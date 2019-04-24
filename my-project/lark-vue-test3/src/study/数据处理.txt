@@ -28,3 +28,8 @@ parseInt("123") ; parseInt("123av") 123
 5.数值型转为字符串
 123 => '123'
 123.toString(); 123+''
+
+6.字符串中是否包含某字符串，数组中是否包含某一项
+let num=‘hello world’.indexOf("world")
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("Apple"); 
