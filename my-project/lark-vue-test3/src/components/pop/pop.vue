@@ -29,10 +29,6 @@ export default {
   },
   computed: {
     //只能监听自己中的数据变化,计算属性不能通过事件更改
-    // show2() {
-    //   this.dialogVisible = this.show;
-    //   return this.show + this.dialogVisible;
-    // }
   },
   methods: {
     close() {
@@ -45,5 +41,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

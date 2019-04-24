@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title>
+<style type="text/css">
+div {
+  width: 100px;
+  height: 100px;
+  background-color:#ccc;
+  position:absolute;
+  text-align:center;
+  line-height:100px;
+}
+</style>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  var windowheight = $(window).height();
+  var firstheight = $("div").offset().top;
+  var scrolltop = $(window).scrollTop();
+  if (firstheight >= scrolltop && firstheight < (scrolltop + windowheight)) {
+    $("div").text("位于可视范围");
+  }
+});
+</script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

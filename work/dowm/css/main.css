@@ -1,0 +1,102 @@
+*{padding: 0;margin: 0;}
+.clear:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.clear{
+	zoom: 1;
+}
+html{
+	height: 100%;
+	font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif;}
+body{
+	height: 100%;
+	background: rgb(77, 182, 172);
+	color:#fff;
+	position: relative;
+}
+.title_img{width: 6.5rem;display: block;margin: 0 auto;}
+.content{
+	width:100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.title{
+	margin:6px 0 0;
+	font-size:0.6rem;
+	text-align: center;
+	text-shadow: 1px 1px 2px #666;
+}
+.swiderBox{
+	height: 45vh;
+	width: 7.4444444444rem;
+	margin: 0.1388888889rem auto 0;
+	padding:0.8333333333rem 0 0;
+	background: url("../img/mi6x_phone.png") no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+.swiper-container{
+	height: 14.7222222222rem;
+	border-radius: 5px 5px 0 0;
+	width:91%;
+	
+}
+.swiper-slide{
+	height:6rem;
+}
+.swiper-slide img{
+	width:100%;
+	display: block;
+}
+.swiper-pagination-bullet-active{
+	background:#000;
+}
+.bottom{
+	font-size: 0.4444444444rem;
+	margin:6px 0;
+	text-align: center;
+}
+.bottom .fist_line{
+	margin-bottom:3px;
+}
+.down_box{
+	margin:0 auto;
+	background:#000;
+	border-radius: 0.1388888889rem;
+	width:5rem;
+	height:1.5rem;
+	box-shadow: 0 0 2px #fff;
+}
+.down_box a{
+	color:#fff;
+}
+.down_box .android_log_box{
+	float: left;
+	width: 1.5rem;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+    height: 100%;
+    width:30%;
+	
+}
+.down_box .android_log_box .android_log{
+	width:1rem;
+}
+.down_box .android{
+	font-family: SourceHanSansSC;
+	font-size: 0.4444444444rem;
+	margin-bottom: 2px;
+}
+.down_box .size{
+	float: left;
+	width:60%;
+	padding:0.2222222222rem 0 0;
+	text-align:center;
+	
+}
+

@@ -30,7 +30,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch("footerStatus/hideFooter");
-    console.log("bookDetail", this);
   },
   methods: {
     ...mapActions("collection", ["invokePushItems"]),
@@ -41,5 +40,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.btnbox {
+  span {
+    cursor: pointer;
+  }
+}
 </style>
