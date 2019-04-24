@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <div class="btnbox">
-      <span @click="invokePushItems(item)">加入收藏列 利用action</span>
-      &nbsp;&nbsp;
-      <span @click="add(item)">加入收藏列 利用 mutations</span>
-    </div>
+  <div >
+      <section class="joinState">
+           <div class="joinStateHead">
+                
+                <span class="joinStatus" @click="invokePushItems(item)">利用action</span>
+                &emsp;&emsp;
+                <span class="joinStatus" @click="add(item)">利用 mutations</span>
+           </div>
+      </section>
   </div>
 </template>
 

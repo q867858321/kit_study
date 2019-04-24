@@ -1,7 +1,8 @@
 <template>
   <section>
-    父pop：{{show}}， 子data：{{dialogVisible}}
+    {{show}}， {{dialogVisible}},{{id}},
     <el-button type="text" @click="dialogVisible = true">子点击</el-button>
+    <a @click="changeComputed()">改变 computed</a>
     <el-dialog title="提示" :visible="dialogVisible" width="30%" :before-close="close">
       <span>这是一段信息</span>
       <span slot="footer" class="dialog-footer">
@@ -35,9 +36,11 @@ export default {
     },
     close() {
       this.dialogVisible = false;
-      // this.$emit("close");
-    }
-  }
+      this.$emit("close");
+    },
+    changeComputed() {}
+  },
+  updated() {}
 };
 </script>
 

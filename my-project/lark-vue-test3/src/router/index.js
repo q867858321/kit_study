@@ -10,14 +10,12 @@ import editor from '@/components/editor.vue'
 import tinymce from '@/components/tinymce.vue'
 const routers = [
     {
-        path: "/home/:userid",
+        path: "/booklist",
         component: bookDetail,
-        children: [
-            {
-                path: "router1",
-                component: fu
-            }
-        ]
+    },
+    {
+        path: '/book',
+        component: resolve => require(['../components/vuex/book.vue'], resolve),
     },
     {
         path: "/cgt",
@@ -40,24 +38,13 @@ const routers = [
         component: resolve => require(['../components/pop/list.vue'], resolve),
     },
     {
-        path: "/axios",
-        component: resolve => require(['../components/axios/index.vue'], resolve),
+        path: "/slot",
+        component: resolve => require(['../components/slot/list.vue'], resolve),
     },
     {
-        path: "/vuex",
-        component: resolve => require(['../components/vuex/index.vue'], resolve),
-        redirect: '/vuex/bookDetail',
-        children: [
-            {
-                path: "book",
-                component: resolve => require(['../components/vuex/book.vue'], resolve)
-            },
-            {
-                path: "bookDetail",
-                component: resolve => require(['../components/vuex/bookDetail.vue'], resolve)
-            }
-        ]
-    },
+        path: "/name",
+        component: resolve => require(['../components/vuex/name.vue'], resolve)
+    }
 ]
 Vue.use(VueRouter);
 const router = new VueRouter({

@@ -27,6 +27,8 @@ export default {
   },
   methods: {
     handleClick(row) {
+      this.popid = row;
+      this.dialogVisible = true;
       console.log(row);
     },
     popshow() {
@@ -41,8 +43,10 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      popid: null,
       tableData: [
         {
+          id: 2,
           date: "2016-05-02",
           name: "王小虎",
           province: "上海",
@@ -51,6 +55,7 @@ export default {
           zip: 200333
         },
         {
+          id: 3,
           date: "2016-05-04",
           name: "王小虎",
           province: "上海",
@@ -59,6 +64,7 @@ export default {
           zip: 200333
         },
         {
+          id: 4,
           date: "2016-05-01",
           name: "王小虎",
           province: "上海",
