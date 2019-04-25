@@ -44,7 +44,16 @@ const routers = [
     {
         path: "/name",
         component: resolve => require(['../components/vuex/name.vue'], resolve)
+    },
+    {
+        path: "/witch",
+        component: resolve => require(['../components/witch/index.vue'], resolve)
+    },
+    {
+        path: '/computed',
+        component: resolve => require(['../components/computed/list.vue'], resolve)
     }
+
 ]
 Vue.use(VueRouter);
 const router = new VueRouter({
