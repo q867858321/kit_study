@@ -2,7 +2,8 @@
   <div class="fu">
     fu {{open}}
     <button @click="change">父 button</button>
-    <zhi :kai="open" @childChange="fugai"></zhi>
+    {{test}}
+    <zhi :kai="open" @childChange="fugai" v-bind:fatherNum.sync="test"></zhi>
   </div>
 </template>
 
@@ -14,7 +15,8 @@ export default {
   data() {
     return {
       namelist: [],
-      open: true
+      open: true,
+      test: 22
     };
   },
   watch: {},

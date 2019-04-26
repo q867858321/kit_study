@@ -1,12 +1,13 @@
 <template>
     <div class="name" @click="show">
         {{userName}}
-        {{username}}
+        {{username}},
+        age:{{age}}
     </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "name",
   data() {
@@ -19,8 +20,8 @@ export default {
     //computed 出来的数据是不能够再次修改的，vuex传过来的也不行。
     ...mapState({
       userName: function(state) {
-        this.username = state.name.name;
-        return state.name.name;
+        this.username = state.user.name;
+        return state.user.name;
       }
     })
   },
@@ -28,6 +29,7 @@ export default {
     console.log("name", this);
   },
   methods: {
+    ...mapMutations("user", ["changeAge"]),
     show() {
       console.log("name", this);
       this.username = "wang";

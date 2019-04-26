@@ -53,6 +53,7 @@ const routers = [
         path: '/for-if',
         component: resolve => require(['../components/for-if/for-if.vue'], resolve)
     }
+
 ]
 Vue.use(VueRouter);
 const router = new VueRouter({
