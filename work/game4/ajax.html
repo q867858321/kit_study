@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Ajax={
+			  get: function(url, fn) {
+			    var xhr = new XMLHttpRequest();            
+			    xhr.open('GET', url, true);
+			    xhr.onreadystatechange = function() {
+			      // readyState == 4说明请求已完成
+			      if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) { 
+			        // 从服务器获得数据 
+			        fn.call(this, xhr.responseText);  
+			      }
+			    };
+			    xhr.send();
+			  }
+			}
+			
+			var url='http://ons.me/tools/dropload/json.php?page=' + 1 + '&size=' + 10;
+			Ajax.get(url,function(data){
+				console.log(data);
+			})
+		</script>
+	</body>
+</html>

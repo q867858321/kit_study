@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="full-screen" content="yes">
+		<meta name="x5-fullscreen" content="true">
+		<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+		<link rel="stylesheet" href="./css/public.css">
+		<link rel="stylesheet" href="./css/swiper.min.css" />
+		<script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/jquery.js"></script>
+		<script src="./js/swiper.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/dropload.css" />
+		<script src="js/dropload.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<style type="text/css">
+			/*::-webkit-scrollbar {
+		        display: none;
+		    }*/
+			html {
+				font-size: 10px;
+				max-width: 640px;
+				-webkit-font-smoothing: antialiased;
+			}
+			body{
+				overflow: hidden;
+				-webkit-overflow-scrolling: touch;
+			    overflow-scrolling: touch;
+			}
+			ul,li{list-style: none;}
+			.swiper-content {
+				max-width: 640px;
+				margin: 0 auto;
+				background-color: #fff;
+				-webkit-overflow-scrolling : touch;
+			}
+			.p_list{
+				margin:0 5px;
+			}
+			.swiper-content .item {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-ms-flex-align: center;
+				-webkit-box-align: center;
+				box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				padding: 3.125%;
+				border-bottom: 1px solid #ddd;
+				color: #333;
+				text-decoration: none;
+			}
+			
+			.swiper-content .item img {
+				display: block;
+				width: 40px;
+				height: 40px;
+				border: 1px solid #ddd;
+			}
+			
+			.swiper-content .item h3 {
+				display: block;
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				width: 100%;
+				max-height: 40px;
+				overflow: hidden;
+				line-height: 20px;
+				margin: 0 10px;
+				font-size: 12px;
+			}
+			
+			.swiper-content .item .date {
+				display: block;
+				height: 20px;
+				line-height: 20px;
+				color: #999;
+			}
+			
+			.opacity {
+				-webkit-animation: opacity 0.3s linear;
+				animation: opacity 0.3s linear;
+			}
+			
+			@-webkit-keyframes opacity {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@keyframes opacity {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			.swiper-slide-thumb-active {
+				border-bottom: 2px solid #ff5d75;
+			}
+			
+			.swiper-slide-thumb-active a {
+				color: #ff5d75 !important;
+			}
+			.list_nav {
+				line-height: 46px;
+				font-size: 18px;
+				width:96%;
+				margin:0 auto;
+				text-align: center;
+				color: #666;
+			}
+			
+			.list_nav .gl_list_one {
+				border-bottom: 1px solid #f5f5f5;
+				height: 50px;
+				padding: 10px;
+				position: relative;
+				background-color: #fff;
+			}
+			
+			.list_nav {
+				height: 6.6vh;
+				position: fixed;
+				max-width: 640px;
+				background: #fff;
+				z-index:10;
+				top:0;
+				overflow: hidden;
+				box-flex: 1;
+			}
+			
+			.list_nav ul li {
+				width:auto;
+			}
+			
+			.list_nav ul li a {
+				/*display: block;
+				width: 100%;*/
+				height: 100%;
+				line-height: 46px;
+				font-size: 15px;
+				text-align: center;
+				color: #666;
+			}
+			#list{
+				margin-top:8vh;
+				height: 92vh;
+			}
+			#list,
+			#list .swiper-wrapper {
+				height: 92vh;
+				position: relative;
+			}
+			
+			#list .swiper-slide {
+				overflow-y: scroll;
+				height: 92vh;
+				overflow-scrolling: touch;
+				webkit-overflow-scrolling: touch;
+			}
+			
+			.loading {
+				display: block;
+				margin: 20px auto;
+				width: 15px;
+			}
+			
+			.over {
+				text-align: center;
+				font-size: 12px;
+				margin: 10px 0 20px;
+			}
+			
+			.game_item {
+					display: block;
+					border-bottom: 1px solid #f5f5f5;
+					background-color: #fff;
+					position: relative;
+					padding: 13px 0;
+				}
+				
+				.item_left {
+					width: 75px;
+					position: absolute;
+					left: 10px;
+					top: 10px;
+				}
+				
+				.item_left img {
+					height: 48px;
+					-webkit-border-radius: 4px;
+				}
+				
+				.item_center {
+					margin-left: 70px;
+					margin-top: -5px;
+					color: #000;
+					margin-right: 77px;
+				}
+				
+				.item_center .title {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					font-size: 14px;
+					color: #444;
+				}
+				
+				.item_center .content {
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					word-wrap: break-word;
+					color: rgba(68, 68, 68, 0.6);
+				}
+				
+				.item_right {
+					position: absolute;
+					right: 3%;
+					top: 38px;
+					margin-top: -18px;
+				}
+				
+				.play_btn {
+					background: #29b6f6;
+					color: #FFF;
+					box-shadow: 0 1px 4px #c2c2c2;
+					width: 40px;
+					height: 22px;
+					border-radius: 3px;
+					padding: 0 10px;
+					display: inline-block;
+					text-align: center;
+					line-height: 22px;
+					font-size: 16px;
+				}
+				@media screen and (min-width:640px){
+					#list .swiper-slide{
+						height: 69vh;
+					}
+					.list_nav{
+						height:6vh;
+					}
+				} 
+		</style>
+		<div class="p_list">
+			<style type="text/css">
+				header {
+	                width: 100%;
+	                overflow: hidden;
+	                white-space: nowrap;
+	                overflow-x: scroll;
+	            }
+	            header::-webkit-scrollbar {
+	                display: none;
+	            }
+	            
+	            .nav {
+	                display: inline-block;
+	                margin-left: 15px;
+	                margin-right: 10px;
+	                height: 50px;
+	                line-height: 50px;
+	                font-size:16px;
+	            }
+	            .nav.active{
+	            	color:#f00;
+	            }
+			</style>
+			 <header>
+			<div class="nav" data-index='1' data-name="Action">
+				Action
+			</div>
+			<div class="nav" data-index='2' data-name="Adventure">
+				Adventure
+			</div>
+			<div class="nav" data-index='3' data-name="Puzzle">
+				Puzzle
+			</div>
+			<div class="nav" data-index='4' data-name="Racing">
+				Racing
+			</div>
+			<div class="nav" data-index='5' data-name="Shoot">
+				Shoot
+			</div>
+			<div class="nav" data-index='6' data-name="Trivia">
+				Trivia
+			</div>
+			<div class="nav" data-index='7' data-name="Pixel_Games">
+				Pixel_Games
+			</div>
+			<div class="nav" data-index='8' data-name="Arcade"> 
+				Arcade
+			</div>
+			<div class="nav" data-index='9' data-name="Sports">
+				Sports
+			</div>
+			<div class="nav" data-index='10' data-name="Strategy">
+				Strategy
+			</div>
+        </header>
+			<div class="swiper-container" id="list">
+				<div class="swiper-wrapper">
+					<div data-page="1" class="swiper-slide">
+						<div class="swiper-content Action" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+							<!--<div class="game_item">
+								<a href="/id=88/cid=csly/gc=CSLY/" target="_self">
+									<div class="item_left">
+										<img src="http://h5res.appskyx.com/allgame/ICON/ydqw/icon90.jpg" />
+									</div>
+									<div class="item_center">
+										<p class="title">Boxing King</p>
+										<p class="content">Be the boxing king. Prove your skills and become the ultimate boxer.</p>
+									</div>
+									<div class="item_right">
+										<span class="play_btn">PLAY</span>
+									</div>
+								</a>
+							</div>-->
+
+						</div>
+					</div>
+					<div data-page="2" class="swiper-slide">
+						<div class="swiper-content Adventure" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="3" class="swiper-slide">
+						<div class="swiper-content Puzzle" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="4" class="swiper-slide">
+						<div class="swiper-content Racing" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="5" class="swiper-slide">
+						<div class="swiper-content Shoot" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="6" class="swiper-slide">
+						<div class="swiper-content Trivia" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="7" class="swiper-slide">
+						<div class="swiper-content Pixel_Games" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="8" class="swiper-slide">
+						<div class="swiper-content Arcade" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="9" class="swiper-slide">
+						<div class="swiper-content Sports" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+					<div data-page="10" class="swiper-slide">
+						<div class="swiper-content Strategy" data-num="2">
+							<img class="loading" src="img/loading.gif" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			var gallerySwiper = new Swiper('#list', {
+				on: {
+					touchEnd: function(ev) {
+						var index=this.realIndex;
+						console.log("index",index);
+						console.log("previousIndex",this.previousIndex);
+						var currentX=this.touches.currentX||0;
+						var startX=this.touches.startX||0;
+						console.log("this.touches.currentX",this.touches.currentX);
+						
+						console.log("this.touches.startX",startX);
+						if(this.touches.currentX<this.touches.startX){
+							$(".nav").eq(index+1).click();
+						}else{
+							$(".nav").eq(index-1).click();
+						}
+						
+					},
+				}
+			});
+
+
+			$(".nav").on("click",function(ev){
+                var moveX = $(this).position().left+$(this).parent().scrollLeft();
+                var pageX = document.documentElement.clientWidth;
+                var blockWidth = $(this).width();
+//              console.log(moveX)
+//              console.log(pageX);
+//              console.log(blockWidth);
+                var left = moveX-(pageX/2)+(blockWidth/2);
+                console.log(left);
+                $(this).css("color","red").siblings().css("color","#000000");
+                $("header").scrollLeft(left);
+            })
+
+			var max_num = 20;
+			var is_running = false;
+			var boxHeight = parseFloat($("#list").height());
+			//下滑加载
+			$("#list .swiper-slide").on("scroll", function() {
+				var srollT = $(this).scrollTop();
+				var totalH = boxHeight + parseFloat(srollT);
+				var $content = $(this).find(".swiper-content");
+				var num = $content.attr("data-num");
+				if(($content.height() - 420) <= totalH && num != max_num && !is_running && $content.find(".over").length == 0) {
+					is_running = true;
+					$.ajax({
+						type: 'GET',
+						url: 'http://ons.me/tools/dropload/json.php?page=' + num + '&size=' + 10,
+						dataType: 'json',
+						success: function(data) {
+							var arrLen = data.length;
+							var result = '';
+							if(arrLen > 0) {
+								for(var i = 0; i < arrLen; i++) {
+									result += '<a class="item opacity" href="' + data[i].link + '">' +
+										'<img src="' + data[i].pic + '" alt="">' +
+										'<h3>' + num + data[i].title + '</h3>' +
+										'<span class="date">' + data[i].date + '</span>' +
+										'</a>';
+								}
+								num++;
+								$content.attr("data-num", num);
+								$content.append(result);
+							} else {
+								if($content.find(".over").length == 0) {
+									$content.append('<div class="over">over</div>');
+								}
+							}
+							is_running = false;
+						},
+						error:function(data){
+							is_running = false;
+						}
+					})
+				}
+			});
+
+			//点击nav
+			$(".nav").on("click", function() {
+				var el_name = $(this).attr("data-name");
+				var $content = $('.' + el_name);
+				is_running=false;
+				if($content.find('.loading').length > 0) {
+					$.ajax({
+						type: 'GET',
+						url: 'http://ons.me/tools/dropload/json.php?page=' + 1 + '&size=' + 10,
+						dataType: 'json',
+						success: function(data) {
+							var arrLen = data.length;
+							var result = '';
+							if(arrLen > 0) {
+								for(var i = 0; i < arrLen; i++) {
+									result += '<a class="item opacity" href="' + data[i].link + '">' +
+										'<img src="' + data[i].pic + '" alt="">' +
+										'<h3>' + data[i].title + '</h3>' +
+										'<span class="date">' + data[i].date + '</span>' +
+										'</a>';
+								}
+								$content.html(result);
+							}
+						}
+					})
+				}
+
+			});
+			$("#list_nav .find_nav_cur").click(); //初始化时候加载
+		</script>
+	</body>
+
+</html>

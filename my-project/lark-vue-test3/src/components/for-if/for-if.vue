@@ -1,15 +1,14 @@
 <template>
-    <div>
-        <input type="text" v-model="name">
-        <input type="text" v-model="age">
-        <button @click="change">change</button>
-        <ul>
-            <li v-for="(item,index) in list" v-if="item.age==12">
-                {{item}}
-            </li>
-        </ul>
-        <child :username="list"></child>
-    </div>
+  <div>
+    <input type="text" v-model="name">
+    <input type="text" v-model="age">
+    <button @click="change">change</button>
+    <ul>
+      <li v-for="(item,index) in user.list" :key="index">{{item}}</li>
+    </ul>
+    <child :username.sync="user"></child>
+    <!-- 传入的是一个对象 -->
+  </div>
 </template>
 
 <script>
@@ -21,16 +20,18 @@ export default {
     return {
       name: "",
       age: 0,
-      list: [
-        {
-          name: "li",
-          age: 12
-        },
-        {
-          name: "li",
-          age: 12
-        }
-      ]
+      user: {
+        list: [
+          {
+            name: "li",
+            age: 12
+          },
+          {
+            name: "li",
+            age: 12
+          }
+        ]
+      }
     };
   },
   watch: {
@@ -45,8 +46,9 @@ export default {
   created() {},
   methods: {
     change() {
-      this.list[0].name = "www";
-      this.list[0].age = 10;
+      this.user.list.push({ name: this.name, age: this.age });
+      // this.list[0].name = "www";
+      // this.list[0].age = 10;
     }
   }
 };

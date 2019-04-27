@@ -46,12 +46,12 @@ const routers = [
         component: resolve => require(['../components/vuex/name.vue'], resolve)
     },
     {
-        path: "/witch",
-        component: resolve => require(['../components/witch/index.vue'], resolve)
+        path: "/computed",
+        component: resolve => require(['../components/computed/index.vue'], resolve)
     },
     {
-        path: '/computed',
-        component: resolve => require(['../components/computed/list.vue'], resolve)
+        path: '/for-if',
+        component: resolve => require(['../components/for-if/for-if.vue'], resolve)
     }
 
 ]
