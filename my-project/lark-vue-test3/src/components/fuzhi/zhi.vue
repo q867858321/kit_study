@@ -11,7 +11,7 @@
 <script>
 export default {
   name: "zhi",
-  props: ["kai"],
+  props: ["kai", "fatherNum"],
   data() {
     return {
       dkai: this.kai,
@@ -28,7 +28,16 @@ export default {
     },
     dkai(val) {
       console.log("val", val);
+    },
+    user: {
+      handler(val, oldVal) {
+        console.log("val", val);
+      },
+      deep: true
     }
+    // user(val) {
+    //   console.log("val", val);
+    // }
   },
   mounted() {
     console.log("zhi", this);
@@ -47,6 +56,7 @@ export default {
       this.$emit("childChange", this.dkai);
     },
     changeUser() {
+      this.fatherNum.age = 33;
       this.user.age++;
     }
   }

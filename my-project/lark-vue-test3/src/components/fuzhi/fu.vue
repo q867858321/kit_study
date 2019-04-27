@@ -16,7 +16,10 @@ export default {
     return {
       namelist: [],
       open: true,
-      test: 22
+      test: {
+        name: "2",
+        age: 0
+      }
     };
   },
   watch: {},

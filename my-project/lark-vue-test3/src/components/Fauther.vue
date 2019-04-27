@@ -12,7 +12,7 @@
     </div>
 </template>
 <script>
-import child from "@/components/child";
+import child from "./child.vue";
 export default {
   data() {
     return {
