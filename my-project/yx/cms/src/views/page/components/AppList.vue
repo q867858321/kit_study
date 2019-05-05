@@ -35,31 +35,30 @@
 	</div>
 </template>
 <script>
-
-import img404 from '../../../assets/404_images/404.png'
-import draggable from 'vuedraggable'
-export default{
-	name:"AppList",
-	props:['content',"data","select","spObj","localId"],
-	data(){
-		return {
-			img404,
-		}
-	},
-	components:{
-		draggable,
-	},
-	computed:{
-		contentList:{
-			get(){
-				this.localId
-				let content = this.content||[]
-				return content.slice()
-			},
-			set(val){
-				this.$emit("update:content",val)
-			},
-		},
-	},
-}
+import img404 from "../../../assets/404_images/404.png";
+import draggable from "vuedraggable";
+export default {
+  name: "AppList",
+  props: ["content", "data", "select", "spObj", "localId"],
+  data() {
+    return {
+      img404
+    };
+  },
+  components: {
+    draggable
+  },
+  computed: {
+    contentList: {
+      get() {
+        this.localId;
+        let content = this.content || [];
+        return content.slice();
+      },
+      set(val) {
+        this.$emit("update:content", val);
+      }
+    }
+  }
+};
 </script>
