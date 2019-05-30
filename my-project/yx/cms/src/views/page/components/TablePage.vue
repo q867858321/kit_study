@@ -44,135 +44,149 @@
 	</div>
 </template>
 <script>
-import {pageListApi,pageGetApi,} from '../../../api/page'
-export default{
-	props:['selectId'],
-	data(){
-		return {
-			total: null,
-			listLoading: true,
-			listQuery: {
-				name:undefined,
-				page: 1,
-		        limit: 15,
-		        order:undefined,
-		        sort: undefined,
-		        projectId:undefined,
-		        pageId:undefined,
-			},
-			query:null,
-			list: null,
-			currentRow:null,
-			lock:false,
-		}
-	},
-	created(){
-		let query = this.$route.query;
-		if(!query.id){
-			this.$router.back();
-		}
-		this.query = query
-		this.listQuery.projectId=query.id
-		this.listQuery.pageId=query.pageId
-		this.fetchData()
-	},
-	watch:{
-		selectId:{
-			handler(val){
-				this.currentRow=null
-				this.opRes(this.list)
-			},
-		},
-	},
-	methods:{
-		selectOption(list){
-			let selectId = this.selectId
-			return new Promise((resolve, reject)=>{
-				if(selectId){
-					if(list.some(item=>{
-						if(item.id==selectId){
-							this.currentRow=item
-							return true
-						}
-					})){
-						resolve(1)
-					}else{
-						if(this.currentRow){
-							list.unshift(this.currentRow)
-							resolve(2)
-						}else{
-							pageGetApi({id:selectId}).then(res=>{
-								let row = res
-								list.unshift(row)
-								this.currentRow=row
-								resolve(5);
-							}).catch(err=>{
-								reject(3)
-							})
-						}
+import { pageListApi, pageGetApi } from "../../../api/page";
+export default {
+  props: ["selectId"],
+  data() {
+    return {
+      total: null,
+      listLoading: true,
+      listQuery: {
+        name: undefined,
+        page: 1,
+        limit: 15,
+        order: undefined,
+        sort: undefined,
+        projectId: undefined,
+        pageId: undefined
+      },
+      query: null,
+      list: null,
+      currentRow: null,
+      lock: false
+    };
+  },
+  created() {
+    let query = this.$route.query;
+    if (!query.id) {
+      this.$router.back();
+    }
+    this.query = query;
+    this.listQuery.projectId = query.id;
+    this.listQuery.pageId = query.pageId;
+    this.fetchData();
+  },
+  watch: {
+    selectId: {
+      handler(val) {
+        this.currentRow = null;
+        this.opRes(this.list);
+      }
+    }
+  },
+  methods: {
+    selectOption(list) {
+      let selectId = this.selectId;
+      return new Promise((resolve, reject) => {
+        if (selectId) {
+          if (
+            list.some(item => {
+              if (item.id == selectId) {
+                this.currentRow = item;
+                return true;
+              }
+            })
+          ) {
+            resolve(1);
+          } else {
+            if (this.currentRow) {
+              list.unshift(this.currentRow);
+              resolve(2);
+            } else {
+              pageGetApi({ id: selectId })
+                .then(res => {
+                  let row = res;
+                  list.unshift(row);
+                  this.currentRow = row;
+                  resolve(5);
+                })
+                .catch(err => {
+                  reject(3);
+                });
+            }
+          }
+        } else {
+          reject(0);
+        }
+      });
+    },
+    opRes(list) {
+      this.lock = true;
+      this.$nextTick(() => {
+        try {
+          this.$refs.table.setCurrentRow();
+        } catch (err) {}
+      });
+      this.selectOption(list)
+        .then(() => {
+          this.list = list;
+          this.listLoading = false;
+          if (this.currentRow) {
+            this.$refs.table.setCurrentRow(this.currentRow);
+          }
 
-					}
-				}else{
-					reject(0)
-				}
-			})
-		},
-		opRes(list){
-			this.lock = true;
-			this.$nextTick(()=>{
-				try{this.$refs.table.setCurrentRow()}catch(err){}
-			})
-			this.selectOption(list).then(()=>{
-	        	this.list = list;
-	        	this.listLoading = false
-	        	if(this.currentRow){
-        			this.$refs.table.setCurrentRow(this.currentRow)
-        		}
-
-        		this.lock=false
-	        }).catch(err=>{
-	        	this.list = list;
-	        	this.listLoading = false
-	        	this.lock=false
-	        })
-		},
-		fetchData() {
-	      this.listLoading = true
-	      pageListApi(this.listQuery).then(res=>{
-	      	this.total=res.total
-	        let list = res.rows||[]
-	        this.opRes(list)
-	      }).catch(err => {
-	      	console.log(err)
-	        this.listLoading = false
-	      })
-	    },
-		sortChange(val) {
-		      if (val.order) {
-		        this.listQuery.order = val.prop
-		        this.listQuery.sort = val.order == 'descending' ? 'desc' : (val.order == 'ascending' ? 'asc' : undefined)
-		      } else {
-		        this.listQuery.order = undefined
-		        this.listQuery.sort = undefined
-		      }
-		      this.fetchData()
-		},
-		handleFilter() {
-		    this.fetchData()
-		},
-		handleSizeChange(val) {
-			this.listQuery.limit = val
-			this.fetchData()
-		},
-		handleCurrentChange(val) {
-			this.listQuery.page = val
-			this.fetchData()
-		},
-		selectRowFn(currentRow, oldCurrentRow){
-			if(!this.lock&&currentRow&&currentRow.appId!=this.selectId){
-				this.$emit('choiceData',currentRow)
-			}
-		},
-	},
-}
+          this.lock = false;
+        })
+        .catch(err => {
+          this.list = list;
+          this.listLoading = false;
+          this.lock = false;
+        });
+    },
+    fetchData() {
+      this.listLoading = true;
+      pageListApi(this.listQuery)
+        .then(res => {
+          this.total = res.total;
+          let list = res.rows || [];
+          this.opRes(list);
+        })
+        .catch(err => {
+          console.log(err);
+          this.listLoading = false;
+        });
+    },
+    sortChange(val) {
+      if (val.order) {
+        this.listQuery.order = val.prop;
+        this.listQuery.sort =
+          val.order == "descending"
+            ? "desc"
+            : val.order == "ascending"
+            ? "asc"
+            : undefined;
+      } else {
+        this.listQuery.order = undefined;
+        this.listQuery.sort = undefined;
+      }
+      this.fetchData();
+    },
+    handleFilter() {
+      this.fetchData();
+    },
+    handleSizeChange(val) {
+      this.listQuery.limit = val;
+      this.fetchData();
+    },
+    handleCurrentChange(val) {
+      this.listQuery.page = val;
+      this.fetchData();
+    },
+    selectRowFn(currentRow, oldCurrentRow) {
+      if (!this.lock && currentRow && currentRow.appId != this.selectId) {
+        this.$emit("choiceData", currentRow);
+      }
+    }
+  }
+};
 </script>

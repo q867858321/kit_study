@@ -55,6 +55,10 @@ const routers = [
     {
         path: '/for-if',
         component: resolve => require(['../components/for-if/for-if.vue'], resolve)
+    },
+    {
+        path: '/arr',
+        component: resolve => require(['../components/arr/arr.vue'], resolve)
     }
 
 ]

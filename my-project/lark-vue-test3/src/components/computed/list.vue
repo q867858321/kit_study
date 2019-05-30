@@ -1,8 +1,7 @@
 <template>
     <div>
-    父：{{list}}
-        <detail :list="list"
-        ></detail>
+        父：{{list}}
+        <detail :list="list"></detail>
     </div>
 
 </template>
