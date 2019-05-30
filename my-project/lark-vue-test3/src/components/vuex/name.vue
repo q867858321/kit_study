@@ -1,13 +1,13 @@
 <template>
-    <div class="name" @click="show">
-        {{userName}}
-        {{username}},
-        age:{{age}}
-    </div>
+  <div class="name" @click="show">
+    {{userName}}
+    {{username}},age{{getAge}}
+    <button @click="changeAge(2)">change Age</button>
+  </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapGetters, mapMutations } from "vuex";
 export default {
   name: "name",
   data() {
@@ -23,7 +23,8 @@ export default {
         this.username = state.user.name;
         return state.user.name;
       }
-    })
+    }),
+    ...mapGetters("user", ["getAge"])
   },
   mounted() {
     console.log("name", this);

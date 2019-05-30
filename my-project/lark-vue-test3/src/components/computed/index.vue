@@ -18,7 +18,6 @@ export default {
         return this.name;
       },
       set(val) {
-        //关联 data
         this.name = val + "1";
       }
     }

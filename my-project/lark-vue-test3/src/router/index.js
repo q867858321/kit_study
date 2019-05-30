@@ -7,7 +7,6 @@ import bookDetail from '../components/vuex/bookDetail.vue'
 import fu from '@/components/fuzhi/fu.vue'
 import UEditor from '@/components/UEditor.vue'
 import editor from '@/components/editor.vue'
-import tinymce from '@/components/tinymce.vue'
 const routers = [
     {
         path: "/booklist",
@@ -24,6 +23,10 @@ const routers = [
     {
         path: '/fu',
         component: fu
+    },
+    {
+        path: '/fu2',
+        component: resolve => require(['@/components/fuzhi/fu2.vue'], resolve),
     },
     {
         path: '/ff',

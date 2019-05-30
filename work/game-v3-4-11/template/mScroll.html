@@ -64,11 +64,15 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+    .m_scroll .swiper-slide:not(.swiper-slide-active){
+      transform: scale(0.95);
+      -webkit-transform: scale(0.95);
+	}
+
 </style>
 <script type="text/javascript">
 	var swiper1 = new Swiper('.m_scroll .swiper-container',{
 		autoplay: false,
-        
         initialSlide :2,
         loop:true,
         loopedSlides: 2.5,

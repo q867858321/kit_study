@@ -85,6 +85,7 @@
 	<body class="p_game">
 		<div class="p_game">
 			<div class="mGameHeader"></div>
+			<div class="mGameNotive"></div>
 			<div class="mGameShow"></div>
 			<div class="mGameAd"></div>
 			<div class="mGameExplain"></div>
@@ -92,7 +93,7 @@
 				<a href="javascript:void(0);" class="play_btn">play</a>
 			</div>
 			<div class="mGameSimelar"></div>
-			
+			<div class="mGameRecommend"></div>
 		</div>
 	</body>
 	<script async type="text/javascript">
@@ -100,6 +101,9 @@
 			//头部
 			$.get("./template/mGameHeader.html",function(data){
 				$(".mGameHeader").html(data);
+			});
+			$.get("./template/mGameNotive.html",function(data){
+				$(".mGameNotive").html(data);
 			});
 			//gameshow
 			$.get("./template/mGameShow.html",function(data){
@@ -117,6 +121,11 @@
 			//game推荐
 			$.get("./template/mGameSimelar.html",function(data){
 				$(".mGameSimelar").html(data);
+			});
+			
+			//game2推荐
+			$.get("./template/mGameRecommend.html",function(data){
+				$(".mGameRecommend").html(data);
 			});
 		});
 	</script>

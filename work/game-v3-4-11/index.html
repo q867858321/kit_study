@@ -24,6 +24,7 @@
 			<div class="mScroll"></div>
 			<div class="mScroll2"></div>
 			<div class="mCell"></div>
+			<div class="mMainBanner"></div>
 			<div class="mFooter"></div>
 		</div>
 		<script type="text/javascript">
@@ -55,6 +56,10 @@
 				//细胞
 				$.get("./template/mCell.html",function(data){
 					$(".mCell").html(data);
+				});
+				//主要banner图
+				$.get("./template/mMainBanner.html",function(data){
+					$(".mMainBanner").html(data);
 				});
 				//底部
 				$.get("./template/mFooter.html",function(data){

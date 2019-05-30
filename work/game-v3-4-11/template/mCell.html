@@ -1,8 +1,10 @@
-<div  class="m_cell">
+<div  class="m_cell bg_1">
 	<div class="header">
 		<img class="title_img" src="./img/arcade.png" />
 		<span class="text">New</span>
-		<a class="allbtn icon iconfont icon-icon_more" href="./list.html"></a>
+		<a class="more" href="./list.html">
+			More
+		</a>
 	</div>
 	<ul class="list clear">
 		<li>
@@ -68,21 +70,25 @@
 	.m_cell{
 		padding:0.3125rem 0; 
 	}
+	.m_cell .more{
+		float: right;
+	    color: #000000;
+	    font-size: 0.32rem;
+	}
 	.m_cell .list{
 		margin:0 0.2rem;
 	}
 	.m_cell .list li{
 		float: left;
 		color:rgba(71,74,79,.87);
-		font-size: 12px;
+		font-size: 0.32rem;
 		width:25%;
-		/*padding:0 0.15625rem;*/
 		text-align: center;
 		margin-top:0.2rem;
 	}
 	.m_cell .list li a{
 		display: block;
-	    padding: 0.0625rem 0.0625rem 0.15625rem 0.0625rem;
+	    padding: 0.0625rem 0 0.15625rem 0;
 	    border-radius: 0.15625rem;
 	    margin:0 0.0625rem 0 0.0625rem;
 	    height:3.8rem;
@@ -94,7 +100,7 @@
 		
 	}
 	.m_cell .list li img{
-		width:96%;
+		width:92%;
 		/*height:60px;*/
 		border-radius: 0.3125rem;
 	}
@@ -106,8 +112,9 @@
 		-webkit-box-orient: vertical;
 	}
 	.m_cell .list li .img_text {
-		color: #F99D00;
-		/*display: none;*/
+		color: #46bb4a;
+		transform: scale(0.9, 0.9); 
+    	-webkit-transform: scale(0.9,0.9);
 	}
 	.m_cell .list li .img_text .play{
 		color: #F99D00;

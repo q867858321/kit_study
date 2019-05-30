@@ -84,12 +84,14 @@
 	.m_game_simelar .item{
         display: flex;
         background: #fff;
-        height: 90px;
-        padding: 0 10px;
+        padding: 0.15625rem 0.3125rem;
         align-items: center;
         color:#888;
         border-bottom:1px solid #e0e0e0;
         overflow: hidden;
+    }
+    .m_game_simelar .item:last-of-type{
+    	border-bottom: none;
     }
     .m_game_simelar .item .item_left{
         display: flex;
@@ -98,16 +100,16 @@
         overflow: hidden;
     }
     .m_game_simelar .item .item_left img{
-    	width:42px;
+    	width: 1.875rem;
     	border-radius: 5px;
     }
+    
     .m_game_simelar .item .item_center{
     	flex:1;
-    	height: 53px;
-        padding:1px 15px 0;
+        padding:1px 0.46875rem 0;
     }
     .m_game_simelar .item .item_center h5{
-    	font-size: 13px;
+    	font-size: 0.37rem;
         font-weight: normal;
         font-weight: 800;
         margin-bottom: 0px;
@@ -115,7 +117,7 @@
     }
     .m_game_simelar .item .item_center p{
         overflow: hidden;
-        font-size: 12px;   
+        font-size: 0.32rem;   
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp:2;
@@ -125,18 +127,18 @@
     	color:rgb(65,184,131);
     }
     .m_game_simelar .item .item_right{
-        width:77px;
+        width:2.40625rem;
     }
     .m_game_simelar .item .item_right .play{
     	border:1px solid rgb(153,153,153);
     	float: right;
     	color:rgb(153,153,153);
     	border-radius: 2px;
-    	width: 72px;
-    	font-size: 12px;
+    	width: 2.25rem;
+    	font-size: 0.375rem;
     	margin-right: 0px;
-	    height: 28px;
-	    line-height: 26px;
+	    height: 0.875rem;
+	    line-height: 0.8125rem;
 	    text-align: center;
     }
 </style>

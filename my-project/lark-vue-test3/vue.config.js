@@ -1,6 +1,6 @@
 
 module.exports = {
-    baseUrl: '/',
+    publicPath: '/',
     outputDir: 'dist',
     lintOnSave: true,
     runtimeCompiler: true, //关键点在这  

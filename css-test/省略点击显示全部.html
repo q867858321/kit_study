@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>多行文字显示省略号</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1">
+		<style>
+			.context-wrap{
+				color: #3f3f3f;
+				white-space: normal;
+				word-wrap: break-word;
+				margin-top: 8px;
+				font-size: 16px;
+				line-height: 30px;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 5;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				min-height: 30px;
+			}
+			.context-wrap.on {
+				-webkit-line-clamp: inherit;
+			}
+		</style>
+		<script>
+			window.onload = function(e){
+				document.getElementById("test").onclick = function(e){
+					$("#test").toggleClass("on");
+				};
+			}
+			()(function() {
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="context">					
+			<div  id="test" class="context-wrap">	
+mayouchen,mayouchen,maouchen,mayouchen.mayoucen,mayouchen,mayouchen,maouchen,mayouchen.mayoucen,mayouchen,mayouchen,maouchen,mayouchen.mayouce,ayouchen,mayouchen,maouchen,mayouchen.mayoucen,mayouchen,mayouchen,maouchen,mayouchen.mayoucen,1111111111122222222222222222224444444444444444555															
+			</div>				
+		</div>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</body>
+	
+</html>

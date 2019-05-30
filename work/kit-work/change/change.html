@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./font/iconfont.css"/>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+	</head>
+	<body>
+		<style type="text/css">
+			*{padding:0;margin:0;}
+			html{font-family: "Roboto";}
+			
+			.game_info_active{
+				display: flex;
+				margin: 10px 15px;
+				font-size: 3vw;
+				position: relative;
+			}
+			.game_info_active .img_box{
+				width:20vw;
+			}
+			.game_info_active .img_box .img{
+				width:100%;
+				border-radius: 10px;
+			}
+			.game_info_active .img_info{
+				flex: 1;
+				padding:0 0 0 2vw;
+			}
+			.game_info_active .img_info .title{
+				color:#333;
+				font-size:4vw;
+			}
+			.game_info_active .img_info .title .title_right{
+				float: right;
+				color:rgb(117,117,117) ;
+				font-size: 3vw;
+			}
+			.game_info_active .star{
+				margin: 2vw 0;
+			}
+			.game_info_active .star i{
+				margin-right: -2px;
+				font-size: 2.1vw;
+				color:rgb(255,192,20);
+			}
+			.game_info_active .play_num{
+				color:#aaa;
+			}
+			.game_info_active .play_num .play{
+				color:rgb(40,219,180);
+			}
+			.game_info_active .heart{
+				position: absolute;
+				right:5px;
+				bottom:19px;
+				color:#9a9a9a;
+			}
+			.game_info_active .active{
+				color:rgb(255,126,193);
+			}
+		</style>
+		<div class="game_info_active">
+			<div class="img_box">
+				<img class="img" src="http://h5res.appskyx.com/allgame/ICON/xiaokonglongmaoxian/icon160.jpg" />
+			</div>
+			<div class="img_info">
+				<div class="title">
+					Trubo Tastic
+					<span class="title_right">
+						Racing
+					</span>
+				</div>
+				<div class="star">
+					<i class="icon iconfont icon-xingxing"></i>
+					<i class="icon iconfont icon-xingxing"></i>
+					<i class="icon iconfont icon-xingxing"></i>
+					<i class="icon iconfont icon-xingxing"></i>
+					<i class="icon iconfont icon-pingxing2"></i>
+				</div>
+				<div class="play_num">
+					<span class="play">154658</span>
+					plays
+				</div>
+			</div>
+			<div class="heart active">
+				<i class="icon iconfont icon-xin"></i>
+			</div>
+			
+		</div>
+		
+		
+		<div class="test">
+				<a href="./selection/test.html">test</a>
+			</div>
+			<script type="text/javascript">
+				$(".test").on("click",function(){
+					alert(3);
+				});
+				$(".test").click(function(){
+					alert(5);
+				})
+			</script>
+	</body>
+</html>
