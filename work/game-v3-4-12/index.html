@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+		<link rel="stylesheet" type="text/css" href="./css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css"/>
+		<script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/swiper.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/jquery.lazyload.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./font/iconfont.css"/>
+	</head>
+	<body>
+		<style type="text/css">
+			
+		</style>
+		<div class="p_index">
+			<div class="mHeader"></div>
+			<div class="mSupperHot"></div>
+			<div class="mScrollSuper"></div>
+			<div class="mAd"></div>
+			<div class="mScroll"></div>
+			<div class="mScroll2"></div>
+			<div class="mCell"></div>
+			<div class="mMainBanner"></div>
+			<div class="mFooter"></div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//头部
+				$.get("./template/mHeader.html",function(data){
+					$(".mHeader").html(data);
+				});
+				//热门推荐
+				$.get("./template/mSupperHot.html",function(data){
+					$(".mSupperHot").html(data);
+				});
+				//广告
+				$.get("./template/mAd.html",function(data){
+					$(".mAd").html(data);
+				});
+				//轮播
+				$.get("./template/mScroll.html",function(data){
+					$(".mScroll").html(data);
+				});
+				//轮播
+				$.get("./template/mScrollSuper.html",function(data){
+					$(".mScrollSuper").html(data);
+				});
+				//轮播2
+				$.get("./template/mScroll2.html",function(data){
+					$(".mScroll2").html(data);
+				});
+				//细胞
+				$.get("./template/mCell.html",function(data){
+					$(".mCell").html(data);
+				});
+				//主要banner图
+				$.get("./template/mMainBanner.html",function(data){
+					$(".mMainBanner").html(data);
+				});
+				//底部
+				$.get("./template/mFooter.html",function(data){
+					$(".mFooter").html(data);
+				});
+			})
+		</script>
+	</body>
+</html>

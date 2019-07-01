@@ -1,0 +1,52 @@
+<div class="m_game_header">
+	<a class="back" href="javascript:window.history.back(-1);">
+		<img src="./img/fanhui.png" />
+	</a>
+	Dine steak
+	<img class="love love_img" data-active="0" src="./img/heart.png"/>
+</div>
+
+<style>
+	.m_game_header{
+		position: relative;
+		text-align: center;
+		padding: 0.3125rem;
+		font-size:0.427rem;
+		color:#333333;
+		background: #fff;
+		box-shadow:0 1px 4px #d8d8d8;
+	}
+	.m_game_header .back {
+	    left: 0.3125rem;
+	    position: absolute;
+	    left: 0.3125rem;
+	    display: block;
+	}
+	.m_game_header .back img{
+		width: 0.65rem;
+    	display: block;
+	}
+	.m_game_header .love{
+		right: 0.3125rem;
+	    position: absolute;
+	    width: 0.7rem;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    -webkit-transform: translateY(-50%);
+	}
+	.m_game_header .back{
+		left: 0.3125rem;
+	}
+	.m_game_header .love{
+		right: 0.3125rem;
+		color:#666;
+	}
+	.m_game_header .love.active{
+		color: #CB4042;
+	}
+</style>
+<script type="text/javascript">
+	$(".icon-xin").on("click",function(){
+		$(this).toggleClass("active");
+	})
+</script>

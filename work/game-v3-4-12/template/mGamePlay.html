@@ -1,0 +1,85 @@
+
+
+<div id="mainContainer" style="">
+        <div id="adContainer" style=""></div>
+        <video id="contentElement" style="height: 0px;width: 0px">
+        </video>
+    </div>
+
+    <script type="text/javascript">
+        var Cytime=0;
+        var afg_channel_id = "9939008271";
+        var afg_clientpub = "ca-games-pub-1176349956374677";
+        var appID="";
+        var gameURL= "http://h5res.appskyx.com/allgame/xsaiche/index.html";
+        if(appID !=''&&appID!="None")
+        {
+        var a=document.getElementsByTagName("head")[0]||document.head;
+            if(a) {
+                var script=document.createElement('script');
+                script.type="text/javascript";
+                script.src="//res.appskyx.net/static/game/js/SDK/CySDK.js";
+                script.onload=function () {
+                          setTimeout(checkPay,Cytime);
+                }
+                a.appendChild(script);
+
+
+            }
+
+
+        }
+
+    </script>
+
+
+
+    <script type="text/javascript" src="//res.appskyx.net/static/game/js_bak/ads_v4.js"></script>
+
+<div style="position: relative;width: 100%;height: 100%" id="idparent">
+
+
+    <div id="ad" style="position: absolute;z-index: 9999;display: none">
+
+        <a href="#" id="ad_url">
+            <img id="ad_img" style="width: 320px;height: 100px" src="">
+        </a>
+        <div>
+            <button onclick="target_dis()" class="btn-primary btn-xs">close</button>
+        </div>
+    </div>
+
+    <div id="gameframediv" style="height: 100%;width: 100%;position: absolute;left: 0;top: 0; ">
+
+
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    function onLoadHandler() {
+    var RoScreen= "True";
+
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+        if (window.orientation === 180 || window.orientation === 0) {
+            if (RoScreen=="True"){
+                document.getElementById("orientation").style.display="block";
+            }else {
+                document.getElementById("orientation").style.display="none";
+            }
+        }
+        if (window.orientation === 90 || window.orientation === -90 ){
+
+            if (RoScreen=="True"){
+                document.getElementById("orientation").style.display="none";
+            }else {
+                document.getElementById("orientation").style.display="block";
+            }
+        }
+    }, false);
+
+    }
+
+
+</script>

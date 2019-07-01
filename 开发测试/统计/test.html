@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="index.html">index</a>
+		<script type="text/javascript">
+			window.onclose=function(){
+				alert(2221);
+				return "随意写";
+			}
+			  window.onbeforeunload = function(event) { 
+				console.log("e",event);
+				alert(33)
+				event.returnValue = "我在这写点东西..."; 
+			}; 
+		</script>
+	</body>
+</html>

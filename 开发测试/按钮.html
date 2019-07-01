@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+		<!-- <script src="http://res.appskyx.net/static/v3/jscompress/index.js" type="text/javascript" charset="utf-8"></script> -->
+	</head>
+	<body>
+		<style type="text/css">
+			/* public css */
+			html,body,div,a,p,h1,h2,h3,h4,h5,h6,iframe,img,ul,li{padding: 0;margin: 0;box-sizing: border-box;word-wrap: break-word;}
+			a{text-decoration: none;color:#333;}
+			i{font-style: normal;}
+			ul,li{list-style: none;}
+			html{width:100%;max-width: 540px;margin: 0 auto;font-family: Roboto,Lato,sans-serif!important;}
+			body{color: #888;background: #f3f3f3;width: 100%;height: 100%;}
+			.amp-img.i-amphtml-layout-fixed{display: block;}
+			
+			.clear:after{content: "";display: block;clear: both;}
+			.clear{zoom: 1;}
+			.hid_i{
+			    display: none;
+			}
+			
+		</style>
+		<div id="" style="height: 800px;">
+			
+		</div>
+		<style type="text/css">
+			.fix_play_box{
+				position: fixed;
+				bottom: 0px;
+				width: 100%;
+				z-index: 2;
+				left: 50%;
+				transform: translateX(-50%);
+				-webkit-transform:translateX(-50%);
+				right: 0px;
+				background-color: rgb(255, 255, 255);
+				padding: 2.667vw 1.333vw;
+				box-shadow: rgba(1, 1, 1, 0.34) 0px 0px 7px 1px;
+			}
+			.fix_play{
+				height: 12vw;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: rgb(62, 81, 181);
+				margin: 0px 4vw;
+				bottom: 0px;
+				border-radius: 1.333vw;
+				padding: 2.667vw;
+				color: rgb(255, 255, 255);
+				font-size: 7vw;
+				font-weight: 600;
+				box-shadow: rgba(1, 1, 1, 0.34) 0px 0px 7px 1px;
+				position: relative;
+			}
+			.fix_play_btn{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+				color: #fff;
+				text-align: center;
+				line-height: 12vw;
+			}
+			.play_bg{
+				position: absolute;
+				width: 0;
+				height: 100%;
+				right: 0;
+				z-index: 0;
+				background:#ebebeb;
+				animation:myfirst 2s 1 ease;
+			}
+			@keyframes myfirst{
+				0%   {width: 100%;}
+				100% {width: 0;}
+			}
+			@media screen and (min-width: 640px) {
+				.fix_play_box{
+					width:640px;
+				}
+				.fix_play{
+					height: 45px;
+					padding:10px;
+					font-size: 22px;
+				}
+				.fix_play_btn{
+					line-height: 45px;
+				}
+				.fix_play_box{
+					padding: 10px 5px;
+				}
+			}
+		</style>
+		<div class="fix_play_box">
+			<div class="fix_play">
+				<a href="" class="fix_play_btn">Play</a>
+				<div class="play_bg"></div>
+			</div>
+		</div>
+	</body>
+</html>

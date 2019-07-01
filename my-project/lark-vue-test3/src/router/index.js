@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import bookDetail from '../components/vuex/bookDetail.vue'
@@ -7,8 +6,7 @@ import bookDetail from '../components/vuex/bookDetail.vue'
 import fu from '@/components/fuzhi/fu.vue'
 import UEditor from '@/components/UEditor.vue'
 import editor from '@/components/editor.vue'
-const routers = [
-    {
+const routers = [{
         path: "/booklist",
         component: bookDetail,
     },
@@ -59,6 +57,10 @@ const routers = [
     {
         path: '/arr',
         component: resolve => require(['../components/arr/arr.vue'], resolve)
+    },
+    {
+        path: "/element/form",
+        component: resolve => require(['../components/element/formRule.vue'], resolve)
     }
 
 ]
