@@ -61,40 +61,16 @@ var GameModel = function () {
             }
         }
     }();
-    var $Console = function () {
-        var LEVELS = {log: 3, info: 2, warn: 1, error: 0};
-        var _CONSOLE_DEBUG_LEVEL = LEVELS.info;
-        var cons_prefix = ' :: [Connect] > ';
-        var trace = function (funName) {
-            return function (args) {
-                window.console && console[funName] && getDebugLevel() >= LEVELS[funName] && console[funName](cons_prefix + args);
-            }
-        };
-        var getDebugLevel = function () {
-            return ~~(_CONSOLE_DEBUG_LEVEL || LEVELS.info);
-        };
-        return {
-            log: trace("log"),
-            info: trace("info"),
-            warn: trace("warn"),
-            error: trace("error"),
-            setLevel: function (lvNm) {
-                return _CONSOLE_DEBUG_LEVEL = LEVELS[lvNm] || _CONSOLE_DEBUG_LEVEL;
-            }
-        }
-    }();
     return {
         Toolkit: $Toolkit,
         Object: $Object,
-        Console: $Console
     }
 }();
 
 var AFGAdRequest = function () {
     var EMPTY_FUN = function () {};
     // assign false if you don't want to request ad when the page is loading
-    var preloadAds = true;
-    var isAdCached = false;
+    var preloadAds = false;
     var afg_channel_id, afg_clientpub;
     var adDisplayContainer, adsLoader, adRequeted = false,
         adsManager;
@@ -106,8 +82,6 @@ var AFGAdRequest = function () {
         if (!adContainer) {
             adContainer = document.createElement('DIV');
             adContainer.id = 'adContainer';
-            // 插入到body
-            document.body.appendChild(adContainer);
         }
         game = g;
         afg_channel_id = channel_id;
@@ -126,9 +100,6 @@ var AFGAdRequest = function () {
             _requestAds();
         }
     }
-    /**
-     * 请求广告
-     */
     var _requestAds = function () {
         // Request ads.
         var adsRequest = new google.ima.AdsRequest();
@@ -139,16 +110,12 @@ var AFGAdRequest = function () {
         adsRequest.nonLinearAdSlotHeight = adContainer.clientHeight;
         adsRequest.forceNonLinearFullSlot = true;
         adsLoader.requestAds(adsRequest);
-        isAdCached = true; //means play ads when it is back.
     }
-    /**
-     * 播放广告
-     */
     var _playAds = function () {
         // Initialize the container. Must be done via a user action on mobile devices.
         adDisplayContainer.initialize();
-        isAdCached = false; //when out from here, no ads cached.
         try {
+
             // Initialize the ads manager.
             adsManager.init(adContainer.clientWidth, adContainer.clientHeight, google.ima.ViewMode.NORMAL);
             // start showing the ad.
@@ -164,35 +131,19 @@ var AFGAdRequest = function () {
             game.startGame();
         }
     }
-    var _destroy = function() {
-    	if (adDisplayContainer) {
-        	adDisplayContainer.destroy();
-	    }
-	    if (adsManager) {
-	        adsManager.destroy();
-	    }
-	    if (adsLoader) {
-	        adsLoader.destroy();
-	    }
-    }
     var requestAds = function () {
-    	if(adContainer) {
-    		adContainer.style.cssText = "display: block;"
-    	}
-    	if(!isAdCached) {
-    		_requestAds();	
-    	}
+        if (!preloadAds) {
+            _requestAds();
+        }
     }
-	var hideAdContainer = function() {
-    	if(adContainer) {
-    		adContainer.style.cssText = "display: none;"
-    	}
-   }
+
     function createAdDisplayContainer() {
         adDisplayContainer = new google.ima.AdDisplayContainer(adContainer);
     }
+
     function onAdsManagerLoaded(adsManagerLoadedEvent) {
         // Get the ads manager.
+        console.log("google.ima.AdEvent.Type", google.ima.AdEvent.Type);
         var adsRenderingSettings = new google.ima.AdsRenderingSettings();
         adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
         // videoContent should be set to the content video element.
@@ -209,15 +160,15 @@ var AFGAdRequest = function () {
 
         adsManager.addEventListener(google.ima.AdEvent.Type.USER_CLOSE, onAdEvent);
         adsManager.addEventListener(google.ima.AdEvent.Type.SKIPPED, onAdEvent);
-        if (isAdCached) {
-		    _playAds();
-	    }
+        _playAds();
     }
-	var onAdError = function () {
+
+    var onAdError = function () {
         game.startGame();
     };
     var onAdEvent = function (adEvent) {
         var ad = adEvent.getAd();
+        console.log("onAdEvent", adEvent);
         switch (adEvent.type) {
             case google.ima.AdEvent.Type.LOADED:
                 // This is the first event sent for an ad - it is possible to
@@ -250,15 +201,12 @@ var AFGAdRequest = function () {
                 //start your game
                 game.startGame();
                 break;
+            case google.ima.AdEvent.Type.USER_CLOSE:
             case google.ima.AdEvent.Type.SKIPPED:
+                console.log("User skipped/close the ad");
                 //start your game
-                // game.startGame();
+                game.startGame();
                 break;
-			case google.ima.AdEvent.Type.USER_CLOSE:
-				console.log("User close the ad");
-				
-				game.startGame();
-				break;
         }
     };
     //重新开始
@@ -271,72 +219,21 @@ var AFGAdRequest = function () {
     };
     return {
         init: _init,
-        destroy: _destroy,
-        requestAds: requestAds,
-        hideAdContainer: hideAdContainer
+        requestAds: requestAds
     }
 }();
 (function (_gameModel, _AFGAdRequest) {
-
     // 游戏容器
     var GamePage = function (gameUrl) {
-    	this.invokes = [];
-    	this.isReady = false;
         this.gameUrl = gameUrl;
-		this.isBegin=false;
-		this.state="success";
-		var arrUrl = gameUrl.split("//");
-		var start = arrUrl[1].indexOf("/");
-		var relUrl = arrUrl[1].substring(0,start);
-		 _origin = arrUrl[0]+"//"+relUrl;  //游戏域名 
     }
-	
-	
-
     GamePage.generateGame = function (gameUrl) {
         return new GamePage(gameUrl);
     }
     GamePage.prototype.init = function () {};
-    GamePage.prototype.loadGame = function () {};
-    GamePage.prototype.startGame = function () {};
-    GamePage.prototype._preDispatch = function(_this, cstDt) {
-    	var dt = cstDt.data || (cstDt.currentTarget && cstDt.currentTarget.data) || {};
-    	var cmd = dt.split("@@@");
-    	switch (cmd[0]) {
-    		case "invoke" :
-                this.invoke(cmd[1]);
-                break;
-            default:
-//              this.dispatch(cmd[1] || cstDt, seq, fmt);
-                break;
-    	}
-    };
-    GamePage.prototype.invoke = function(ivk) {
-    	var pendingInvoke;
-        ivk && (this.invokes.push(ivk));
-        while (this.isReady && (pendingInvoke = this.invokes.shift())) {
-            this._doInvoke(pendingInvoke);
-        }
-    };
-    GamePage.prototype._doInvoke = function(){};
-    GamePage.getFunction = function (cmdP) {
-        var cmd;
-        cmdP = cmdP.split(".");
-        for (var i = 0; i < cmdP.length; i++) {
-            cmd = cmd ? cmd[cmdP[i]] : window[cmdP[i]];
-        }
-        return cmd;
-    };
-    GamePage.dispatchReceive = function (seq, resText, status, fmt) {
-        
-    };
     _gameModel.Object.extend(GamePage.prototype, {
         // 加载游戏
         loadGame: function () {
-        	console.log("load game");
-            if(window.frames['gameIFrame']) {
-            	return;
-            }
             var _me = this;
             _me._connFrame = document.createElement("iframe");
             _me._connFrame.style.cssText = "display:none;width: 100%;height: 100%;overflow:hidden;";
@@ -349,94 +246,34 @@ var AFGAdRequest = function () {
             }
             _frame_on_load.fire = function () {
                 // iframe create success
-				console.log("game iframe success")
-				// _me.isOnload=true;
             }
             _me._connFrame.onload = _frame_on_load;
             _me._connFrame.addEventListener && _me._connFrame.addEventListener("load", _frame_on_load, false);
             _me._connFrame.attachEvent && _me._connFrame.attachEvent("onload", _frame_on_load);
             _me._connFrame.src = _me.gameUrl;
-            _me._connFrame.id = 'gameIFrame';
-			 _me._connFrame.name = 'gameIFrame';
-            var gameFrameContainer = document.getElementById('gameFrameContainer');
-            if (!gameFrameContainer) {
-	            gameFrameContainer = document.createElement('DIV');
-	            gameFrameContainer.id = 'gameFrameContainer';
-	            // 插入到body
-	            document.body.appendChild(gameFrameContainer);
-        	}
-            gameFrameContainer.appendChild(_me._connFrame);
+            document.getElementById('gameFrame').appendChild(_me._connFrame);
             // 跨域代理消息接收
             var _preDispatchHandler = function (crsDt) {
-				
-				//获取信息
-                if (crsDt.origin && (crsDt.origin == _origin)) {
-                    _me.isReady = true;
-					console.log(crsDt)
-                    _me._preDispatch(_me, crsDt);
-                }
+
             };
             window.addEventListener ? window.addEventListener("message", _preDispatchHandler, false) : window.attachEvent("onmessage", _preDispatchHandler);
         },
-		showGame: function() {
-			var _me = this;
-			// hide ad container
-			_AFGAdRequest.hideAdContainer();
-			_me._connFrame.style.cssText = "display:block;width: 100%;height: 100%;overflow:hidden;"
-		},
         startGame: function () {
-			var _me = this;
-			_me.showGame();
-			if(_me.isBegin) {
-				window.frames['gameIFrame'].postMessage(_me.state,_origin);
-			}else{
-				_me.isBegin=true;
-			}
-        },
-        send: function() {
-        	var _me = this;
-        	_me._connFrame.contentWindow.postMessage('ad played', _origin)
-        },
-        dispatch: function (crsDt) {
-            var dt = crsDt.data, obj = dt.split(":<.<<#:"), seq = obj[0], status = obj[1], fmt = obj[2], data = obj[3];
-//          _gameModel.Console.log("data:\t" + data);
-			console.log("data:\t" + data)
-            GamePage.dispatchReceive(seq, data, status, fmt);
-        },
-        _doInvoke: function(cmdStr) {
-//			_gameModel.Console.log("invoke:\t" + cmdStr);    
-			console.log("invoke:\t" + cmdStr)
-			if(typeof cmdStr != "string") {
-                return;
-            }
-			var pas = cmdStr.split("#"), cmdP = pas[0], args = pas[1] && pas[1].split(","), cmd;
-            cmd = GamePage.getFunction(cmdP);
-            cmd.apply(null, args);
+            var _me = this;
+            document.getElementById("mainContainer").style.cssText = "display:none";
+            _me._connFrame.style.cssText = "display:block;width: 100%;height: 100%;overflow:hidden;"
         }
     });
-    _gameModel.init = function (gameUrl) {
-        return GamePage.generateGame(gameUrl);
+    _gameModel.init = function () {
+        GamePage.generateGame();
     }
     var Game = function () {
-        var startGame = function (cfg) {
-        	if(!cfg.gameUrl) {
-        		throw new Error('not game url')
-        	}
-        	if(cfg.afg_channel_id && cfg.afg_clientpub) {
-	        	_AFGAdRequest.init(_gameModel.init(cfg.gameUrl), cfg.afg_channel_id, cfg.afg_clientpub);
-	            _AFGAdRequest.requestAds();
-        	} else {
-        		var game = _gameModel.init(cfg.gameUrl);
-        		game.loadGame();
-        		game.startGame();
-        	}
-        }
-        var requestAds = function() {
-        	_AFGAdRequest.requestAds()	
+        var startGame = function (afg_channel_id, afg_clientpub, gameUrl) {
+            _AFGAdRequest.init(GamePage.generateGame(gameUrl), afg_channel_id, afg_clientpub);
+            _AFGAdRequest.requestAds()
         }
         return {
-            startGame: startGame,
-            requestAds: requestAds
+            startGame: startGame
         }
     };
     _gameModel.Game = Game();

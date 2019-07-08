@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-<script src="./js/ad_sdk.js"></script>
+<script src="./ad_sdk.js"></script>
 <div id="mainContainer">
 	<div id="adContainer"></div>
 </div>
@@ -17,15 +17,15 @@
 			}
 			count++;
 		} else {
-			
 			var afg_channel_id = 'ca-video-pub-4968145218643279',
 				afg_clientpub = '1';
-			 var gameUrl = "http://h5res.appskyx.com/allgame/motoxmbikeracegame/index.html";
-			//var gameUrl = "http://www.abc.com:8848/kit_study/work/game_test/game.html"
+			// var gameUrl = "http://h5res.appskyx.com/allgame/motoxmbikeracegame/index.html"
+			var gameUrl = "http://www.abc.com:8848/kit_study/work/game_test/game.html"
 			GameModel.Game.startGame({afg_channel_id : afg_channel_id, afg_clientpub:afg_clientpub, gameUrl:gameUrl});
 		}
 	}
 	poll();
+	
 </script>
 <style>
 	/* For mobile phones: */
