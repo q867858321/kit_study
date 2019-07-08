@@ -4,11 +4,11 @@
 		<div class="type">Action</div>
 		<div class="name">Dino Steak</div>
 		<div class="star">
-			<img src="./img/star3.png"/>
-			<img src="./img/star3.png"/>
-			<img src="./img/star3.png"/>
-			<img src="./img/star3.png"/>
-			<img src="./img/star4.png"/>
+			<img src="./img/star3.png" />
+			<img src="./img/star3.png" />
+			<img src="./img/star3.png" />
+			<img src="./img/star3.png" />
+			<img src="./img/star4.png" />
 		</div>
 		<div class="play_box"><i class="play">58582</i> plays</div>
 	</div>
@@ -42,6 +42,7 @@
 
 	.m_game_show .game_info img {
 		border-radius: 15px;
+		width:2.4rem;
 	}
 
 	.m_game_show .game_info .type {
@@ -66,11 +67,12 @@
 	}
 
 
-	.m_game_show .game_info .star img{
+	.m_game_show .game_info .star img {
 		margin: 0 -2px;
-    	width: 0.38rem;
-    	font-size: 0.36rem;
+		width: 0.38rem;
+		font-size: 0.36rem;
 	}
+
 	.m_game_show .game_type_title {
 		color: #333333;
 		font-size: 0.4375rem;
@@ -80,7 +82,7 @@
 
 	.m_game_show .game_type {
 		display: inline-block;
-		margin-top:15px;
+		margin-top: 15px;
 		color: #F99D00;
 		line-height: 0.48rem;
 		padding: 0 0.0625rem;
@@ -101,7 +103,7 @@
 	}
 </style>
 <script type="text/javascript">
-	$(".icon-five-star").each(function () {
+	$(".icon-five-star").each(function() {
 		var star = Math.round(Math.random());
 		if (star > 0.5) {
 			$(this).addClass("icon-xingxing");

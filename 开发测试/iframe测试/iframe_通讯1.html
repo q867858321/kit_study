@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	iframe1
+	<iframe src="http://192.168.2.124:5500/开发测试/iframe测试/iframe_通讯2.html" id="myIFrame"></iframe>
+	<script type="text/javascript">
+		//监听消息反馈
+		window.addEventListener('message',function(event) {
+			console.log('iframe1 ev',event.data);
+		},false);
+		
+		 window.onload=function(){
+			 window.frames[0].postMessage('getcolor','http://192.168.2.124:5500');
+		 }
+	</script>
+	</body>
+</html>

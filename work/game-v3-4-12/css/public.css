@@ -2,9 +2,14 @@ html,body,div,a,p,h1,h2,h3,h4,h5,h6,iframe,img,ul,li{padding: 0;margin: 0;box-si
 a{text-decoration: none;color:#333;}
 i{font-style: normal;}
 ul,li{list-style: none;}
-html{width:100%;max-width: 540px;margin: 0 auto;font-family: Roboto,Lato,sans-serif!important;}
-body{color: #888;background: #f3f3f3;width: 100%;height: 100%;}
-.amp-img.i-amphtml-layout-fixed{display: block;}
+html{width:100%;height:100%;font-family: Roboto,Lato,sans-serif!important;}
+body{color: #888;background: #f3f3f3;width: 100%;height: 100%;margin: 0 auto;}
+iframe,object{border: none;}
+.pc{
+	max-width: 640px;
+}
+
+
 
 .clear:after{content: "";display: block;clear: both;}
 .clear{zoom: 1;}
@@ -39,10 +44,10 @@ body{color: #888;background: #f3f3f3;width: 100%;height: 100%;}
     padding:0.1rem 0;
 }
 
-.p_index,.p_list{
+.pc .p_list{
 	max-width: 640px;
 	margin:0 auto;
-}
+} 
 
 
 /*标题共用*/
@@ -63,9 +68,24 @@ body{color: #888;background: #f3f3f3;width: 100%;height: 100%;}
 .header .allbtn{
 	float:right;
 	color: #000;
-    font-size: 0.65rem;
 }
 .header .allbtn img{
 	width: 0.65rem;
 	display: block;	
+}
+
+
+.hasBottomAds .p_index,.hasBottomAds .p_list,.hasBottomAds .myBig{
+	padding-bottom: 60px;
+}
+.bottomAds{
+	background: #ff0;
+	width: 100%;
+	height: 50px;
+	position: fixed;
+	z-index: 99999;
+	bottom: 0;
+}
+.pc .bottomAds{
+	max-width: 640px;
 }

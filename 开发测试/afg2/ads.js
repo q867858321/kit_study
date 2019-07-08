@@ -9,9 +9,11 @@ var adDisplayContainer;
 var intervalTimer;
 var playButton;
 var videoContent;
+var mainContent;
 
 function init() {
   videoContent = document.getElementById('contentElement');
+	mainContent=document.getElementById('mainContent');
   playButton = document.getElementById('playButton');
   playButton.addEventListener('click', playAds);
   setUpIMA();
@@ -21,10 +23,8 @@ function setUpIMA() {
   // Create the ad display container.
   createAdDisplayContainer();
   // Create ads loader.
-	//创建请求广告
   adsLoader = new google.ima.AdsLoader(adDisplayContainer);
   // Listen and respond to ads loaded and error events.
-	//监听广告回掉事件
   adsLoader.addEventListener(
       google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED,
       onAdsManagerLoaded,
@@ -36,8 +36,8 @@ function setUpIMA() {
 
   // An event listener to tell the SDK that our content video
   // is completed so the SDK can play any post-roll ads.
-  var contentEndedListener = function() {adsLoader.contentComplete();};
-  videoContent.onended = contentEndedListener;
+  // var contentEndedListener = function() {adsLoader.contentComplete();};
+  // videoContent.onended = contentEndedListener;
 
   // Request video ads.
   var adsRequest = new google.ima.AdsRequest();
@@ -67,7 +67,10 @@ function createAdDisplayContainer() {
 
 function playAds() {
   // Initialize the container. Must be done via a user action on mobile devices.
-  videoContent.load();
+  // videoContent.load();
+	$("#mainContainer").removeClass("hid_i");
+	$("#adContainer").removeClass("hid_i");
+	
   adDisplayContainer.initialize();
 
   try {
@@ -78,17 +81,18 @@ function playAds() {
     adsManager.start();
   } catch (adError) {
     // An error may be thrown if there was a problem with the VAST response.
-    videoContent.play();
+		// 加入失败
+    // videoContent.play();
   }
 }
- // 广告返回回调时，获取AdsManager并展示广告
+
 function onAdsManagerLoaded(adsManagerLoadedEvent) {
   // Get the ads manager.
   var adsRenderingSettings = new google.ima.AdsRenderingSettings();
   adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
   // videoContent should be set to the content video element.
   adsManager = adsManagerLoadedEvent.getAdsManager(
-      videoContent, adsRenderingSettings);
+       adsRenderingSettings);
 
   // Add listeners to the required events.
   adsManager.addEventListener(
@@ -127,7 +131,7 @@ function onAdEvent(adEvent) {
       if (!ad.isLinear()) {
         // Position AdDisplayContainer correctly for overlay.
         // Use ad.width and ad.height.
-        videoContent.play();
+        // videoContent.play();
       }
       break;
     case google.ima.AdEvent.Type.STARTED:
@@ -162,14 +166,14 @@ function onAdError(adErrorEvent) {
 }
 
 function onContentPauseRequested() {
-  videoContent.pause();
+  // videoContent.pause();
   // This function is where you should setup UI for showing ads (e.g.
   // display ad timer countdown, disable seeking etc.)
   // setupUIForAds();
 }
 
 function onContentResumeRequested() {
-  videoContent.play();
+  // videoContent.play();
   // This function is where you should ensure that your UI is ready
   // to play content. It is the responsibility of the Publisher to
   // implement this function when necessary.
