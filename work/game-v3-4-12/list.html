@@ -491,8 +491,8 @@
 				is_running = true;
 				$.ajax({
 					type: 'GET',
-					//url:"http://192.168.2.134:8020/kit_study/work/game4/data/data.json",
-					url: 'http://ons.me/tools/dropload/json.php?page=' + page + '&size=' + 10,
+					url:"http://192.168.2.124:8848/kit_study/work/game-v3-4-12/data/data.json",
+					//url: 'http://ons.me/tools/dropload/json.php?page=' + page + '&size=' + 10,
 					dataType: 'json',
 					success: function (data) {
 						var arrLen = data.length;
@@ -531,8 +531,8 @@
 			if ($content.find('.loading').length > 0) {
 				$.ajax({
 					type: 'GET',
-					//url:'http://192.168.2.134:8020/kit_study/work/game4/data/data.json',
-					url: 'http://ons.me/tools/dropload/json.php?page=' + 1 + '&size=' + 10,
+					url:"http://192.168.2.124:8848/kit_study/work/game-v3-4-12/data/data.json",
+					// url: 'http://ons.me/tools/dropload/json.php?page=' + 1 + '&size=' + 10,
 					dataType: 'json',
 					success: function (data) {
 						var arrLen = data.length;

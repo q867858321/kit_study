@@ -78,6 +78,9 @@ iframe,object{border: none;}
 .hasBottomAds .p_index,.hasBottomAds .p_list,.hasBottomAds .myBig{
 	padding-bottom: 60px;
 }
+.hasBottomAds .bottomAds{
+	display: block;
+}
 .bottomAds{
 	background: #ff0;
 	width: 100%;
@@ -85,6 +88,7 @@ iframe,object{border: none;}
 	position: fixed;
 	z-index: 99999;
 	bottom: 0;
+	display: none;
 }
 .pc .bottomAds{
 	max-width: 640px;
