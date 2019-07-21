@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1"
+		name="viewport">
+	<link rel="stylesheet" href="./css/public.css">
+	<link rel="stylesheet" href="./css/swiper.min.css" />
+	<script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/jquery.js"></script>
+	<script src="./js/swiper.3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body id="body"  class="hasBottomAds">
+	<style type="text/css">
+		::-webkit-scrollbar {
+			display: none;
+		}
+
+		html {
+			font-size: 10px;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		body {
+			overflow: hidden;
+			-webkit-overflow-scrolling: touch;
+			overflow-scrolling: touch;
+		}
+
+		ul,
+		li {
+			list-style: none;
+		}
+
+		.pc .swiper-content {
+			max-width: 640px;
+		}
+
+		.swiper-content {
+			min-height: 100vh;
+			background-color: #fff;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.p_list {
+			margin: 0 5px;
+		}
+
+		.pc .p_list {
+			margin: 0;
+		}
+
+		.swiper-content .item {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-align: center;
+			-webkit-box-align: center;
+			box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			padding: 3.125%;
+			border-bottom: 1px solid #ddd;
+			color: #333;
+			text-decoration: none;
+		}
+
+		.swiper-content .item img {
+			display: block;
+			width: 40px;
+			height: 40px;
+			border: 1px solid #ddd;
+		}
+
+		.swiper-content .item h3 {
+			display: block;
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			width: 100%;
+			max-height: 40px;
+			overflow: hidden;
+			line-height: 20px;
+			margin: 0 10px;
+			font-size: 12px;
+		}
+
+		.swiper-content .item .date {
+			display: block;
+			height: 20px;
+			line-height: 20px;
+			color: #999;
+		}
+
+		.opacity {
+			-webkit-animation: opacity 0.3s linear;
+			animation: opacity 0.3s linear;
+		}
+
+		@-webkit-keyframes opacity {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes opacity {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.swiper-slide-thumb-active {
+			border-bottom: 2px solid #ff5d75;
+		}
+
+		.swiper-slide-thumb-active a {
+			color: #ff5d75 !important;
+		}
+
+		.topNav {
+			line-height: 1.4375rem;
+			font-size: 0.5625rem;
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+			color: #666;
+			height: 1.25rem;
+			position: fixed;
+
+			background: #fff;
+			z-index: 10;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			-webkit-transform: translateX(-50%);
+			overflow: hidden;
+			box-flex: 1;
+		}
+
+		.topNav .gl_list_one {
+			border-bottom: 1px solid #f5f5f5;
+			height: 50px;
+			padding: 10px;
+			position: relative;
+			background-color: #fff;
+		}
+
+		.topNav ul li {
+			width: auto;
+			height: auto;
+		}
+
+		.pc .topNav {
+			max-width: 640px;
+		}
+
+		.topNav ul li a {
+			height: 100%;
+			line-height: 0.907rem;
+			font-size: 0.48rem;
+			text-align: center;
+			color: #666;
+		}
+
+		#list {
+			margin-top: 1.25rem;
+			height: 93vh;
+			position: relative;
+		}
+
+		#list .swiper-wrapper {
+			height: 92vh;
+			position: relative;
+		}
+
+		#list .swiper-slide {
+			overflow-y: scroll;
+			height: 92vh;
+			overflow-scrolling: touch;
+			webkit-overflow-scrolling: touch;
+		}
+
+		.loading {
+			display: block;
+			margin: 20px auto;
+			width: 15px;
+		}
+
+		.over {
+			text-align: center;
+			font-size: 0.32rem;
+			margin: 0.27rem 0 0.27rem;
+		}
+
+		.game_item {
+			display: block;
+			border-bottom: 1px solid #f5f5f5;
+			background-color: #fff;
+			position: relative;
+			padding: 13px 0;
+		}
+
+		.item_left {
+			width: 1.5rem;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+		}
+
+		.item_left img {
+			height: 1.5rem;
+			border-radius: 4px;
+			-webkit-border-radius: 4px;
+		}
+
+		.item_center {
+			margin-left: 2.1875rem;
+			margin-top: -0.15625rem;
+			color: #000;
+			margin-right: 2.40625rem;
+		}
+
+		.item_center .title {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			font-size: 0.4375rem;
+			color: #444;
+		}
+
+		.item_center .content {
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			font-size: 0.32rem;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			word-wrap: break-word;
+			color: rgba(68, 68, 68, 0.6);
+		}
+
+		.item_right {
+			position: absolute;
+			right: 0.15625rem;
+			top: 1.1875rem;
+			margin-top: -0.5625rem;
+		}
+
+		.play_btn {
+			background: #29b6f6;
+			color: #FFF;
+			box-shadow: 0 1px 4px #c2c2c2;
+			width: 1.25rem;
+			height: 0.6875rem;
+			border-radius: 3px;
+			padding: 0 0.3125rem;
+			display: inline-block;
+			text-align: center;
+			line-height: 0.6875rem;
+			font-size: 0.427rem;
+		}
+
+		/*@media screen and (min-width:640px){
+					#list .swiper-slide{
+						height: 69vh;
+					}
+					.topNav{
+						height:6vh;
+					}
+				} */
+	</style>
+	<style type="text/css">
+		#topNav {
+			overflow: hidden;
+		}
+
+		#topNav .swiper-slide {
+			padding: 0 0.15625rem;
+			text-align: center;
+		}
+
+		#topNav .swiper-slide a {
+			padding: 0.15625rem;
+			transition: all .3s ease;
+			display: block;
+		}
+
+		#topNav .active {
+			border-bottom: 2px solid #ff5d75;
+		}
+
+		#topNav .active a {
+			color: #ff5d75;
+		}
+	</style>
+	<div class="p_list">
+		<div class="swiper-container topNav" id="topNav">
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide active">
+					<a class="find_nav_cur" data-name="Action" data-href="/genre/1/cid=csly/gc=CSLY/">Action</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Adventure" data-href="/genre/2/cid=csly/gc=CSLY/">Adventure</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Puzzle" data-href="/genre/3/cid=csly/gc=CSLY/">Puzzle</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Racing" data-href="/genre/4/cid=csly/gc=CSLY/">Racing</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Shoot" data-href="/genre/5/cid=csly/gc=CSLY/">Shoot</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Trivia" data-href="/genre/6/cid=csly/gc=CSLY/">Trivia</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Pixel_Games" data-href="/genre/7/cid=csly/gc=CSLY/">Pixel Games</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Arcade" data-href="/genre/9/cid=csly/gc=CSLY/">Arcade</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Sports" data-href="/genre/10/cid=csly/gc=CSLY/">Sports</a>
+				</li>
+				<li class="swiper-slide">
+					<a data-name="Strategy" data-href="/genre/11/cid=csly/gc=CSLY/">Strategy</a>
+				</li>
+			</ul>
+		</div>
+		<div class="swiper-container" id="list">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="swiper-content Action" data-page="2">
+						<!--<img class="loading" src="img/loading.gif" />-->
+						<div class="game_item">
+							<a href="/id=88/cid=csly/gc=CSLY/" target="_self">
+								<div class="item_left">
+									<img src="http://h5res.appskyx.com/allgame/ICON/ydqw/icon90.jpg" />
+								</div>
+								<div class="item_center">
+									<p class="title">Boxing King</p>
+									<p class="content">Be the boxing king. Prove your skills and become the ultimate
+										boxer.</p>
+								</div>
+								<div class="item_right">
+									<span class="play_btn">PLAY</span>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Adventure" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Puzzle" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Racing" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Shoot" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Trivia" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Pixel_Games" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Arcade" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Sports" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="swiper-content Strategy" data-page="2">
+						<img class="loading" src="img/loading.gif" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bottomAds">2</div>
+	<script type="text/javascript">
+		var mySwiper = new Swiper('#topNav', {
+			freeMode: true,
+			freeModeMomentumRatio: 0.5,
+			slidesPerView: 'auto',
+			watchSlidesVisibility: true,
+
+		});
+
+		var swiperWidth = mySwiper.container[0].clientWidth;
+		var maxTranslate = mySwiper.maxTranslate();
+		var maxWidth = -maxTranslate + swiperWidth / 2;
+
+		mySwiper.on('click', function (swiper, e) {
+			scroll();
+		});
+
+		function scroll() {
+			slide = mySwiper.slides[mySwiper.clickedIndex];
+			slideLeft = slide.offsetLeft;
+			slideWidth = slide.clientWidth;
+			slideCenter = slideLeft + slideWidth / 2;
+			// 被点击slide的中心点
+
+			mySwiper.setWrapperTransition(300);
+			gallerySwiper.slideTo(mySwiper.clickedIndex, 1000, false);
+			if (slideCenter < swiperWidth / 2) {
+
+				mySwiper.setWrapperTranslate(0)
+
+			} else if (slideCenter > maxWidth) {
+
+				mySwiper.setWrapperTranslate(maxTranslate);
+
+			} else {
+
+				nowTlanslate = slideCenter - swiperWidth / 2
+
+				mySwiper.setWrapperTranslate(-nowTlanslate);
+
+			}
+
+			$("#topNav .active").removeClass('active');
+
+			$("#topNav .swiper-slide").eq(mySwiper.clickedIndex).addClass('active');
+		}
+
+
+		var gallerySwiper = new Swiper('#list', {
+			autoHeight: true,
+			onSlideChangeStart: function (swiper) {
+				mySwiper.clickedIndex = swiper.activeIndex;
+				$("#topNav .swiper-slide").eq(swiper.activeIndex).find('a').click();
+				$("#topNav .swiper-slide").eq(swiper.activeIndex + 1).find('a').click();
+				scroll();
+			},
+			onSlideChangeEnd: function (swiper) {
+				mySwiper.clickedIndex = swiper.activeIndex;
+				$("#topNav .swiper-slide").eq(swiper.activeIndex).find('a').click();
+				$("#topNav .swiper-slide").eq(swiper.activeIndex + 1).find('a').click();
+				scroll();
+			}
+		});
+
+
+		var is_running = false;
+		var boxHeight = parseFloat($("#list").height());
+		//下滑加载
+		$("#list .swiper-slide").on("scroll", function () {
+			var srollT = $(this).scrollTop();
+			var totalH = boxHeight + parseFloat(srollT);
+			var $content = $(this).find(".swiper-content");
+			var page = $content.attr("data-page");
+			if (($content.height() - 320) <= totalH && !is_running && $content.find(".over").length == 0) {
+				is_running = true;
+				$.ajax({
+					type: 'GET',
+					url:"http://192.168.2.124:8848/kit_study/work/game-v3-4-12/data/data.json",
+					//url: 'http://ons.me/tools/dropload/json.php?page=' + page + '&size=' + 10,
+					dataType: 'json',
+					success: function (data) {
+						var arrLen = data.length;
+						console.log("arrLen", arrLen);
+						var result = '';
+						if (arrLen > 0) {
+							for (var i = 0; i < arrLen; i++) {
+								result += '<a class="item opacity" href="' + data[i].link + '">' +
+									'<img src="' + data[i].pic + '" alt="">' +
+									'<h3>' + page + data[i].title + '</h3>' +
+									'<span class="date">' + data[i].date + '</span>' +
+									'</a>';
+							}
+							page++;
+							$content.attr("data-page", page);
+							$content.append(result);
+						} else {
+							if ($content.find(".over").length == 0) {
+								$content.append('<div class="over">over</div>');
+							}
+						}
+						is_running = false;
+					},
+					error: function (data) {
+						is_running = false;
+					}
+				})
+			}
+		});
+
+		//点击nav
+		$("#topNav .swiper-slide a").on("click", function () {
+			var el_name = $(this).attr("data-name");
+			var $content = $('.' + el_name);
+			is_running = false;
+			if ($content.find('.loading').length > 0) {
+				$.ajax({
+					type: 'GET',
+					url:"http://192.168.2.124:8848/kit_study/work/game-v3-4-12/data/data.json",
+					// url: 'http://ons.me/tools/dropload/json.php?page=' + 1 + '&size=' + 10,
+					dataType: 'json',
+					success: function (data) {
+						var arrLen = data.length;
+						var result = '';
+						if (arrLen > 0) {
+							for (var i = 0; i < arrLen; i++) {
+								result += '<a class="item opacity" href="' + data[i].link + '">' +
+									'<img src="' + data[i].pic + '" alt="">' +
+									'<h3>' + data[i].title + '</h3>' +
+									'<span class="date">' + data[i].date + '</span>' +
+									'</a>';
+							}
+							$content.html(result);
+						}
+					}
+				})
+			}
+
+		});
+		//	$("#topNav .swiper-slide").eq(0).find('a').click();
+
+
+		//临时跳转
+		$(".Action").on("click", function () {
+			window.location.href = "./game.html";
+		});
+	</script>
+</body>
+<script src="./js/owl.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

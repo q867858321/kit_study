@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1" name="viewport">
+		<link rel="stylesheet" type="text/css" href="./css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/swiper.min.css"/>
+		<script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/swiper.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<style type="text/css">
+			body{font-size: 0.347rem;}
+			.header_name{text-align: center;background:#fff;font-size: 0.373rem;padding:0.1067rem 0 0;}
+		</style>
+		<div class="header_name">
+			Super Cool
+		</div>
+		<div class="scrollBanner"></div>
+		<div class="scrollCell"></div>
+		<div class="topGames"></div>
+		<div class="banner"></div>
+		<div class="scrollCell2"></div>
+		 <script type="text/javascript">
+			 $(function(){
+				 $.get("./template/scrollBanner.html",function(data){
+					$(".scrollBanner").html(data);
+				 });
+				 $.get("./template/scrollCell.html",function(data){
+					$(".scrollCell").html(data);
+				 });
+				 $.get("./template/topGames.html",function(data){
+				 	$(".topGames").html(data);
+				 });
+				  $.get("./template/banner.html",function(data){
+				 	$(".banner").html(data);
+				 });
+				  $.get("./template/scrollCell2.html",function(data){
+				 	$(".scrollCell2").html(data);
+				 });
+			 })
+		 </script>
+			
+	</body>
+</html>

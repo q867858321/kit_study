@@ -3,28 +3,23 @@
   padding: 0;
 }
 :root {
-  --fontSize: 0.32rem;
+  --fontSize: 3.73333vw;
   --mainColor: #2c3e50;
 }
 html,body{
-  font-size: 0.32rem;
-	max-width: 540px;
-	max-height: 100%;
-  overflow: hidden;
-	position: relative;
-	margin:0 auto;
+  font-size: 3.73333vw;
+  overflow-x: hidden;
 }
 .rtl {
   direction: rtl;
 }
 .rtl .user-coins{
   float: left;
-  border-radius: 0 0.133rem 0.133rem 0;
+  border-radius: 0 1.33333vw 1.33333vw 0;
 }
 .header {
-  height: 1.3rem;
+  height: 13vw;
   width: 100%;
-	max-width: 540px;
   position: fixed;
   z-index: 9;
   background-color: #770809;
@@ -34,19 +29,19 @@ html,body{
   text-align: center;
   display: block;
   color: #fff;
-  line-height: 1.3rem;
-  font-size: 0.48rem;
+  line-height: 13vw;
+  font-size: 18px;
 }
 .back-btn {
   display: block;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  position: absolute;
-  top: 0.373rem;
-  left: 0.427rem;
-  width: 0.293rem;
-  height: 0.48rem;
+  position: fixed;
+  top: 14px;
+  left: 16px;
+  width: 11px;
+  height: 18px;
   background-image: url(../images2/back.png);
   z-index: 8;
 }
@@ -56,20 +51,20 @@ html,body{
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  position: absolute;
-  top: 0.373rem;
-  right: 0.427rem;
-  width: 0.667rem;
-  height: 0.667rem;
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  width: 25px;
+  height: 25px;
   background-image: url(../images2/lang.png);
   z-index: 8;
 }
 
 .langs-list {
   display: none;
-  width: 4.08rem;
+  width: 153px;
   position: absolute;
-  right: 0.4rem;
+  right: 15px;
   top: 50px;
   z-index: 9;
 }
@@ -80,25 +75,25 @@ html,body{
   opacity: 0.9;
   z-index: 4;
   color: #817879;
-  padding: 2px 0.373rem;
+  padding: 2px 14px;
   border-radius: 5px;
 }
 
 #language::before {
   content: '';
   position: absolute;
-  top: -0.427rem;
-  left: 2.56rem;
-  border-left: 0.907rem solid transparent;
-  border-bottom: 0.427rem solid #fff;
+  top: -16px;
+  left: 96px;
+  border-left: 34px solid transparent;
+  border-bottom: 16px solid #fff;
   opacity: 0.95;
   border-right: 3px solid transparent;
 }
 
 #language li {
-  height: 0.853rem;
-  line-height: 0.853rem;
-  font-size: 0.4rem;
+  height: 32px;
+  line-height: 32px;
+  font-size: 15px;
 }
 
 .zhezhao {
@@ -131,7 +126,7 @@ html,body{
 }
 html,body{
   height: 100%;
-  background: #f3f3f3;
+  background: #770809;
 }
 .wrap {
   top: 0;
@@ -142,41 +137,41 @@ html,body{
   background-image: url(../images-easter/bj.webp);
   padding-bottom: 170%;
   background-size: 100% 100%;
-  padding-top: 1.3rem;
+  padding-top: 13vw;
   background-repeat: no-repeat;
 }
 
 .table-arrow {
-  width: 1.334rem;
-  height: 1.334rem;
+  width: 13.33333vw;
+  height: 13.33333vw;
   background: url('../images-easter/arrow.webp');
   background-repeat: no-repeat;
-  background-size: 1.334rem;
+  background-size: 13.33333vw;
   position: absolute;
   left: 43.2%;
-  top: 3.73rem;
+  top: 37.3vw;
   z-index: 1;
 }
 
 .turntable {
-  width: 8rem;
-  height: 8rem;
+  width: 80vw;
+  height: 80vw;
   background: url('../images-easter/luckyTurntable2.webp');
   background-size: contain;
   position: relative;
-  top: 2.36rem;
-  /*left: 1rem;*/
+  top: 23.6vw;
+  /*left: 10vw;*/
   margin: auto;
 }
 
 .start-btn {
-  width: 2.3rem;
-  height: 2.3rem;
+  width: 23vw;
+  height: 23vw;
   background: url('../images-easter/start2.webp');
-  background-size: 2.3rem;
+  background-size: 23vw;
   position: absolute;
-  top: 6.502rem;
-  left: 3.805rem;
+  top: 65.2vw;
+  left: 38.5vw;
   transition: transform .25s;
 }
 
@@ -185,9 +180,9 @@ html,body{
 }
 
 .table-list {
-  width: 1.6rem;
-  height: 1.6rem;
-  background-size: 1.6rem!important;
+  width: 16vw;
+  height: 16vw;
+  background-size: 16vw!important;
   background-repeat: no-repeat!important;
   position: absolute;
 
@@ -195,88 +190,88 @@ html,body{
 
 .gift-one {
   background: url('../images-easter/gift-basket-200x200.webp');
-  top: 1.367rem;
-  left: 2.01rem;
+  top: 13.6667vw;
+  left: 21vw;
   transform: rotate(-30deg);
 }
 
 .gift-two {
   background: url('../images-easter/make-up-kit-200x200.webp');
-  top: 1.267rem;
-  left: 4.3rem;
+  top: 12.6667vw;
+  left: 43vw;
   transform: rotate(30deg);
 }
 
 .gift-three {
   background: url('../images-easter/vacation-200x200.webp');
-  top: 3.02rem;
-  left: 5.433rem;
+  top: 32vw;
+  left: 54.33333vw;
   transform: rotate(90deg);
 }
 
 .gift-four {
   background: url('../images-easter/thanks-200x200.webp');
-  top: 5.033rem;
-  left: 4.3rem;
+  top: 50.33333vw;
+  left: 43vw;
   transform: rotate(150deg);
 }
 
 .gift-five {
   background: url('../images-easter/chocolate-box_200x200.webp');
-  top: 5.033rem;
-  left: 2.01rem;
+  top: 50.33333vw;
+  left: 21vw;
   transform: rotate(210deg);
 }
 
 .gift-six {
   background: url('../images-easter/phone-200x200.webp');
-  top: 3.02rem;
-  left: 0.967rem;
+  top: 32vw;
+  left: 9.66667vw;
   transform: rotate(270deg);
 }
 
 .modal {
-  width: 8.267rem;
-  height: 11.2rem;
+  width: 310px;
+  height: 420px;
   position: fixed;
   top: -100%;
-  transform: translate(-50%,-50%);
+  transform: translateY(-50%);
   left: 50%;
   background-color: #fff;
   border-radius: 10px;
   z-index: 99;
-  /* margin-left: -155px; */
+  margin-left: -155px;
 
 }
 
 .cong {
-  width: 8rem;
+  width: 300px;
   height: 140px;
   background: url('../images2/bingo.png');
   background-repeat: no-repeat;
-  background-size: 8rem;
+  background-size: 300px;
   margin: 0 auto;
   margin-top: 20px;
 }
 
 .cong_close {
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 6vw;
+  height: 6vw;
   background:url('../images2/close.png');
   background-repeat: no-repeat;
-  background-size: 0.6rem;
+  background-size: 6vw;
   position: absolute;
-  top: 0.1rem;
-  right: 0.1rem;
+  top: 1vw;
+  right: 1vw;
 }
 
 .ad-container {
-  width: 8rem;
-  height: 6.667rem;
+  width: 300px;
+  height: 250px;
   margin: 0 auto;
   background: url('../images2/adbg.png');
   background-repeat: no-repeat;
-  background-size: 8rem 6.667rem;
+  background-size: 300px 250px;
 
 }
 
@@ -284,43 +279,43 @@ html,body{
   background-color: #F62095;
   color: #fff;
   float: right;
-  margin-top: 0.8rem;
-  border-radius: 0.133rem 0 0 0.133rem;
-  padding: 0.133rem 0.213rem;
+  margin-top: 8vw;
+  border-radius: 1.33333vw 0 0 1.33333vw;
+  padding: 1.33333vw 2.13333vw;
 }
 .user-coins .icon-coins{
-  margin-top: 0.05rem;
+  margin-top: .5vw;
 }
 .user-coins .coins-num{
-  margin-top: 0.05rem;
+  margin-top: .5vw;
 }
 .user-coins .icon-arrow{
-  margin-top: 0.1rem;
+  margin-top: 1vw;
 }
 .icon-coins {
   display: inline-block;
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 4.8vw;
+  height: 4.8vw;
   background: url('../images2/coins.png');
   background-repeat: no-repeat;
-  background-size: 0.48rem;
+  background-size: 4.8vw;
   background-position: center;
 }
 
 .coins-num {
   display: inline-block;
   vertical-align: top;
-  margin: 0 0.053rem;
-  line-height: 0.6rem;
+  margin: 0 0.53333vw;
+  line-height: 6vw;
 }
 
 .icon-arrow {
   display: inline-block;
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 4.8vw;
+  height: 4.8vw;
   background: url('../images2/arrow.png');
   background-repeat: no-repeat;
-  background-size: 0.48rem;
+  background-size: 4.8vw;
   background-position: center;
 }
 
@@ -328,17 +323,17 @@ html,body{
   height: auto;
 }
 .rule-desp{
-  font-size: 0.373rem;
+  font-size: 14px;
   line-height: 1.4;
   padding: 0px 20px 10px;
 }
 .award-modal {
   height:auto;
-  width: 8rem;
+  width: 80vw;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left:1rem;
+  left:10vw;
   background-color: #fff;
   border-radius: 10px;
   z-index:99;
@@ -348,67 +343,67 @@ html,body{
 
 .award-modal p {
   text-align: center;
-  font-size: 0.427rem;
+  font-size: 16px;
   line-height: 2;
 }
 
 .award-img {
-  height: 3.3467rem;
+  height: 33.46667vw;
 }
 
 .award-img img {
   display: block;
-  height: 30.2rem;
-  width: 3.84rem;
+  height: 32vw;
+  width: 38.4vw;
   margin: 0 auto;
 }
 
 .award-close,.award-foot {
-  height: 1.4rem;
+  height: 14vw;
   background-color: #F5F5F5;
   color: #FCBF66;
   text-align: center;
-  line-height: 1.6rem;
+  line-height: 16vw;
 }
 .carryOnFoot{
-  padding: 0.267rem 0.667rem;
-  margin: 0 0.533rem;
-  border-radius: 0.16rem;
+  padding: 2.66667vw 6.66667vw;
+  margin: 0 5.33333vw;
+  border-radius: 1.6vw;
   position: relative;
   background-color: orange;
   color: #ffffff;
 }
 #carryOnDesp{
-  padding: 0.533rem 0.267rem;
-  margin-top: 0.2rem;
+  padding: 5.33333vw 2.66667vw;
+  margin-top: 2vw;
   text-align: center;
 }
 .icon-coins {
-  width: 0.48rem;
-  height: 0.48rem;
-  background-size: 0.48rem;
+  width: 4.8vw;
+  height: 4.8vw;
+  background-size: 4.8vw;
   background-position: center;
   display: inline-block;
   background-repeat: no-repeat;
   background-image: url(../images2/coins.png);
 }
 #oneMoreTry {
-  width: 5.333rem;
+  width: 53.33333vw;
   color: #8b2e0e;
   font-weight: 600;
-  font-size: 0.64rem;
+  font-size: 6.4vw;
   position: absolute;
-  left: 0.267rem;
-  bottom: 1.6rem;
+  left: 2.66667vw;
+  bottom: 16vw;
   text-align: left;
 }
 .pic-btip{
-  width: 0.64rem;
-  height: 0.64rem;
-  background-size: 0.64rem;
+  width: 6.4vw;
+  height: 6.4vw;
+  background-size: 6.4vw;
   position: absolute;
-  right: -0.213rem;
-  bottom: -0.053rem;
+  right: -2.13333vw;
+  bottom: -0.53333vw;
 }
 .award-zhezhao {
   position: fixed;
@@ -423,8 +418,8 @@ html,body{
 
 .playCount {
   width: 100%;
-  height: 1.227rem;
-  line-height: 1rem;
+  height: 12.26667vw;
+  line-height: 10vw;
   position: absolute;
   bottom: 9%;
   text-align: center;
@@ -437,15 +432,15 @@ html,body{
   display: inline-block;
   background-image: url('../images-easter/count2.webp');
   background-repeat: no-repeat;
-  background-size: 1.267rem;
-  width: 1.267rem;
-  height: 1.267rem;
+  background-size: 12.66667vw;
+  width: 12.66667vw;
+  height: 12.66667vw;
 }
 
 .count-num {
-  font-size: 0.693rem;
+  font-size: 6.93333vw;
   color: #ffffff;
-  line-height: 1.227rem;
+  line-height: 12.26667vw;
   display: inline-block;
   vertical-align: top;
 }
@@ -455,12 +450,12 @@ html,body{
   top: 160vw;
   left: 0;
   width: 100%;
-  height: 1rem;
-  line-height: 1rem;
+  height: 10vw;
+  line-height: 10vw;
   color: #fff;
   text-align: center;
   font-weight: 400;
-  font-size: 0.48rem;
+  font-size: 4.8vw;
 }
 
 .rule-modal {

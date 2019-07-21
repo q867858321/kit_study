@@ -1,0 +1,90 @@
+<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<script src="./js/ad_sdk.js"></script>
+<div id="mainContainer">
+	<div id="adContainer"></div>
+</div>
+<div id="gameFrameDiv" class="hasPlayBottomAds" style="height: 100%;width: 100%;position: absolute;left: 0;top: 0; ">
+	<div id="gameFrameContainer"></div>
+	<div id="gameBottomAds">223
+	</div>
+</div>
+<script>
+	var count = 0;
+	var poll = function() {
+		if ("undefined" == typeof google) {
+			if (count < 20) {
+				setTimeout(poll, 100);
+			}
+			count++;
+		} else {
+			
+			var afg_channel_id = 'ca-video-pub-4968145218643279',
+				afg_clientpub = '1';
+			 var gameUrl = "http://h5res.appskyx.com/allgame/motoxmbikeracegame/index.html";
+			//var gameUrl = "http://www.abc.com:8848/kit_study/work/game_test/game.html"
+			GameModel.Game.startGame({afg_channel_id : afg_channel_id, afg_clientpub:afg_clientpub, gameUrl:gameUrl});
+		}
+	}
+	poll();
+</script>
+<style>
+	/* For mobile phones: */
+	#gameFrameContainer {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.hasPlayBottomAds #gameFrameContainer {
+		bottom: 50px;
+	}
+
+	#gameBottomAds {
+		width: 100%;
+		display: none;
+	}
+
+	.hasPlayBottomAds #gameBottomAds {
+		position: absolute;
+		bottom: 0;
+		height: 50px;
+		display: block;
+		background: #f00;
+	}
+
+	#myBig2 {
+		height: 100%;
+		position: relative;
+	}
+
+	.pc #myBig2 {
+		width: 640px;
+		height: 100%;
+		position: relative;
+	}
+
+	#adContainer {
+		background-color: #00547c;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: 10;
+	}
+
+	#startButton,
+	#newGameButton {
+		margin-top: 10px;
+		width: 35%;
+		margin-left: 10%;
+		height: 60px;
+		font-size: 22px;
+		color: white;
+		text-align: center;
+		background: #2c3e50;
+		cursor: pointer;
+		-webkit-box-shadow: inset 0 -2px #22303f;
+		box-shadow: inset 0 -2px #22303f;
+	}
+</style>

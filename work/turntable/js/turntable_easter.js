@@ -1,6 +1,6 @@
 // var host = 'http://pd1-test.shalltry.com'
 // var host = 'http://twww.hippoobox.com'
-var host = 'https://www.hippoobox.com'
+//var host = 'https://www.hippoobox.com'
 var langsBtn = $('.langs-btn');
 var btnGoBack = $('#btnGoBack');
 var langsList = $('.langs-list');
@@ -328,7 +328,8 @@ langsList.on('click','li',function (e) {
   if(window.hippoo)hippoo.setStore({lang:lang})
 })
 btnGoBack.click(function () {
-  location.href=host + (location.search ? location.search : '') + (location.hash ? location.hash : '')
+	history.go(-1);
+  // location.href=host + (location.search ? location.search : '') + (location.hash ? location.hash : '')
 })
 
 
