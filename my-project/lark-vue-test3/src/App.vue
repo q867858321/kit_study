@@ -8,7 +8,7 @@
         <router-link to="/music">music</router-link>||
       </li>
     </ul>
-    <router-view class="view main"></router-view>
+      <router-view class="view main"></router-view>
   </div>
 </template>
 
