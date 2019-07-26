@@ -1,3 +1,4 @@
 {
-    "vetur.format.defaultFormatter.html": "none"
+    "vetur.format.defaultFormatter.html": "none",
+    "liveServer.settings.port": 5501
 }

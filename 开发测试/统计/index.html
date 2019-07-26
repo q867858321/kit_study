@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	</script>
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script src="./js/sdk.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body id="body" data-position="index">
+	页面1
+
+	<section class="cell" data-isWatch="true" data-position="cell">
+		<a href="./list.html" data-type='toList' data-isWatch="true">more</a>
+		<a class="toGame" id="toGame" onclick="show(this)" href="./game.html" data-type='toGame'
+			data-isWatch="true">游戏</a>
+	</section>
+	<section class="cell" data-isWatch="true" data-position="banner">
+		<a href="./list.html" data-type='toList' data-isWatch="true">more</a>
+		<a class="toGame" id="toGame" onclick="show(this)" data-type='toGame' data-isWatch="true"
+			href="./game.html">游戏</a>
+	</section>
+	<section id="adDiv" data-isWatch="true" data-position="ad">
+		222
+		<iframe src="./ad.html" id="iframe"></iframe>
+	</section>
+</body>
+
+<script type="text/javascript">
+	// $(".toGame").on("click", function (e) {
+	// 	var position = $(this).parents(".model").attr("data-position");
+	// 	console.log("position", position);
+	// });
+
+	// function show(this) {
+	// 	var href=this.getAttribute(data-url);
+	// 	console.log("href",href);
+
+	// }
+	// document.getElementById('toGame').onclick = function (e) {
+	// 	console.log("e", e);
+	// 	alert(22);
+	// 	e.preventDefault();
+	// }
+	document.getElementById('iframe').onmouseenter = function () {
+		alert(22)
+	}
+</script>
+
+</html>
