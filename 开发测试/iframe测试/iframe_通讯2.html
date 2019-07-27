@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+<body>
+	iframe3
+	<script type="text/javascript">
+		//发送消息
+		var message = 'Hello!  The time is: ' + (new Date().getTime());
+		console.log('iframe 2 ');
+		//send the message and target URI
+		window.top.postMessage(message, 'http://www.qwe.com:8848');
+		// setInterval(function () {
+		// 	var message = 'Hello!  The time is: ' + (new Date().getTime());
+		// 	console.log('iframe 2 ');
+		// 	//send the message and target URI
+		// 	window.top.postMessage(message, 'http://www.qwe.com:8848');
+		// }, 4000);
+
+		window.addEventListener('message', function (event) {
+			console.log('iframe2 ev', event.data);
+		}, false);
+	</script>
+</body>
+
+</html>

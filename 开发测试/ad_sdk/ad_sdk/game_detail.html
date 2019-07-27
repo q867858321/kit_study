@@ -1,0 +1,22 @@
+<script src="./jquery.js"></script>
+<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<div id="gameDetail">
+    <span>
+        game detail
+    </span>
+    <br/>
+    <button  class="fl_button">Play</button>
+</div>
+<div id="gamePage">
+	
+</div>
+<script>
+    $(function () {
+        var $fl_button=$('.fl_button');
+        $fl_button.on("click",function () {
+	        $("#gamePage").load('./game_page.html',function () {
+	        	$("#gameDetail").hide()
+	        })
+        })
+    })
+</script>

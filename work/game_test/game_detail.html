@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		*{margin:0;padding: 0;}
+		iframe{
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<script src="./jquery.js"></script>
+	<div id="gameDetail">
+	    <span>
+	        game detail
+	    </span>
+	    <br/>
+	    <button  class="fl_button">Play</button>
+	</div>
+	<div id="gamePage">
+		
+	</div>
+	<script>
+	    $(function () {
+	        var $fl_button=$('.fl_button');
+	        $fl_button.on("click",function () {
+		        $("#gamePage").load('./game_page.html',function () {
+		        	$("#gameDetail").hide()
+		        })
+	        })
+	    })
+	</script>
+</body>
+</html>
+

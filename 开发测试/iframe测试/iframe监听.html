@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <style>
+        iframe {
+            border: 1px solid;
+            background: #f00;
+        }
+    </style>
+    <div class="iframeBox">
+
+    </div>
+
+    <a href="http://www.baidu.com" class="m_ad">1
+        <!-- <iframe src="./dom.html"></iframe> -->
+        33
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- test-main1 -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9883667579724914"
+            data-ad-slot="8123255262" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </a>
+    2
+    <script>
+        $(".iframeBox").html(' <iframe src="./dom.html"></iframe>')
+        $(".iframeBox").on("mouseenter", "iframe", function () {
+            console.log("111");
+        });
+        setTimeout(function () {
+            $(".m_ad ").on("mouseenter", function () {
+                console.log("222");
+                console.log($(".m_ad").html())
+            })
+            // $(".m_ad iframe").hover(function () {
+            //     console.log("222");
+            //     console.log($(".m_ad").html())
+            // })
+            // $(".m_ad").on("click", function () {
+            //     console.log("333");
+            //     console.log($(".m_ad").html())
+            // })
+
+        }, 1000)
+        // $(".iframeBox").html(' <iframe src="./dom.html"></iframe>');
+    </script>
+</body>
+
+</html>

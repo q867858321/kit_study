@@ -1,0 +1,51 @@
+<script src="./ad_sdk.js"></script>
+<div id="mainContainer">
+    <div id="adContainer"></div>
+</div>
+<div id="gameframediv" style="height: 100%;width: 100%;position: absolute;left: 0;top: 0; ">
+</div>
+<script>
+    $(document).ready(function(){
+        var afg_channel_id = 'ca-video-pub-4968145218643279', afg_clientpub;
+        var gameUrl = "http://static.gameplay.net/allgame/zqddp/"
+        GameModel.Game.startGame(afg_channel_id, afg_clientpub, gameUrl);   	
+    });
+</script>
+<style>
+	/* For mobile phones: */
+#adContainer{
+  background-color: #aaaaaa;
+  margin-left: 5%;
+  width: 90%;
+  height: 0;
+  padding-bottom: 75%; /* use this to make the adcontainer 4:3 */
+}
+
+#startButton, #newGameButton {
+  margin-top:10px;
+  width: 35%;
+  margin-left: 10%;
+  height: 60px;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  background: #2c3e50;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #22303f;
+  box-shadow: inset 0 -2px #22303f;
+}
+
+
+@media only screen and (min-width: 768px) {
+    /* For tablets & desktop: */
+    #adContainer{
+        width: 690px;
+        height: 518px;
+        padding-bottom: 0;
+    }
+    #startButton, #newGameButton {
+        width: 268px;
+        margin-left:77px;
+    }
+}
+</style>
