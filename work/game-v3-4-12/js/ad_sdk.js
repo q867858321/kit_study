@@ -121,6 +121,7 @@ var AFGAdRequest = function () {
     var adTagUrl;
     var adContainer;
     var game;
+    var state = 'success';
     var _init = function (g, channel_id, clientpub) {
         adContainer = document.getElementById('adContainer');
         if (!adContainer) {
@@ -137,6 +138,7 @@ var AFGAdRequest = function () {
     }
     var setUpIMA = function () {
         // Create the ad display container.
+        console.log("setUpIMA")
         createAdDisplayContainer();
         // Create ads loader.
         adsLoader = new google.ima.AdsLoader(adDisplayContainer);
@@ -150,6 +152,7 @@ var AFGAdRequest = function () {
      * 请求广告
      */
     var _requestAds = function () {
+
         // Request ads.
         var adsRequest = new google.ima.AdsRequest();
         adsRequest.adTagUrl = adTagUrl;
@@ -215,7 +218,7 @@ var AFGAdRequest = function () {
     }
 
     function onAdsManagerLoaded(adsManagerLoadedEvent) {
-        // console.log("adsManagerLoadedEvent", adsManagerLoadedEvent);
+        console.log("adsManagerLoadedEvent", adsManagerLoadedEvent);
         // Get the ads manager.
         var adsRenderingSettings = new google.ima.AdsRenderingSettings();
         adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
@@ -237,14 +240,16 @@ var AFGAdRequest = function () {
             _playAds();
         }
     }
-    // #TODO
+
     var onAdError = function (info) {
-        console.error("error ads:", info.h.l);
+        console.error("error ads:", info);
+        state = 'error';
         game.loadGame();
         game.startGame();
     };
     var onAdEvent = function (adEvent) {
         var ad = adEvent.getAd();
+        // console.log("adEvent", adEvent);
         switch (adEvent.type) {
             case google.ima.AdEvent.Type.LOADED:
                 // This is the first event sent for an ad - it is possible to
@@ -275,15 +280,17 @@ var AFGAdRequest = function () {
                 }
                 console.log("Ads are completed");
                 //start your game
+                state = 'completed';
                 game.startGame();
                 break;
             case google.ima.AdEvent.Type.SKIPPED:
                 //start your game
                 // game.startGame();
+                state = 'skipped';
                 break;
             case google.ima.AdEvent.Type.USER_CLOSE:
                 console.log("User close the ad");
-
+                state = 'closed';
                 game.startGame();
                 break;
         }
@@ -296,11 +303,16 @@ var AFGAdRequest = function () {
     var onContentPauseRequested = function () {
         // game.startGame();
     };
+
+    var getAdState = function () {
+        return state;
+    }
     return {
         init: _init,
         destroy: _destroy,
         requestAds: requestAds,
-        hideAdContainer: hideAdContainer
+        hideAdContainer: hideAdContainer,
+        getAdState: getAdState
     }
 }();
 (function (_gameModel, _AFGAdRequest) {
@@ -309,6 +321,7 @@ var AFGAdRequest = function () {
     var GamePage = function (gameUrl) {
         this.invokes = [];
         this.isReady = false;
+        this.transmission = null;
         this.gameUrl = gameUrl;
         this.isBegin = true; //判断是否可以向game发送信息
         this.repeatBegin = false; //判断是否是在游戏当中请求广告
@@ -345,6 +358,7 @@ var AFGAdRequest = function () {
     GamePage.prototype.invoke = function (ivk) {
         var pendingInvoke;
         ivk && (this.invokes.push(ivk));
+        // console.log("invokes", this.invokes);
         while (this.isReady && (pendingInvoke = this.invokes.shift())) {
             this._doInvoke(pendingInvoke);
         }
@@ -411,7 +425,7 @@ var AFGAdRequest = function () {
                 //获取信息
                 if (crsDt.origin && (crsDt.origin == _origin)) {
                     _me.isReady = true;
-                    console.log(crsDt);
+                    console.log('11', crsDt);
                     _me._preDispatch(_me, crsDt);
                 }
             };
@@ -428,7 +442,12 @@ var AFGAdRequest = function () {
             if (_me.isBegin) {
                 _me.showGame();
                 if (_me.repeatBegin) {
-                    window.frames['gameIFrame'].postMessage(_me.state, _origin);
+                    var info = _AFGAdRequest.getAdState();
+                    var params = {
+                        status: info,
+                        extra: _me.transmission
+                    }
+                    window.frames['gameIFrame'].postMessage(params, _origin); //向iframe 发送消息
                 } else {
                     _me.repeatBegin = true;
                 }
@@ -464,6 +483,7 @@ var AFGAdRequest = function () {
                 args = pas[1] && pas[1].split(","),
                 cmd;
             cmd = GamePage.getFunction(cmdP);
+            this.transmission = args;
             cmd.apply(null, args);
         }
     });
@@ -494,6 +514,7 @@ var AFGAdRequest = function () {
     };
     _gameModel.Game = Game();
 })(GameModel, AFGAdRequest);
+
 (function () {
     window.gameModel = GameModel;
 })();

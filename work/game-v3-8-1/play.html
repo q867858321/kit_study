@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/jquery.js"></script>
+</head>
+
+<body>
+	<button class="ad_button">request ad</button>
+	<div>
+		死亡次数<span class="num">0</span>
+	</div>
+</body>
+<script>
+	$(function () {
+		var $ad_button = $('.ad_button');
+		$ad_button.on("click", function () {
+			var _origin = "http://www.qwe.com:5500"; //引用地址
+			window.top.postMessage('invoke@@@GameModel.Game.requestAds', _origin);
+		});
+
+		window.addEventListener('message', function (event) {
+			console.log("event", event);
+			console.log(111);
+			console.log('game ev', event.data);
+			if (event.data == 'success') {
+				$("body").addClass("play");
+				var num = $('.num').html() - 0 + 1;
+				$('.num').html(num);
+			}
+		}, false);
+	})
+</script>
+<style type="text/css">
+	.play {
+		background: #f00;
+	}
+</style>
+
+</html>

@@ -1,0 +1,169 @@
+<div class="m_game_header">
+	<a class="back" href="javascript:window.history.back(-1);">
+		<img src="./img/fanhui.png" />
+	</a>
+	Dine steak
+	<img class="favorite favorite_img" data-active="0" src="./img/heart.png" />
+</div>
+
+<style>
+	.m_game_header {
+		position: relative;
+		text-align: center;
+		padding: 0.3125rem;
+		font-size: 0.427rem;
+		color: #333333;
+		background: #fff;
+		box-shadow: 0 1px 4px #d8d8d8;
+	}
+
+	.m_game_header .back {
+		left: 0.3125rem;
+		position: absolute;
+		left: 0.3125rem;
+		display: block;
+	}
+
+	.m_game_header .back img {
+		width: 0.65rem;
+		display: block;
+	}
+
+	.m_game_header .favorite {
+		right: 0.3125rem;
+		position: absolute;
+		width: 0.7rem;
+		top: 50%;
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+	}
+
+	.m_game_header .back {
+		left: 0.3125rem;
+	}
+
+	.m_game_header .favorite {
+		right: 0.3125rem;
+		color: #666;
+	}
+
+	.m_game_header .favorite.active {
+		color: #CB4042;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		var id = "1067"; //游戏id
+		var img = "http://h5res.appskyx.com/allgame/ICON/csyx/icon160.jpg";
+		var url = "http://127.0.0.1:5500/game.html";
+		if (localStorage.getItem("h5_favorite") != null) {
+			var o = localStorage.getItem("h5_favorite");
+			var arr = o.split("_");
+			if (contains(arr, id)) {
+				$(".favorite").attr('src', './img/heart1.png');
+			}
+		}
+
+		$(".favorite").on("click", function () {
+			var isFavorite = $(this).attr("data-active");
+			if (isFavorite == 0) { //收藏
+				$(this).attr("data-active", '1');
+				$(this).attr("src", './img/heart1.png');
+				InsertFavorite();
+			} else {
+				$(this).attr("data-active", '0');
+				$(this).attr("src", './img/heart.png');
+				RemoveFavorite();
+			}
+			$(this).toggleClass("active");
+		});
+
+		function RemoveFavorite() {
+			if (localStorage.getItem("h5_favorite") == null) {
+				localStorage.setItem("h5_favorite", id);
+				localStorage.setItem("h5_favorite_img", img);
+				localStorage.setItem("h5_favorite_url", url);
+				return;
+			} else {
+				var o = localStorage.getItem("h5_favorite");
+				var oImg = localStorage.getItem("h5_favorite_img");
+				var oUrl = localStorage.getItem("h5_favorite_url");
+				var arr = o.split("_");
+				var imgArr = oImg.split("_");
+				var urlArr = oUrl.split("_");
+				removeByValue(arr, id);
+				removeByValue(imgArr, img);
+				removeByValue(urlArr, url);
+				var res = "";
+				var imgRes = "";
+				var urlRes = "";
+				for (var i = 0; i < arr.length; i++) {
+					if (i == 0) {
+						res += arr[i];
+						imgRes += imgArr[i];
+						urlRes += urlArr[i];
+					} else {
+						res += "_" + arr[i];
+						imgRes += "_" + imgArr[i];
+						urlRes += "_" + urlArr[i];
+					}
+				}
+			}
+			localStorage.setItem("h5_favorite", res);
+			localStorage.setItem("h5_favorite_img", imgRes);
+			localStorage.setItem("h5_favorite_url", urlRes);
+		};
+
+		function InsertFavorite() {
+			if (localStorage.getItem("h5_favorite") == null || localStorage.getItem("h5_favorite") == '') {
+				localStorage.setItem("h5_favorite", id);
+				localStorage.setItem("h5_favorite_img", img);
+				localStorage.setItem("h5_favorite_url", url);
+				return;
+			} else {
+				var o = localStorage.getItem("h5_favorite");
+				var oImg = localStorage.getItem("h5_favorite_img");
+				var oUrl = localStorage.getItem("h5_favorite_url");
+				o = localStorage.getItem("h5_favorite");
+				localStorage.setItem("h5_favorite", insert(id, o));
+				localStorage.setItem("h5_favorite_img", insert(img, oImg));
+				localStorage.setItem("h5_favorite_url", insert(url, oUrl));
+			}
+		}
+
+		function insert(newStr, o) {
+			arr = o.split("_");
+			if (contains(arr, newStr)) {
+				return o;
+			}
+			if (arr.length >= 12) {
+				res = newStr;
+				for (var i = 0; i < arr.length - 1; i++) {
+					res += "_" + arr[i];
+				}
+				return res;
+			} else {
+				res = newStr + "_" + o;
+				return res;
+			}
+		}
+
+		function removeByValue(arr, val) {
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] == val) {
+					arr.splice(i, 1);
+					break;
+				}
+			}
+		}
+
+		function contains(a, obj) {
+			for (var i = 0; i < a.length; i++) {
+				if (a[i] === obj) {
+					return true;
+				}
+			}
+			return false;
+		}
+	})
+</script>

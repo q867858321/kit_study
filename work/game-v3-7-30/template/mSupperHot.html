@@ -1,0 +1,140 @@
+<div class="m_supperHot bg_1">
+	<div class="header">
+		<img class="title_img" src="./img/arcade.png" />
+		<span class="text">SUPER HOT</span>
+		<a class="allbtn" href="./list.html">
+			<img src="img/icon_more.png" />
+		</a>
+	</div>
+	<div class="swiper-container">
+		<div class="swiper-wrapper" id="container">
+			<div class="swiper-slide">
+				<a href="./game.html">
+					<img class="swiper-lazy" src="http://h5res.appskyx.com/allgame/ICON/csyx/icon160.jpg" />
+					<p class="play">88606</p>
+					<p class="img_text">players</p>
+					<div class="item_bottem">Cricket Cricket Cricket Cricket Cricket Cricket Cricket</div>
+					<div class="bg"></div>
+				</a>
+			</div>
+			<div class="swiper-slide">
+				<a href="./game.html">
+					<img class="swiper-lazy" src="http://h5res.appskyx.com/allgame/ICON/csyx/icon160.jpg" />
+					<p class="play">88606</p>
+					<p class="img_text">players</p>
+					<div class="item_bottem">Cricket</div>
+					<div class="bg"></div>
+				</a>
+			</div>
+			<div class="swiper-slide">
+				<a href="./game.html">
+					<img class="swiper-lazy" src="http://h5res.appskyx.com/allgame/ICON/csyx/icon160.jpg" />
+					<p class="play">88606</p>
+					<p class="img_text">players</p>
+					<div class="item_bottem">Cricket</div>
+					<div class="bg"></div>
+				</a>
+			</div>
+
+			<div class="swiper-slide">
+				<a href="./game.html">
+					<img class="swiper-lazy" src="http://h5res.appskyx.com/allgame/ICON/csyx/icon160.jpg"
+						src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2436725631,1649710694&fm=58" />
+					<p class="play">222</p>
+					<p class="img_text">players</p>
+					<div class="item_bottem">Cricket</div>
+					<div class="bg"></div>
+				</a>
+			</div>
+			<div class="swiper-slide">
+				<a href="./game.html">
+					<img class="swiper-lazy" src="http://h5res.appskyx.com/allgame/ICON/csyx/icon160.jpg" />
+					<p class="play">88606</p>
+					<p class="img_text">players</p>
+					<div class="item_bottem">Cricket</div>
+					<div class="bg"></div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<style type="text/css">
+	.m_supperHot {
+		background: #fff;
+		padding: 0.15625rem 0 0.15625rem;
+	}
+
+	.m_supperHot .swiper-container {
+		padding-left: 0.15625rem;
+		padding-right: 0.15625rem;
+		width: 100%;
+	}
+
+	.m_supperHot .swiper-container .swiper-slide {
+		/*background: rgba(129,196,58,.9);	*/
+		padding: 0.7rem 0 4px;
+	}
+
+	.m_supperHot .swiper-container .swiper-slide a {
+		display: block;
+		position: relative;
+		font-size: 0.32rem;
+		color: #fff;
+		margin: 0 0.2rem 0 0.2rem;
+		box-shadow: #666 1px 2px 3px;
+		background: linear-gradient(rgba(129, 196, 58, .5), rgba(129, 196, 58, .9));
+		border-radius: 0.3125rem;
+	}
+
+	.m_supperHot .swiper-container .swiper-slide:nth-of-type(2n+1) a {
+		background: linear-gradient(rgb(51, 204, 255), rgba(129, 196, 58, .9));
+	}
+
+
+	.m_supperHot .swiper-container .swiper-slide:nth-of-type(2n) a {
+		background: linear-gradient(#f5e155, rgb(57, 183, 52));
+	}
+
+	.m_supperHot .swiper-container .swiper-slide a img {
+		display: block;
+		position: absolute;
+		top: -0.45rem;
+		left: 0.3125rem;
+		width: 1.6rem;
+		border-radius: 0.3125rem;
+		border: 0.06rem solid #fff;
+		box-shadow: #666 1px 2px 3px;
+	}
+
+	.m_supperHot .swiper-container .swiper-slide a .img_text {
+		display: block;
+		margin-right: 0.3125rem;
+		font-family: Poppins, sans-serif;
+		text-align: right;
+		color: #333;
+	}
+
+	.m_supperHot .swiper-container .swiper-slide a .play {
+		color: #fff;
+		padding-left: 2rem;
+		padding-top: 0.46875rem;
+	}
+
+	.m_supperHot .swiper-container .swiper-slide a .item_bottem {
+		font-size: 0.32rem;
+		width: 3rem;
+		padding: 0.1rem 0.21875rem 0.21875rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+</style>
+<script type="text/javascript">
+	var swiperSuperHot = new Swiper('.m_supperHot .swiper-container', {
+		loop: true,
+		slidesPerView: 2.1,
+		loopAdditionalSlides: 3
+	});
+</script>
