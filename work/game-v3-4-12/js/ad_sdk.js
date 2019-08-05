@@ -208,7 +208,12 @@ var AFGAdRequest = function () {
         }
     }
     var hideAdContainer = function () {
-        if (adContainer) {
+        if (!adContainer) {
+            var adContainerObj = document.getElementById('adContainer');
+            if (adContainerObj) {
+                document.getElementById('adContainer').style.cssText = "display: none;"
+            }
+        } else {
             adContainer.style.cssText = "display: none;"
         }
     }
@@ -435,10 +440,12 @@ var AFGAdRequest = function () {
             var _me = this;
             // hide ad container
             _AFGAdRequest.hideAdContainer();
+
             _me._connFrame.style.cssText = "display:block;width: 100%; min-width: 100%; height: 100%;overflow:hidden;";
         },
         startGame: function () {
             var _me = this;
+            // document.getElementById("adContainer").style="display:none"
             if (_me.isBegin) {
                 _me.showGame();
                 if (_me.repeatBegin) {
@@ -495,6 +502,7 @@ var AFGAdRequest = function () {
             if (!cfg.gameUrl) {
                 throw new Error('not game url');
             }
+            console.log("cfg.afg_channel_id", cfg.afg_channel_id)
             if (cfg.afg_channel_id && cfg.afg_clientpub) {
                 _AFGAdRequest.init(_gameModel.init(cfg.gameUrl), cfg.afg_channel_id, cfg.afg_clientpub);
                 _AFGAdRequest.requestAds();
