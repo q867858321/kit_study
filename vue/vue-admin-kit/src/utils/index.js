@@ -49,9 +49,10 @@ export function parseTime(time, cFormat) {
 }
 
 /**
- * @param {number} time
- * @param {string} option
+ * @param {number} time  传时间戳
+ * @param {string} option 可为空
  * @returns {string}
+ * formatTime(1565091558)
  */
 export function formatTime(time, option) {
   if (('' + time).length === 10) {

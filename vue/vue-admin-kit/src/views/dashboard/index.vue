@@ -12,7 +12,9 @@ export default {
   computed: {
     ...mapGetters(["name"])
   },
-  mounted() {}
+  mounted() {
+    console.log("this", this);
+  }
 };
 </script>
 
