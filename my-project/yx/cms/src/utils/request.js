@@ -1,7 +1,12 @@
 import axios from 'axios'
-import { Message,MessageBox } from 'element-ui'
+import {
+  Message,
+  MessageBox
+} from 'element-ui'
 import store from '@/store'
-import { getToken } from '@/utils/auth'
+import {
+  getToken
+} from '@/utils/auth'
 
 export const BASE_URL = '/manage';
 const service = axios.create({
@@ -77,7 +82,7 @@ service.interceptors.response.use(
   }
 )
 export default service
-export function formData (params) {
+export function formData(params) {
   var bodyFormData = new FormData()
   for (const ikey in params) {
     if (params[ikey] !== undefined) {
