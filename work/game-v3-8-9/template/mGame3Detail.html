@@ -1,0 +1,136 @@
+<div class="mGame3Detail">
+    <div class="score_box">
+        <div class="title">Score</div>
+        <div class="score_detail">
+            <div class="score">
+                4.6
+            </div>
+            <div class="score_line">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+                <div class="line line4"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="description">
+        <div class="title">Description</div>
+        <div class="detail show_over">
+            Welcome to the winter special of this awesome bike stunt game Moto XM Winter Drive your twowheeler through
+            challenging tracks full of deadly traps ramps explosives and obstacles and try to get to the finish line
+            alive Complete every level as fast as you can to earn stars which you can use to unlock new riders Perform
+            front or backflips for extra seconds and try to finish all levels with stars to name yourself a professional
+            XM rider Have fun with Moto XM Winter
+        </div>
+    </div>
+    <div class="playBtn">
+        PLAY
+    </div>
+</div>
+<style>
+    .mGame3Detail {
+        color: #fff;
+        margin: 15px 30px 0;
+        font-size: 13px;
+    }
+
+    .mGame3Detail .title {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: SourceHanSansSC;
+    }
+
+    .mGame3Detail .score_detail {
+        display: flex;
+        margin-top: 15px;
+    }
+
+    .mGame3Detail .score {
+        width: 80px;
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+
+    }
+
+    .mGame3Detail .score_line {
+        flex: 1;
+    }
+
+    .mGame3Detail .line {
+        height: 5px;
+        margin-bottom: 7px;
+    }
+
+    .mGame3Detail .line:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .mGame3Detail .line1 {
+        background: rgb(255, 152, 0);
+        width: 200px;
+    }
+
+    .mGame3Detail .line2 {
+        background: rgb(139, 195, 74);
+        width: 200px;
+    }
+
+    .mGame3Detail .line3 {
+        background: rgb(20, 242, 222);
+        width: 200px;
+    }
+
+    .mGame3Detail .line4 {
+        background: rgb(255, 64, 129);
+        width: 200px;
+    }
+
+    .mGame3Detail .description .title {
+        margin-top: 15px;
+    }
+
+    .mGame3Detail .detail {
+        margin-top: 10px;
+        line-height: 19px;
+        padding: 0 15px;
+        font-size: 13px;
+    }
+
+    .mGame3Detail .description .show_over {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+    }
+
+    .mGame3Detail .playBtn {
+        margin: 30px 0 40px;
+        background: rgb(244, 240, 240);
+        border-radius: 5px;
+        height: 43px;
+        line-height: 43px;
+        text-align: center;
+        color: #101010;
+        font-size: 16px;
+        box-shadow: #fff 1px 2px 2px;
+    }
+</style>
+
+<script>
+    var gameId = 11212;
+    var arr = [1, 2, 3, 4];
+    $(".score_line .line").each(function () {
+        var w = [100, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+        var index = Math.floor(Math.random() * 10);
+        var ob = w[index];
+        $(this).css({
+            "width": ob
+        });
+    });
+    $(".mGame3Detail .description .detail").on("click", function () {
+        $(this).toggleClass("show_over");
+    })
+</script>
