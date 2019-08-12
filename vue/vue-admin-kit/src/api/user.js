@@ -12,9 +12,9 @@ export function login(data) {
   //   '/user/login',
   //   data
   // )
+
 }
 
-// 根据token 获取用户角色
 export function getInfo(token) {
   return request({
     url: '/user/info',

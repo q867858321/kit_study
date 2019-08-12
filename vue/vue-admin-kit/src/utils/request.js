@@ -8,13 +8,11 @@ import {
   getToken
 } from '@/utils/auth'
 
-export const BASE_URL = '/dev-api';
-
 // create an axios instance
 const service = axios.create({
-  baseURL: BASE_URL, // url = base url + request url
+  baseURL: '/dev-api', // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
-  timeout: 10000 // request timeout
+  timeout: 5000 // request timeout
 })
 
 // request interceptor
@@ -101,6 +99,7 @@ export function post(
     data: params
   })
 }
+
 
 export function formData(params) {
   var bodyFormData = new FormData()
