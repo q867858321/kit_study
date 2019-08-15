@@ -26,6 +26,8 @@ service.interceptors.request.use(
       // please modify it according to the actual situation
       config.headers['X-Token'] = getToken()
     }
+    // 如果是以formData提交数据配置
+    // config['headers']['Content-Type'] = 'multipart/form-data'
     return config
   },
   error => {
