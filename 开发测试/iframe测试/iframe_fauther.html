@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../../js-test/es6/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		父
+		<div id="container">
+			<iframe name="iframe1" src="./iframe_son.html"></iframe>
+		</div>
+		<script type="text/javascript">
+			function show(){
+				alert(1)
+			}
+			$(function(){
+				// 父页面调用子iframe注意点二：如果不加onload报错：Uncaught TypeError: window.iframe1.helloChina is not a function
+				iframe1.onload = function(){
+					// 父页面中调用子iframe中定义的变量
+					console.log("父页面中调用子iframe中定义的变量："+window.iframe1.ziName);
+					// 父页面中调用子iframe中定义的函数
+					console.log("父页面中调用子iframe中定义的函数："+window.iframe1.helloChina());
+					// 父页面中调用子iframe中定义的DOM
+					var $domInput = $(window.iframe1.document.getElementById("test"));
+					console.log("父页面中调用子iframe中定义的DOM："+$domInput.val());
+				}
+			})
+			var FuName = "世界!";
+			function helloWorld(){
+				return "你好,"+FuName;
+			}
+		</script>
+	</body>
+</html>

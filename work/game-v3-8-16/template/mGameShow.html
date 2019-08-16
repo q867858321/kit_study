@@ -1,0 +1,122 @@
+<div class="m_game_show">
+	<div class="game_info">
+		<img alt="game" src="http://h5res.appskyx.com/allgame/ICON/tangguohuaxing/icon90.jpg" />
+		<div class="type">Action</div>
+		<div class="name">Dino Steak</div>
+		<div class="star">
+			<!-- <img src="./img/star3.png" />
+			<img src="./img/star3.png" />
+			<img src="./img/star3.png" />
+			<img src="./img/star3.png" />
+			<img src="./img/star4.png" /> -->
+		</div>
+		<div class="play_box"><i class="play">58582</i> plays</div>
+	</div>
+	<!--<div class="game_type_title">
+		Hot Tags
+	</div>-->
+	<div class="game_type clear">
+		<span>puzzle</span>
+		<span>racing</span>
+		<span>Action</span>
+		<span>shoot</span>
+		<span>hot</span>
+		<span>adventure</span>
+		<span>top games</span>
+	</div>
+</div>
+<style type="text/css">
+	.m_game_show {
+		margin: 0.2rem 0.15625rem 0.1rem;
+		padding: 0.3125rem 0.4125rem;
+		border-radius: 0.15625rem;
+		color: #333;
+		background: #fff;
+		font-size: 0.32rem;
+	}
+
+	.m_game_show .game_info {
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.m_game_show .game_info img {
+		border-radius: 15px;
+		width: 2.4rem;
+	}
+
+	.m_game_show .game_info .type {
+		line-height: 0.625rem;
+		display: block;
+		margin: 0.1rem auto 0.17rem;
+		width: 1.9rem;
+		text-align: center;
+		border-radius: 0.3125rem;
+		background: #f00;
+		/*background: #F99D00;*/
+		color: #fff;
+	}
+
+	.m_game_show .game_info .name {
+		font-size: 0.625rem;
+	}
+
+	.m_game_show .game_info .star {
+		margin: 0.1rem;
+		color: #F99D00;
+	}
+
+
+	.m_game_show .game_info .star img {
+		margin: 0 -1px;
+		width: 0.38rem;
+		font-size: 0.36rem;
+	}
+
+	.m_game_show .game_type_title {
+		color: #333333;
+		font-size: 0.4375rem;
+		margin-bottom: 0.2rem;
+		font-weight: 500;
+	}
+
+	.m_game_show .game_type {
+		display: inline-block;
+		margin-top: 15px;
+		color: #F99D00;
+		line-height: 0.48rem;
+		padding: 0 0.0625rem;
+		border-radius: 0.3125rem;
+	}
+
+	.m_game_show .game_type span {
+		margin: 0 0.15625rem 0.15625rem 0;
+		padding: 0 0.2rem;
+		line-height: 0.58rem;
+		height: 0.6rem;
+		text-align: center;
+		font-size: 0.32rem;
+		display: inline-block;
+		white-space: nowrap;
+		color: #F99D00;
+		border: 1px solid #F99D00;
+		border-radius: 0.3125rem;
+	}
+</style>
+<script type="text/javascript">
+	$(function () {
+		var score = 8;
+		var str = "";
+		if (score >= 9) {
+			str =
+				'<img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star3.png" />';
+		} else if (score >= 8 && score < 9) {
+			str =
+				'<img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star4.png" />';
+		} else if (score < 8) {
+			str =
+				'<img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star3.png" /><img src="./img/star1.png" />';
+		}
+		$(".m_game_show .star").html(str);
+	})
+</script>

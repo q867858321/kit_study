@@ -1,0 +1,73 @@
+ <div class="notice hid_i">
+    <img class="left_btn" src="./img/left.png" />
+    swipe left or right
+    <img class="right_btn" src="./img/right.png" />
+    <img class="close_btn" src="./img/close.png" />
+</div>
+
+<script type="text/javascript">
+	var gameSwipeClose=sessionStorage.getItem("gameSwipeClose");
+	if(!gameSwipeClose){
+		$(".notice").removeClass("hid_i");
+	}
+	$('body').on('touchstart', function(e) {
+		 var touch = e.originalEvent,
+			startX = touch.changedTouches[0].pageX,
+			startY = touch.changedTouches[0].pageY;
+		$('body').on('touchmove', function(e) {
+			touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+			if (touch.pageX - startX > 100) {
+				showPrevious();
+				$('body').off('touchmove');
+			} else if (touch.pageX - startX < -100) {
+				showNext();
+				$('body').off('touchmove');
+			};
+		});
+		return false;
+	}).on('touchend', function() {
+		$('body').off('touchmove');
+	});
+	$(".notice .left_btn").on("click",function () {
+		showPrevious();
+	});
+	$(".notice .right_btn").on("click",function () {
+		showNext();
+	});
+	$(".notice .close_btn").on("click",function () {
+		$(".notice").addClass("hid_i");
+		sessionStorage.setItem("gameSwipeClose",true);
+	});
+
+	function showPrevious(){
+	  window.history.back(-1);
+	}
+	function showNext(){
+		window.location.href="http://www.baidu.com";
+	}
+</script>
+<style type="text/css">
+ * { touch-action: pan-y; }
+.notice{
+    position: relative;
+    background: rgba(65, 184, 131,0.7);
+    height:1rem;
+    color:#fff;
+    padding:0 0.4125rem;
+    margin:0.1rem 0;
+    font-size:0.32rem;
+    text-align: center;
+    line-height: 1rem;
+}
+.notice img{
+    width:0.6rem;
+    vertical-align: middle;
+    margin: 0 0.3rem;
+}
+.notice .close_btn{
+    position: absolute;
+    right: 0;
+    width:0.5rem;
+    margin-top:0.25rem;
+}
+</style>

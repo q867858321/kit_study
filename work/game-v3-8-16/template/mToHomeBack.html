@@ -1,4 +1,4 @@
-<div class="mToHomeBack" id="backBtn" style="position: fixed;z-index: 99999999;right: 10px; top: 100px;">
+<div class="mToHomeBack" id="backBtn" style="position: fixed;z-index: 99999999; top: 60px;">
     <a class="back" href="javascript:void(0)">
         <img src="./img/back4.png">
     </a>
@@ -14,16 +14,18 @@
 <style>
     .mToHomeBack {
 
+        right: 20px;
+
         opacity: 0.8;
     }
 
     .mToHomeBack img {
-        width: 30px;
+        width: 20px;
     }
 
     .mToHomeBack .back {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         display: block;
         text-align: center;
         line-height: 20px;
@@ -43,7 +45,7 @@
 
     .mToHomeBack .box a {
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         text-align: center;
     }
 </style>
@@ -62,7 +64,7 @@
             _y_start = e.touches[0].pageY; //起始点击位置
             left_start = $("#backBtn").css("left"); //元素左边距
             top_start = $("#backBtn").css("top"); //元素上边距
-            console.log("111");
+            console.log("111")
         });
         //移动
         document.getElementById("backBtn").addEventListener("touchmove", function (e) {
@@ -90,17 +92,19 @@
             var divW = $("#backBtn").width(); //元素宽
             //当最终位置在屏幕左半部分
             if (_x_end < bodyW) {
-                $("#backBtn").css({
-                    "left": "10px",
-                    "right": "auto",
-                    "top": '100px'
-                });
-            } else { //当最终位置在屏幕左半部分
-                $("#backBtn").css({
-                    "right": "10px",
-                    "left": "auto",
-                    "top": '100px'
-                });
+                $("#backBtn").css("left", "0px");
+            } else if (_x_end >= bodyW) { //当最终位置在屏幕左半部分
+                $("#backBtn").css("left", $(window).width() - parseFloat(divW) - 20)
+            }
+            //当元素顶部在屏幕外时
+            if (parseFloat($("#backBtn").css("top")) < 0) {
+                //置于顶部
+                $("#backBtn").css("top", 100); //置于顶部
+            }
+            //当元素底部在屏幕外时
+            if (bodyH - _y_end < parseFloat(divH) / 2) {
+                //置于底部
+                $("#backBtn").css("top", bodyH - parseFloat(divH) - 100)
             }
         });
         $("#backBtn").click(function () {
