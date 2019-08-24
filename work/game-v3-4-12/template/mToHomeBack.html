@@ -49,9 +49,9 @@
 </style>
 <script>
     $(function () {
-        $(".mToHomeBack").on("click", function () {
-            $(this).find(".box").fadeToggle();
-            $(this).find(".back").toggleClass("right");
+        $(".mToHomeBack .back").on("click", function () {
+            $(".mToHomeBack .box").fadeToggle();
+            // $(".back").toggleClass("right");
         });
 
 
