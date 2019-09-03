@@ -48,14 +48,22 @@ cc.Class({
         // cc.log("end");
 
         //队列
-        var m1 = cc.moveTo(1, cc.p(300, 200));
+        // var m1 = cc.moveTo(1, cc.p(300, 200));
 
-        var s1 = cc.scaleTo(0.8, 1.2);
-        var s2 = cc.scaleTo(0.5, 0.8);
-        var seq = cc.sequence([s1, s2]);
-        var rt = cc.repeatForever(seq);
-        this.node.runAction(rt);
+        // var s1 = cc.scaleTo(0.8, 1.2);
+        // var s2 = cc.scaleTo(0.5, 0.8);
+        // var seq = cc.sequence([s1, s2]);
+        // var rt = cc.repeatForever(seq);
+        // this.node.runAction(rt);
 
+        //缓动
+        // var m = cc.moveTo(1, 100, 0).easing(cc.easeBackInOut());
+        // this.node.runAction(m);
+
+        var r = cc.rotateBy(3, 360).easing(cc.easeCircleActionInOut());
+        var rf = cc.repeatForever(r);
+        this.node.runAction(rf);
+        this.node.stopAllActions();
     },
 
     start() {

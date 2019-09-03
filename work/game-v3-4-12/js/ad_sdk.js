@@ -102,11 +102,36 @@ var GameModel = function () { //tool class
         }
         return equipmentType;
     }
+    var fullScreen = function () {
+        var element = document.documentElement;
+        //IE 10
+        if (window.ActiveXObject) {
+            var WsShell = new ActiveXObject('WScript.Shell')
+            WsShell.SendKeys('{F11}');
+        }
+        //HTML W3C 
+        else if (element.requestFullScreen) {
+            element.requestFullScreen();
+        }
+        //IE11  
+        else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+        // Webkit (works in Safari5.1 and Chrome 15)  
+        else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen();
+        }
+        // Firefox (works in nightly)  
+        else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        }
+    }
     return {
         Toolkit: $Toolkit,
         Object: $Object,
         Console: $Console,
-        isIos: isIos
+        isIos: isIos,
+        fullScreen: fullScreen
     }
 }();
 
@@ -155,10 +180,10 @@ var AFGAdRequest = function () {
         // Request ads.
         var adsRequest = new google.ima.AdsRequest();
         adsRequest.adTagUrl = adTagUrl;
-        adsRequest.linearAdSlotWidth = adContainer.clientWidth;
-        adsRequest.linearAdSlotHeight = adContainer.clientHeight;
-        adsRequest.nonLinearAdSlotWidth = adContainer.clientWidth;
-        adsRequest.nonLinearAdSlotHeight = adContainer.clientHeight;
+        adsRequest.linearAdSlotWidth = adContainer.clientWidth - 5;
+        adsRequest.linearAdSlotHeight = adContainer.clientHeight - 5;
+        adsRequest.nonLinearAdSlotWidth = adContainer.clientWidth - 5;
+        adsRequest.nonLinearAdSlotHeight = adContainer.clientHeight - 5;
         adsRequest.forceNonLinearFullSlot = true;
         adsLoader.requestAds(adsRequest);
         isAdCached = true; //means play ads when it is back.
@@ -441,7 +466,7 @@ var AFGAdRequest = function () {
             var _me = this;
             // hide ad container
             _AFGAdRequest.hideAdContainer();
-
+            GameModel.fullScreen();
             _me._connFrame.style.cssText = "display:block;width: 100%; min-width: 100%; height: 100%;overflow:hidden;";
         },
         startGame: function () {

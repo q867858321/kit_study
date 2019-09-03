@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>luckydraw</title>
+	<script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" href="./css/turntable2.css">
+  <!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <script async src="//static.hippoobox.com/h5web/static/sdk/sdk.js"></script>  -->
+  <!-- <script async src="//twww.hippoobox.com/static/sdk/sdk.js"></script> 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130166873-1"></script> -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-130166873-1');
+    // gtag('config', 'UA-130166873-2');
+  </script>
+</head>
+
+<body>
+  <script>
+    gtag('event', 'access', {
+      'event_category': 'Activity'
+    })
+  </script>
+  <!-- 头部 -->
+  <div class="header">
+    <a id="btnGoBack" href="javascript:;" class="back-btn"></a>
+    <span id="pageTitle"></span>
+    <a href="#" class="langs-btn"></a>
+  </div>
+
+  <!-- 抽奖遮罩 -->
+  <div class="zhezhao"></div>
+
+
+
+  <!-- 语言列表 -->
+  <div class="langs-list">
+    <ul name="language" id="language">
+      <li name="langopt" id="lang0">中文</li>
+      <li name="langopt" id="lang1">English</li>
+      <li name="langopt" id="lang2">العربية</li>
+      <li name="langopt" id="lang3">لهجة مصرية</li>
+      <li name="langopt" id="lang4">Français</li>
+      <li name="langopt" id="lang5">Kiswahili</li>
+      <li name="langopt" id="lang6">ภาษาไทย</li>
+      <li name="langopt" id="lang7">Bahasa indonesia</li>
+    </ul>
+  </div>
+
+  <!-- 抽奖主页面 -->
+  <div class="wrap">
+    <!-- 用户金币 -->
+    <div class="user-coins">
+      <i class="icon-coins"></i>
+      <span class="coins-num">0</span>
+      <i class="icon-arrow"></i>
+    </div>
+    <!-- 箭头 -->
+    <div class="table-arrow"></div>
+    <!-- 转盘 -->
+    <div class="turntable">
+      <div class="table-list gift-one"></div>
+      <div class="table-list gift-two"></div>
+      <div class="table-list gift-three"></div>
+      <div class="table-list gift-four"></div>
+      <div class="table-list gift-five"></div>
+      <div class="table-list gift-six"></div>
+    </div>
+    <div class="start-btn"></div>
+  </div>
+  <!-- 抽奖结果模态框 -->
+  <div class="modal">
+    <div class="cong_close"></div>
+    <div class="cong"></div>
+    <div class="ad-container">
+      <!-- 广告 -->
+      <div class="ad-main">
+        <div id="oneMoreTry"></div>
+        <ins v-else class="adsbygoogle" style="display:inline-block;width:300px;height:250px"
+          data-ad-client="ca-pub-3214612466403714" data-ad-slot="9203985769"></ins> <!-- production -->
+        <!-- data-ad-slot="4570045414"></ins> test -->
+        <script otag="script">
+            (adsbygoogle = window.adsbygoogle || []).push({})
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="award-modal gift-one-modal">
+    <p>Gift Basket</p>
+    <div class="award-img gift-one-img"><img src="/turntable/images-easter/gift-basket-200x200.webp" alt=""></div>
+    <div class="award-close">close</div>
+  </div>
+  <div class="award-modal gift-two-modal">
+    <p>Make Up Kit</p>
+    <div class="award-img gift-two-img"><img src="/turntable/images-easter/make-up-kit-900x750.webp" alt=""></div>
+    <div class="award-close">close</div>
+  </div>
+  <div class="award-modal gift-three-modal">
+    <p>Vacation</p>
+    <div class="award-img gift-three-img"><img src="/turntable/images-easter/vacation-900x750.webp" alt=""></div>
+    <div class="award-close">close</div>
+  </div>
+  <div class="award-modal gift-four-modal">
+    <p>Thanks</p>
+    <div class="award-img gift-four-img"><img src="/turntable/images-easter/thanks-900x750.webp" alt=""></div>
+    <div class="award-close">close</div>
+  </div>
+  <div class="award-modal gift-five-modal">
+    <p>Chocolate Box</p>
+    <div class="award-img gift-five-img"><img src="/turntable/images-easter/chocolate-box-900x750.webp" alt=""></div>
+    <div class="award-close">close</div>
+  </div>
+  <div class="award-modal gift-six-modal">
+    <p>Mobile Phone</p>
+    <div class="award-img gift-six-img"><img src="/turntable/images-easter/phone-900x750.webp" alt=""></div>
+    <div class="award-close">close</div>
+  </div>
+  <div class="award-modal" id="carryOn">
+    <div class="cong_close" id="carryOnClose"></div>
+    <div id="carryOnDesp"></div>
+    <div class="award-foot">
+      <span class="carryOnFoot"><span id="carryOnFoot">CarryOn</span><i class="icon-coins pic-btip"
+          id="carryOnCoins"></i></span>
+    </div>
+  </div>
+  <div class="award-modal" id="ruleText">
+    <p id="ruleTitle" class="rule">Activity Rules</p>
+    <div id="ruleDesp" class="rule-desp">
+    </div>
+    <div class="award-close">close</div>
+  </div>
+  <div class="award-zhezhao">
+  </div>
+  <div class="playCount">
+    <i class="count-icon"></i>
+    <span class="count-num">0</span>
+  </div>
+  <div class="table-rule-content"><span class="table-rule">Activity Rules >></span></div>
+  <div class="rule-modal"></div>
+  <script type="text/javascript" src="./js/zepto.js"></script>
+  <script type="text/javascript" src="./js/turntable_easter.js"></script>
+</body>
+
+</html>

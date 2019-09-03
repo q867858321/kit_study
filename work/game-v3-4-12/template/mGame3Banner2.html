@@ -114,7 +114,10 @@
     }
 </style>
 <script>
+    var gameId = 20001;
     $(".playBtn").on("click", function () {
+
+        // ga('send', 'event', 'detail', 'play', '333');
         $.get("./template/game_page.html", function (data) {
             $("#gamePage").html(data);
             $("#gameDetail").hide();

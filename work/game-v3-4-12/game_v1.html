@@ -14,16 +14,20 @@
 	<script src="./js/swiper.js"></script>
 	<script src="./js/jquery.lazyload.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-	
+	<script src="./js/mouse.js" type="text/javascript" charset="utf-8"></script>
+
 	<title>{game name} – YX Html5 Game </title>
-	<meta name="keywords" content="YX,html5 games,html5,mobile,mobile games,free mobile games,free online games,best online games">
-	<meta name="description" content="ht5game, Play the Best free online games! We have the best online games website, free html5 games, html5 games, and much more... Choose a game to play for free and have fun with us now!">
-	<meta property="og:url"  content='m.gameg.net' />
-	<meta property="og:type"  content="website" />
+	<meta name="keywords"
+		content="YX,html5 games,html5,mobile,mobile games,free mobile games,free online games,best online games">
+	<meta name="description"
+		content="ht5game, Play the Best free online games! We have the best online games website, free html5 games, html5 games, and much more... Choose a game to play for free and have fun with us now!">
+	<meta property="og:url" content='m.gameg.net' />
+	<meta property="og:type" content="website" />
 	<meta property="og:title" content="m.gameg.net" />
-	<meta property="og:description"   content="Play free online games at 'm.gameg.net'! We're the best html5 games  website.It offers you free games and online games,including  casino games, action games, puzzle games and more." />
+	<meta property="og:description"
+		content="Play free online games at 'm.gameg.net'! We're the best html5 games  website.It offers you free games and online games,including  casino games, action games, puzzle games and more." />
 	<meta property="og:image" content="//res.appskyx.net/allgame/ICON/icon300.jpg" />
-	
+
 
 	<style>
 		.p_game {
@@ -142,6 +146,7 @@
 		//加载游戏
 		$(".play_btn").on("click", function () {
 			$.get("./template/game_page.html", function (data) {
+				fullScreen();
 				$("#myBig2").html(data);
 				$("#myBig").hide();
 			})
