@@ -15511,7 +15511,7 @@ function (t) {
             m = {
                 hash: "G1L1",
                 adTagUrl: adTagUrl,
-                // adTagUrl: 'http://googleads.g.doubleclick.net/pagead/ads?&ad_type=video_image_text&client=' + 'ca-video-pub-4968145218643279' + '&videoad_start_delay=0&description_url=http%3A%2F%2Fwww.google.com&adtest=on',
+                // adTagUrl: 'http://googleads.g.doubleclick.net/pagead/ads?&ad_type=video_image_text&client=ca-video-pub-4968145218643279&videoad_start_delay=0&description_url=http%3A%2F%2Fwww.google.com&adtest=on',
                 // adTagUrl: "//pubads.g.doubleclick.net/gampad/ads?sz=320x240|320x300|400x300|640x360|640x480&iu=/1053551/Pub-Poki-Generic&ciu_szs&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url={url}&description_url={descriptionUrl}&correlator={timestamp}",
                 adTiming: {
                     preroll: !0,
