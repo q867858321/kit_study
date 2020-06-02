@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../../前端面试/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="text" value="新年快乐" id="test" />
+		<script type="text/javascript">
+			var ziName=3;
+			function helloChina(){
+				return "你好,"+ziName; //必须有return 不然为空
+			}
+			
+			
+			
+			// 子iframe中调用父页面中定义的变量
+			console.log("子iframe中调用父页面中定义的变量:"+parent.FuName);
+			// 子iframe中调用父页面中定义的函数
+			console.log("子iframe中调用父页面中定义的函数:"+parent.helloWorld());
+			// 子iframe中调用父页面中定义的DOM
+			var $container = $(parent.document.getElementById("container"));
+		 	console.log("$container",$container);
+		</script>
+	</body>
+</html>

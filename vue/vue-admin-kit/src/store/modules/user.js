@@ -74,14 +74,15 @@ const actions = {
         if (!data) {
           reject('Verification failed, please Login again.')
         }
-
+        console.log("data", data)
         const {
           name,
           avatar,
           roles
         } = data
         if (!roles || roles.length <= 0) {
-          roles = "admin"
+          console.log("roles", roles)
+          // roles = "admin"
           console.log('getInfo: roles must be a non-null array!')
         }
         commit('SET_NAME', name)
@@ -118,6 +119,8 @@ const actions = {
   }) {
     return new Promise(resolve => {
       commit('SET_TOKEN', '')
+
+      commit('SET_ROLES', '')
       removeToken()
       resolve()
     })

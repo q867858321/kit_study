@@ -1,0 +1,115 @@
+<div class="mToHomeBack" id="backBtn" style="position: fixed;z-index: 99999999; top: 60px;">
+    <a class="back" href="javascript:void(0)">
+        <img src="./img/back4.png">
+    </a>
+    <div class="box">
+        <a href="#">
+            <img src="./img/home4.png">
+        </a>
+        <a href="#">
+            <img src="./img/refresh4.png">
+        </a>
+    </div>
+</div>
+<style>
+    .mToHomeBack {
+
+        right: 20px;
+
+        opacity: 0.8;
+    }
+
+    .mToHomeBack img {
+        width: 20px;
+    }
+
+    .mToHomeBack .back {
+        width: 20px;
+        height: 20px;
+        display: block;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .mToHomeBack .right {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+
+    .mToHomeBack .box {
+        margin-top: 10px;
+        width: 20px;
+        display: none;
+        line-height: 20px;
+    }
+
+    .mToHomeBack .box a {
+        display: block;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+</style>
+<script>
+    $(function () {
+        $(".mToHomeBack").on("click", function () {
+            $(this).find(".box").fadeToggle();
+            $(this).find(".back").toggleClass("right");
+        });
+
+
+        var _x_start, _y_start, _x_move, _y_move, _x_end, _y_end, left_start, top_start;
+        //按下
+        document.getElementById("backBtn").addEventListener("touchstart", function (e) {
+            _x_start = e.touches[0].pageX; //起始点击位置
+            _y_start = e.touches[0].pageY; //起始点击位置
+            left_start = $("#backBtn").css("left"); //元素左边距
+            top_start = $("#backBtn").css("top"); //元素上边距
+            console.log("111")
+        });
+        //移动
+        document.getElementById("backBtn").addEventListener("touchmove", function (e) {
+            console.log("2")
+            e.preventDefault(); //取消事件的默认动作。
+            _x_move = e.touches[0].pageX; //当前屏幕上所有触摸点的集合列表
+            _y_move = e.touches[0].pageY; //当前屏幕上所有触摸点的集合列表
+            //左边距=当前触摸点-鼠标起始点击位置+起始左边距
+            $("#backBtn").css("left", parseFloat(_x_move) - parseFloat(_x_start) + parseFloat(
+                    left_start) +
+                "px");
+            //上边距=当前触摸点-鼠标起始点击位置+起始上边距
+            $("#backBtn").css("top", parseFloat(_y_move) - parseFloat(_y_start) + parseFloat(
+                    top_start) +
+                "px");
+        });
+        //松开
+        document.getElementById("backBtn").addEventListener("touchend", function (e) {
+            console.log("111")
+            var bodyW = $(window).width() / 2; //屏幕宽的一半
+            var bodyH = $(window).height(); //屏幕高
+            var _x_end = e.changedTouches[0].pageX; //松开位置
+            var _y_end = e.changedTouches[0].pageY; //松开位置
+            var divH = $("#backBtn").height(); //元素高
+            var divW = $("#backBtn").width(); //元素宽
+            //当最终位置在屏幕左半部分
+            if (_x_end < bodyW) {
+                $("#backBtn").css("left", "0px");
+            } else if (_x_end >= bodyW) { //当最终位置在屏幕左半部分
+                $("#backBtn").css("left", $(window).width() - parseFloat(divW) - 20)
+            }
+            //当元素顶部在屏幕外时
+            if (parseFloat($("#backBtn").css("top")) < 0) {
+                //置于顶部
+                $("#backBtn").css("top", 100); //置于顶部
+            }
+            //当元素底部在屏幕外时
+            if (bodyH - _y_end < parseFloat(divH) / 2) {
+                //置于底部
+                $("#backBtn").css("top", bodyH - parseFloat(divH) - 100)
+            }
+        });
+        $("#backBtn").click(function () {
+            console.log('点击');
+        });
+
+    })
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            overflow: scroll;
+        }
+
+        li {
+            height: 100px;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>0001</li>
+        <li>0002</li>
+        <li>0003</li>
+        <li>0004</li>
+        <li>0005</li>
+        <li>0006</li>
+        <li>0007</li>
+        <li>0008</li>
+        <li>0009</li>
+        <li>00010</li>
+        <li>00011</li>
+        <li>00012</li>
+        <li>00013</li>
+        <li>00014</li>
+        <li>00015</li>
+        <li>00016</li>
+        <li>00017</li>
+        <li>00018</li>
+        <li>00019</li>
+        <li>00020</li>
+        <li class="ts">00021</li>
+        <li>00022</li>
+    </ul>
+
+
+</body>
+<script>
+    function sendAsk() {
+        var lis = $('ul').find("li");
+        //swHeight=滚动的高度+窗体的高度；当li的offset高度<=swHeight,那么说明当前li显示在可视区域了
+        var swHeight = $('body').scrollTop() + $(window).height();
+        var sch = $('body').scrollTop();
+        console.log(111)
+        $.each(lis, function (index, item) {
+            mTop = item.offsetTop;
+            console.log("item", item)
+            console.log("mTop", index, mTop);
+            console.log("swHeight", index, swHeight);
+            console.log("sch", index, sch);
+            if (mTop < swHeight && mTop > sch) {
+
+                $(this).addClass("m_show");
+            } else {
+                $(this).removeClass("m_show");
+            }
+        });
+    }
+    sendAsk();
+    $('body').on("scroll", function () {
+        sendAsk();
+    });
+</script>
+
+</html>

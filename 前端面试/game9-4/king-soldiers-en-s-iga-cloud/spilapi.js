@@ -1,0 +1,1 @@
+$('head').append('<script src="http://cdn.game123player.io/api/js/game.js">' + '<\/script>');

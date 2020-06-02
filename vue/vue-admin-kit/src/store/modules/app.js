@@ -1,3 +1,5 @@
+// import Cookies from 'js-cookie'
+
 const state = {
   sidebar: {
     opened: sessionStorage.getItem('sidebarStatus') ? !!+sessionStorage.getItem('sidebarStatus') : true,

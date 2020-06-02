@@ -1,0 +1,521 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --fontSize: 0.32rem;
+  --mainColor: #2c3e50;
+}
+
+html,
+body {
+  font-size: 0.32rem;
+  max-width: 540px;
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.rtl .user-coins {
+  float: left;
+  border-radius: 0 0.133rem 0.133rem 0;
+}
+
+.header {
+  height: 1.3rem;
+  width: 100%;
+  max-width: 540px;
+  top: 40px;
+  position: fixed;
+  z-index: 9;
+
+}
+
+#pageTitle {
+  text-align: center;
+  display: block;
+  color: #fff;
+  height: 46px;
+  line-height: 35px;
+  margin: 0 auto;
+  width: 270px;
+  font-size: 20px;
+  background: url(../img/hd_bg.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.back-btn {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  top: 0.373rem;
+  left: 0.427rem;
+  width: 0.293rem;
+  height: 0.48rem;
+  background-image: url(../images2/back.png);
+  z-index: 8;
+}
+
+.langs-btn {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+  top: 0.373rem;
+  right: 0.427rem;
+  width: 0.667rem;
+  height: 0.667rem;
+  background-image: url(../images2/lang.png);
+  z-index: 8;
+}
+
+.langs-list {
+  display: none;
+  width: 4.08rem;
+  position: absolute;
+  right: 0.4rem;
+  top: 50px;
+  z-index: 9;
+}
+
+#language {
+  list-style: none;
+  background-color: #ffffff;
+  opacity: 0.9;
+  z-index: 4;
+  color: #817879;
+  padding: 2px 0.373rem;
+  border-radius: 5px;
+}
+
+#language::before {
+  content: '';
+  position: absolute;
+  top: -0.427rem;
+  left: 2.56rem;
+  border-left: 0.907rem solid transparent;
+  border-bottom: 0.427rem solid #fff;
+  opacity: 0.95;
+  border-right: 3px solid transparent;
+}
+
+#language li {
+  height: 0.853rem;
+  line-height: 0.853rem;
+  font-size: 0.4rem;
+}
+
+.zhezhao {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 98;
+  display: none;
+}
+
+.scroll {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  background-color: #770809;
+
+}
+
+.bg-img {
+  background: url(../images-easter/bj.webp) no-repeat;
+  background-size: contain;
+  position: relative;
+  padding-bottom: 177.78%;
+  background-position: 0px 50px
+}
+
+html,
+body {
+  height: 100%;
+  background: #f3f3f3;
+}
+
+.wrap {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background: rgb(5, 7, 6);
+  padding-bottom: 170%;
+  background-size: 100% 100%;
+  padding-top: 1.3rem;
+  background-repeat: no-repeat;
+}
+
+.table-arrow {
+  width: 1.334rem;
+  height: 1.334rem;
+  background: url('../images-easter/arrow.webp');
+  background-repeat: no-repeat;
+  background-size: 1.334rem;
+  position: absolute;
+  left: 43.2%;
+  top: 3.73rem;
+  z-index: 1;
+}
+
+.turntable {
+  width: 8rem;
+  height: 8rem;
+  background: url('../images-easter/luckyTurntable2.webp');
+  background-size: contain;
+  position: relative;
+  top: 2.36rem;
+  /*left: 1rem;*/
+  margin: auto;
+}
+
+.start-btn {
+  width: 2.3rem;
+  height: 2.3rem;
+  background: url('../images-easter/start2.webp');
+  background-size: 2.3rem;
+  position: absolute;
+  top: 6.502rem;
+  left: 3.805rem;
+  transition: transform .25s;
+}
+
+.start-btn.shrink {
+  transform: scale(.8);
+}
+
+.table-list {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-size: 1.6rem !important;
+  background-repeat: no-repeat !important;
+  position: absolute;
+  text-align: center;
+
+}
+
+.table-list p {
+  line-height: 30px;
+  color: #fff;
+  font-size: 20px;
+
+}
+
+.table-list img {
+  width: 30px;
+  height: 30px;
+}
+
+.gift-one {
+  /* background: url('../img/dottler.png'); */
+  top: 1.367rem;
+  left: 2.01rem;
+  transform: rotate(-30deg);
+}
+
+.gift-two {
+  /* background: url('../img/stone.png'); */
+  top: 1.267rem;
+  left: 4.3rem;
+  transform: rotate(30deg);
+}
+
+.gift-three {
+  /* background: url('../img/dottler.png'); */
+  top: 3.02rem;
+  left: 5.433rem;
+  transform: rotate(90deg);
+}
+
+.gift-four {
+  /* background: url('../img/dottler.png'); */
+  top: 5.033rem;
+  left: 4.3rem;
+  transform: rotate(150deg);
+}
+
+.gift-five {
+  /* background: url('../img/dottler.png'); */
+  top: 5.033rem;
+  left: 2.01rem;
+  transform: rotate(210deg);
+}
+
+.gift-six {
+  /* background: url('../img/dottler.png'); */
+  top: 3.02rem;
+  left: 0.967rem;
+  transform: rotate(270deg);
+}
+
+.modal {
+  width: 8.267rem;
+  height: 11.2rem;
+  position: fixed;
+  top: -100%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 99;
+  /* margin-left: -155px; */
+
+}
+
+.cong {
+  width: 8rem;
+  height: 140px;
+  background: url('../images2/bingo.png');
+  background-repeat: no-repeat;
+  background-size: 8rem;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.cong_close {
+  width: 0.6rem;
+  height: 0.6rem;
+  background: url('../images2/close.png');
+  background-repeat: no-repeat;
+  background-size: 0.6rem;
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+}
+
+.ad-container {
+  width: 8rem;
+  height: 6.667rem;
+  margin: 0 auto;
+  background: url('../images2/adbg.png');
+  background-repeat: no-repeat;
+  background-size: 8rem 6.667rem;
+
+}
+
+.user-coins {
+  background-color: #F62095;
+  color: #fff;
+  float: right;
+  margin-top: 0.8rem;
+  border-radius: 0.133rem 0 0 0.133rem;
+  padding: 0.133rem 0.213rem;
+}
+
+.user-coins .icon-coins {
+  margin-top: 0.05rem;
+}
+
+.user-coins .coins-num {
+  margin-top: 0.05rem;
+}
+
+.user-coins .icon-arrow {
+  margin-top: 0.1rem;
+}
+
+.icon-coins {
+  display: inline-block;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url('../images2/coins.png');
+  background-repeat: no-repeat;
+  background-size: 0.48rem;
+  background-position: center;
+}
+
+.coins-num {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0.053rem;
+  line-height: 0.6rem;
+}
+
+.icon-arrow {
+  display: inline-block;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url('../images2/arrow.png');
+  background-repeat: no-repeat;
+  background-size: 0.48rem;
+  background-position: center;
+}
+
+#ruleText {
+  height: auto;
+}
+
+.rule-desp {
+  font-size: 0.373rem;
+  line-height: 1.4;
+  padding: 0px 20px 10px;
+}
+
+.award-modal {
+  height: auto;
+  width: 8rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 99;
+  overflow: hidden;
+  display: none;
+}
+
+.award-modal p {
+  text-align: center;
+  font-size: 0.427rem;
+  line-height: 2;
+}
+
+.award-img {
+  height: 3.3467rem;
+}
+
+.award-img img {
+  display: block;
+  height: 30.2rem;
+  width: 3.84rem;
+  margin: 0 auto;
+}
+
+.award-close,
+.award-foot {
+  height: 1.4rem;
+  background-color: #F5F5F5;
+  color: #FCBF66;
+  text-align: center;
+  line-height: 1.6rem;
+}
+
+.carryOnFoot {
+  padding: 0.267rem 0.667rem;
+  margin: 0 0.533rem;
+  border-radius: 0.16rem;
+  position: relative;
+  background-color: orange;
+  color: #ffffff;
+}
+
+#carryOnDesp {
+  padding: 0.533rem 0.267rem;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+.icon-coins {
+  width: 0.48rem;
+  height: 0.48rem;
+  background-size: 0.48rem;
+  background-position: center;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(../images2/coins.png);
+}
+
+#oneMoreTry {
+  width: 5.333rem;
+  color: #8b2e0e;
+  font-weight: 600;
+  font-size: 0.64rem;
+  position: absolute;
+  left: 0.267rem;
+  bottom: 1.6rem;
+  text-align: left;
+}
+
+.pic-btip {
+  width: 0.64rem;
+  height: 0.64rem;
+  background-size: 0.64rem;
+  position: absolute;
+  right: -0.213rem;
+  bottom: -0.053rem;
+}
+
+.award-zhezhao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .3);
+  display: none;
+  z-index: 9;
+}
+
+.playCount {
+  width: 100%;
+  height: 1.227rem;
+  line-height: 1rem;
+  position: absolute;
+  bottom: 5%;
+  left: 20px;
+  font-weight: 400;
+}
+
+.playCount img {
+  width: 40px;
+  margin-right: 5px;
+}
+
+.count-icon {
+  display: inline-block;
+  background-image: url('../images-easter/count2.webp');
+  background-repeat: no-repeat;
+  background-size: 1.267rem;
+  width: 1.267rem;
+  height: 1.267rem;
+}
+
+.count-num {
+  font-size: 0.693rem;
+  color: #ffffff;
+  line-height: 1.227rem;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.table-rule-content {
+  position: absolute;
+  top: 130vw;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  line-height: 1rem;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.table-rule-content .table-rule {
+  background: url(../img/button_bg.png) no-repeat;
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 144px;
+  height: 55px;
+  line-height: 51px;
+  font-size: 22px;
+}
+
+.rule-modal {}

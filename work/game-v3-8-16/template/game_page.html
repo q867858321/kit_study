@@ -1,0 +1,144 @@
+<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<script type="text/javascript" src="./js/ad_sdk.js"></script>
+
+<div id="adContainer"></div>
+<div id="gameFrameDiv" style="height: 100%;width: 100%;position: absolute;left: 0;top: 0; ">
+	<div id="gameFrameContainer"></div>
+	<!-- <div id="gameBottomAds">
+		<div style="margin: 5px 0; font-size: 10px;text-align: center;line-height: 12px;height: 12px;">Advertisement
+		</div>
+
+	</div> -->
+</div>
+<script>
+	$(function () {
+		poll();
+		var count = 0;
+
+		function poll() {
+			if ("undefined" == typeof google || "undefined" == typeof GameModel) {
+				if (count < 20) {
+					setTimeout(poll, 100);
+				}
+				count++;
+			} else {
+
+				var afg_channel_id = 'ca-video-pub-4968145218643279',
+					afg_clientpub = '1';
+				// var afg_channel_id = '',
+				// 	afg_clientpub = '';
+				// var gameUrl = $('#m_game_play .play_btn').attr("data-gameUrl") ||
+				// 	'http://h5res.appskyx.com/allgame/qdtz/index.html';
+				// console.log("gameUrl", gameUrl);
+				var gameUrl = "http://h5res.appskyx.com/allgame/haidaoxuanzhuan/index.html";
+				//var gameUrl = "http://www.abc.com:5501/work/game-v3-4-12/play.html";
+				// var gameUrl = 'http://www.abc.com:5500/index.html';
+				// var gameUrl = "http://www.2048.com:7456/";
+				GameModel.Game.startGame({
+					afg_channel_id: afg_channel_id,
+					afg_clientpub: afg_clientpub,
+					gameUrl: gameUrl
+				});
+			}
+		}
+	})
+
+	$(window).on('orientationchange', function (event) {
+		if (isHorizontal()) {
+			$("#gameFrameDiv").removeClass("hasPlayBottomAds");
+		} else {
+			$("#gameFrameDiv").addClass("hasPlayBottomAds");
+		}
+	});
+	if (isHorizontal()) {
+		$("#gameFrameDiv").removeClass("hasPlayBottomAds")
+	}
+
+	if ($("#gameBottomAds").length != 0) {
+		$("#gameFrameDiv").addClass("hasPlayBottomAds");
+	} else {
+		$(window).off('orientationchange');
+	}
+	//Hidden advertisements on horizontal screen
+
+
+	function isHorizontal() {
+		if (window.orientation == 90 || window.orientation == -90) { //Horizontal screen
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+<style>
+	/* For mobile phones: */
+	#gameFrameContainer {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.hasPlayBottomAds #gameFrameContainer {
+		bottom: 62px;
+	}
+
+	/* #gameFrameContainer iframe {
+		max-width: 100%;
+		height: 100%;
+		overflow: hidden;
+	} */
+
+	#gameBottomAds {
+		width: 100%;
+		display: none;
+	}
+
+	.hasPlayBottomAds #gameBottomAds {
+		position: absolute;
+		bottom: 0;
+		overflow: hidden;
+		height: 62px;
+		display: block;
+		z-index: 1;
+		text-align: center;
+	}
+
+	#myBig2,
+	#gamePage {
+		height: 100%;
+		position: relative;
+	}
+
+	.pc #myBig2,
+	.pc #gamePage {
+		width: 640px;
+		height: 100%;
+		position: relative;
+	}
+
+	#adContainer {
+		background-color: #00547c;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: 10;
+	}
+
+	#startButton,
+	#newGameButton {
+		margin-top: 10px;
+		width: 35%;
+		margin-left: 10%;
+		height: 60px;
+		font-size: 22px;
+		color: white;
+		text-align: center;
+		background: #2c3e50;
+		cursor: pointer;
+		-webkit-box-shadow: inset 0 -2px #22303f;
+		box-shadow: inset 0 -2px #22303f;
+	}
+</style>

@@ -1,8 +1,14 @@
 import request from '@/utils/request'
 import {
-  post
+  post,
+  formData
 } from '@/utils/request'
 export function login(data) {
+  console.log("request", request)
+  // return request.post({
+  //   url: '/user/login',
+  //   data
+  // })
   return request({
     url: '/user/login',
     method: 'post',
@@ -12,9 +18,9 @@ export function login(data) {
   //   '/user/login',
   //   data
   // )
+
 }
 
-// 根据token 获取用户角色
 export function getInfo(token) {
   return request({
     url: '/user/info',

@@ -1,4 +1,4 @@
-var GameModel = function () { //工具类
+var GameModel = function () { //tool class
     var EMPTY_FUN = function () {};
     var $Toolkit = function () {
         return {
@@ -102,11 +102,36 @@ var GameModel = function () { //工具类
         }
         return equipmentType;
     }
+    var fullScreen = function () {
+        var element = document.documentElement;
+        //IE 10
+        if (window.ActiveXObject) {
+            var WsShell = new ActiveXObject('WScript.Shell')
+            WsShell.SendKeys('{F11}');
+        }
+        //HTML W3C 
+        else if (element.requestFullScreen) {
+            element.requestFullScreen();
+        }
+        //IE11  
+        else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+        // Webkit (works in Safari5.1 and Chrome 15)  
+        else if (element.webkitRequestFullScreen) {
+            element.webkitRequestFullScreen();
+        }
+        // Firefox (works in nightly)  
+        else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        }
+    }
     return {
         Toolkit: $Toolkit,
         Object: $Object,
         Console: $Console,
-        isIos: isIos
+        isIos: isIos,
+        fullScreen: fullScreen
     }
 }();
 
@@ -127,7 +152,7 @@ var AFGAdRequest = function () {
         if (!adContainer) {
             adContainer = document.createElement('DIV');
             adContainer.id = 'adContainer';
-            // 插入到body
+            // append to body
             document.body.appendChild(adContainer);
         }
         game = g;
@@ -149,23 +174,22 @@ var AFGAdRequest = function () {
         }
     }
     /**
-     * 请求广告
+     * request ads
      */
     var _requestAds = function () {
-
         // Request ads.
         var adsRequest = new google.ima.AdsRequest();
         adsRequest.adTagUrl = adTagUrl;
-        adsRequest.linearAdSlotWidth = adContainer.clientWidth;
-        adsRequest.linearAdSlotHeight = adContainer.clientHeight;
-        adsRequest.nonLinearAdSlotWidth = adContainer.clientWidth;
-        adsRequest.nonLinearAdSlotHeight = adContainer.clientHeight;
+        adsRequest.linearAdSlotWidth = adContainer.clientWidth - 5;
+        adsRequest.linearAdSlotHeight = adContainer.clientHeight - 5;
+        adsRequest.nonLinearAdSlotWidth = adContainer.clientWidth - 5;
+        adsRequest.nonLinearAdSlotHeight = adContainer.clientHeight - 5;
         adsRequest.forceNonLinearFullSlot = true;
         adsLoader.requestAds(adsRequest);
         isAdCached = true; //means play ads when it is back.
     }
     /**
-     * 播放广告
+     * play ads
      */
     var _playAds = function () {
         // Initialize the container. Must be done via a user action on mobile devices.
@@ -300,11 +324,11 @@ var AFGAdRequest = function () {
                 break;
         }
     };
-    //重新开始
+    //restart
     var onContentResumeRequested = function () {
 
     };
-    //暂停
+    //stop
     var onContentPauseRequested = function () {
         // game.startGame();
     };
@@ -322,19 +346,21 @@ var AFGAdRequest = function () {
 }();
 (function (_gameModel, _AFGAdRequest) {
 
-    // 游戏容器
+    // Game Container
     var GamePage = function (gameUrl) {
         this.invokes = [];
         this.isReady = false;
         this.transmission = null;
         this.gameUrl = gameUrl;
-        this.isBegin = true; //判断是否可以向game发送信息
-        this.repeatBegin = false; //判断是否是在游戏当中请求广告
+        this.isBegin = true; // Determine whether information can be sent to game
+
+
+        this.repeatBegin = false; //Determine whether to request advertising in the game
         this.state = "success";
         var arrUrl = gameUrl.split("//");
         var start = arrUrl[1].indexOf("/");
         var relUrl = arrUrl[1].substring(0, start);
-        _origin = arrUrl[0] + "//" + relUrl; //游戏域名 
+        _origin = arrUrl[0] + "//" + relUrl; //Game Domain Name 
     }
 
 
@@ -381,7 +407,7 @@ var AFGAdRequest = function () {
 
     };
     _gameModel.Object.extend(GamePage.prototype, {
-        // 加载游戏
+        // Loading game
         loadGame: function () {
             if (window.frames['gameIFrame']) {
                 return;
@@ -399,7 +425,7 @@ var AFGAdRequest = function () {
             _me._connFrame.style.cssText = "display:none;max-width: 100%;height: 100%;overflow:hidden;";
             var _frame_on_load = function () {
                 _frame_on_load.fire();
-                // 覆盖之前的fire方法
+                // Fire method before overwriting
                 _frame_on_load.fire = function () {
 
                 }
@@ -420,14 +446,14 @@ var AFGAdRequest = function () {
             if (!gameFrameContainer) {
                 gameFrameContainer = document.createElement('DIV');
                 gameFrameContainer.id = 'gameFrameContainer';
-                // 插入到body
+                // Insert into body
                 document.body.appendChild(gameFrameContainer);
             }
             gameFrameContainer.appendChild(_me._connFrame);
-            // 跨域代理消息接收
+            // Cross-domain proxy message reception
             var _preDispatchHandler = function (crsDt) {
 
-                //获取信息
+                //pick up information
                 if (crsDt.origin && (crsDt.origin == _origin)) {
                     _me.isReady = true;
                     console.log('11', crsDt);
@@ -440,7 +466,7 @@ var AFGAdRequest = function () {
             var _me = this;
             // hide ad container
             _AFGAdRequest.hideAdContainer();
-
+            GameModel.fullScreen();
             _me._connFrame.style.cssText = "display:block;width: 100%; min-width: 100%; height: 100%;overflow:hidden;";
         },
         startGame: function () {

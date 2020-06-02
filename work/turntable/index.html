@@ -6,7 +6,7 @@
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>luckydraw</title>
-	<script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
   <link rel="stylesheet" href="./css/turntable2.css">
   <!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
    <script async src="//static.hippoobox.com/h5web/static/sdk/sdk.js"></script>  -->
@@ -15,12 +15,23 @@
 
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    alert(window.innerWidth);
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-130166873-1');
     // gtag('config', 'UA-130166873-2');
   </script>
+  <style>
+    @media screen and (max-width:375px) {
+      div {
+        border: 1px solid #f00;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -30,11 +41,11 @@
     })
   </script>
   <!-- 头部 -->
-  <div class="header">
+ <!-- <div class="header">
     <a id="btnGoBack" href="javascript:;" class="back-btn"></a>
     <span id="pageTitle"></span>
     <a href="#" class="langs-btn"></a>
-  </div>
+  </div> -->
 
   <!-- 抽奖遮罩 -->
   <div class="zhezhao"></div>
@@ -42,7 +53,7 @@
 
 
   <!-- 语言列表 -->
-  <div class="langs-list">
+ <!-- <div class="langs-list">
     <ul name="language" id="language">
       <li name="langopt" id="lang0">中文</li>
       <li name="langopt" id="lang1">English</li>
@@ -53,7 +64,7 @@
       <li name="langopt" id="lang6">ภาษาไทย</li>
       <li name="langopt" id="lang7">Bahasa indonesia</li>
     </ul>
-  </div>
+  </div> -->
 
   <!-- 抽奖主页面 -->
   <div class="wrap">
@@ -88,7 +99,7 @@
           data-ad-client="ca-pub-3214612466403714" data-ad-slot="9203985769"></ins> <!-- production -->
         <!-- data-ad-slot="4570045414"></ins> test -->
         <script otag="script">
-            (adsbygoogle = window.adsbygoogle || []).push({})
+          (adsbygoogle = window.adsbygoogle || []).push({})
         </script>
       </div>
     </div>

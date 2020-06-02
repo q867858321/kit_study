@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
+        name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="icon" href="./img/logo.ico">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./css/swiper.min.css" />
+    <script src="./js/flexible.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/swiper.js"></script>
+</head>
+
+<body id="body" class="game_xm">
+    <script type="text/javascript">
+        (function () {
+            var isInPhone = isInPhone();
+            if (!isInPhone) {
+                $("#body").addClass("pc");
+            } else {
+                $("#body").addClass("phone");
+            }
+
+            function isInPhone() {
+                if ((navigator.userAgent.match(
+                        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+                    ))) {
+                    return true //phone
+                } else {
+                    return false //pc
+                }
+            }
+        })()
+    </script>
+    <style>
+        .game_xm {
+            color: #6b6b6b;
+            background: #fff;
+        }
+
+        .bg_banner {
+            height: 4.8rem;
+            position: relative;
+        }
+
+        .opacity {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 50%;
+            opacity: 0.6;
+            width: 100%;
+            background: linear-gradient(rgba(1, 1, 1, 0.78), rgba(1, 1, 1, 0)) transparent
+        }
+
+        .banner_bg {
+            height: 100%;
+            background-size: 100% 100%;
+            background-image: url("http://h5res.appskyx.com/allgame/ICON/haidaoxuanzhuan/iconbanner.jpg");
+        }
+
+        .game_info_box {
+            width: 8.533rem;
+            margin: -1.067rem auto 0;
+            background: #fff;
+            box-shadow: rgb(208, 208, 208) 0px 4px 4px;
+            display: flex;
+            position: relative;
+        }
+
+        .game_info_box .icon_box {
+            padding: 0.267rem;
+        }
+
+        .game_info_box .icon_box img {
+            width: 1.6rem;
+            display: block;
+            border-radius: 0.267rem;
+        }
+
+        .game_info_box .game_info {
+            padding: 0.267rem 0;
+        }
+
+        .game_info_box .game_info .game_title {
+            font-size: 0.373rem;
+            color: #303030;
+        }
+
+        .game_info_box .game_info .score {
+            margin: 0.0533rem 0 0.08rem;
+        }
+
+        .game_info_box .game_info .score img {
+            width: 0.32rem;
+            margin: -0.0533rem;
+        }
+
+        .game_info_box .game_info .play {
+            color: #F99D00;
+        }
+
+        .game_info_box .game_info .play .play_num {
+            color: #303030;
+        }
+
+        .game_info_box .play_btn {
+            position: absolute;
+            right: 0.267rem;
+            top: 0.667rem;
+            background: rgba(8, 182, 230, 0.67);
+            width: 2rem;
+            border-radius: 0.533rem;
+            color: #fff;
+            text-align: center;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: 0.373rem;
+            box-shadow: rgb(170, 170, 170) 1px 1px 0.133rem 0px;
+        }
+    </style>
+    <div class="bg_banner">
+        <div class="opacity"></div>
+        <div class="banner_bg"></div>
+    </div>
+    <div class="game_info_box">
+        <div class="icon_box">
+            <img src="http://h5res.appskyx.com/allgame/ICON/haidaoxuanzhuan/icon160.jpg">
+        </div>
+        <div class="game_info">
+            <h4 class="game_title">Speed pool king</h4>
+            <div class="score">
+                <img src="./img/star22.png">
+                <img src="./img/star22.png">
+                <img src="./img/star22.png">
+                <img src="./img/star22.png">
+                <img src="./img/star22.png">
+            </div>
+            <div class="play">
+                <span class="play_num">69869</span> plays
+            </div>
+        </div>
+        <div class="play_btn">
+            Play
+        </div>
+    </div>
+    <style>
+        .game_ad {
+            text-align: center;
+            margin: 0.4rem 0 0.267rem;
+        }
+
+        .m_description {
+            margin: 0 0.267rem;
+            background: rgb(36, 247, 217);
+            box-shadow: rgb(170, 170, 170) 0.0533rem 0.08rem 6px 1px;
+            padding: 0.4rem 0.267rem 0.267rem;
+        }
+
+        .m_description .d_head {
+            color: #fff;
+            font-size: 0.373rem;
+            font-weight: 600;
+            border-left: 0.133rem solid rgb(247, 238, 93);
+            padding-left: 0.133rem;
+        }
+
+        .description_box {
+            margin: 0.133rem 0 0;
+
+            padding: 0.267rem;
+            border-radius: 0.133rem;
+            background: #fff;
+            box-shadow: rgb(35, 198, 210) -1px -1px 0.133rem 1px;
+        }
+
+        .m_description .description {
+            font-size: 0.373rem;
+            text-indent: 0.533rem;
+        }
+
+        .show_over {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
+    </style>
+    <div class="game_ad">
+        <img style="width:95%" src="./img/ad.png">
+    </div>
+    <div class="m_description">
+        <div class="d_head">
+            Description
+        </div>
+        <div class="description_box">
+            <div class="description show_over">
+                Jump from top to bottom and avoid the stones that suddenly come from the side. Save as many coins as
+                possible on the way!
+            </div>
+        </div>
+
+    </div>
+
+    <div class="game_ad">
+        <img style="width:95%" src="./img/ad.png">
+    </div>
+    <style>
+        .main_play_btn {
+            width: 5.333rem;
+            margin: 0.267rem auto 0.4rem;
+        }
+
+        .main_play_btn img {
+            width: 100%;
+        }
+
+        .m_similar {
+            margin: 0 0.267rem 0.533rem;
+            padding: 0.4rem 0.267rem 0.533rem;
+            background: rgb(36, 247, 217);
+            box-shadow: rgb(170, 170, 170) 0.0533rem 0.08rem 6px 1px;
+            position: relative;
+        }
+
+        .m_similar .swiper-wrapper {}
+
+        .m_similar .swiper-slide {
+            border-radius: 0.267rem;
+            overflow: hidden;
+        }
+
+        .m_similar .s_title {
+            color: #fff;
+            font-size: 0.373rem;
+            font-weight: 600;
+            border-left: 0.133rem solid rgb(247, 238, 93);
+            padding-left: 0.133rem;
+        }
+
+        .similar_box {
+            margin: 0.133rem 0 0;
+        }
+
+        .similar_box .item {
+            margin: 0 auto 0;
+            background: #fff;
+            box-shadow: rgb(208, 208, 208) 0px 4px 4px;
+            display: flex;
+            position: relative;
+        }
+
+        .similar_box .icon_box {
+            padding: 0.267rem;
+        }
+
+        .similar_box .icon_box img {
+            width: 1.6rem;
+            display: block;
+            border-radius: 0.133rem;
+        }
+
+        .similar_box .game_info {
+            padding: 0.267rem 0;
+        }
+
+        .similar_box .game_info .game_title {
+            font-size: 0.373rem;
+            color: #303030;
+        }
+
+        .similar_box .game_info .score {
+            margin: 0.0533rem 0 0.08rem;
+        }
+
+        .similar_box .game_info .score img {
+            width: 0.32rem;
+            margin: -0.0533rem
+        }
+
+        .similar_box .game_info .play {
+            color: #F99D00;
+        }
+
+        .similar_box .game_info .play .play_num {
+            color: #303030;
+        }
+
+        .similar_box .play_btn {
+            position: absolute;
+            right: 0.267rem;
+            top: 0.667rem;
+            background: rgba(8, 182, 230, 0.67);
+            width: 2rem;
+            border-radius: 0.533rem;
+            color: #fff;
+            text-align: center;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            font-size: 0.373rem;
+            box-shadow: rgb(170, 170, 170) 1px 1px 0.133rem 0px;
+        }
+
+        .m_similar .swiper-pagination {
+            left: 50%;
+            bottom: 0.08rem;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+        }
+
+        .m_similar .swiper-pagination .swiper-pagination-bullet {
+            margin: 0 0.0533rem;
+        }
+
+        .m_similar .swiper-pagination .swiper-pagination-bullet {
+            width: 0.133rem;
+            height: 0.133rem;
+        }
+
+
+
+        .m_similar .swiper-pagination-bullet {
+            background: rgba(0, 0, 0, 0.8)
+        }
+
+        .m_similar .swiper-pagination-bullet-active {
+            background: #ff0;
+        }
+    </style>
+    <div class="main_play_btn play_btn">
+        <img src="./img/play.png">
+    </div>
+    <div class="m_similar">
+        <div class="s_title">Similar games</div>
+        <div class="swiper-container similar_box">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a class="item" href="javascript:void(0)">
+                        <div class="icon_box">
+                            <img src="http://h5res.appskyx.com/allgame/ICON/haidaoxuanzhuan/icon160.jpg">
+                        </div>
+                        <div class="game_info">
+                            <h4 class="game_title">Speed pool king</h4>
+                            <div class="score">
+                                <img src="./img/star22.png">
+                                <img src="./img/star22.png">
+                                <img src="./img/star22.png">
+                                <img src="./img/star22.png">
+                                <img src="./img/star23.png">
+                            </div>
+                            <div class="play">
+                                <span class="play_num">69869</span> plays
+                            </div>
+                        </div>
+                        <div class="play_btn">
+                            Play
+                        </div>
+                    </a>
+                    <a class="item" href="javascript:void(0)">
+                        <div class="icon_box">
+                            <img src="http://h5res.appskyx.com/allgame/ICON/haidaoxuanzhuan/icon160.jpg">
+                        </div>
+                        <div class="game_info">
+                            <h4 class="game_title">Speed pool king</h4>
+                            <div class="score">
+                                <img src="./img/star22.png">
+                                <img src="./img/star22.png">
+                                <img src="./img/star22.png">
+                                <img src="./img/star22.png">
+                                <img src="./img/star22.png">
+                            </div>
+                            <div class="play">
+                                <span class="play_num">69869</span> plays
+                            </div>
+                        </div>
+                        <div class="play_btn">
+                            Play
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide">Slide 2</div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script>
+        var swiper = new Swiper('.m_similar .swiper-container', {
+            pagination: {
+                el: '.m_similar .swiper-pagination',
+            }
+        });
+        $(".m_description .description").on("click", function () {
+            $(this).toggleClass("show_over")
+        })
+    </script>
+</body>
+
+</html>

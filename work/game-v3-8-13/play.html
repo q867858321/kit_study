@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./js/jquery.js"></script>
+</head>
+
+<body>
+	<button class="ad_button">request ad</button>
+	<div>
+		死亡次数<span class="num">0</span>
+	</div>
+</body>
+<script>
+	$(function () {
+		var $ad_button = $('.ad_button');
+		$ad_button.on("click", function () {
+			// var _origin = "http://www.qwe.com:5500"; //引用地址
+			var _origin = getParentUrl();
+			console.log("_origin", _origin);
+			if (_origin != null) {
+				window.top.postMessage('invoke@@@GameModel.Game.requestAds#start', _origin);
+			}
+
+		});
+
+		window.addEventListener('message', function (event) {
+			console.log("event", event);
+			// event.data有 closed,completed,error
+			//closed 用户点击了跳过，completed为用户看完，error 广告出错
+			console.log('status', event.data.status); //状态
+			console.log('extra', event.data.extra); //参数
+			if (event.data.status == 'completed' || event.data.status == 'closed') {
+				$("body").addClass("play");
+				var num = $('.num').html() - 0 + 1;
+				$('.num').html(num);
+			}
+		}, false);
+
+
+		function getParentUrl() {
+			var url = null;
+			if (parent !== window) {
+				try {
+					url = parent.location.href;
+				} catch (e) {
+					url = document.referrer;
+				}
+			}
+			return url;
+		}
+	})
+</script>
+<style type="text/css">
+	.play {
+		background: #f00;
+	}
+</style>
+
+</html>
