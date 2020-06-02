@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        .js-mask {
+            width: 198px;
+            height: 132px;
+            border: 1px solid black;
+            position: relative;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        
+        .js-mask ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: left linear 0.5s;
+        }
+        
+        .js-mask ul li {
+            float: left;
+            width: 198px;
+            height: 132px;
+        }
+        
+        .js-mask ul li img {
+            width: 198px;
+            height: 132px;
+        }
+    </style>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/zepto_fx.js"></script>
+</head>
+
+<body>
+    <div class="js-mask">
+        <ul>
+            <li><img src="img/1.jpg" /> </li>
+            <li><img src="img/1.jpg" /> </li>
+            <li><img src="img/1.jpg" /> </li>
+            <li><img src="img/1.jpg" /> </li>
+        </ul>
+    </div>
+    <script>
+        (function() {
+            var oUl = $(".js-mask ul");
+            var htmlStr = oUl.html() + oUl.html();
+            oUl.html(htmlStr);
+            var oLies = $('.js-mask ul li');
+            oUl.css({
+                width: oLies.eq(0).width() * oLies.length + 'px'
+            });
+
+            var speed = -10;
+            setInterval(function() {
+
+                if (oUl.position().left <= -oUl.width() * 0.5) {
+                    oUl.css({
+                        "left": "0"
+                    });
+                }
+                oUl.css({
+                    "left": oUl.position().left + speed,
+
+                })
+            }, 3000000);
+        })();
+    </script>
+</body>
+
+</html

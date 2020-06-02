@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    节点碎片
+    <ul id="a">33
+        <li>1<span>22</span></li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ul id="b"></ul>
+    <script>
+        var fragment = document.createDocumentFragment();
+        var ula = document.querySelector("#a");
+        var ulb = document.querySelector("#b");
+        var child;
+        while (child = ula.firstChild) {
+            fragment.appendChild(child);
+        }
+        ulb.append(fragment);
+        console.log("ul", ula);
+        console.log("fragment:", fragment);
+    </script>
+</body>
+
+</html>

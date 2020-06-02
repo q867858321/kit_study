@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        .js-mask {
+            width: 198px;
+            height: 132px;
+            border: 1px solid black;
+            position: relative;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        
+        .js-mask ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: left 0.5s;
+        }
+        
+        .js-mask ul li {
+            float: left;
+            width: 198px;
+            height: 132px;
+        }
+        
+        .js-mask ul li img {
+            width: 198px;
+            height: 132px;
+        }
+    </style>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/zepto_fx.js"></script>
+</head>
+
+<body>
+    <div class="js-mask">
+        <ul>
+            <li><img src="img/1.jpg" /> </li>
+            <li><img src="img/1.jpg" /> </li>
+            <li><img src="img/1.jpg" /> </li>
+            <li><img src="img/1.jpg" /> </li>
+        </ul>
+    </div>
+    <script>
+        (function() {
+            var oUl = document.querySelectorAll('.js-mask ul')[0];
+            //console.log(oUl.innerHTML + oUl.innerHTML);
+            // 获取ul里的li进行拼接，然后重新赋给ul
+            oUl.innerHTML = oUl.innerHTML + oUl.innerHTML // oUl.innerHTML += oUl.innerHTML
+                // 由于ul初始时是4张图片的宽度，现在把宽度变成是8张的宽度
+                // 获取li，根据li的宽度重新设置ul的宽度
+            var oLies = document.querySelectorAll('.js-mask li'); // 获取li
+            oUl.style.width = oLies[0].offsetWidth * oLies.length + 'px'; // 设置宽度，li的宽度*li的个数
+
+            var speed = -1;
+
+            setInterval(function() {
+                if (oUl.offsetLeft <= -oUl.offsetWidth * .5) {
+                    oUl.style.left = '0px';
+                }
+
+                oUl.style.left = oUl.offsetLeft + speed + 'px';
+            }, 500);
+        })();
+    </script>
+</body>
+
+</html>
