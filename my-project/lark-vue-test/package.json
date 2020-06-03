@@ -13,7 +13,7 @@
     "@tinymce/tinymce-vue": "^2.0.0",
     "axios": "^0.18.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "tinymce": "^5.0.3",
+    "tinymce": "^5.2.2",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.1",
