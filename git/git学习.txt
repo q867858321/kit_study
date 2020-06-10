@@ -1,0 +1,15 @@
+git 全局设置
+git config --global user.name "zhuqianfeng"
+git config --global user.email "13311272940@163.com"
+
+创建一个新项目
+git clone http://zhuqianfeng@192.168.102.34/zhuqianfeng/kit_test.git
+cd kit_test
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+常见命令
+ git pull  拉取最新代码
+ 
