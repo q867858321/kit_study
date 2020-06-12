@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var promiseClick = function () {
+            console.log("点击方法被调用");
+            let p = new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    console.log(" 执行完成promise");
+
+                    var num = Math.ceil(Math.random() * 20);
+                    console.log("随机数", num);
+                    if (num <= 10) {
+                        resolve(num);
+                    } else {
+                        reject("数字大于10了，即将进行失败回调");
+                    }
+                }, 2000);
+            }).then(function (data) {
+                console.log('回掉成功', data);
+            }).catch(function (reason, data) {
+                console.log("catch", reason, data);
+            });
+            return p;
+        }
+        //成功回调，失败回调
+        promiseClick.then(function (data) {
+            console.log('回掉成功', data);
+        }).catch(function (reason, data) {
+            console.log("catch", reason, data);
+        })
+    </script>
+    <p onclick="promiseClick()">请求</p>
+    <script>
+        function test() {
+            console.log("test");
+        }
+        var p1 = new Promise(test);
+        var p2 = p1.then(function (result) {
+            console.log('成功：' + result);
+        });
+        var p3 = p2.catch(function (reason) {
+            console.log('失败：' + reason);
+        });
+    </script>
+</body>
+
+</html>

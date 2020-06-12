@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="text" /> {{text}}
+    </div>
+    <script>
+        // vm = new Vue({
+        //     el: "#app",
+        //     data: {
+        //         text: "hello world"
+        //     }
+        // })
+        var obj = {
+            text: " hello world",
+            color: "#f00"
+        }
+
+        function compile(node, obj) {
+            if (node.nodeType == 1) { //元素节点
+
+                var attrs = node.attributes;
+                console.log("attrs", attrs);
+                for (var i = 0; i < attrs.length; i++) {
+                    console.log("attrs[i]", attrs[i], attrs[i].nodeName, attrs[i].nodeValue, attrs[i].nodeType);
+                    if (attrs[i].nodeName == "v-model") {
+                        var name = attrs[i].nodeValue;
+                        node.value = obj[name];
+                        node.removeAttribute("v-model");
+
+                    }
+                }
+            } else if (node.nodeType == 3) { //内容节点
+                var reg = /\{\{(.*)\}\}/;
+                console.log("node value", node.nodeValue);
+                if (reg.test(node.nodeValue)) {
+                    var name = RegExp.$1;
+                    var name = name.trim();
+                    node.nodeValue = obj[name];
+                }
+            }
+        }
+        var input = document.querySelector("input");
+        var text = document.querySelector("#app").lastChild;
+        compile(input, obj);
+        compile(text, obj);
+    </script>
+</body>
+
+</html>
