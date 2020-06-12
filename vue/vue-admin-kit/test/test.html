@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var insidePlant = "111";
+        var foo = "aaa";
+        var fun = {
+            insidePlant: "222",
+            ret: function (param) {
+                var foo = param;
+                this.foo = "bbb";
+                console.log("this", this);
+                console.log("ret this" + this.insidePlant);
+                console.log("ret:" + insidePlant);
+                console.log("ret fool:", this.foo);
+                console.log("foo:" + foo);
+            }
+        }
+        console.log(fun.insidePlant); //222
+        console.log(foo); //aaa
+        var newret = fun.ret;
+        newret("ooo");
+        console.log("newret.foo:" + newret.foo);
+        fun.ret();
+    </script>
+</body>
+
+</html>

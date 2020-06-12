@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            name: 'jw',
+            age: {
+                old: '60'
+            }
+        }
+
+        // vue 数据劫持 Observer.defineProperty
+
+        function observer(obj) {
+            if (typeof obj === 'object') {
+                for (let key in obj) {
+                    defineReactive(obj, key, obj[key]);
+                }
+            }
+        }
+
+        function defineReactive(obj, key, value) {
+            observer(value);
+
+            Object.defineProperty(obj, key, {
+                get() {
+                    return value;
+                },
+                set(val) {
+                    console.log('数据更新了')
+                    value = val;
+                }
+            })
+        }
+        observer(obj);
+
+
+        // obj.age.old = '50'
+
+
+        // Object.defineProperty 对 数组无效
+        let arr = ['push', 'slice', 'shift', 'unshift'];
+
+        arr.forEach(method => {
+            let oldPush = Array.prototype[method];
+            Array.prototype[method] = function (value) {
+                console.log('数据更新了')
+                oldPush.call(this, value)
+            }
+        })
+        obj.skill = [1, 2, 3];
+        obj.skill.push(4);    
+    </script>
+</body>
+
+</html>

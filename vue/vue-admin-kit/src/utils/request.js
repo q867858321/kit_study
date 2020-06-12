@@ -101,12 +101,20 @@ export function post(
     data: params
   })
 }
+export function get(
+  url
+) {
+  return service({
+    url,
+    method: 'get'
+  })
+}
 
 
 export function formData(params) {
   var bodyFormData = new FormData()
   for (const ikey in params) {
-    if (params[ikey] === undefined || params[ikey] === null || params[ikey] === "") {
+    if (params[ikey] === undefined || params[ikey] === null) {
       continue;
     }
     bodyFormData.set(ikey, params[ikey])
