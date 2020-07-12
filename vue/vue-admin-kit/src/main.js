@@ -42,6 +42,11 @@ Vue.use(ElementUI, {
 
 Vue.config.productionTip = false
 
+
+import "@/libs/KitUI/index.js";// 利用混入方式导入自定义UI库
+
+import "@/libs2/KitUI/index.js";// 利用导入组件的方式导入自定义UI库
+
 new Vue({
   el: '#app',
   router,

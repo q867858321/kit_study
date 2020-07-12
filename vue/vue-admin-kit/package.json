@@ -5,6 +5,7 @@
   "author": "Pan <panfree23@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build-bundle": "vue-cli-service build --target lib --name personal-component-set ./src/libs/KitUI/index.js",
     "dev": "vue-cli-service serve",
     "build:prod": "vue-cli-service build",
     "build:stage": "vue-cli-service build --mode staging",
