@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .box:active {
+            transform: translateY(30px);
+            background: #f00;
+            left: 30px;
+        }
+    </style>
+    <div class="box">
+        1
+    </div>
+    22
+    <script>
+        var age = 3;
+        function Man() {
+            this.age = 22;
+            return function () {
+                console.log("this", this);
+                console.log(this.age);
+                return this.age + 1;
+            }
+        }
+        console.log(Man()())
+        var aa = new Man();
+        console.log(aa());
+        function alert() {
+            console.log(333)
+        }
+        alert();
+
+
+        function a() {
+            function b() {
+                var bb = 3;
+                aa = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

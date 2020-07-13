@@ -10,12 +10,14 @@
 
 <body>
     <script>
-        function a() {
-            console.log(1);
+        async function testAsync() {
+            return "wwww";
         }
-        a.prototype.show = { a: 3 };
-		a.show=5;
-        console.log("a22", a.show); 
+        var data = testAsync().then((data) => {
+            console.log("data 1", data);
+            return data;
+        });
+        console.log("data", data);
     </script>
 </body>
 

@@ -68,6 +68,7 @@ import { validUsername } from "@/utils/validate";
 export default {
   name: "Login",
   data() {
+    console.log("V", this);
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
         callback(new Error("Please enter the correct user name"));
@@ -121,6 +122,7 @@ export default {
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
+        alert(valid);
         if (valid) {
           this.loading = true;
           this.$store
