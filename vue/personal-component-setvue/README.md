@@ -1,4 +1,4 @@
-# personal-component-set
+# personal-component-setvue
 
 ## Project setup
 ```
