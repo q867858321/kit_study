@@ -92,32 +92,11 @@ export const constantRoutes = [{
       title: 'Drop',
       icon: 'user'
     }
-  },
-    // {
-    //   path: "/redirect",
-    //   name: "Tree",
-    //   component: () => import('@/views/tree/index'),
-    //   meta: {
-    //     title: 'Tree',
-    //     icon: 'tree'
-    //   }
-    // },
+  }
   ]
 },
 
-// {
-//   path: '/form',
-//   component: Layout,
-//   children: [{
-//     path: 'index',
-//     name: 'Form',
-//     component: () => import('@/views/form/index'),
-//     meta: {
-//       title: 'Form',
-//       icon: 'form'
-//     }
-//   }]
-// },
+
 
 
 

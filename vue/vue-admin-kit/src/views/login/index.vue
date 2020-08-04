@@ -122,7 +122,6 @@ export default {
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
-        alert(valid);
         if (valid) {
           this.loading = true;
           this.$store

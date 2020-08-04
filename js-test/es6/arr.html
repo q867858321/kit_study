@@ -26,7 +26,7 @@
         let arr = [{ title: 'apple', read: 100 }, { title: 'orage', read: 40 }, { title: 'tomato', read: 20 }];
         arr.forEach(function (item, index, arr) {
             console.log(this, item, index, arr);
-        }, [1, 2, 3]);
+        });
         // [].forEach.call(arr, function (item, index, arr) {
         //     console.log(111);
         //     console.log(item, index, arr);
