@@ -23,17 +23,26 @@ let fakeRouter = {
     }]
   },
   {
+    "path": "/login",
+    "name": "Login",
+    "component": "login/index",
+    "meta": {
+      "title": "登陆",
+      "icon": "example"
+    },
+  },
+  {
     "path": "/example",
     "component": "Layout",
     "redirect": "/example/table",
-    "name": "Example",
+    "name": "案例",
     "meta": {
       "title": "案例",
       "icon": "example"
     },
     "children": [{
       "path": "table",
-      "name": "Table",
+      "name": "表格",
       "component": "table/index",
       "meta": {
         "title": "表格",
@@ -42,7 +51,7 @@ let fakeRouter = {
     },
     {
       "path": "tree",
-      "name": "Tree",
+      "name": "树形菜单",
       "component": "tree/index",
       "meta": {
         "title": "树形菜单",
@@ -56,7 +65,7 @@ let fakeRouter = {
     "component": "Layout",
     "children": [{
       "path": "index",
-      "name": "Form",
+      "name": "表单",
       "component": "form/index",
       "meta": {
         "title": "表单",
@@ -80,7 +89,7 @@ router.beforeEach((to, from, next) => {
       // axios.get('https://www.easy-mock.com/mock/5a5da330d9b48c260cb42ca8/example/antrouter').then(res => {
       console.log('beforeEach  getRouter')
       getRouter = fakeRouter.router //假装模拟后台请求得到的路由数据
-      saveObjArr('router', getRouter) //存储路由到localStorage
+      // saveObjArr('router', getRouter) //存储路由到localStorage
 
       routerGo(to, next) //执行路由跳转方法
       // })

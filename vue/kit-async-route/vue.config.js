@@ -23,15 +23,15 @@ module.exports = {
             }
         }
     },
-    configureWebpack : {
+    configureWebpack: {
         performance: {
-            hints:'warning',
+            hints: 'warning',
             //入口起点的最大体积 整数类型（以字节为单位）
             maxEntrypointSize: 50000000,
             //生成文件的最大体积 整数类型（以字节为单位 300k）
             maxAssetSize: 30000000,
             //只给出 js 文件的性能提示
-            assetFilter: function(assetFilename) {
+            assetFilter: function (assetFilename) {
                 return assetFilename.endsWith('.js');
             }
         }
@@ -43,6 +43,7 @@ module.exports = {
         config.plugins.delete('preload')
         // 第1个参数：别名，第2个参数：路径  （设置路径别名）
         config.resolve.alias
+            .set("vue$", "vue/dist/vue.esm.js")
             .set('@page', resolve('./src/page'))
             .set('@router', resolve('./src/router'))
             .set('@store', resolve('./src/store'))

@@ -3,25 +3,32 @@
     {{focusIndex}}
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="活动名称">
-        <el-input
-          ref="input22"
-          v-focus2="focusIndex == 1"
-          @keyup.native.enter="nextFocus(1)"
-          v-model="form.name"
-        ></el-input>
+        <el-input ref="input_1" @keyup.native.enter="nextFocus(1)" v-model="form.name"></el-input>
       </el-form-item>
       <el-form-item label="活动名称">
-        <el-input v-focus2="focusIndex == 2" @keyup.native.enter="nextFocus(2)" v-model="form.name"></el-input>
+        <el-input ref="input_2" @keyup.native.enter="nextFocus(2)" v-model="form.name"></el-input>
       </el-form-item>
       <el-form-item label="活动区域">
-        <el-select v-model="form.region" placeholder="请选择活动区域">
+        <el-select
+          v-model="form.region"
+          ref="input_3"
+          @keyup.native.enter="nextFocus(3)"
+          placeholder="请选择活动区域"
+        >
           <el-option label="区域一" value="shanghai"></el-option>
           <el-option label="区域二" value="beijing"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="活动时间">
         <el-col :span="11">
-          <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+          <el-date-picker
+            type="date"
+            ref="input_4"
+            @keyup.native.enter="nextFocus(4)"
+            placeholder="选择日期"
+            v-model="form.date1"
+            style="width: 100%;"
+          ></el-date-picker>
         </el-col>
         <el-col class="line" :span="2">-</el-col>
         <el-col :span="11">
@@ -75,11 +82,11 @@ export default {
   },
   methods: {
     nextFocus(index) {
-      console.log(333);
       this.focusIndex = index + 1;
-      // this.$nextTick((e) => {
-      //   console.log("e", e);
-      // });
+      this.$nextTick((e) => {
+        this.$refs["input_" + this.focusIndex].focus();
+        // console.log("e", e);
+      });
     },
     onSubmit() {
       console.log("submit!");
