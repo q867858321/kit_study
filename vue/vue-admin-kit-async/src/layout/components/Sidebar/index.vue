@@ -34,7 +34,8 @@ export default {
   computed: {
     ...mapGetters(["sidebar"]),
     routes() {
-      return this.$router.options.routes;
+      // return this.$router.options.routes
+      return global.antRouter;
     },
     activeMenu() {
       const route = this.$route;

@@ -10,10 +10,10 @@ import '@/styles/index.scss' // global css
 
 import App from './App'
 import store from './store'
-import router from './router/index2'
+import router from './router'
 
 import '@/icons' // icon
-import './permission.js' // permission control
+import './permission' // permission control
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -42,6 +42,10 @@ Vue.use(ElementUI, {
 
 Vue.config.productionTip = false
 
+
+import "@/libs/KitUI/index.js";// 利用混入方式导入自定义UI库
+
+import "@/libs2/KitUI/index.js";// 利用导入组件的方式导入自定义UI库
 
 new Vue({
   el: '#app',

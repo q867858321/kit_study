@@ -1,77 +1,85 @@
-import router from './router/index2'
-// import { Message } from 'element-ui'
+import router from './router'
+import { Message } from 'element-ui'
 import axios from 'axios'
 const _import = require('./router/_import_' + process.env.NODE_ENV) //获取组件的方法
-import Layout from '@/layout/index.vue' //Layout 是架构组件，不在后台返回，在文件里单独引入
+import Layout from '@/layout' //Layout 是架构组件，不在后台返回，在文件里单独引入
 
 
 var getRouter //用来获取后台拿到的路由
 
 // 假装fakeRouter是通过后台接口请求回来的数据
 let fakeRouter = {
-  "router": [{
-    path: '/login',
-    component: 'login/index',
-    hidden: true
-  },
-  {
-    path: '/',
-    component: 'Layout',
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: 'dashboard/index',
-      meta: {
-        title: 'Dashboard',
-        icon: 'dashboard'
-      }
-    }]
-  },
-
-  {
-    path: '/example',
-    component: 'Layout',
-    redirect: '/example/table',
-    name: 'Example',
-    meta: {
-      title: 'Example',
-      icon: 'example'
-    },
-    children: [{
-      path: 'table',
-      name: 'Table',
-      component: 'table/index',
-      meta: {
-        title: 'Table',
-        icon: 'table'
-      }
+  "router": [
+    {
+      "path": "",
+      "component": "Layout",
+      "redirect": "dashboard",
+      "children": [{
+        "path": "dashboard",
+        "component": "dashboard/index",
+        "meta": {
+          "title": "首页",
+          "icon": "dashboard"
+        }
+      }]
     },
     {
-      path: 'tree',
-      name: 'Tree',
-      component: 'tree/index',
-      meta: {
-        title: 'Tree3',
-        icon: 'tree'
-      }
+      "path": "/login",
+      "name": "Login",
+      "component": "login/index",
+      'hidden': true,
+      "meta": {
+        "title": "登陆",
+        "icon": "example"
+      },
     },
     {
-      path: 'drop',
-      name: 'Drop',
-      component: 'drop/index3',
-      meta: {
-        title: 'Drop',
-        icon: 'user'
+      "path": "/example",
+      "component": "Layout",
+      "redirect": "/example/table",
+      "name": "案例",
+      "meta": {
+        "title": "案例",
+        "icon": "example"
+      },
+      "children": [{
+        "path": "table",
+        "name": "表格",
+        "component": "table/index",
+        "meta": {
+          "title": "表格",
+          "icon": "table"
+        }
+      },
+      {
+        "path": "tree",
+        "name": "树形菜单",
+        "component": "tree/index",
+        "meta": {
+          "title": "树形菜单",
+          "icon": "tree"
+        }
       }
+      ]
+    },
+    {
+      "path": "/form",
+      "component": "Layout",
+      "children": [{
+        "path": "index",
+        "name": "表单2",
+        "component": "form/index",
+        "meta": {
+          "title": "表单1",
+          "icon": "form"
+        }
+      }]
+    },
+    {
+      "path": "*",
+      "redirect": "/404",
+      "hidden": true
     }
-    ]
-  },
-  {
-    path: '*',
-    redirect: '/404',
-    hidden: true
-  }
   ]
 
 }
@@ -83,7 +91,7 @@ router.beforeEach((to, from, next) => {
       // axios.get('https://www.easy-mock.com/mock/5a5da330d9b48c260cb42ca8/example/antrouter').then(res => {
       console.log('beforeEach  getRouter')
       getRouter = fakeRouter.router //假装模拟后台请求得到的路由数据
-      saveObjArr('router', getRouter) //存储路由到localStorage
+      // saveObjArr('router', getRouter) //存储路由到localStorage
 
       routerGo(to, next) //执行路由跳转方法
       // })
