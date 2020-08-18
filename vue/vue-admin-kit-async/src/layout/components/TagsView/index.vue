@@ -44,7 +44,7 @@ export default {
       top: 0,
       left: 0,
       selectedTag: {},
-      affixTags: []
+      affixTags: [],
     };
   },
   computed: {
@@ -52,8 +52,8 @@ export default {
       return this.$store.state.tagsView.visitedViews;
     },
     routes() {
-      return this.$store.state.permission.routes;
-    }
+      return global.antRouter;
+    },
   },
   watch: {
     $route() {
@@ -66,7 +66,7 @@ export default {
       } else {
         document.body.removeEventListener("click", this.closeMenu);
       }
-    }
+    },
   },
   mounted() {
     this.initTags();
@@ -78,14 +78,14 @@ export default {
     },
     filterAffixTags(routes, basePath = "/") {
       let tags = [];
-      routes.forEach(route => {
+      routes.forEach((route) => {
         if (route.meta && route.meta.affix) {
           const tagPath = path.resolve(basePath, route.path);
           tags.push({
             fullPath: tagPath,
             path: tagPath,
             name: route.name,
-            meta: { ...route.meta }
+            meta: { ...route.meta },
           });
         }
         if (route.children) {
@@ -133,7 +133,7 @@ export default {
         const { fullPath } = view;
         this.$nextTick(() => {
           this.$router.replace({
-            path: "/redirect" + fullPath
+            path: "/redirect" + fullPath,
           });
         });
       });
@@ -157,7 +157,7 @@ export default {
     },
     closeAllTags(view) {
       this.$store.dispatch("tagsView/delAllViews").then(({ visitedViews }) => {
-        if (this.affixTags.some(tag => tag.path === view.path)) {
+        if (this.affixTags.some((tag) => tag.path === view.path)) {
           return;
         }
         this.toLastView(visitedViews, view);
@@ -171,10 +171,9 @@ export default {
       } else {
         // now the default is to redirect to the home page if there is no tags-view,
         // you can adjust it according to your needs.
-        if (view.name === "Dashboard") {
+        if (view.name == "首页") {
           // to reload home page
-          //  this.$router.replace({ path: "/redirect" + view.fullPath });
-          this.$router.replace({ path: "/redirect" });
+          this.$router.go(0);
         } else {
           this.$router.push("/");
         }
@@ -199,8 +198,8 @@ export default {
     },
     closeMenu() {
       this.visible = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

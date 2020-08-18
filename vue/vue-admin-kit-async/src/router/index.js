@@ -30,36 +30,20 @@ import Layout from '@/layout'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
+import p404 from "@/views/404.vue"
+import login from "@/views/login/index.vue"
 export const constantRoutes = [
-
   {
     path: '/404',
-    component: () => import('@/views/404'),
+    component: p404,
     hidden: true
   },
-
   {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: {
-        title: 'Dashboard',
-        icon: 'dashboard'
-      }
-    }]
+    path: "/login",
+    name: "Login",
+    component: login,
+    hidden: true,
   },
-
-
-  // 404 page must be placed at the end !!!
-  {
-    path: '*',
-    redirect: '/404',
-    hidden: true
-  }
 ];
 
 

@@ -64,11 +64,11 @@
 
 <script>
 import { validUsername } from "@/utils/validate";
+import { getList } from "@/api/user";
 
 export default {
   name: "Login",
   data() {
-    console.log("V", this);
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
         callback(new Error("Please enter the correct user name"));
@@ -119,9 +119,26 @@ export default {
       this.$nextTick(() => {
         this.$refs.password.focus();
       });
+      this.$axios
+        .get("/parameter/query", {
+          // 还可以直接把参数拼接在url后边
+          params: {
+            title: "眼镜",
+          },
+        })
+        .then((res) => {
+          console.log("res", res);
+        });
+      // getList().then((res) => {
+      //   console.log("res", res);
+      // });
     },
     handleLogin() {
-      this.$router.push("/");
+      this.$refs.loginForm.validate((valid) => {
+        console.log("valid1", valid);
+        this.loading = true;
+        this.$router.push("/");
+      });
       // this.$refs.loginForm.validate((valid) => {
       //   if (valid) {
       //     this.loading = true;

@@ -66,7 +66,6 @@ export default {
       this.$nextTick(() => {
         this.listData.forEach((row) => {
           this.hasSelectList.forEach((item, index) => {
-            console.log("item", item.id);
             if (item.id == row.id) {
               this.$refs.dataTable.toggleRowSelection(row, true);
             }

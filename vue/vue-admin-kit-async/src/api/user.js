@@ -37,3 +37,11 @@ export function logout() {
     method: 'post'
   })
 }
+
+
+export function getList() {
+  return request({
+    url: '/parameter/query',
+    method: 'get'
+  })
+}

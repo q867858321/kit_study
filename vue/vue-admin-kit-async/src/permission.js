@@ -13,25 +13,16 @@ let fakeRouter = {
     {
       "path": "",
       "component": "Layout",
-      "redirect": "dashboard",
+      "redirect": "/dashboard/index",
       "children": [{
-        "path": "dashboard",
+        "path": "dashboard/index",
         "component": "dashboard/index",
+        "name": "首页",
         "meta": {
           "title": "首页",
           "icon": "dashboard"
         }
       }]
-    },
-    {
-      "path": "/login",
-      "name": "Login",
-      "component": "login/index",
-      'hidden': true,
-      "meta": {
-        "title": "登陆",
-        "icon": "example"
-      },
     },
     {
       "path": "/example",
@@ -75,14 +66,16 @@ let fakeRouter = {
         }
       }]
     },
-    {
-      "path": "*",
-      "redirect": "/404",
-      "hidden": true
-    }
   ]
 
 }
+let otherRouter = [
+  {
+    "path": "*",
+    "redirect": "/404",
+    "hidden": true
+  }
+]
 router.beforeEach((to, from, next) => {
   console.log(getRouter)
   if (!getRouter) { //不加这个判断，路由会陷入死循环
@@ -90,7 +83,7 @@ router.beforeEach((to, from, next) => {
       // easy-mock官网经常挂掉，所以就不请求了,你们可以替换成自己公司的接口去请求,把下方的axios请求打开即可
       // axios.get('https://www.easy-mock.com/mock/5a5da330d9b48c260cb42ca8/example/antrouter').then(res => {
       console.log('beforeEach  getRouter')
-      getRouter = fakeRouter.router //假装模拟后台请求得到的路由数据
+      getRouter = [...otherRouter, ...fakeRouter.router] //假装模拟后台请求得到的路由数据
       // saveObjArr('router', getRouter) //存储路由到localStorage
 
       routerGo(to, next) //执行路由跳转方法

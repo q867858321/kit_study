@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //目标者类
+        class Subject {
+            constructor() {
+                this.observers = []
+            }
+            add(observer) {
+                console.log("observer", observer)
+                this.observers.push(observer)
+            }
+            remove(observer) {
+                console.log("this.observers", this.observers);
+                let idx = this.observers.findIndex(item => {
+                    return item == observer
+                });
+                if (idx > -1) {
+                    this.observers.splice(idx, 1)
+                }
+            }
+            notify() {
+                for (let observer of this.observers) {
+                    observer.update()
+                }
+            }
+        }
+        //观察者类
+        class Observer {
+            constructor(name) {
+                this.name = name;
+            }
+            update() {
+                console.log(`目标者通知了我更新了，我是${this.name}`)
+            }
+        }
+        //实例化目标者
+        let subject = new Subject();
+        //实例化两个观察者
+        let obs1 = new Observer("前端开发者")
+        let obs2 = new Observer("后台开发者")
+        //向目标者添加观察者
+        subject.add(obs1)
+        subject.add(obs2)
+        //目标者通知更新
+        subject.notify()
+        // subject.remove(obs1)
+        console.log("subject", subject)
+
+    </script>
+</body>
+
+</html>

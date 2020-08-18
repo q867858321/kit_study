@@ -1,5 +1,4 @@
 import Vue from 'vue'
-
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
@@ -14,25 +13,18 @@ import router from './router'
 
 import '@/icons' // icon
 import './permission' // permission control
-/**
- * If you don't want to use mock-server
- * you want to use MockJs for mock api
- * you can execute: mockXHR()
- *
- * Currently MockJs will be used in the production environment,
- * please remove it before going online! ! !
- */
-import {
-  mockXHR
-} from '../mock'
-if (process.env.NODE_ENV === 'production') {
-  mockXHR()
-}
 
 
+console.log("process.env.NODE_ENV ", process.env.NODE_ENV)
 //给vue绑定全局属性、方法(不可修改)
 import base from './utils/base.js';
 Vue.prototype.$base = base;
+
+if (process.env.NODE_ENV == 'development') {
+  request('./utils/axios.js')
+  request('../mock/index.js')
+}
+
 
 
 // set ElementUI lang to EN
