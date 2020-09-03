@@ -1,10 +1,5 @@
 const base = {};
 
-//去左右空格
-base.trim = function (str) {
-  return str.replace(/^\s*/, '');
-}
-
 //去重
 base.unique = function (arr) {
   let temp = []; //一个新的临时数组

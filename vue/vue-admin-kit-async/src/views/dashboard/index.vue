@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ name }}</div>
-    {{hasSelectList}}
+    hasSelectList:{{hasSelectList}}
     <el-table
       :data="listData"
       ref="dataTable"
@@ -53,61 +53,32 @@ export default {
     };
   },
   mounted() {
-    Array.prototype.remove = function (val) {
-      var index = this.indexOf(val);
-      if (index > -1) {
-        this.splice(index, 1);
-      }
-    };
     this.isCheck();
   },
   methods: {
     isCheck() {
-      this.$nextTick(() => {
-        this.listData.forEach((row) => {
-          this.hasSelectList.forEach((item, index) => {
-            if (item.id == row.id) {
-              this.$refs.dataTable.toggleRowSelection(row, true);
-            }
-          });
+      this.listData.forEach((row) => {
+        this.hasSelectList.forEach((item, index) => {
+          if (item.id == row.id) {
+            this.$refs.dataTable.toggleRowSelection(row, true);
+          }
         });
       });
     },
-    handleSelectionChange(val, row) {
-      let obArr = this.pubArr(this.hasSelectList);
-      let selectList = [...obArr, ...val];
-      console.log("selectList", selectList);
-      this.hasSelectList = this.unique(selectList);
-      console.log("obArr", obArr);
-      console.log("val", val);
-      console.log("row", row);
-    },
-    pubArr(macTypeList) {
-      let arr = [];
-      for (let i in macTypeList) {
-        arr.push(macTypeList[i]);
-      }
-    },
-    remove(arr, val) {
-      let index = arr.indexOf(val);
-      if (index > -1) {
-        arr.splice(index, 1);
-      }
-      return arr;
-    },
-    unique(arr) {
-      if (!Array.isArray(arr)) {
-        console.log("type error!");
-        return;
-      }
-
-      let array = [];
-      for (let i = 0; i < arr.length; i++) {
-        if (array.indexOf(arr[i]) === -1) {
-          array.push(arr[i]);
+    handleSelectionChange(rows, item) {
+      let index = -1;
+      let isHasItem = false;
+      this.hasSelectList.forEach((obItem, obIndex) => {
+        if (obItem.id == item.id) {
+          isHasItem = true;
+          index = obIndex;
         }
+      });
+      if (!isHasItem) {
+        this.hasSelectList.push(item);
+      } else {
+        this.hasSelectList.splice(index, 1);
       }
-      return array;
     },
   },
 };

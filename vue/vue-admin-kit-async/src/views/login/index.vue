@@ -109,6 +109,9 @@ export default {
       immediate: true,
     },
   },
+  mounted() {
+    this.showPwd();
+  },
   methods: {
     showPwd() {
       if (this.passwordType === "password") {
@@ -120,7 +123,7 @@ export default {
         this.$refs.password.focus();
       });
       this.$axios
-        .get("/parameter/query", {
+        .get("parameter/query/aa", {
           // 还可以直接把参数拼接在url后边
           params: {
             title: "眼镜",

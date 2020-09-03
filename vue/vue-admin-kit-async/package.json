@@ -5,12 +5,10 @@
   "author": "Pan <panfree23@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build-bundle": "vue-cli-service build --target lib --name personal-component-set ./src/libs/KitUI/index.js",
     "dev": "vue-cli-service serve",
     "build:prod": "vue-cli-service build",
     "build:stage": "vue-cli-service build --mode staging",
     "preview": "node build/index.js --preview",
-    "lint": "eslint --ext .js,.vue src",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "dependencies": {
@@ -40,8 +38,6 @@
     "babel-jest": "23.6.0",
     "chalk": "2.4.2",
     "connect": "3.6.6",
-    "eslint": "5.15.3",
-    "eslint-plugin-vue": "5.2.2",
     "html-webpack-plugin": "3.2.0",
     "mockjs": "1.0.1-beta3",
     "node-sass": "^4.14.1",

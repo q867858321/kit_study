@@ -16,8 +16,9 @@ Observer.prototype = {
             enumerable: true,
             configurable: true,
             get: function () {
+                console.log("Dep.target 0 ", Dep)
                 if (Dep.target) {
-                    console.log("Dep.target", Dep.target)
+                    console.log("Dep.target 1", Dep.target)
                     dep.addSub(Dep.target);
                 }
                 return val;

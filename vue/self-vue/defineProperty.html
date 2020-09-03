@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>Document</title>
 </head>
 
@@ -13,17 +12,18 @@
             a: "abc"
         }
         let temp = "aa"
-        Object.defineProperty(Person, 'name', {
-            get: function () {
-                return temp
-            },
-            set: function (val) {
-                temp = val
-            }
-        })
-
+        Object.defineProperty(Person, 'name',
+            {
+                get: function () {
+                    return temp
+                },
+                set: function (val) {
+                    temp = val
+                },
+            })
+        // Person.name = 33;
         console.log('Person :>> ', Person);
-        console.log('Person :>> ', Person.name);
+        // console.log('Person :>> ', Person.name);
     </script>
 </body>
 
