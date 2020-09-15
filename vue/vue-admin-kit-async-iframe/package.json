@@ -1,0 +1,38 @@
+{
+  "name": "vue-admin-template",
+  "version": "4.2.1",
+  "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
+  "author": "Pan <panfree23@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "axios": "0.18.1",
+    "element-ui": "^2.13.2",
+    "vue": "2.6.11",
+    "vue-router": "3.2.0",
+    "vuex": "3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "engines": {
+    "node": ">=8.9",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

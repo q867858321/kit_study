@@ -24,12 +24,6 @@ import base from './utils/base.js';
 Vue.prototype.$base = base;
 
 console.log("process.env.NODE_ENV1", process.env.NODE_ENV)
-//开发的时候用
-if (process.env.NODE_ENV == 'development') {
-  require('./utils/axios.js')
-  require('../mock/index.js')
-}
-
 
 
 // set ElementUI lang to EN
