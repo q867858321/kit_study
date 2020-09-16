@@ -1,0 +1,72 @@
+{
+  "id": "1608504",
+  "name": "kit",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5466060",
+      "name": "password-not-view",
+      "font_class": "password-not-view",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
+      "icon_id": "9940299",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "12370106",
+      "name": "password-visible",
+      "font_class": "password-visible",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "16553734",
+      "name": "password-fill",
+      "font_class": "password-fill",
+      "unicode": "e887",
+      "unicode_decimal": 59527
+    },
+    {
+      "icon_id": "2036612",
+      "name": "喇叭",
+      "font_class": "laba1",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "3851336",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "201560",
+      "name": "喇叭",
+      "font_class": "laba",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1089307",
+      "name": "银行卡",
+      "font_class": "buoumaotubiao26",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "12751545",
+      "name": "首页",
+      "font_class": "shouye_huaban",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    }
+  ]
+}

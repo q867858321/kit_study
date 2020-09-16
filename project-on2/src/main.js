@@ -3,6 +3,7 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 //自定义ui
 import './styles/element-variables.scss'
+import './assets/ali_icon/iconfont.css';
 // import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
@@ -11,8 +12,6 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import store from './store'
 import router from './router'
-
-import '@/icons' // icon
 
 import filters from './utils/filters.js'
 import directive from './utils/directive.js'
