@@ -34,9 +34,8 @@ export default {
     },
     classObj() {
       return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
-        withoutAnimation: this.sidebar.withoutAnimation,
+        hideSidebar: !this.sidebar,
+        openSidebar: this.sidebar,
       };
     },
   },

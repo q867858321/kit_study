@@ -22,15 +22,11 @@ export default {
     return {};
   },
   computed: {
-    // ...mapGetters(["pageUrl"]),
     pageList() {
       return this.$store.getters.pageList;
     },
     curPageIndex() {
       return this.$store.getters.curPageIndex;
-    },
-    cachedViews() {
-      return this.$store.state.tagsView.cachedViews;
     },
     key() {
       return this.$route.path;

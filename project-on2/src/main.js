@@ -21,12 +21,10 @@ import directive from './utils/directive.js'
 import base from './utils/base.js';
 Vue.prototype.$base = base;
 
-console.log("process.env.NODE_ENV1", process.env.NODE_ENV)
-
-
 // set ElementUI lang to EN
 Vue.use(ElementUI, {
-  locale
+  locale,
+  size: 'small'
 })
 
 Vue.config.productionTip = false
