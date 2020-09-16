@@ -1,5 +1,5 @@
 <template>
-  <section id="tags-view-container" class="tags-view-container">
+  <section id="tags-view-container" class="tags-view-container" v-if="pageList.length>0">
     <div ref="scrollPane" class="tags-view-wrapper">
       <span
         class="tags-view-item"
