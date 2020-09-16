@@ -14,7 +14,7 @@
 
       <el-form-item prop="username">
         <span class="svg-container">
-          <svg-icon icon-class="user" />
+          <span class="iconfont icon-user"></span>
         </span>
         <el-input
           ref="username"
@@ -29,7 +29,7 @@
 
       <el-form-item prop="password">
         <span class="svg-container">
-          <svg-icon icon-class="password" />
+          <span class="iconfont icon-password-fill"></span>
         </span>
         <el-input
           :key="passwordType"
@@ -43,7 +43,8 @@
           @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+          <span class="iconfont icon-password-not-view" v-if="passwordType === 'password'"></span>
+          <span class="iconfont icon-password-visible" v-else></span>
         </span>
       </el-form-item>
 
@@ -53,29 +54,16 @@
         style="width:100%;margin-bottom:30px;"
         @click="handleLogin"
       >Login</el-button>
-
-      <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span>password: any</span>
-      </div>
     </el-form>
   </div>
 </template>
 
 <script>
-import { validUsername } from "@/utils/validate";
 import { getList } from "@/api/user";
 
 export default {
   name: "Login",
   data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
-        callback(new Error("Please enter the correct user name"));
-      } else {
-        callback();
-      }
-    };
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
         callback(new Error("The password can not be less than 6 digits"));
@@ -89,32 +77,20 @@ export default {
         password: "111111",
       },
       loginRules: {
-        username: [
-          { required: true, trigger: "blur", validator: validateUsername },
-        ],
         password: [
           { required: true, trigger: "blur", validator: validatePassword },
         ],
       },
       loading: false,
-      passwordType: "password",
-      redirect: undefined,
+      passwordType: "",
     };
-  },
-  watch: {
-    $route: {
-      handler: function (route) {
-        this.redirect = route.query && route.query.redirect;
-      },
-      immediate: true,
-    },
   },
   mounted() {
     this.showPwd();
   },
   methods: {
     showPwd() {
-      if (this.passwordType === "password") {
+      if (this.passwordType == "password") {
         this.passwordType = "";
       } else {
         this.passwordType = "password";
@@ -122,33 +98,17 @@ export default {
       this.$nextTick(() => {
         this.$refs.password.focus();
       });
-      this.$axios
-        .get("parameter/query/aa", {
-          // 还可以直接把参数拼接在url后边
-          params: {
-            title: "眼镜",
-          },
-        })
-        .then((res) => {
-          console.log("res", res);
-        });
-      // getList().then((res) => {
-      //   console.log("res", res);
-      // });
     },
     handleLogin() {
       this.$refs.loginForm.validate((valid) => {
         console.log("valid1", valid);
-        this.loading = true;
         this.$router.push("/");
       });
       // this.$refs.loginForm.validate((valid) => {
       //   if (valid) {
-      //     this.loading = true;
       //     this.$store
       //       .dispatch("user/login", this.loginForm)
       //       .then(() => {
-      //         this.$router.push({ path: this.redirect || "/" });
       //         this.loading = false;
       //       })
       //       .catch(() => {
@@ -164,7 +124,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
@@ -212,6 +172,10 @@ $cursor: #fff;
 </style>
 
 <style lang="scss" scoped>
+.icon {
+  width: 20px;
+  vertical-align: middle;
+}
 $bg: #2d3a4b;
 $dark_gray: #889aa4;
 $light_gray: #eee;
@@ -229,18 +193,6 @@ $light_gray: #eee;
     padding: 160px 35px 0;
     margin: 0 auto;
     overflow: hidden;
-  }
-
-  .tips {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 10px;
-
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
-    }
   }
 
   .svg-container {

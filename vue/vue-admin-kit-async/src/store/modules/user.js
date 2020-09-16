@@ -4,16 +4,11 @@ import {
     getInfo
 } from '@/api/user'
 import {
-    getToken,
-    setToken,
-    removeToken
-} from '@/utils/auth'
-import {
     resetRouter
 } from '@/router'
 
 const state = {
-    token: getToken(),
+    token: "",
     name: '',
     avatar: '',
     roles: []
@@ -52,7 +47,6 @@ const actions = {
                     data
                 } = response
                 commit('SET_TOKEN', data.token)
-                setToken(data.token)
                 resolve()
             }).catch(error => {
                 reject(error)
@@ -82,7 +76,7 @@ const actions = {
                 } = data
                 if (!roles || roles.length <= 0) {
                     console.log("roles", roles)
-                        // roles = "admin"
+                    // roles = "admin"
                     console.log('getInfo: roles must be a non-null array!')
                 }
                 commit('SET_NAME', name)

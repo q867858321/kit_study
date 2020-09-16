@@ -31,6 +31,11 @@ import variables from "@/styles/variables.scss";
 
 export default {
   components: { SidebarItem, Logo },
+  data() {
+    return {
+      showLogo: false,
+    };
+  },
   computed: {
     ...mapGetters(["sidebar"]),
     routes() {
@@ -46,14 +51,11 @@ export default {
       }
       return path;
     },
-    showLogo() {
-      return this.$store.state.settings.sidebarLogo;
-    },
     variables() {
       return variables;
     },
     isCollapse() {
-      return !this.sidebar.opened;
+      return !this.sidebar;
     },
   },
 };
