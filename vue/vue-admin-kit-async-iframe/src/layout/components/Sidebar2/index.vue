@@ -11,17 +11,17 @@
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <span>门户网站</span>
         </template>
 
         <el-menu-item
           index="1-1"
           @click="openPage({id:1,name:'百度',url:'https://www.baidu.com/'})"
-        >选项1</el-menu-item>
+        >百度</el-menu-item>
         <el-menu-item
           index="1-2"
-          @click="openPage({id:2,name:'其他',url:'https://segmentfault.com/'})"
-        >选项2</el-menu-item>
+          @click="openPage({id:2,name:'新浪',url:'https://www.sina.com.cn'})"
+        >新浪</el-menu-item>
 
         <el-menu-item index="1-3">选项3</el-menu-item>
         <el-submenu index="1-4">
