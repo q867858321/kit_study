@@ -20,7 +20,7 @@ let fakeRouter = {
         "name": "首页",
         "meta": {
           "title": "首页",
-          "icon": "dashboard"
+          "icon": "icon-user"
         }
       }]
     },
@@ -31,7 +31,7 @@ let fakeRouter = {
       "name": "案例",
       "meta": {
         "title": "案例",
-        "icon": "example"
+        "icon": "icon-password-visible"
       },
       "children": [{
         "path": "table",
@@ -39,7 +39,7 @@ let fakeRouter = {
         "component": "table/index",
         "meta": {
           "title": "表格",
-          "icon": "table"
+          "icon": "icon-password-visible"
         }
       },
       {
