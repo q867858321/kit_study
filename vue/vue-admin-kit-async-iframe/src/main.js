@@ -3,6 +3,7 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 //自定义ui
 import './styles/element-variables.scss'
+import './assets/ali_icon/iconfont.css';
 // import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
@@ -12,8 +13,6 @@ import App from './App'
 import store from './store'
 import router from './router'
 
-import '@/icons' // icon
-
 import filters from './utils/filters.js'
 import directive from './utils/directive.js'
 
@@ -21,12 +20,10 @@ import directive from './utils/directive.js'
 import base from './utils/base.js';
 Vue.prototype.$base = base;
 
-console.log("process.env.NODE_ENV1", process.env.NODE_ENV)
-
-
 // set ElementUI lang to EN
 Vue.use(ElementUI, {
-  locale
+  locale,
+  size: 'small'
 })
 
 Vue.config.productionTip = false

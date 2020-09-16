@@ -4,8 +4,6 @@
       default-active="2"
       class="el-menu-vertical-demo"
       :collapse="isCollapse"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
@@ -57,15 +55,10 @@ export default {
   computed: {
     ...mapGetters(["sidebar"]),
     isCollapse() {
-      return !this.sidebar.opened;
+      return !this.sidebar;
     },
   },
-  mounted() {
-    console.log("this", this);
-  },
   methods: {
-    handleOpen() {},
-    handleClose() {},
     change() {
       this.isCollapse = !this.isCollapse;
     },

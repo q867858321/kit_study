@@ -3,18 +3,11 @@ import {
     logout,
     getInfo
 } from '@/api/user'
-import {
-    getToken,
-    setToken,
-    removeToken
-} from '@/utils/auth'
 
 
 const state = {
-    token: getToken(),
+    token: "",
     name: '',
-    avatar: '',
-    roles: []
 }
 
 const mutations = {
@@ -24,12 +17,6 @@ const mutations = {
     SET_NAME: (state, name) => {
         state.name = name
     },
-    SET_AVATAR: (state, avatar) => {
-        state.avatar = avatar
-    },
-    SET_ROLES: (state, roles) => {
-        state.roles = roles
-    }
 }
 
 const actions = {
@@ -50,7 +37,7 @@ const actions = {
                     data
                 } = response
                 commit('SET_TOKEN', data.token)
-                setToken(data.token)
+
                 resolve()
             }).catch(error => {
                 reject(error)
@@ -75,8 +62,6 @@ const actions = {
                 console.log("data", data)
                 const {
                     name,
-                    avatar,
-                    roles
                 } = data
                 if (!roles || roles.length <= 0) {
                     console.log("roles", roles)
@@ -84,8 +69,6 @@ const actions = {
                     console.log('getInfo: roles must be a non-null array!')
                 }
                 commit('SET_NAME', name)
-                commit('SET_AVATAR', avatar)
-                commit('SET_ROLES', roles)
                 resolve(data)
             }).catch(error => {
                 reject(error)
