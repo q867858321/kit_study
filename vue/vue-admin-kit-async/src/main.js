@@ -1,12 +1,9 @@
 import Vue from 'vue'
-import 'normalize.css/normalize.css' // A modern alternative to CSS resets
-
 import ElementUI from 'element-ui'
 //自定义ui
 import './styles/element-variables.scss'
 import './assets/ali_icon/iconfont.css';
 // import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
 import '@/styles/index.scss' // global css
 
@@ -23,16 +20,15 @@ import directive from './utils/directive.js'
 import base from './utils/base.js';
 Vue.prototype.$base = base;
 
-console.log("process.env.NODE_ENV1", process.env.NODE_ENV)
-
-
 // set ElementUI lang to EN
 Vue.use(ElementUI, {
-  locale
+  size: 'mini'
 })
 
 Vue.config.productionTip = false
 
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 
 import "@/libs/KitUI/index.js";// 利用混入方式导入自定义UI库
 

@@ -20,3 +20,7 @@ git branch -D dev   删除本地某分支
 
 git remote remove origin 取消远程连接
 git remote add origin http://xxxxxx.get  建立连接 
+
+git status 查看状态
+git pull origin 分支名    拉取指定分支的代码
+ git branch --set-upstream-to=origin/master   本地分支与远程分支关联

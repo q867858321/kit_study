@@ -1,0 +1,20 @@
+.el-button.el-button--blue:hover {
+    background: #66b1ff;
+    color: #fff;
+    border-color: #66b1ff;
+  }
+  .el-button.el-button--blue:active {
+    background: #66b1ff;
+    color: #fff;
+    border-color: #66b1ff;
+  }
+  .el-button.el-button--blue:focus {
+    background: #66b1ff;
+    color: #fff;
+    border-color: #66b1ff;
+  }
+  .el-button.el-button--blue {
+    background: #409EFF;
+    color: #fff;
+    border-color: #409EFF;
+  }

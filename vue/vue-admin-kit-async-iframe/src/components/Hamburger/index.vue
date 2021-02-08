@@ -38,7 +38,7 @@ export default {
   height: 20px;
 }
 
-.hamburger.is-active {
+.openSidebar .hamburger{
   transform: rotate(180deg);
 }
 </style>

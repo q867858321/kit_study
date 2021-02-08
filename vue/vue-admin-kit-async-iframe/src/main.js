@@ -5,7 +5,6 @@ import ElementUI from 'element-ui'
 import './styles/element-variables.scss'
 import './assets/ali_icon/iconfont.css';
 // import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
 import '@/styles/index.scss' // global css
 
@@ -13,19 +12,13 @@ import App from './App'
 import store from './store'
 import router from './router'
 
+
 import filters from './utils/filters.js'
 import directive from './utils/directive.js'
 
-//给vue绑定全局属性、方法(不可修改)
-import base from './utils/base.js';
-Vue.prototype.$base = base;
-
-// set ElementUI lang to EN
 Vue.use(ElementUI, {
-  locale,
   size: 'small'
 })
-
 Vue.config.productionTip = false
 
 // 全局注册过滤器
