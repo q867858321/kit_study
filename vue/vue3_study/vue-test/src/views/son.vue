@@ -6,7 +6,9 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-  setup() {
+  setup(props,context) {
+    console.log("props",props);
+     console.log("context",context);
       const conts = ref(1);
       const sonFn=()=>{
           conts.value++

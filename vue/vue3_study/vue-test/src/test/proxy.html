@@ -9,10 +9,10 @@
 
 <body>
     <script>
-        let test = {
+        let user = {
             name: "小红"
         }
-        test = new Proxy(test, {
+        let test = new Proxy(user, {
             get(target, key) {
                 console.log("获取了getter属性")
                 return target[key]

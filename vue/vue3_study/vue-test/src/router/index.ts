@@ -48,6 +48,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'father',
     component: () => import('../views/father.vue')
   },
+  {
+    path: '/vuex',
+    name: 'vuex',
+    component: () => import('../views/vuex-test/vuex1.vue')
+  },
 
 ]
 const router = createRouter({

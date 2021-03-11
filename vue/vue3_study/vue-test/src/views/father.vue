@@ -13,8 +13,10 @@ export default defineComponent({
         son
     },
   setup() {
-      const RefChilde = ref<any>(null);
+      // const RefChilde = ref<any>(null);
+       const RefChilde = ref();
       const handleClick=()=>{
+        console.log("RefChilde",RefChilde)
           RefChilde.value.sonFn();
       }
     return {
