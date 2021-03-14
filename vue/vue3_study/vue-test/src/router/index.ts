@@ -48,7 +48,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'father',
     component: () => import('../views/father.vue')
   },
-
+  {
+    path: '/fn',
+    name: 'fn',
+    component: () => import('../views/fn.vue')
+  },
 ]
 const router = createRouter({
   history: createWebHashHistory(process.env.BASE_URL),
