@@ -34,7 +34,11 @@ export default defineComponent({
   methods:{
     show(){
       console.log(this);
+      this.alert()
       this.aa++
+    },
+    alert(){
+      console.log(1111)
     }
   }
 });
