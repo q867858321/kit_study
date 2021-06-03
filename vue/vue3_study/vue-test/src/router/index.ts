@@ -62,8 +62,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/vuex3',
     name: 'vuex3',
     component: () => import('../views/vuex-test/vuex3.vue')
-  },
-
+  }
 ]
 const router = createRouter({
   history: createWebHashHistory(process.env.BASE_URL),
