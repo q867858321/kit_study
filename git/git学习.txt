@@ -16,6 +16,7 @@ git push -u origin master
 git chechout -b zhanghanlun origin/zhanghanlun 切换分支
 
 git branch   查看本地分支
+git checkout  dev  切换到dev分支
 git branch -D dev   删除本地某分支
 
 git remote remove origin 取消远程连接
@@ -25,5 +26,6 @@ git status 查看状态
 git pull origin 分支名    拉取指定分支的代码
  git branch --set-upstream-to=origin/master   本地分支与远程分支关联
 
-git rest --hard XXXXX  回滚
+git reset --hard XXXXX  本地回滚
+git push -f   回滚远程需强推
 
