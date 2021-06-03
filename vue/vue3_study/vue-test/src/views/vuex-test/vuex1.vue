@@ -13,7 +13,7 @@ export default defineComponent({
       console.log("store",store)
       function plusCount(){
           store.commit('increaseCount')
-          store.commit('changeName',"abc")
+          store.commit('user.changeName')
       }
     return {plusCount};
   },

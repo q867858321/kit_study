@@ -17,7 +17,7 @@ import filters from './utils/filters.js'
 import directive from './utils/directive.js'
 
 Vue.use(ElementUI, {
-  size: 'small'
+  size: 'mini'
 })
 Vue.config.productionTip = false
 

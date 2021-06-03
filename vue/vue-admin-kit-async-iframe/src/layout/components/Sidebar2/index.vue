@@ -31,16 +31,16 @@ export default {
             url:"#",
             child:[
               {
-                 icon:"el-icon-s-data",
-              name:"百度指数",
-              url:"http://index.baidu.com/v2/index.html",
-                },
-                {
-                  icon:"el-icon-s-data",
-                  name:"百度新闻",
-                  url:" https://news.baidu.com",
-                }
-              ],
+                icon:"el-icon-s-data",
+                name:"百度指数",
+                url:"http://index.baidu.com/v2/index.html",
+              },
+              {
+                icon:"el-icon-s-data",
+                name:"百度新闻",
+                url:" https://news.baidu.com",
+              }
+            ],
           },
           {
             icon:"el-icon-menu",

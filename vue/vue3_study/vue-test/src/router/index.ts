@@ -49,9 +49,19 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/father.vue')
   },
   {
-    path: '/vuex',
+    path: '/vuex1',
     name: 'vuex',
     component: () => import('../views/vuex-test/vuex1.vue')
+  },
+  {
+    path: '/vuex2',
+    name: 'vuex2',
+    component: () => import('../views/vuex-test/vuex2.vue')
+  },
+  {
+    path: '/vuex3',
+    name: 'vuex3',
+    component: () => import('../views/vuex-test/vuex3.vue')
   },
 
 ]
