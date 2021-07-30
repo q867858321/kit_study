@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-03-02 09:30:13
- * @LastEditTime: 2021-03-03 16:14:57
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\views\IFrame.vue
--->
 <template>
     <div
         v-loading="load"

@@ -8,9 +8,9 @@
                 <navigate-bar></navigate-bar>
             </el-header>
             <Tagsview></Tagsview>
-            <el-main :style="styles">
+            <el-main :style="styles" v-if="isIframe == false">
                 <el-scrollbar
-                    style="padding:20px;box-sizing:border-box;background:#fff;"
+                    style="padding: 20px;box-sizing:border-box;background:#fff;"
                 >
                     <router-view v-slot="{ Component }">
                         <transition name="el-zoom-in-top" mode="out-in">
@@ -20,6 +20,15 @@
                         </transition>
                     </router-view>
                 </el-scrollbar>
+            </el-main>
+            <el-main v-if="isIframe">
+                <router-view v-slot="{ Component }">
+                    <transition name="el-zoom-in-top" mode="out-in">
+                        <keep-alive>
+                            <component :key="routerAlive" :is="Component" />
+                        </keep-alive>
+                    </transition>
+                </router-view>
             </el-main>
         </el-container>
     </el-container>
@@ -41,11 +50,20 @@ export default {
     // 获取用户相关信息和路由权限
     setup() {
         const route = useRoute();
+        console.log("route", route);
         const styles = { "--nav_height": nav_height };
         const routerAlive = ref(null);
-        const ob = reactive({});
+        const ob = reactive({
+            isIframe: false
+        });
         watchEffect(() => {
             routerAlive.value = route.name;
+            console.log("route", route);
+            if (route.name.indexOf("i-") == 0) {
+                ob.isIframe = true;
+            } else {
+                ob.isIframe = false;
+            }
         });
         provide("reload", () => {
             routerAlive.value = Math.random() + "_" + Math.random();

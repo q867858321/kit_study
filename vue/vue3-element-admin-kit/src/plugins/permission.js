@@ -113,6 +113,7 @@ export default {
                             menuList[i].url.replace(/\//g, "-") +
                             `-${menuList[i].id}`
                         // meta: {
+                        //     isIframe: 2
                         // }
                     };
                     // url以http[s]://开头, 通过iframe展示
