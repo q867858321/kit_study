@@ -38,9 +38,10 @@ import {
     sideTextColor,
     sideActiveTextColor
 } from "@/styles/variables.scss.js";
-import { computed } from "vue";
+import { computed, onMounted, toRaw } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import { jsonArrToArray } from "@/utils/index";
 import Logo from "./components/Logo";
 import SlideMenu from "./components/SlideMenu";
 export default {
@@ -50,10 +51,10 @@ export default {
     },
     setup() {
         const styles = { "--nav_height": nav_height };
-        const store = useStore();
         const route = useRoute();
-        const opened = computed(() => store.getters.opened);
-        const menus = computed(() => store.getters.menuList);
+        const $store = useStore();
+        const opened = computed(() => $store.getters.opened);
+        const menus = computed(() => $store.getters.menuList);
         const defaultActive = computed(() => {
             let i = route.name.indexOf("/");
             if (i < 0) {
@@ -62,7 +63,29 @@ export default {
                 return "/" + route.name.slice(0, i);
             }
         });
+        onMounted(() => {
+            const nameArr = route.name.split("-");
+            let id = null;
+            if (nameArr.length > 0) {
+                id = nameArr[nameArr.length - 1];
+            }
 
+            let itemArr = jsonArrToArray(toRaw(menus.value));
+            let item = null;
+
+            itemArr.forEach(oItem => {
+                if (oItem.id == id) {
+                    item = oItem;
+                }
+            });
+            console.log("item", item);
+            if (item != null) {
+                $store.dispatch("app/add_tag_list", {
+                    path: "/" + route.name,
+                    name: item.name
+                });
+            }
+        });
         return {
             sideBgColor,
             sideTextColor,

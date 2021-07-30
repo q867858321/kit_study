@@ -32,20 +32,29 @@
 </template>
 
 <script>
+import { onMounted } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 // import { inject } from "vue";
 export default {
     props: ["menu"],
     setup() {
         // const reload = inject("reload");
         const router = useRouter();
+        const $store = useStore();
+
         const clickMenu = menu => {
             let name = menu.url.replace(/\//g, "-") + `-${menu.id}`;
+            console.log("menu", menu);
             if (menu.iframe == 1) {
                 name = `i-${menu.id}`;
             }
             router.push({
                 name
+            });
+            $store.dispatch("app/add_tag_list", {
+                path: "/" + name,
+                name: menu.name
             });
         };
 

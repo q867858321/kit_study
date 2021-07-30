@@ -9,22 +9,25 @@
 -->
 <template>
     <el-container>
-        <el-aside width="auto"><side-bar></side-bar></el-aside>
+        <el-aside width="auto">
+            <side-bar></side-bar>
+        </el-aside>
         <el-container>
-            <el-header :height="nav_height"
-                ><navigate-bar></navigate-bar
-            ></el-header>
-            <el-main :style="styles"
-                ><el-scrollbar
+            <el-header :height="nav_height">
+                <navigate-bar></navigate-bar>
+            </el-header>
+            <Tagsview></Tagsview>
+            <el-main :style="styles">
+                <el-scrollbar
                     style="padding:20px;box-sizing:border-box;background:#fff;"
-                    ><router-view v-slot="{ Component }"
-                        ><transition name="el-zoom-in-top" mode="out-in">
-                            <component
-                                :key="routerAlive"
-                                :is="Component"
-                            /> </transition
-                    ></router-view> </el-scrollbar
-            ></el-main>
+                >
+                    <router-view v-slot="{ Component }">
+                        <transition name="el-zoom-in-top" mode="out-in">
+                            <component :key="routerAlive" :is="Component" />
+                        </transition>
+                    </router-view>
+                </el-scrollbar>
+            </el-main>
         </el-container>
     </el-container>
 </template>
@@ -32,13 +35,15 @@
 import { nav_height } from "@/styles/variables.scss.js";
 import NavigateBar from "@/components/layout/NavigateBar.vue";
 import SideBar from "@/components/layout/SideBar.vue";
+import Tagsview from "@/components/layout/Tagsview.vue";
 import { provide, ref, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 export default {
     name: "AppMain",
     components: {
         NavigateBar,
-        SideBar
+        SideBar,
+        Tagsview
     },
     // 获取用户相关信息和路由权限
     setup() {
@@ -57,7 +62,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .el-main {
-    height: calc(100vh - var(--nav_height));
+    height: calc(100vh - 85px);
     background: $main-bg-color;
     :deep(.el-scrollbar__bar.is-horizontal) {
         visibility: hidden;

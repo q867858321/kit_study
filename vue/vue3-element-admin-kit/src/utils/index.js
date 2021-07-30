@@ -11,28 +11,23 @@
  * @param {*} nodes
  * @return {*}
  */
-export function jsonToArray(nodes) {
-    let pid = -1;
-    const toArray = nodes => {
-        let r = [];
-        if (Array.isArray(nodes)) {
-            for (let i = 0, l = nodes.length; i < l; i++) {
-                nodes[i].pid = pid;
-                r.push(nodes[i]); // 取每项数据放入一个新数组
-                if (
-                    Array.isArray(nodes[i]["children"]) &&
-                    nodes[i]["children"].length > 0
-                ) {
-                    // 若存在children则递归调用，把数据拼接到新数组中，并且删除该children
-                    pid = nodes[i].id;
-                    r = r.concat(toArray(nodes[i]["children"]));
-                    delete nodes[i]["children"];
-                }
+export function jsonArrToArray(nodes) {
+    let newArr = [];
+    function arrOfOneDimension(arr) {
+        for (let key of arr) {
+            newArr.push(key);
+            if (Array.isArray(key.children)) {
+                arrOfOneDimension(key.children); //如果还是数组继续递归调用
             }
         }
-        return r;
-    };
-    return toArray(nodes);
+        return newArr;
+    }
+    arrOfOneDimension(nodes);
+    newArr = newArr.map(item => {
+        return { ...item, children: null };
+    });
+
+    return newArr;
 }
 
 /**

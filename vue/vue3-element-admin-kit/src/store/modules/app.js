@@ -14,6 +14,7 @@ export default {
         },
         token: sessionStorage.getItem("token") || "",
         menuList: null,
+        tagList: [],
         permissionList: [],
         uname: sessionStorage.getItem("uname") || ""
     },
@@ -36,6 +37,28 @@ export default {
         SET_MENU_LIST(state, menuList) {
             state.menuList = menuList;
         },
+        ADD_TAG_LIST(state, item) {
+            let index = -1;
+            state.tagList.forEach((oItem, oIndex) => {
+                if (item.path == oItem.path) {
+                    index = oIndex;
+                }
+            });
+            if (index == -1) {
+                state.tagList.push(item);
+            }
+        },
+        DELETE_TAG_LIST(state, path) {
+            let index = -1;
+            state.tagList.forEach((oItem, oIndex) => {
+                if (oItem.path == path) {
+                    index = oIndex;
+                }
+            });
+            if (index > -1) {
+                state.tagList.splice(index, 1);
+            }
+        },
         SET_PERMISSION_LIST(state, permissionList) {
             state.permissionList = permissionList;
         }
@@ -52,6 +75,12 @@ export default {
         },
         set_menu_list({ commit }, menuList) {
             commit("SET_MENU_LIST", menuList);
+        },
+        add_tag_list({ commit }, item) {
+            commit("ADD_TAG_LIST", item);
+        },
+        delete_tag_list({ commit }, path) {
+            commit("DELETE_TAG_LIST", path);
         },
         set_permission_List({ commit }, menuList) {
             let allMenus = XE.filterTree(menuList, item => item.type == 1);
