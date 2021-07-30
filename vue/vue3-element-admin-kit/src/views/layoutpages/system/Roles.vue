@@ -1,13 +1,6 @@
-<!--
- * @Author: your name
- * @Date: 2021-02-05 14:52:13
- * @LastEditTime: 2021-03-29 11:32:11
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\views\layoutpages\system\Roles.vue
--->
 <template>
     <div class="ve_container">
+        角色
         <!-- 搜索 -->
         <el-form ref="queryForm" :inline="true" :model="params">
             <el-form-item label="名称" prop="name">

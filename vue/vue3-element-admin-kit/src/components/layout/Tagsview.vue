@@ -1,6 +1,5 @@
 <template>
     <div class="tags-view">
-        {{ tagList }}
         <el-scrollbar :vertical="false" class="scroll-container">
             <div
                 v-for="(item, index) in tagList"
