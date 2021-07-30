@@ -1,5 +1,6 @@
 <template>
     <div class="tags-view">
+        {{ tagList }}
         <el-scrollbar :vertical="false" class="scroll-container">
             <div
                 v-for="(item, index) in tagList"
@@ -29,20 +30,25 @@ import {
     watch,
     watchEffect
 } from "@vue/runtime-core";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 export default {
     setup() {
         const route = useRoute();
+        const router = useRouter();
         const $store = useStore();
-        console.log("store", $store);
         let ob = reactive({
             tagList: computed(() => $store.getters.tagList)
         });
         let fn = {
             deleteOneMenu(item) {
-                console.log("item", item);
                 $store.dispatch("app/delete_tag_list", item.path);
+                const path = route.path;
+                if (item.path == path) {
+                    const tagList = $store.getters.tagList;
+                    const newItem = tagList[tagList.length - 1];
+                    router.push(newItem.path);
+                }
             }
         };
 
