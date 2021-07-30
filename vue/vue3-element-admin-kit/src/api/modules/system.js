@@ -238,6 +238,17 @@ const menuList = [
         iframe: 0
     },
     {
+        parentId: 100,
+        id: 15,
+        name: "测试管理", //看官网，这个名字是3-5之间的
+        url: "leisure/Game", //这个类似上面的id一个，只是初始值是从100开始的
+        menu: "",
+        type: 1,
+        icon: "el-icon-s-check",
+        sort: 4,
+        iframe: 0
+    },
+    {
         parentId: 11,
         id: 12,
         name: "查询", //看官网，这个名字是3-5之间的

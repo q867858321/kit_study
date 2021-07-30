@@ -22,6 +22,14 @@ module.exports = {
                 const mock_server = require("./src/api/mock-server.js");
                 mock_server(app);
             }
+        },
+        "/api": {
+            target: "http://192.168.12.195:8080", // 赵振周 本地
+            changeOrigin: true,
+            ws: true,
+            pathRewrite: {
+                "^/api": ""
+            }
         }
     },
 
@@ -39,8 +47,6 @@ module.exports = {
             }
         ]);
         config.plugins.delete("prefetch");
-        // config.plugins.delete("preload");
-        // config.optimization.delete("splitChunks");
     },
 
     configureWebpack: () => {
