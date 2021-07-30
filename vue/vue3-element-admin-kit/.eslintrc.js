@@ -33,6 +33,7 @@ module.exports = {
         indent: [2, 4, { SwitchCase: 1 }],
         "prettier/prettier": [2, { tabWidth: 4 }],
         "no-console": "off",
-        "no-debugger": "off"
+        "no-debugger": "off",
+        "no-unused-vars": 'off'
     }
 };

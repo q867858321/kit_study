@@ -181,11 +181,8 @@ const plugins = [
     ElMessageBox,
     ElNotification
 ];
-import lang from "element-plus/lib/locale/lang/zh-cn";
-import locale from "element-plus/lib/locale";
 import "dayjs/locale/zh-cn";
 import "element-plus/packages/theme-chalk/src/base.scss";
-locale.use(lang);
 export default {
     install: app => {
         components.forEach(component => {
