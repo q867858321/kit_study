@@ -1,6 +1,6 @@
 <template>
     <div class="ve_container">
-        菜单
+        <div @click="keep++">菜单{{ keep }}</div>
         <!-- 搜索 -->
         <el-form ref="queryForm" :inline="true" :model="params">
             <el-form-item label="名称" prop="name">
@@ -233,6 +233,9 @@ export default {
             page: 1,
             total: 0
         });
+        const ob = reactive({
+            keep: 1
+        });
         const { name, limit, page, total } = toRefs(params);
 
         /**
@@ -327,7 +330,8 @@ export default {
             },
             isURL,
             handelDialog,
-            handleDel
+            handleDel,
+            ...toRefs(ob)
         };
     }
 };

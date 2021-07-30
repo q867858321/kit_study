@@ -1,12 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-07 14:04:59
- * @LastEditTime: 2021-03-26 09:56:12
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\views\AppMain.vue
- *<el-scrollbar></el-scrollbar>
--->
 <template>
     <el-container>
         <el-aside width="auto">
@@ -23,7 +14,9 @@
                 >
                     <router-view v-slot="{ Component }">
                         <transition name="el-zoom-in-top" mode="out-in">
-                            <component :key="routerAlive" :is="Component" />
+                            <keep-alive>
+                                <component :key="routerAlive" :is="Component" />
+                            </keep-alive>
                         </transition>
                     </router-view>
                 </el-scrollbar>
@@ -36,7 +29,7 @@ import { nav_height } from "@/styles/variables.scss.js";
 import NavigateBar from "@/components/layout/NavigateBar.vue";
 import SideBar from "@/components/layout/SideBar.vue";
 import Tagsview from "@/components/layout/Tagsview.vue";
-import { provide, ref, watchEffect } from "vue";
+import { provide, reactive, ref, toRefs, watchEffect } from "vue";
 import { useRoute } from "vue-router";
 export default {
     name: "AppMain",
@@ -50,13 +43,14 @@ export default {
         const route = useRoute();
         const styles = { "--nav_height": nav_height };
         const routerAlive = ref(null);
+        const ob = reactive({});
         watchEffect(() => {
             routerAlive.value = route.name;
         });
         provide("reload", () => {
             routerAlive.value = Math.random() + "_" + Math.random();
         });
-        return { styles, nav_height, routerAlive };
+        return { styles, nav_height, routerAlive, ...toRefs(ob) };
     }
 };
 </script>
