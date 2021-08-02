@@ -32,7 +32,7 @@ service.interceptors.response.use(
 
 export default service;
 
-// import request from "utils/request";
+// import request from "@/axios-config/request";
 
 // export default {
 //   // 登录

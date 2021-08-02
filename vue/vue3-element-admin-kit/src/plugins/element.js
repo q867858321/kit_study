@@ -183,6 +183,6 @@ export default {
         plugins.forEach(plugin => {
             app.use(plugin);
         });
-        app.config.globalProperties.$ELEMENT = { size: "medium" };
+        app.config.globalProperties.$ELEMENT = { size: "mini" };
     }
 };

@@ -1,12 +1,9 @@
-import request from "utils/request";
+import request from "@/axios-config/request";
 
-export default {
-    // 登录
-    login(data) {
-        return request({
-            url: "/login",
-            method: "post",
-            data
-        });
-    }
-};
+export function getList(data) {
+    return request({
+        url: "/api/user/list",
+        method: "get",
+        data
+    });
+}
