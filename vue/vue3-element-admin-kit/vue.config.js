@@ -18,7 +18,7 @@ module.exports = {
         },
         proxy: {
             "/api": {
-                target: "http://192.168.12.195:8080", // 赵振周 本地
+                target: "http://127.0.0.1:7001", // 本地
                 changeOrigin: true,
                 ws: true,
                 pathRewrite: {
