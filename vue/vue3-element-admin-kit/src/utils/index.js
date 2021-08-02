@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-01-12 09:38:09
- * @LastEditTime: 2021-03-17 10:48:52
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\utils\index.js
- */
 /**
  * @description:树形结构转一维数组
  * @param {*} nodes

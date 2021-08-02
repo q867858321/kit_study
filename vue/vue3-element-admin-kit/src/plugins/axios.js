@@ -1,12 +1,3 @@
-/* eslint-disable indent */
-/*
- * @Author: your name
- * @Date: 2020-10-16 10:38:49
- * @LastEditTime: 2021-03-29 17:51:59
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\plugins\axios.js
- */
 "use strict";
 
 import axios from "axios";

@@ -1,19 +1,10 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-07 09:49:49
- * @LastEditTime: 2021-04-15 10:45:09
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\README.md
--->
-
 ![登录页](./src/assets/logo.png)
 
 # vue3-element-admin
 
-**[<font color=#FF0000>✈ 国内加速链接</font>](https://gitee.com/asaasa/vue3-element-admin)**  
-**[<font color=#FF0000>✈ 效果预览</font>](https://vue3-element-admin.vercel.app/)**  
-**[<font color=#FF0000>✈ 效果预览(备用地址)</font>](http://asaasa.gitee.io/xujianhua)**  
+**[<font color=#FF0000>✈ 国内加速链接</font>](https://gitee.com/asaasa/vue3-element-admin)**
+**[<font color=#FF0000>✈ 效果预览</font>](https://vue3-element-admin.vercel.app/)**
+**[<font color=#FF0000>✈ 效果预览(备用地址)</font>](http://asaasa.gitee.io/xujianhua)**
 **走过路过的老铁,帮忙点个小 ⭐⭐⭐⭐⭐,🤝🤝🤝🤝🤝,🙏🙏🙏🙏🙏**
 
 ## 项目简介
@@ -32,7 +23,7 @@
 ## 功能特性
 
 项目使用了最新的**vue3 全家桶**+**element-plus**+**mockjs**+**axios**+**eChart5**.项目继成了**mockServe**,可脱离后端自主开发测试
-对**axios**深度封装,采用动态路由,路由配置更简单,**mockServe**独立开发测试时可在 nodework 直观查看接口数据  
+对**axios**深度封装,采用动态路由,路由配置更简单,**mockServe**独立开发测试时可在 nodework 直观查看接口数据
 基于 node 实现自动化开发
 
 ## 环境依赖
@@ -78,28 +69,28 @@
 
 ### 动态路由
 
-动态路由的配置可查看 [src\plugins\permission.js](src\plugins\permission.js)  
+动态路由的配置可查看 [src\plugins\permission.js](src\plugins\permission.js)
 主要原理就是根据后端接口返回的树形菜单数据,动态生成路由表并挂载.具体需求字段可在[src\plugins\permission.js](src\plugins\permission.js)中的**fnAddDynamicMenuRoutes**方法中进行配置修改
 
 ```js
 let route = {
-    path: menuList[i].url.replace(/\//g, "-") + `-${menuList[i].id}`,
+    path: menuList[i].url.replace(/\//g, '-') + `-${menuList[i].id}`,
     component: null,
-    name: menuList[i].url.replace(/\//g, "-") + `-${menuList[i].id}`
+    name: menuList[i].url.replace(/\//g, '-') + `-${menuList[i].id}`
     // meta: {
     // }
-};
+}
 // url以http[s]://开头, 通过iframe展示
 if (menuList[i].iframe == 1) {
-    route["path"] = `i-${menuList[i].id}`;
-    route["name"] = `i-${menuList[i].id}`;
-    route["props"] = { url: menuList[i].url };
-    route["component"] = () => import("@/views/IFrame.vue");
+    route['path'] = `i-${menuList[i].id}`
+    route['name'] = `i-${menuList[i].id}`
+    route['props'] = { url: menuList[i].url }
+    route['component'] = () => import('@/views/IFrame.vue')
 } else {
-    const l = "views/layoutpages/" + menuList[i].url;
-    route["component"] = () => import("@/" + l + ".vue");
+    const l = 'views/layoutpages/' + menuList[i].url
+    route['component'] = () => import('@/' + l + '.vue')
 }
-routes.push(route);
+routes.push(route)
 ```
 
 根据需求可以添加更多路由配置或定制化字段,如路由别名等
@@ -116,32 +107,32 @@ routes.push(route);
 module.exports = {
     login: {
         //接口名称  必须
-        url: "/login", //接口地址  必须
-        type: "post", //请求类型  必须
+        url: '/login', //接口地址  必须
+        type: 'post', //请求类型  必须
         mock: true, //mock细粒度控制开关,非必须,不填则为false
         response: opt => {
             //启用mock时的返回数据  opt为请求数据头
             const {
                 body: { userName, pwd }
-            } = opt;
+            } = opt
             let data = {
-                code: "00",
-                message: "登录成功!",
+                code: '00',
+                message: '登录成功!',
                 token: new Date().getTime(),
                 uname: userName
-            };
-            if (userName == "Administrator") {
-                if (pwd != "123456") {
+            }
+            if (userName == 'Administrator') {
+                if (pwd != '123456') {
                     data = {
-                        code: "01",
-                        message: "密码错误"
-                    };
+                        code: '01',
+                        message: '密码错误'
+                    }
                 }
             }
-            return data;
+            return data
         }
     }
-};
+}
 ```
 
 必须使用**module.exports**导出

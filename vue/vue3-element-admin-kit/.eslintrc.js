@@ -1,11 +1,4 @@
-/*
- * @Author: your name
- * @Date: 2021-01-07 09:49:29
- * @LastEditTime: 2021-03-11 16:12:27
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\.eslintrc.js
- */
+
 module.exports = {
     root: true,
 

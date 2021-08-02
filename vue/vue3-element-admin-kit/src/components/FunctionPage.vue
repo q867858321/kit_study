@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-03-22 10:54:32
- * @LastEditTime: 2021-04-27 11:12:06
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\FunctionPage.vue
--->
 <template>
     <div>
         <el-page-header @back="goBack()" :content="title"> </el-page-header>

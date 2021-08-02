@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-10-14 13:50:09
- * @LastEditTime: 2021-04-27 11:10:08
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Ed
- * @FilePath: \vue3-element-admin\src\main.js
- */
 import { createApp } from "vue";
 import axios from "@/plugins/axios";
 import App from "@/App.vue";

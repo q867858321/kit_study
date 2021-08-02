@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-11 11:14:26
- * @LastEditTime: 2021-04-29 16:37:27
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\views\Login.vue
--->
 <template>
     <common
         ><div class="ve_container">

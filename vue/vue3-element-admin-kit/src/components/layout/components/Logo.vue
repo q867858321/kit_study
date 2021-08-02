@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-08 14:23:41
- * @LastEditTime: 2021-03-25 14:27:12
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\layout\components\Logo.vue
--->
 <template>
     <el-tooltip :content="title" placement="right-end" effect="dark">
         <div class="ve_menu_logo">

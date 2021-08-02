@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-15 16:42:16
- * @LastEditTime: 2021-03-25 09:44:22
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\layout\components\Personal.vue
--->
 <template>
     <div class="ve_personal">
         <el-button

@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-08 16:58:43
- * @LastEditTime: 2021-04-29 13:10:26
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\layout\components\SlideMenu.vue
--->
 <template>
     <el-submenu
         :index="menu.id + ''"

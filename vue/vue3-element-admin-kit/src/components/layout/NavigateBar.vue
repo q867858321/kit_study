@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-07 11:50:47
- * @LastEditTime: 2021-03-08 14:59:13
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\layout\navbar.vue
--->
 <template>
     <div class="ve_nav_bar">
         <hamburger></hamburger>

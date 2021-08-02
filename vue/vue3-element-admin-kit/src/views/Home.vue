@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-18 15:46:34
- * @LastEditTime: 2021-03-26 09:56:31
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\views\Home.vue
--->
 <template>
     <div class="ve_home">
         <el-row>

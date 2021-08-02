@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-18 09:41:14
- * @LastEditTime: 2021-04-28 17:48:27
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\Common.vue
--->
 <template>
     <div class="ve_404">
         <!-- partial:index.partial.html -->

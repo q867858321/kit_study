@@ -1,12 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-01-07 10:51:26
- * @LastEditTime: 2021-03-31 10:14:43
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\plugins\element.js
- */
-
 import {
     ElAlert,
     ElAside,

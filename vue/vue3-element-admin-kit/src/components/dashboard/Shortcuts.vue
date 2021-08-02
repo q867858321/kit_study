@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-03-16 11:32:02
- * @LastEditTime: 2021-03-16 15:07:31
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\dashboard\Shortcuts.vue
--->
 <template>
     <el-row :gutter="20" style="padding-bottom: 10px;">
         <el-col :span="12">

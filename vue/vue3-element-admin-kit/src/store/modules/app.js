@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-01-07 17:30:30
- * @LastEditTime: 2021-03-18 17:36:41
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\store\modules\app1.js
- */
 export default {
     namespaced: true,
     state: {

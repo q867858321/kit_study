@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-01-15 10:57:50
- * @LastEditTime: 2021-03-30 13:55:23
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\components\layout\components\Breadcrumb.vue
--->
 <template>
     <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>

@@ -1,12 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-01-13 17:32:55
- * @LastEditTime: 2021-04-27 10:06:19
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\plugins\permission.js
- */
-
 import globalRoutes from "@/router/globalRoutes";
 import mainRoutes from "@/router/mainRoutes";
 import NProgress from "nprogress";

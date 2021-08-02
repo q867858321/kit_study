@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-02-09 15:24:23
- * @LastEditTime: 2021-04-29 17:43:37
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\views\layoutpages\system\components\usersEdit.vue
--->
 <template>
     <el-dialog
         :title="title"

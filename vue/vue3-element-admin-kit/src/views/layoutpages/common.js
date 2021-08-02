@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-02-07 17:11:28
- * @LastEditTime: 2021-04-27 12:58:52
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\src\views\layoutpages\common.js
- */
 import { defineAsyncComponent } from "vue";
 import FunctionPage from "@/components/FunctionPage";
 

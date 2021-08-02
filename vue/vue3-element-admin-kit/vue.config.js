@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-10-14 15:24:16
- * @LastEditTime: 2021-04-26 17:39:16
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue3-element-admin\vue.config.js
- */
 const setting = require("./src/setting");
 const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
