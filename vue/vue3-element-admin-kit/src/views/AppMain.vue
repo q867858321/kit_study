@@ -58,7 +58,8 @@ export default {
         watchEffect(() => {
             routerAlive.value = route.name;
             console.log("route", route);
-            if (route.name.indexOf("i-") == 0) {
+            // if (route.name.indexOf("i-") == 0) {
+            if (route.meta.iframe == 1) {
                 ob.isIframe = true;
             } else {
                 ob.isIframe = false;
