@@ -47,6 +47,7 @@ module.exports = {
     configureWebpack: () => {
         let baseConfig = {};
         let envConfig = {};
+        console.log("process.env.NODE_ENV", process.env.NODE_ENV);
         if (process.env.NODE_ENV === "production") {
             // 为生产环境修改配置...
             envConfig = {
