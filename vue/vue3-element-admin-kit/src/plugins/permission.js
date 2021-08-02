@@ -82,7 +82,6 @@ export default {
          * @param {*} menuList 菜单列表
          * @param {*} routes 递归创建的动态(菜单)路由
          */
-        // eslint-disable-next-line no-unused-vars
         const fnAddDynamicMenuRoutes = async (menuList = [], routes = []) => {
             let temp = [];
             for (let i = 0; i < menuList.length; i++) {
@@ -93,8 +92,6 @@ export default {
                 ) {
                     temp = temp.concat(menuList[i].children);
                 } else if (menuList[i].type == 1) {
-                    // } else if (menuList[i].type==1 && /\S/.test(menuList[i].url)) {
-                    // const url = menuList[i].url.replace(/\//g, "_");
                     let route = {
                         path:
                             menuList[i].url.replace(/\//g, "-") +
@@ -102,10 +99,10 @@ export default {
                         component: null,
                         name:
                             menuList[i].url.replace(/\//g, "-") +
-                            `-${menuList[i].id}`
-                        // meta: {
-                        //     isIframe: 2
-                        // }
+                            `-${menuList[i].id}`,
+                        meta: {
+                            iframe: menuList[i].iframe
+                        }
                     };
                     // url以http[s]://开头, 通过iframe展示
                     if (menuList[i].iframe == 1) {
@@ -125,10 +122,6 @@ export default {
             } else {
                 mainRoutes.children = mainRoutes.children.concat(routes);
                 // mainRoutes.children = routes;
-                console.log(
-                    "控制台打印--> ~ file: permission.js ~ line 127 ~ fnAddDynamicMenuRoutes ~ mainRoutes.children",
-                    mainRoutes.children
-                );
 
                 await router.addRoute(mainRoutes);
                 await router.addRoute({

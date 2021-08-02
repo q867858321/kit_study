@@ -22,41 +22,11 @@
                         回到首页
                     </button>
                 </router-link>
-                <!-- <button class="error__button">CONTACT</button> -->
             </div>
         </slot>
         <div class="astronaut" v-resize="draw3dAstronaut">
             <canvas ref="cav"></canvas>
         </div>
-        <!-- <div class="astronaut">
-            <div class="astronaut__backpack"></div>
-            <div class="astronaut__body"></div>
-            <div class="astronaut__body__chest"></div>
-            <div class="astronaut__arm-left1"></div>
-            <div class="astronaut__arm-left2"></div>
-            <div class="astronaut__arm-right1"></div>
-            <div class="astronaut__arm-right2"></div>
-            <div class="astronaut__arm-thumb-left"></div>
-            <div class="astronaut__arm-thumb-right"></div>
-            <div class="astronaut__leg-left"></div>
-            <div class="astronaut__leg-right"></div>
-            <div class="astronaut__foot-left"></div>
-            <div class="astronaut__foot-right"></div>
-            <div class="astronaut__wrist-left"></div>
-            <div class="astronaut__wrist-right"></div>
-            <div class="astronaut__cord">
-                <canvas
-                    id="cord"
-                    ref="cord"
-                    style=" height:500px;width:500px"
-                ></canvas>
-            </div>
-            <div class="astronaut__head">
-                <div class="astronaut__head-visor-face"></div>
-                <div class="astronaut__head-visor-flare1"></div>
-                <div class="astronaut__head-visor-flare2"></div>
-            </div>
-        </div> -->
     </div>
 </template>
 

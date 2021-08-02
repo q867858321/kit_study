@@ -50,7 +50,6 @@ export default {
     // 获取用户相关信息和路由权限
     setup() {
         const route = useRoute();
-        console.log("route", route);
         const styles = { "--nav_height": nav_height };
         const routerAlive = ref(null);
         const ob = reactive({

@@ -15,7 +15,6 @@
 </template>
 
 <script>
-// import { onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 export default {
     props: {
@@ -26,7 +25,6 @@ export default {
     },
     setup() {
         const router = useRouter();
-        // const route = useRoute();
         const goBack = () => {
             router.back();
         };

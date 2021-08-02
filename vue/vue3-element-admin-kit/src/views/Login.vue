@@ -1,6 +1,6 @@
 <template>
-    <common
-        ><div class="ve_container">
+    <common>
+        <div class="ve_container">
             <el-card :body-style="{ background: 'rgba(0,0,0,0.15)' }">
                 <h1>vue3-element-admin</h1>
                 <transition name="el-fade-in-linear">
@@ -17,12 +17,14 @@
                             <el-input
                                 v-model.trim="userName"
                                 placeholder="用户名"
-                                ><template #prepend
-                                    ><i
+                            >
+                                <template #prepend>
+                                    <i
                                         style="font-size:20px;"
                                         class="el-icon-user"
-                                    ></i></template
-                            ></el-input>
+                                    ></i>
+                                </template>
+                            </el-input>
                         </el-form-item>
                         <el-form-item prop="pwd">
                             <el-input
@@ -47,8 +49,8 @@
                     </el-form>
                 </transition>
             </el-card>
-        </div></common
-    >
+        </div>
+    </common>
 </template>
 
 <script>
