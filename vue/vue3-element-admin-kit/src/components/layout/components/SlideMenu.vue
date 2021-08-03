@@ -24,14 +24,11 @@
 </template>
 
 <script>
-import { onMounted } from "@vue/runtime-core";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-// import { inject } from "vue";
 export default {
     props: ["menu"],
     setup() {
-        // const reload = inject("reload");
         const router = useRouter();
         const $store = useStore();
 

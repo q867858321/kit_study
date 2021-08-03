@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-01-05 10:19:11
- * @LastEditTime: 2021-02-07 12:01:46
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue_3.0_test\src\mock\index.js
- */
 const path = require("path");
 const fs = require("fs");
 const getPathInfo = p => path.parse(p);

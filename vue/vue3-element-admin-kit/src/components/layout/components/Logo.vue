@@ -8,7 +8,6 @@
                     fit="contain"
                 ></el-image>
             </div>
-            <!-- content to trigger tooltip here -->
             <h3 v-show="!opened" class="ve_logo_title">
                 {{ title }}
             </h3>

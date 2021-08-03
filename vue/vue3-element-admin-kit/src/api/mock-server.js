@@ -1,13 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-01-05 17:15:27
- * @LastEditTime: 2021-04-25 10:44:11
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue_3.0_test\src\mock\mock-server.js
- */
-
-// const bodyParser = require("body-parser");
 const express = require("express");
 const chokidar = require("chokidar");
 const chalk = require("chalk");

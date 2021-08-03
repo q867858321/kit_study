@@ -1,6 +1,5 @@
 <template>
     <div class="ve_404">
-        <!-- partial:index.partial.html -->
         <div class="moon"></div>
         <div class="moon__crater moon__crater1"></div>
         <div class="moon__crater moon__crater2"></div>

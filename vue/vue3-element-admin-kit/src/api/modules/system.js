@@ -1,4 +1,3 @@
-// const Mock = require("mockjs"); //引入
 /**
  * @description: 列表查询
  * @param {*}

@@ -22,9 +22,6 @@
                 </el-dropdown-menu>
             </template>
         </el-dropdown>
-        <!-- <router-link :to="{ name: 'Login' }">
-            <el-link :underline="false">退出</el-link>
-        </router-link> -->
     </div>
 </template>
 

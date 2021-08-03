@@ -6,7 +6,7 @@
 
 <script>
 import { getList } from "@/api/test";
-import { onMounted } from "@vue/runtime-core";
+import { onMounted } from "vue";
 export default {
     setup() {
         const fn = {

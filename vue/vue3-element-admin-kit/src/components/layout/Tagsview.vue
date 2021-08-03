@@ -22,13 +22,7 @@
 </template>
 
 <script>
-import {
-    computed,
-    reactive,
-    toRefs,
-    watch,
-    watchEffect
-} from "@vue/runtime-core";
+import { computed, reactive, toRefs } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "vuex";
 export default {

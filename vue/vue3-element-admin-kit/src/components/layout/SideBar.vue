@@ -70,7 +70,6 @@ export default {
                     item = oItem;
                 }
             });
-            console.log("item", item);
             if (item != null) {
                 $store.dispatch("app/add_tag_list", {
                     path: "/" + route.name,
